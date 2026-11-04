@@ -1,0 +1,152 @@
+{
+  "data_status": "SECONDARY_PINNED_MIRROR_AGGREGATES_NOT_PUBLISHER_BYTES",
+  "original_publisher_file_verified": false,
+  "underlying_catalog_git_blob_sha1": "fe0d5a43dbd2ca8b867901686ab223a847c649e5",
+  "total_members": 532,
+  "with_gaia_id": 467,
+  "without_gaia_id": 65,
+  "gaia_fraction": 0.8778195488721805,
+  "gaia_fraction_wilson95": [
+    0.8472500273450916,
+    0.9029718776279598
+  ],
+  "gaia_missing_without_group": 64,
+  "gaia_missing_without_group_fraction": 0.9846153846153847,
+  "g12_17_gaia_total": 314,
+  "g12_17_gaia_with_named_group": 289,
+  "seed_members": 24,
+  "seed_group_coverage": 13,
+  "fraction_of_total_catalog_in_seed": 0.045112781954887216,
+  "fraction_of_eligible_named_groups_in_seed": 0.08304498269896193,
+  "seed_member_disk_classes_verified": 0,
+  "ztf_lightcurves_verified_for_taurus": 0,
+  "group_table": [
+    {
+      "group": "unassigned",
+      "catalog_members": 119,
+      "with_gaia_id": 55,
+      "gaia_g12_17": 25,
+      "technical_seed_selected": 0,
+      "fraction_of_eligible_pool_selected": 0.0,
+      "ratio_of_selection_share_to_eligible_share": null
+    },
+    {
+      "group": "L1489/L1498",
+      "catalog_members": 6,
+      "with_gaia_id": 6,
+      "gaia_g12_17": 5,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.4,
+      "ratio_of_selection_share_to_eligible_share": 4.816666666666666
+    },
+    {
+      "group": "L1495/B209",
+      "catalog_members": 71,
+      "with_gaia_id": 70,
+      "gaia_g12_17": 47,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.0425531914893617,
+      "ratio_of_selection_share_to_eligible_share": 0.5124113475177305
+    },
+    {
+      "group": "B209N",
+      "catalog_members": 6,
+      "with_gaia_id": 6,
+      "gaia_g12_17": 3,
+      "technical_seed_selected": 1,
+      "fraction_of_eligible_pool_selected": 0.3333333333333333,
+      "ratio_of_selection_share_to_eligible_share": 4.013888888888889
+    },
+    {
+      "group": "L1524/L1529/B215",
+      "catalog_members": 66,
+      "with_gaia_id": 66,
+      "gaia_g12_17": 45,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.044444444444444446,
+      "ratio_of_selection_share_to_eligible_share": 0.5351851851851852
+    },
+    {
+      "group": "L1521/B213",
+      "catalog_members": 28,
+      "with_gaia_id": 28,
+      "gaia_g12_17": 20,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.1,
+      "ratio_of_selection_share_to_eligible_share": 1.2041666666666666
+    },
+    {
+      "group": "HD28354",
+      "catalog_members": 16,
+      "with_gaia_id": 16,
+      "gaia_g12_17": 10,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.2,
+      "ratio_of_selection_share_to_eligible_share": 2.408333333333333
+    },
+    {
+      "group": "TTau",
+      "catalog_members": 5,
+      "with_gaia_id": 5,
+      "gaia_g12_17": 2,
+      "technical_seed_selected": 1,
+      "fraction_of_eligible_pool_selected": 0.5,
+      "ratio_of_selection_share_to_eligible_share": 6.020833333333333
+    },
+    {
+      "group": "L1551",
+      "catalog_members": 59,
+      "with_gaia_id": 59,
+      "gaia_g12_17": 44,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.045454545454545456,
+      "ratio_of_selection_share_to_eligible_share": 0.5473484848484849
+    },
+    {
+      "group": "L1536",
+      "catalog_members": 42,
+      "with_gaia_id": 42,
+      "gaia_g12_17": 30,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.06666666666666667,
+      "ratio_of_selection_share_to_eligible_share": 0.8027777777777778
+    },
+    {
+      "group": "L1527",
+      "catalog_members": 28,
+      "with_gaia_id": 28,
+      "gaia_g12_17": 20,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.1,
+      "ratio_of_selection_share_to_eligible_share": 1.2041666666666666
+    },
+    {
+      "group": "L1517",
+      "catalog_members": 62,
+      "with_gaia_id": 62,
+      "gaia_g12_17": 44,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.045454545454545456,
+      "ratio_of_selection_share_to_eligible_share": 0.5473484848484849
+    },
+    {
+      "group": "L1558",
+      "catalog_members": 9,
+      "with_gaia_id": 9,
+      "gaia_g12_17": 6,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.3333333333333333,
+      "ratio_of_selection_share_to_eligible_share": 4.013888888888889
+    },
+    {
+      "group": "L1544",
+      "catalog_members": 15,
+      "with_gaia_id": 15,
+      "gaia_g12_17": 13,
+      "technical_seed_selected": 2,
+      "fraction_of_eligible_pool_selected": 0.15384615384615385,
+      "ratio_of_selection_share_to_eligible_share": 1.8525641025641024
+    }
+  ],
+  "interpretation": "Selection is intentionally balanced by named group, NOT population-representative."
+}
