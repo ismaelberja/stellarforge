@@ -1,0 +1,25 @@
+# Research datasets and private observational artifacts are never committed
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+reports/generated/
+results/irsa_pilot/
+*.fits
+*.fits.gz
+*.parquet
+*.h5
+*.hdf5
+*.db
+*.sqlite
+
+# Python and development artifacts
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.venv/
+.env
+*.egg-info/
+dist/
+build/
+.DS_Store
