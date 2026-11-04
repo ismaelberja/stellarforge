@@ -1,0 +1,107 @@
+{
+  "confirmed_dipper_or_burster_count": null,
+  "curves": [
+    {
+      "band": "g",
+      "brightening_events": [],
+      "candidate_M_thresholds_illustrative_only": [
+        -0.25,
+        0.25
+      ],
+      "discovery_claim": false,
+      "fading_events": [],
+      "limitations": [
+        "This is not a Cody Q-M classification or a physical dipper/burster label.",
+        "Two points can share an instrumental systematic or calibration offset.",
+        "Without independent scene/source/astrometry review the ZTF OID is unverified.",
+        "Event duration is an observed lower bound, not continuous event length.",
+        "Significance is a heuristic proxy, not a calibrated false-alarm probability.",
+        "Sensitivity drops for high-noise, rapidly repeating or high-duty-cycle events."
+      ],
+      "magnitude_direction": "fading is higher magnitude; brightening is lower magnitude",
+      "median_mag": 16.30916,
+      "median_measurement_error": 0.02,
+      "method": "conservative_2plus_epoch_magnitude_excursion_screen_v0.5",
+      "min_epoch_requirement": 30,
+      "morphology_label": "unassigned",
+      "n_brightening_event_candidates": 0,
+      "n_brightening_trigger_epochs": 0,
+      "n_epochs": 78,
+      "n_fading_event_candidates": 0,
+      "n_fading_trigger_epochs": 1,
+      "oid": "900001000000001",
+      "physical_cause_identified": false,
+      "reference_statistic_M": 0.3273895949668058,
+      "robust_scatter_proxy": 0.12669558300000205,
+      "source_association": "unverified",
+      "status": "exploratory_event_screen_completed",
+      "time_scale": "MJD",
+      "time_span_days": 102.69999999999709
+    },
+    {
+      "band": "r",
+      "brightening_events": [],
+      "candidate_M_thresholds_illustrative_only": [
+        -0.25,
+        0.25
+      ],
+      "discovery_claim": false,
+      "fading_events": [],
+      "limitations": [
+        "This is not a Cody Q-M classification or a physical dipper/burster label.",
+        "Two points can share an instrumental systematic or calibration offset.",
+        "Without independent scene/source/astrometry review the ZTF OID is unverified.",
+        "Event duration is an observed lower bound, not continuous event length.",
+        "Significance is a heuristic proxy, not a calibrated false-alarm probability.",
+        "Sensitivity drops for high-noise, rapidly repeating or high-duty-cycle events."
+      ],
+      "magnitude_direction": "fading is higher magnitude; brightening is lower magnitude",
+      "median_mag": 15.710094999999999,
+      "median_measurement_error": 0.02,
+      "method": "conservative_2plus_epoch_magnitude_excursion_screen_v0.5",
+      "min_epoch_requirement": 30,
+      "morphology_label": "unassigned",
+      "n_brightening_event_candidates": 0,
+      "n_brightening_trigger_epochs": 0,
+      "n_epochs": 78,
+      "n_fading_event_candidates": 0,
+      "n_fading_trigger_epochs": 1,
+      "oid": "900001000000002",
+      "physical_cause_identified": false,
+      "reference_statistic_M": 0.30174140100947794,
+      "robust_scatter_proxy": 0.12150648299999967,
+      "source_association": "unverified",
+      "status": "exploratory_event_screen_completed",
+      "time_scale": "MJD",
+      "time_span_days": 102.69999999999709
+    },
+    {
+      "band": "g",
+      "brightening_events": [],
+      "candidate_M_thresholds_illustrative_only": [
+        -0.25,
+        0.25
+      ],
+      "discovery_claim": false,
+      "fading_events": [],
+      "magnitude_direction": "fading is higher magnitude; brightening is lower magnitude",
+      "method": "conservative_2plus_epoch_magnitude_excursion_screen_v0.5",
+      "min_epoch_requirement": 30,
+      "morphology_label": "unassigned",
+      "n_epochs": 3,
+      "oid": "900001000000003",
+      "physical_cause_identified": false,
+      "reference_statistic_M": null,
+      "source_association": "unverified",
+      "status": "insufficient_epochs",
+      "time_scale": "MJD",
+      "time_span_days": 2.0
+    }
+  ],
+  "dataset_type": "SYNTHETIC_fixture",
+  "input_name": "photometry_good.csv",
+  "input_sha256": "8f12674990c08a38ddf3e19ea2e1840f8f92e5c70935accbe7c0c5cd4e648a22",
+  "n_curves": 3,
+  "note": "All event candidates require independent identity, image, calibration and physical review.",
+  "scientific_detection_count": null
+}

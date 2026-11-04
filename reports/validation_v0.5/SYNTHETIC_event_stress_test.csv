@@ -1,0 +1,8 @@
+scenario,n_trials,synthetic_kind,n_epochs,measurement_uncertainty_mag,injected_excursion_mag,injected_event_width_days,detected_fraction,false_event_fraction,median_injected_epochs,n_any_flagged
+SYNTHETIC_dense_dips,60,fading,320,0.02,0.55,7,1.0,,16.0,60
+SYNTHETIC_dense_bursts,60,brightening,320,0.02,0.55,7,1.0,,15.0,60
+SYNTHETIC_sparse_dips,60,fading,85,0.025,0.55,7,0.8833,,4.5,53
+SYNTHETIC_low_amplitude,60,fading,170,0.04,0.24,7,0.9167,,9.0,55
+SYNTHETIC_high_noise,60,fading,170,0.09,0.36,7,0.0333,,9.0,2
+SYNTHETIC_white_noise_control,60,none,320,0.025,0,7,,0.0,16.0,0
+SYNTHETIC_calibration_artifact,60,artifact,320,0.02,0.55,7,,1.0,15.5,60

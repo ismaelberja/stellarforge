@@ -1,0 +1,9 @@
+scenario,n_trials,synthetic_kind,field_control_state,raw_event_fraction,physical_review_priority_fraction,instrumental_veto_fraction,controls_on_hold_fraction,single_band_fraction,average_events_per_trial
+SYNTHETIC_both_bands_fading,50,fading,none,1.0,1.0,0.0,0.0,0.0,2.0
+SYNTHETIC_both_bands_brightening,50,brightening,none,1.0,1.0,0.0,0.0,0.0,2.0
+SYNTHETIC_achromatic_field_artifact,50,fading,all,1.0,0.0,1.0,0.0,0.0,2.0
+SYNTHETIC_one_bad_control_in_field,50,fading,one,1.0,0.0,0.0,1.0,0.0,2.02
+SYNTHETIC_single_band_episode,50,g_only,none,1.0,0.0,0.0,0.0,1.0,1.0
+SYNTHETIC_white_noise,50,none,none,0.0,0.0,0.0,0.0,0.0,0.0
+SYNTHETIC_missing_controls,50,fading,missing,1.0,0.0,0.0,1.0,0.0,2.0
+SYNTHETIC_low_signal_high_noise,50,fading,none,0.0,0.0,0.0,0.0,0.0,0.0

@@ -1,0 +1,42 @@
+{
+  "version": "0.9.0",
+  "data": "Luhman (2023) 24-object technical seed, publisher-byte verification pending",
+  "seed_sha256": "5abe95634f1091bbba937f85b3e61ec03995e003fc56075aa18609aa48f4f4be",
+  "network_mode": "EXECUTE_TWO_QUERIES",
+  "n_targets": 2,
+  "acquisition": [
+    {
+      "gaia_dr3_source_id": "149623711269425408",
+      "target": "FT Tau",
+      "network_attempted": true,
+      "result": "REQUEST_FAILED_NO_OBSERVATIONAL_CLAIM",
+      "exception_type": "URLError",
+      "raw_response_present": false,
+      "response_authenticated_by_independent_evidence": false,
+      "ztf_counterpart_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3419110734340795648",
+      "target": "CIDA 11",
+      "network_attempted": true,
+      "result": "REQUEST_FAILED_NO_OBSERVATIONAL_CLAIM",
+      "exception_type": "URLError",
+      "raw_response_present": false,
+      "response_authenticated_by_independent_evidence": false,
+      "ztf_counterpart_confirmed": false
+    }
+  ],
+  "dossier_status": {
+    "FT Tau": "OFFICIAL_IRSA_PHOTOMETRY_PENDING",
+    "CIDA 11": "OFFICIAL_IRSA_PHOTOMETRY_PENDING"
+  },
+  "dashboard": {
+    "file": "reports/observational_gates_v0.9/STELLARFORGE_V09_EVIDENCE_DASHBOARD.html",
+    "targets": 2,
+    "raw_file_count": 0,
+    "astrophysical_detections_claimed": 0
+  },
+  "ztf_official_photometry_confirmed_for_Taurus": false,
+  "physical_dipper_burster_confirmations": 0,
+  "next_science_gate": "Obtain authentic official IRSA response and independently inspect image/crowding and epoch positions before classifying"
+}

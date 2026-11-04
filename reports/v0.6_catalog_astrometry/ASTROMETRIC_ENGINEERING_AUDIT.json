@@ -1,0 +1,24 @@
+{
+  "status": "real_literature_catalog_derived_astrometric_engineering_example",
+  "n_real_taurus_catalog_entries": 24,
+  "n_gaia_position_reference": 24,
+  "catalog_seed_sha256": "5abe95634f1091bbba937f85b3e61ec03995e003fc56075aa18609aa48f4f4be",
+  "source_catalog_mirror_git_blob_sha1": "fe0d5a43dbd2ca8b867901686ab223a847c649e5",
+  "source_original_publisher_byte_crosscheck_completed": false,
+  "reference_epoch_julian_year": 2016.0,
+  "illustrative_target_epoch_julian_year": 2021.0,
+  "median_angular_displacement_arcsec": 0.112673,
+  "max_angular_displacement_arcsec": 0.1451,
+  "min_angular_displacement_arcsec": 0.069258,
+  "n_above_0p1_arcsec": 17,
+  "n_above_0p2_arcsec": 0,
+  "ztf_observations_downloaded": 0,
+  "confirmed_crossmatches": 0,
+  "notes": [
+    "Epoch J2021.0 is illustrative, not the measured ZTF epoch.",
+    "These 24 are provisional Gaia-brightness-selected targets, not a frozen Class II/III sample.",
+    "Propagation ignores parallax, perspective, astrometric covariance and crowded-field biases.",
+    "Matching must ultimately use each observation epoch and image/source diagnostics.",
+    "A matching radius cannot be validated from this astrometric calculation alone."
+  ]
+}

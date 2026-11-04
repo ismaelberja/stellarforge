@@ -1,0 +1,108 @@
+{
+  "dataset_type": "SYNTHETIC_ONLY_NOT_OBSERVATIONS",
+  "n_trials_per_scenario": 60,
+  "seed": 20261104,
+  "algorithm": "conservative_2plus_epoch_magnitude_excursion_screen_v0.5",
+  "n_total_synthetic_trials": 420,
+  "scenarios": [
+    {
+      "scenario": "SYNTHETIC_dense_dips",
+      "n_trials": 60,
+      "synthetic_kind": "fading",
+      "n_epochs": 320,
+      "measurement_uncertainty_mag": 0.02,
+      "injected_excursion_mag": 0.55,
+      "injected_event_width_days": 7,
+      "detected_fraction": 1.0,
+      "false_event_fraction": null,
+      "median_injected_epochs": 16.0,
+      "n_any_flagged": 60
+    },
+    {
+      "scenario": "SYNTHETIC_dense_bursts",
+      "n_trials": 60,
+      "synthetic_kind": "brightening",
+      "n_epochs": 320,
+      "measurement_uncertainty_mag": 0.02,
+      "injected_excursion_mag": 0.55,
+      "injected_event_width_days": 7,
+      "detected_fraction": 1.0,
+      "false_event_fraction": null,
+      "median_injected_epochs": 15.0,
+      "n_any_flagged": 60
+    },
+    {
+      "scenario": "SYNTHETIC_sparse_dips",
+      "n_trials": 60,
+      "synthetic_kind": "fading",
+      "n_epochs": 85,
+      "measurement_uncertainty_mag": 0.025,
+      "injected_excursion_mag": 0.55,
+      "injected_event_width_days": 7,
+      "detected_fraction": 0.8833,
+      "false_event_fraction": null,
+      "median_injected_epochs": 4.5,
+      "n_any_flagged": 53
+    },
+    {
+      "scenario": "SYNTHETIC_low_amplitude",
+      "n_trials": 60,
+      "synthetic_kind": "fading",
+      "n_epochs": 170,
+      "measurement_uncertainty_mag": 0.04,
+      "injected_excursion_mag": 0.24,
+      "injected_event_width_days": 7,
+      "detected_fraction": 0.9167,
+      "false_event_fraction": null,
+      "median_injected_epochs": 9.0,
+      "n_any_flagged": 55
+    },
+    {
+      "scenario": "SYNTHETIC_high_noise",
+      "n_trials": 60,
+      "synthetic_kind": "fading",
+      "n_epochs": 170,
+      "measurement_uncertainty_mag": 0.09,
+      "injected_excursion_mag": 0.36,
+      "injected_event_width_days": 7,
+      "detected_fraction": 0.0333,
+      "false_event_fraction": null,
+      "median_injected_epochs": 9.0,
+      "n_any_flagged": 2
+    },
+    {
+      "scenario": "SYNTHETIC_white_noise_control",
+      "n_trials": 60,
+      "synthetic_kind": "none",
+      "n_epochs": 320,
+      "measurement_uncertainty_mag": 0.025,
+      "injected_excursion_mag": 0,
+      "injected_event_width_days": 7,
+      "detected_fraction": null,
+      "false_event_fraction": 0.0,
+      "median_injected_epochs": 16.0,
+      "n_any_flagged": 0
+    },
+    {
+      "scenario": "SYNTHETIC_calibration_artifact",
+      "n_trials": 60,
+      "synthetic_kind": "artifact",
+      "n_epochs": 320,
+      "measurement_uncertainty_mag": 0.02,
+      "injected_excursion_mag": 0.55,
+      "injected_event_width_days": 7,
+      "detected_fraction": null,
+      "false_event_fraction": 1.0,
+      "median_injected_epochs": 15.5,
+      "n_any_flagged": 60
+    }
+  ],
+  "scientific_completeness_or_purity_estimate": null,
+  "source_membership_inferred": false,
+  "limitations": [
+    "Synthetic white-noise injections are not real ZTF cadence/photometry.",
+    "The calibration-artifact control mimics coherent bad measurements and is NOT an astrophysical signal.",
+    "No physical dipper or burster classifications are produced.",
+    "Noise distribution, seasonal gaps, astrophysical backgrounds and systematics are simplified."
+  ]
+}

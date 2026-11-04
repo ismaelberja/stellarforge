@@ -1,0 +1,116 @@
+{
+  "dataset_type": "SYNTHETIC_ONLY",
+  "n_synthetic_trials": 400,
+  "random_seed": 20261104,
+  "n_trials_per_scenario": 50,
+  "analysis_version": "0.6",
+  "control_instrumental_model": "coherent_same_field_same_band_magnitude_offset",
+  "outcomes": [
+    {
+      "scenario": "SYNTHETIC_both_bands_fading",
+      "n_trials": 50,
+      "synthetic_kind": "fading",
+      "field_control_state": "none",
+      "raw_event_fraction": 1.0,
+      "physical_review_priority_fraction": 1.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 0.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 2.0
+    },
+    {
+      "scenario": "SYNTHETIC_both_bands_brightening",
+      "n_trials": 50,
+      "synthetic_kind": "brightening",
+      "field_control_state": "none",
+      "raw_event_fraction": 1.0,
+      "physical_review_priority_fraction": 1.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 0.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 2.0
+    },
+    {
+      "scenario": "SYNTHETIC_achromatic_field_artifact",
+      "n_trials": 50,
+      "synthetic_kind": "fading",
+      "field_control_state": "all",
+      "raw_event_fraction": 1.0,
+      "physical_review_priority_fraction": 0.0,
+      "instrumental_veto_fraction": 1.0,
+      "controls_on_hold_fraction": 0.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 2.0
+    },
+    {
+      "scenario": "SYNTHETIC_one_bad_control_in_field",
+      "n_trials": 50,
+      "synthetic_kind": "fading",
+      "field_control_state": "one",
+      "raw_event_fraction": 1.0,
+      "physical_review_priority_fraction": 0.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 1.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 2.02
+    },
+    {
+      "scenario": "SYNTHETIC_single_band_episode",
+      "n_trials": 50,
+      "synthetic_kind": "g_only",
+      "field_control_state": "none",
+      "raw_event_fraction": 1.0,
+      "physical_review_priority_fraction": 0.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 0.0,
+      "single_band_fraction": 1.0,
+      "average_events_per_trial": 1.0
+    },
+    {
+      "scenario": "SYNTHETIC_white_noise",
+      "n_trials": 50,
+      "synthetic_kind": "none",
+      "field_control_state": "none",
+      "raw_event_fraction": 0.0,
+      "physical_review_priority_fraction": 0.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 0.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 0.0
+    },
+    {
+      "scenario": "SYNTHETIC_missing_controls",
+      "n_trials": 50,
+      "synthetic_kind": "fading",
+      "field_control_state": "missing",
+      "raw_event_fraction": 1.0,
+      "physical_review_priority_fraction": 0.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 1.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 2.0
+    },
+    {
+      "scenario": "SYNTHETIC_low_signal_high_noise",
+      "n_trials": 50,
+      "synthetic_kind": "fading",
+      "field_control_state": "none",
+      "raw_event_fraction": 0.0,
+      "physical_review_priority_fraction": 0.0,
+      "instrumental_veto_fraction": 0.0,
+      "controls_on_hold_fraction": 0.0,
+      "single_band_fraction": 0.0,
+      "average_events_per_trial": 0.0
+    }
+  ],
+  "scientific_purity_or_completeness": null,
+  "n_real_ZTF_lightcurves": 0,
+  "n_confirmed_dippers": null,
+  "limitations": [
+    "Synthetic Gaussian noise is not a complete model of ZTF photometry",
+    "Only a single coherent calibration-artifact mechanism is injected",
+    "The reference stars are assumed independently vetted by construction",
+    "No true sky image or astrometric scene is analyzed",
+    "This is an engineering validation, not a survey selection function"
+  ]
+}
