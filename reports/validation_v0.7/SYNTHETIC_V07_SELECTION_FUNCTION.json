@@ -1,0 +1,1553 @@
+{
+  "cells": [
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.0833,
+        "successes": 1,
+        "trials": 12,
+        "wilson_95_high": 0.3539,
+        "wilson_95_low": 0.0149
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 1,
+        "wilson_95_high": 0.7935,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 1,
+        "wilson_95_high": 0.7935,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.5833,
+        "successes": 7,
+        "trials": 12,
+        "wilson_95_high": 0.8067,
+        "wilson_95_low": 0.3195
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 7,
+        "wilson_95_high": 0.3543,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 7,
+        "wilson_95_high": 0.3543,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.0833,
+        "successes": 1,
+        "trials": 12,
+        "wilson_95_high": 0.3539,
+        "wilson_95_low": 0.0149
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 1,
+        "trials": 1,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.2065
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0833,
+        "successes": 1,
+        "trials": 12,
+        "wilson_95_high": 0.3539,
+        "wilson_95_low": 0.0149
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 1,
+        "trials": 1,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.2065
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.5,
+        "successes": 6,
+        "trials": 12,
+        "wilson_95_high": 0.7462,
+        "wilson_95_low": 0.2538
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 6,
+        "trials": 6,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.6097
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.4167,
+        "successes": 5,
+        "trials": 12,
+        "wilson_95_high": 0.6805,
+        "wilson_95_low": 0.1933
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.8333,
+        "successes": 5,
+        "trials": 6,
+        "wilson_95_high": 0.9699,
+        "wilson_95_low": 0.4365
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.8333,
+        "successes": 10,
+        "trials": 12,
+        "wilson_95_high": 0.953,
+        "wilson_95_low": 0.552
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.8333,
+        "successes": 10,
+        "trials": 12,
+        "wilson_95_high": 0.953,
+        "wilson_95_low": 0.552
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": null,
+        "successes": 0,
+        "trials": 0,
+        "wilson_95_high": null,
+        "wilson_95_low": null
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": null,
+        "successes": 0,
+        "trials": 0,
+        "wilson_95_high": null,
+        "wilson_95_low": null
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.75,
+        "successes": 9,
+        "trials": 12,
+        "wilson_95_high": 0.9111,
+        "wilson_95_low": 0.4677
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 9,
+        "trials": 9,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7009
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.75,
+        "successes": 9,
+        "trials": 12,
+        "wilson_95_high": 0.9111,
+        "wilson_95_low": 0.4677
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 9,
+        "trials": 9,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7009
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.9167,
+        "successes": 11,
+        "trials": 12,
+        "wilson_95_high": 0.9851,
+        "wilson_95_low": 0.6461
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 11,
+        "trials": 11,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7412
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.8333,
+        "successes": 10,
+        "trials": 12,
+        "wilson_95_high": 0.953,
+        "wilson_95_low": 0.552
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.9091,
+        "successes": 10,
+        "trials": 11,
+        "wilson_95_high": 0.9838,
+        "wilson_95_low": 0.6226
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.1667,
+        "successes": 2,
+        "trials": 12,
+        "wilson_95_high": 0.448,
+        "wilson_95_low": 0.047
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 2,
+        "trials": 2,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.3424
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.1667,
+        "successes": 2,
+        "trials": 12,
+        "wilson_95_high": 0.448,
+        "wilson_95_low": 0.047
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 2,
+        "trials": 2,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.3424
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.5,
+        "successes": 6,
+        "trials": 12,
+        "wilson_95_high": 0.7462,
+        "wilson_95_low": 0.2538
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 6,
+        "trials": 6,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.6097
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.4167,
+        "successes": 5,
+        "trials": 12,
+        "wilson_95_high": 0.6805,
+        "wilson_95_low": 0.1933
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.8333,
+        "successes": 5,
+        "trials": 6,
+        "wilson_95_high": 0.9699,
+        "wilson_95_low": 0.4365
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.9167,
+        "successes": 11,
+        "trials": 12,
+        "wilson_95_high": 0.9851,
+        "wilson_95_low": 0.6461
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.9167,
+        "successes": 11,
+        "trials": 12,
+        "wilson_95_high": 0.9851,
+        "wilson_95_low": 0.6461
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.025,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.0833,
+        "successes": 1,
+        "trials": 12,
+        "wilson_95_high": 0.3539,
+        "wilson_95_low": 0.0149
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 1,
+        "wilson_95_high": 0.7935,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 1,
+        "wilson_95_high": 0.7935,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.6667,
+        "successes": 8,
+        "trials": 12,
+        "wilson_95_high": 0.8619,
+        "wilson_95_low": 0.3906
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 8,
+        "wilson_95_high": 0.3244,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 8,
+        "wilson_95_high": 0.3244,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.9167,
+        "successes": 11,
+        "trials": 12,
+        "wilson_95_high": 0.9851,
+        "wilson_95_low": 0.6461
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 11,
+        "wilson_95_high": 0.2588,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 11,
+        "wilson_95_high": 0.2588,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.12,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.1667,
+        "successes": 2,
+        "trials": 12,
+        "wilson_95_high": 0.448,
+        "wilson_95_low": 0.047
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 2,
+        "wilson_95_high": 0.6576,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 2,
+        "wilson_95_high": 0.6576,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.75,
+        "successes": 9,
+        "trials": 12,
+        "wilson_95_high": 0.9111,
+        "wilson_95_low": 0.4677
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 9,
+        "wilson_95_high": 0.2991,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 9,
+        "wilson_95_high": 0.2991,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.22,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.3333,
+        "successes": 4,
+        "trials": 12,
+        "wilson_95_high": 0.6094,
+        "wilson_95_low": 0.1381
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.75,
+        "successes": 3,
+        "trials": 4,
+        "wilson_95_high": 0.9544,
+        "wilson_95_low": 0.3006
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0833,
+        "successes": 1,
+        "trials": 12,
+        "wilson_95_high": 0.3539,
+        "wilson_95_low": 0.0149
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.25,
+        "successes": 1,
+        "trials": 4,
+        "wilson_95_high": 0.6994,
+        "wilson_95_low": 0.0456
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.8333,
+        "successes": 10,
+        "trials": 12,
+        "wilson_95_high": 0.953,
+        "wilson_95_low": 0.552
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.3,
+        "successes": 3,
+        "trials": 10,
+        "wilson_95_high": 0.6032,
+        "wilson_95_low": 0.1078
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.0833,
+        "successes": 1,
+        "trials": 12,
+        "wilson_95_high": 0.3539,
+        "wilson_95_low": 0.0149
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.1,
+        "successes": 1,
+        "trials": 10,
+        "wilson_95_high": 0.4042,
+        "wilson_95_low": 0.0179
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.9167,
+        "successes": 11,
+        "trials": 12,
+        "wilson_95_high": 0.9851,
+        "wilson_95_low": 0.6461
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.4167,
+        "successes": 5,
+        "trials": 12,
+        "wilson_95_high": 0.6805,
+        "wilson_95_low": 0.1933
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.4167,
+        "successes": 5,
+        "trials": 12,
+        "wilson_95_high": 0.6805,
+        "wilson_95_low": 0.1933
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.4,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 0.8333,
+        "successes": 10,
+        "trials": 12,
+        "wilson_95_high": 0.953,
+        "wilson_95_low": 0.552
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.25,
+        "successes": 3,
+        "trials": 12,
+        "wilson_95_high": 0.5323,
+        "wilson_95_low": 0.0889
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.25,
+        "successes": 3,
+        "trials": 12,
+        "wilson_95_high": 0.5323,
+        "wilson_95_low": 0.0889
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 2.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.1667,
+        "successes": 2,
+        "trials": 12,
+        "wilson_95_high": 0.448,
+        "wilson_95_low": 0.047
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 2,
+        "trials": 2,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.3424
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.1667,
+        "successes": 2,
+        "trials": 12,
+        "wilson_95_high": 0.448,
+        "wilson_95_low": 0.047
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 2,
+        "trials": 2,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.3424
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 5.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.5,
+        "successes": 6,
+        "trials": 12,
+        "wilson_95_high": 0.7462,
+        "wilson_95_low": 0.2538
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 6,
+        "trials": 6,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.6097
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.5,
+        "successes": 6,
+        "trials": 12,
+        "wilson_95_high": 0.7462,
+        "wilson_95_low": 0.2538
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 6,
+        "trials": 6,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.6097
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 10.0,
+      "injection_exposure_opportunity": {
+        "fraction": 0.9167,
+        "successes": 11,
+        "trials": 12,
+        "wilson_95_high": 0.9851,
+        "wilson_95_low": 0.6461
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 11,
+        "trials": 11,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7412
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 0.8333,
+        "successes": 10,
+        "trials": 12,
+        "wilson_95_high": 0.953,
+        "wilson_95_low": 0.552
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 0.9091,
+        "successes": 10,
+        "trials": 11,
+        "wilson_95_high": 0.9838,
+        "wilson_95_low": 0.6226
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    },
+    {
+      "amplitude_mag": 0.65,
+      "direction": "fading",
+      "duration_days": 20.0,
+      "injection_exposure_opportunity": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "kind": "source_like",
+      "n_trials": 12,
+      "noise_mag": 0.07,
+      "raw_trigger_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_all_attempts": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "review_recovery_given_sampled": {
+        "fraction": 1.0,
+        "successes": 12,
+        "trials": 12,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.7575
+      },
+      "spurious_reviews": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 12,
+        "wilson_95_high": 0.2425,
+        "wilson_95_low": 0.0
+      }
+    }
+  ],
+  "label": "SYNTHETIC_ONLY_ALGORITHM_STRESS_TEST",
+  "limitations": [
+    "None of the times or magnitudes originate from ZTF observations.",
+    "All simulated crossmatches and reference stars are assumed vetted by construction.",
+    "Idealized box events do not represent full YSO morphology or color behavior.",
+    "The field artifact represents one specific mode of calibration failure.",
+    "Wilson confidence intervals represent Monte Carlo counting noise, not survey selection uncertainty.",
+    "Real source-specific completeness requires injection into authenticated ZTF cadences with independent artifact controls."
+  ],
+  "n_null_and_artifact_trials": 144,
+  "n_real_taurus_ztf_curves": 0,
+  "n_signal_trials": 384,
+  "n_total_trials": 528,
+  "negative_controls": {
+    "constant_star_noise_0.025": {
+      "amplitude_mag": 0.0,
+      "any_raw_candidate": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "direction": "fading",
+      "duration_days": 10.0,
+      "field_artifact_vetoed": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "hold_inconclusive": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "kind": "constant_star",
+      "n_trials": 36,
+      "noise_mag": 0.025,
+      "unexpected_review_priority": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      }
+    },
+    "constant_star_noise_0.07": {
+      "amplitude_mag": 0.0,
+      "any_raw_candidate": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "direction": "fading",
+      "duration_days": 10.0,
+      "field_artifact_vetoed": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "hold_inconclusive": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "kind": "constant_star",
+      "n_trials": 36,
+      "noise_mag": 0.07,
+      "unexpected_review_priority": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      }
+    },
+    "correlated_field_artifact_noise_0.025": {
+      "amplitude_mag": 0.65,
+      "any_raw_candidate": {
+        "fraction": 1.0,
+        "successes": 36,
+        "trials": 36,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.9036
+      },
+      "direction": "fading",
+      "duration_days": 10.0,
+      "field_artifact_vetoed": {
+        "fraction": 1.0,
+        "successes": 36,
+        "trials": 36,
+        "wilson_95_high": 1.0,
+        "wilson_95_low": 0.9036
+      },
+      "hold_inconclusive": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "kind": "correlated_field_artifact",
+      "n_trials": 36,
+      "noise_mag": 0.025,
+      "unexpected_review_priority": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      }
+    },
+    "correlated_field_artifact_noise_0.07": {
+      "amplitude_mag": 0.65,
+      "any_raw_candidate": {
+        "fraction": 0.9722,
+        "successes": 35,
+        "trials": 36,
+        "wilson_95_high": 0.9951,
+        "wilson_95_low": 0.8583
+      },
+      "direction": "fading",
+      "duration_days": 10.0,
+      "field_artifact_vetoed": {
+        "fraction": 0.9722,
+        "successes": 35,
+        "trials": 36,
+        "wilson_95_high": 0.9951,
+        "wilson_95_low": 0.8583
+      },
+      "hold_inconclusive": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      },
+      "kind": "correlated_field_artifact",
+      "n_trials": 36,
+      "noise_mag": 0.07,
+      "unexpected_review_priority": {
+        "fraction": 0.0,
+        "successes": 0,
+        "trials": 36,
+        "wilson_95_high": 0.0964,
+        "wilson_95_low": 0.0
+      }
+    }
+  },
+  "new_discoveries_claimed": false,
+  "random_seed": 20261104,
+  "scientific_selection_function_measured": false,
+  "simulation_definition": {
+    "cadence": "synthetic, independent g/r epochs, 3x140-day seasons separated by yearly gaps",
+    "field_artifact": "same-shift, same-epoch offsets in all field controls",
+    "n_reference_stars_per_band": 4,
+    "noise": "heteroscedastic Gaussian errors with lognormal uncertainty distribution",
+    "observational_cadence_used": false,
+    "recovery_definition": "correct sign, overlapping injected window, passes v0.6 review gate",
+    "source_episode": "box profile, two-band achromatic magnitude offset",
+    "source_identity_assumed_by_construction": true
+  },
+  "version": "0.7"
+}
