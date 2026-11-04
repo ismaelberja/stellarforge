@@ -1,53 +1,83 @@
-"""Conservative, one-to-one g/r photometric diagnostics.
+"""Conservative g-r diagnostics for *manually reviewed* ZTF source associations.
 
-Two OIDs must have already been separately investigated. This code never
-asserts that the selected ZTF objects identify the same Gaia source.
+This module does not cross-match two ZTF OIDs. The caller must explicitly
+provide the two OIDs, whose common astrophysical source remains unverified
+until independent astrometric and imaging review. Approximate color from
+non-simultaneous epochs is only a diagnostic, not a physical extinction law.
 """
-from dataclasses import dataclass, asdict
-from math import sqrt, isfinite
+from __future__ import annotations
+from dataclasses import asdict, dataclass
+from math import isfinite, sqrt
 from statistics import median
 
-@dataclass(frozen=True)
-class PhotometricEpoch:
-    oid: str
-    band: str
-    mjd: float
-    mag: float
-    magerr: float
-    catflags: int = 0
+from .ztf_photometry import PhotometricPoint
 
-def pair_g_r(epochs: list[PhotometricEpoch], *, oid_g: str, oid_r: str, max_delay_days: float = 0.5) -> dict:
-    if not oid_g or not oid_r or oid_g == oid_r:
-        raise ValueError("Two distinct OIDs are required")
-    if not isfinite(max_delay_days) or not 0 < max_delay_days <= 2:
-        raise ValueError("Choose a pairing interval in (0,2] days")
-    chosen = [p for p in epochs if p.oid in {oid_g, oid_r}]
-    for p in chosen:
-        if ((p.oid == oid_g and p.band != "g") or (p.oid == oid_r and p.band != "r")):
-            raise ValueError("OID / band conflict")
-        if not all(isfinite(v) for v in (p.mjd,p.mag,p.magerr)) or p.magerr <= 0:
-            raise ValueError("Invalid photometry")
-        if p.catflags & 32768:
-            raise ValueError("Quality filtering must precede pairing")
-    g = sorted([p for p in chosen if p.oid == oid_g], key=lambda p: p.mjd)
-    r = sorted([p for p in chosen if p.oid == oid_r], key=lambda p: p.mjd)
-    candidates = sorted((abs(a.mjd-b.mjd), i, j) for i,a in enumerate(g)
-                        for j,b in enumerate(r) if abs(a.mjd-b.mjd) <= max_delay_days)
-    used_g, used_r, pairs = set(), set(), []
-    for dt,i,j in candidates:
-        if i in used_g or j in used_r: continue
-        used_g.add(i);used_r.add(j)
+
+@dataclass(frozen=True)
+class MatchedColor:
+    g_oid: str
+    r_oid: str
+    g_mjd: float
+    r_mjd: float
+    time_separation_days: float
+    color_g_minus_r_mag: float
+    color_uncertainty_mag: float
+    g_row: int
+    r_row: int
+
+
+def match_g_r_points(points: list[PhotometricPoint], *, g_oid: str,
+                     r_oid: str, max_gap_days: float = 0.5,
+                     time_scale: str = 'MJD') -> dict:
+    """Pair near-in-time g and r rows 1:1 without interpolation or re-use.
+
+    Dataset must have exactly one time convention for the selected curves.
+    Unpaired points remain unpaired: no false color is manufactured.
+    Greedy global minimum-gap pairing is deterministic and yields no reuse.
+    """
+    if not g_oid or not r_oid or g_oid == r_oid or not str(g_oid).isdigit() or not str(r_oid).isdigit():
+        raise ValueError('Provide two distinct numeric ZTF OIDs: one g, one r')
+    if time_scale not in {'MJD', 'HMJD', 'HJD'}:
+        raise ValueError('Unknown time scale')
+    if not isfinite(max_gap_days) or not 0 < max_gap_days <= 2:
+        raise ValueError('max_gap_days must be in (0, 2]')
+    selected=[p for p in points if p.oid in {g_oid,r_oid}]
+    if any(p.time_scale!=time_scale for p in selected):
+        raise ValueError('Mixed time conventions; no implicit conversion')
+    if any(not isfinite(p.time_value) or not isfinite(p.magnitude) or
+           not isfinite(p.magnitude_error) or p.magnitude_error<=0 for p in selected):
+        raise ValueError('Invalid photometric measurement')
+    if any(p.oid==g_oid and p.band!='g' or p.oid==r_oid and p.band!='r' for p in selected):
+        raise ValueError('OID-to-band conflict; never pool unrelated curves')
+    if any(p.catflags & 32768 for p in selected):
+        raise ValueError('Input has cloud/moon-flagged measurements; QC first')
+    g=sorted((p for p in selected if p.oid==g_oid),key=lambda p:(p.time_value,p.row_number))
+    r=sorted((p for p in selected if p.oid==r_oid),key=lambda p:(p.time_value,p.row_number))
+    candidates=sorted((abs(a.time_value-b.time_value),i,j) for i,a in enumerate(g)
+                      for j,b in enumerate(r) if abs(a.time_value-b.time_value)<=max_gap_days)
+    g_used=set();r_used=set();matches=[]
+    for gap,i,j in candidates:
+        if i in g_used or j in r_used:continue
+        g_used.add(i);r_used.add(j)
         a,b=g[i],r[j]
-        pairs.append({"g_mjd":a.mjd,"r_mjd":b.mjd,"time_delay_days":dt,
-                      "color_g_minus_r_mag":a.mag-b.mag,
-                      "color_uncertainty_mag":sqrt(a.magerr**2+b.magerr**2)})
-    pairs.sort(key=lambda x:(x["g_mjd"],x["r_mjd"]))
+        matches.append(MatchedColor(g_oid,r_oid,a.time_value,b.time_value,gap,
+                                    a.magnitude-b.magnitude,
+                                    sqrt(a.magnitude_error**2+b.magnitude_error**2),
+                                    a.row_number,b.row_number))
+    matches.sort(key=lambda x:(x.g_mjd,x.r_mjd,x.g_row,x.r_row))
     return {
-        "status":"PROVISIONAL_NON_SIMULTANEOUS_COLOR",
-        "explicit_g_oid":oid_g,"explicit_r_oid":oid_r,
-        "epochs_g":len(g),"epochs_r":len(r),"paired_epochs":len(pairs),
-        "median_color":median(x["color_g_minus_r_mag"] for x in pairs) if pairs else None,
-        "pairs":pairs,
-        "gaia_ztf_source_identity_verified":False,
-        "extinction_or_accretion_inferred":False,
+        'status':'PROVISIONAL_NON_SIMULTANEOUS_COLOR_NO_SOURCE_CONFIRMATION',
+        'g_oid':g_oid,'r_oid':r_oid,'time_scale':time_scale,
+        'max_pair_gap_days':max_gap_days,'g_epochs':len(g),'r_epochs':len(r),
+        'paired_epochs':len(matches),'unpaired_g_epochs':len(g)-len(g_used),
+        'unpaired_r_epochs':len(r)-len(r_used),
+        'median_g_minus_r_mag': median(m.color_g_minus_r_mag for m in matches) if matches else None,
+        'median_pair_delay_days':median(m.time_separation_days for m in matches) if matches else None,
+        'pairs':[asdict(m) for m in matches],
+        'independently_confirmed_same_astrophysical_source':False,
+        'extinction_or_accretion_classification':None,
+        'required_gates':['independently_verify_both_ZTF_OIDs_identify_the_same_star',
+                          'inspect_nearby_sources_and_epoch_images',
+                          'model_non_simultaneity_and_color_systematics',
+                          'require_independent_disk_and_accretion_diagnostics'],
     }
