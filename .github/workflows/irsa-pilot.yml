@@ -1,0 +1,29 @@
+name: Private Taurus observational intake pilot
+
+on:
+  push:
+    paths:
+      - '.github/workflows/irsa-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  two-star-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run preregistered two-object astronomical data intake
+        run: python scripts/ci_observational_pilot.py reports/generated/private_irsa_pilot
+      - name: Archive raw responses privately for scientific identity review
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-two-target-raw-UNVERIFIED
+          path: reports/generated/private_irsa_pilot/
+          retention-days: 7
+          if-no-files-found: error
