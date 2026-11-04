@@ -1,0 +1,38 @@
+# SCIENTIFIC PLAN ONLY — not validated on original observations.
+project: stellarforge
+protocol_version: "0.1"
+pilot_region: Taurus
+membership:
+  reference: "Luhman 2023, AJ 165:37, DOI:10.3847/1538-3881/ac9da3"
+  literature_member_count: 532
+  member_table_verified_and_loaded: false
+survey_candidates: [Gaia_DR3, ZTF]
+first_sample:
+  approved: false
+  reason: "Requires inspection of the literature table and human scientific choice"
+crossmatch:
+  final_epoch_propagation_required: true
+  ambiguous_matches_must_be_reported: true
+  reference_epoch_gaia: "J2016.0"
+ztf:
+  quality_flag_mask_default: 32768
+  filters: [g, r]
+  planned_initial_search_radius_arcsec: 2.0
+claims:
+  scientific_results_available: false
+  trained_ml_model_available: false
+  discovered_objects: false
+
+scientific_focus:
+  primary: [dipper_candidate, burster_candidate]
+  secondary: [rotation_period, quasi_periodic_variability]
+  note: "Light-curve morphology does not uniquely prove extinction or accretion."
+
+pilot_v02:
+  desired_size: 24
+  disk_class_II_quota: 12
+  disk_class_III_quota: 12
+  source_sampling: "prespecified disk strata and published kinematic groups; independent of measured variability"
+  needs_external_class_catalog: true
+  original_catalog_table2_verified: false
+  no_dipper_prevalence_claim_from_pilot: true
