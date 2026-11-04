@@ -1,0 +1,98 @@
+{
+  "astrophysical_classifications_produced": false,
+  "curves": [
+    {
+      "band": "g",
+      "features": {
+        "mag_mad": 0.08545500000000139,
+        "mag_std": 0.11768555952889219,
+        "median_mag": 16.30916,
+        "median_magerr": 0.02,
+        "n_epochs": 78,
+        "normalized_intrinsic_variance_proxy": 0.013449890921628425,
+        "photometric_variability_diagnosis": "unassigned",
+        "reduced_chi2_constant": 34.62472730407107,
+        "robust_amplitude_p95_p05_mag": 0.2529059999999994,
+        "span_days": 102.69999999999709,
+        "tail_asymmetry_mag": -0.09199933231469178,
+        "weighted_mean_mag": 16.31495346153846
+      },
+      "number_of_QC_accepted_epochs": 78,
+      "oid": "900001000000001",
+      "period": {
+        "best_period_days": 6.977829638273046,
+        "formal_false_alarm_probability": null,
+        "freq_range_cycles_per_day": [
+          0.05,
+          0.5
+        ],
+        "frequency_grid_points": 300,
+        "method": "scipy_lombscargle_weighted_floating_mean",
+        "note": "Peak is provisional; inspect phase folding, the window function, harmonics, red noise, seasons and independent literature.",
+        "peak_power_normalized": 0.5276749230847604,
+        "permutation_peak_exceedance_white_noise_diagnostic": null,
+        "permutation_trials": 0,
+        "physical_period_confirmed": false,
+        "possible_daily_alias": false,
+        "possible_sampling_alias": false,
+        "sampling_window_power_at_peak": 0.00024846386795267125
+      },
+      "source_association": "unverified",
+      "status": "provisional_variability_diagnostics",
+      "time_scale": "MJD"
+    },
+    {
+      "band": "r",
+      "features": {
+        "mag_mad": 0.08195499999999978,
+        "mag_std": 0.11733828168101033,
+        "median_mag": 15.710094999999999,
+        "median_magerr": 0.02,
+        "n_epochs": 78,
+        "normalized_intrinsic_variance_proxy": 0.013368272347852126,
+        "photometric_variability_diagnosis": "unassigned",
+        "reduced_chi2_constant": 34.4206808696303,
+        "robust_amplitude_p95_p05_mag": 0.25284750000000145,
+        "span_days": 102.69999999999709,
+        "tail_asymmetry_mag": -0.06604890872885626,
+        "weighted_mean_mag": 15.714072307692309
+      },
+      "number_of_QC_accepted_epochs": 78,
+      "oid": "900001000000002",
+      "period": {
+        "best_period_days": 6.977829638273046,
+        "formal_false_alarm_probability": null,
+        "freq_range_cycles_per_day": [
+          0.05,
+          0.5
+        ],
+        "frequency_grid_points": 300,
+        "method": "scipy_lombscargle_weighted_floating_mean",
+        "note": "Peak is provisional; inspect phase folding, the window function, harmonics, red noise, seasons and independent literature.",
+        "peak_power_normalized": 0.5294208445398976,
+        "permutation_peak_exceedance_white_noise_diagnostic": null,
+        "permutation_trials": 0,
+        "physical_period_confirmed": false,
+        "possible_daily_alias": false,
+        "possible_sampling_alias": false,
+        "sampling_window_power_at_peak": 0.00024846386795267125
+      },
+      "source_association": "unverified",
+      "status": "provisional_variability_diagnostics",
+      "time_scale": "MJD"
+    },
+    {
+      "band": "g",
+      "number_of_QC_accepted_epochs": 3,
+      "oid": "900001000000003",
+      "source_association": "unverified",
+      "status": "insufficient_epochs",
+      "time_scale": "MJD"
+    }
+  ],
+  "data_type": "unverified_source_association",
+  "input_basename": "photometry_good.csv",
+  "input_sha256": "8f12674990c08a38ddf3e19ea2e1840f8f92e5c70935accbe7c0c5cd4e648a22",
+  "n_curves": 3,
+  "scientific_membership_verified": false
+}

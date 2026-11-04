@@ -1,0 +1,28 @@
+{
+  "IRSA_actual_coverage_known": false,
+  "catalog_dec_deg": 24.538792,
+  "catalog_mirror_has_publisher_byte_comparison": false,
+  "catalog_ra_deg": 76.597253,
+  "epoch_astrometry": null,
+  "gaia_dr3_source_id": "3419110734340795648",
+  "kinematic_group": "L1544",
+  "next_action": "Execute documented IRSA query when network is available; verify raw response and separate each OID/filter",
+  "official_irsa_download_success": false,
+  "official_query_url": "https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves?POS=CIRCLE+76.597253000+24.538792000+0.000555556&BANDNAME=g%2Cr&BAD_CATFLAGS_MASK=32768&FORMAT=csv",
+  "physical_classification": null,
+  "raw_photometry": null,
+  "research_gates": {
+    "astrometry_independently_vetted": false,
+    "field_controls_independently_vetted": false,
+    "images_checked_for_blends": false,
+    "official_IRSA_response_acquired_and_authenticated": false,
+    "period_or_event_verified_from_real_curve": false,
+    "publisher_source_bytes_verified": false
+  },
+  "schema_version": "0.9.0",
+  "scientific_detection_count": null,
+  "status": "OFFICIAL_IRSA_PHOTOMETRY_PENDING",
+  "target": "CIDA 11",
+  "technical_seed_sha256": "5abe95634f1091bbba937f85b3e61ec03995e003fc56075aa18609aa48f4f4be",
+  "ztf_counterpart_confirmed": false
+}

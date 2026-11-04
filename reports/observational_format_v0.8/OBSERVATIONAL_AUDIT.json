@@ -1,0 +1,84 @@
+{
+  "version": "0.8",
+  "generated_utc": "2026-11-04T11:08:08.656492+00:00",
+  "input_raw_filename_not_redistributed": "rybka2-zi1.csv",
+  "raw_sha256": "5acb151f6e56b748ebd9ae551c4ce284d98a4299640711065a0553066cd140f2",
+  "source_url": "https://github.com/gvard/lcurvemaker/blob/6e4228493d88985da0cfe1a75415988796879a4c/data/raw/rybka2-zi1.csv",
+  "source_origin": "secondary_public_example",
+  "irsa_byte_identity_independently_established": false,
+  "source_validated_against_current_irsa_release": false,
+  "target_name_unverified": null,
+  "target_coordinates_provisional": null,
+  "taurus_lightcurves_verified": 0,
+  "data_are_synthetic": false,
+  "measurements_are_secondary_if_origin_is_secondary_public_example": true,
+  "raw_rows": 8,
+  "qc_accepted": 6,
+  "qc_rejected": 2,
+  "rejections": {
+    "masked_catflags": 2
+  },
+  "n_distinct_curves": 1,
+  "audited_curves": [
+    {
+      "oid": "1732315100004561",
+      "band": "i",
+      "time_scale": "MJD",
+      "raw_rows": 8,
+      "good_epochs": 6,
+      "time_span_days": 1137.874745,
+      "median_magnitude": 19.650673,
+      "robust_amp_p95_p05_mag": 1.847084,
+      "median_magnitude_error": 0.098393,
+      "median_separation_arcsec": null,
+      "position_status": "target_not_supplied",
+      "sufficient_epochs": false,
+      "status": "needs_review"
+    }
+  ],
+  "cadence_by_curve": [
+    {
+      "oid": "1732315100004561",
+      "filter": "i",
+      "time_column": "MJD",
+      "epochs": 6,
+      "mean_magnitude": 19.2890555,
+      "cadence": {
+        "epochs": 6,
+        "span_days": 1137.874745400004,
+        "median_gap_days": 55.838159700004326,
+        "max_gap_days": 732.0063656999992,
+        "season_gap_days": 75,
+        "n_observing_seasons_by_gap_heuristic": 3,
+        "minimum_points_in_hypothetical_event": 2,
+        "event_duration_days_to_exact_cadence_window_fraction": {
+          "2.0": 0.0,
+          "5.0": 0.0009439072627735691,
+          "10.0": 0.005381208086047992,
+          "20.0": 0.01437489196899766,
+          "40.0": 0.03285377394017218
+        },
+        "quantity": "fraction_of_uniform_possible_event_start_times_containing_at_least_k_observations",
+        "not_equivalent_to": [
+          "photometric_detection_efficiency",
+          "survey_completeness",
+          "physical_event_rate"
+        ],
+        "time_scale": "caller_specifies_single_unconverted_time_column",
+        "science_claim": false
+      },
+      "analysis_eligibility": "insufficient_epochs",
+      "independent_source_association_reviewed": false
+    }
+  ],
+  "physical_classification_issued": false,
+  "discovery_claim": false,
+  "status": "secondary_format_integration_test_not_taurus",
+  "blocked_research_gates": [
+    "independently_verify_original_IRSA_bytes_and_data_release",
+    "source_crossmatch_and_crowding_image_review",
+    "independent_disk_labels",
+    "real_cadence_injection_recovery_and_field_controls",
+    "peer_reviewed_physical_interpretation"
+  ]
+}

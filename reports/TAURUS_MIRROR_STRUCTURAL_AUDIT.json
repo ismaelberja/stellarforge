@@ -1,0 +1,22 @@
+{
+  "source": "Luhman 2023 AJ 165 37 Table 2 adopted Taurus members",
+  "doi": "10.3847/1538-3881/ac9da3",
+  "mirror": "https://github.com/themariavincent/get_targets/blob/7b6a5c83eca81fc66e50cb4889ee35cb28861367/taurus_sources.txt",
+  "mirror_commit": "7b6a5c83eca81fc66e50cb4889ee35cb28861367",
+  "mirror_git_blob_sha1": "fe0d5a43dbd2ca8b867901686ab223a847c649e5",
+  "validation_method": "remote GitHub connector: read complete table text, fixed-width coordinate field parse, duplicate Gaia-ID audit",
+  "total_source_lines": 694,
+  "adopted_member_rows": 532,
+  "gaia_dr3_ids_present": 467,
+  "gaia_dr3_ids_missing": 65,
+  "duplicate_gaia_dr3_ids": 0,
+  "named_kinematic_groups": 13,
+  "unassigned_group_rows": 119,
+  "technical_seed_rows": 24,
+  "technical_seed_named_group_coverage": 13,
+  "mirror_compared_byte_for_byte_with_publisher": false,
+  "raw_full_catalog_archived_locally": false,
+  "real_ztf_photometry_downloaded": false,
+  "scientific_pilot_approved": false,
+  "note": "A pinned public third-party copy is structurally consistent with the publication; authoritative byte comparison is pending."
+}

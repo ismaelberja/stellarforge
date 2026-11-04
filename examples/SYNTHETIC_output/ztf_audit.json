@@ -1,0 +1,78 @@
+{
+  "ambiguous_match_bands": [
+    "g"
+  ],
+  "source_format": "csv",
+  "raw_rows": 163,
+  "kept_rows": 159,
+  "rejected_rows": 4,
+  "rejected_reasons": {
+    "masked_catflags": 4
+  },
+  "curve_count": 3,
+  "curves": [
+    {
+      "oid": "900001000000001",
+      "band": "g",
+      "time_scale": "MJD",
+      "raw_rows": 80,
+      "good_epochs": 78,
+      "time_span_days": 102.7,
+      "median_magnitude": 16.30916,
+      "robust_amp_p95_p05_mag": 0.252906,
+      "median_magnitude_error": 0.02,
+      "median_separation_arcsec": 0.0,
+      "position_status": "inside_provisional_radius",
+      "sufficient_epochs": true,
+      "status": "ambiguous_multiple_oids"
+    },
+    {
+      "oid": "900001000000002",
+      "band": "r",
+      "time_scale": "MJD",
+      "raw_rows": 80,
+      "good_epochs": 78,
+      "time_span_days": 102.7,
+      "median_magnitude": 15.710095,
+      "robust_amp_p95_p05_mag": 0.252847,
+      "median_magnitude_error": 0.02,
+      "median_separation_arcsec": 0.0,
+      "position_status": "inside_provisional_radius",
+      "sufficient_epochs": true,
+      "status": "provisional_for_review"
+    },
+    {
+      "oid": "900001000000003",
+      "band": "g",
+      "time_scale": "MJD",
+      "raw_rows": 3,
+      "good_epochs": 3,
+      "time_span_days": 2.0,
+      "median_magnitude": 17.4,
+      "robust_amp_p95_p05_mag": 0.0,
+      "median_magnitude_error": 0.03,
+      "median_separation_arcsec": 0.6525,
+      "position_status": "inside_provisional_radius",
+      "sufficient_epochs": false,
+      "status": "ambiguous_multiple_oids"
+    }
+  ],
+  "status": "inspected_unverified_target",
+  "scientific_membership_verified": false,
+  "notes": [
+    "Source membership never inferred from a ZTF cone-search response.",
+    "No time-scale conversion: MJD, HMJD and HJD observations are separate.",
+    "No magnitude outlier clipping: real dips and bursts may be outliers.",
+    "Each ZTF OID/passband is audited separately; no forced concatenation.",
+    "Object association requires epoch propagation and crowded-field review.",
+    "Magnitude statistics are descriptive only; no dipper/burster labels are inferred."
+  ],
+  "provenance": {
+    "original_file": "SYNTHETIC_ZTF_ONLY.csv",
+    "original_sha256": "19a21e85fe82de97344dc72ca5c3d84c4dbcaadf39753ef40f295173e8e18645",
+    "source_url": null,
+    "sidecar_points_to_irsa": false
+  },
+  "demo_input_not_real": true,
+  "synthetic_fixture_notice": "SYNTHETIC engineering fixture; fictitious OIDs/position; not a Taurus light curve or an astronomical result."
+}

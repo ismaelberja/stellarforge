@@ -1,0 +1,93 @@
+{
+  "kind": "synthetic_injection_recovery_only",
+  "true_period_days": 5.271,
+  "does_not_measure": [
+    "Taurus variability",
+    "real survey completeness",
+    "false-alarm rate on correlated real noise"
+  ],
+  "settings": {
+    "random_seed_base": 73291,
+    "n_trials_per_scenario": 24,
+    "period_search_range_days": [
+      2,
+      14
+    ],
+    "success_relative_period_error": 0.05
+  },
+  "scenarios": {
+    "irregular_high_signal": {
+      "n_trials": 24,
+      "recovered_within_5_percent": 24,
+      "recovery_fraction": 1.0,
+      "median_relative_period_error": 0.0019446025422121215,
+      "fraction_flagged_sampling_alias": 0.0,
+      "median_peak_power": 0.9052107153854283,
+      "configuration": {
+        "seasons": [
+          [
+            0,
+            100
+          ],
+          [
+            165,
+            265
+          ]
+        ],
+        "count": 130,
+        "sigma": 0.03,
+        "amplitude": 0.18
+      }
+    },
+    "seasonal_gaps": {
+      "n_trials": 24,
+      "recovered_within_5_percent": 24,
+      "recovery_fraction": 1.0,
+      "median_relative_period_error": 0.0010958653210836368,
+      "fraction_flagged_sampling_alias": 0.0,
+      "median_peak_power": 0.8707808435939862,
+      "configuration": {
+        "seasons": [
+          [
+            0,
+            35
+          ],
+          [
+            205,
+            240
+          ],
+          [
+            410,
+            445
+          ]
+        ],
+        "count": 86,
+        "sigma": 0.04,
+        "amplitude": 0.18
+      }
+    },
+    "sparse_low_signal": {
+      "n_trials": 24,
+      "recovered_within_5_percent": 15,
+      "recovery_fraction": 0.625,
+      "median_relative_period_error": 0.003990779402407373,
+      "fraction_flagged_sampling_alias": 0.0,
+      "median_peak_power": 0.3564868642150413,
+      "configuration": {
+        "seasons": [
+          [
+            0,
+            60
+          ],
+          [
+            170,
+            230
+          ]
+        ],
+        "count": 38,
+        "sigma": 0.09,
+        "amplitude": 0.07
+      }
+    }
+  }
+}
