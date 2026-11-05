@@ -65,6 +65,9 @@ def run(archive: Path, seed: Path, *, probe_images: bool = False) -> dict:
             if probe_images:
                 for item in links["image_cutouts"]:
                     item["transport_probe"] = probe_ztf_image_header(item["image_cutout_url"])
+                    if item["transport_probe"]["status"] != "FITS_HEADER_TRANSPORT_CONFIRMED":
+                        item["reference_transport_probe"] = probe_ztf_image_header(
+                            item["reference_cutout_url"])
             results.append({
                 "target": result["target"],
                 "gaia_dr3_source_id": sid,
@@ -83,6 +86,8 @@ def run(archive: Path, seed: Path, *, probe_images: bool = False) -> dict:
             for x in results),
         "n_image_header_transport_verified": sum(
             item.get("transport_probe", {}).get("status") == "FITS_HEADER_TRANSPORT_CONFIRMED"
+            or item.get("reference_transport_probe", {}).get("status")
+            == "FITS_HEADER_TRANSPORT_CONFIRMED"
             for x in results
             for item in x["ztf_image_review_links"]["image_cutouts"]),
         "results": results,
@@ -111,7 +116,7 @@ def write_results(report: dict, output: Path) -> tuple[Path, Path]:
         "", "**NOT a final astrophysical source-identification or blend clearance.**",
         "", f"Official IRSA photometric rows previously validated: **{report['original_real_irsa_rows']}**.",
         f"Independent Gaia TAP cone queries completed: **{report['gaia_queries_completed']}/{report['n_targets']}**.",
-        f"ZTF image cutouts with a FITS header successfully probed: **{report['n_image_header_transport_verified']}**.",
+        f"ZTF image groups with a science or reference FITS header verified: **{report['n_image_header_transport_verified']}**.",
         "",
         "| Target | Gaia query status | Gaia objects ≤2″ | ≤5″ | Nearest Gaia neighbour |",
         "|---|---|---:|---:|---|",
@@ -131,14 +136,16 @@ def write_results(report: dict, output: Path) -> tuple[Path, Path]:
     lines.extend([
         "", "## ZTF cutouts (links require independent image and WCS review)",
         "", "| Target | OID | Band | Field | FITS header status | Archive link |",
-        "|---|---|---|---|---|---|",
+        "|---|---|---|---|---|---|---|",
     ])
     for item in report["results"]:
         for x in item["ztf_image_review_links"]["image_cutouts"]:
             lines.append(
                 f"| {item['target']} | {x['oid']} | {x['band']} | {x['ztf_field']} | "
                 f"{x.get('transport_probe', {}).get('status', 'NOT_PROBED')} | "
-                f"[Official IRSA FITS]({x['image_cutout_url']}) |")
+                f"{x.get('reference_transport_probe', {}).get('status', 'NOT_PROBED')} | "
+                f"[Science]({x['image_cutout_url']}) · "
+                f"[Reference]({x['reference_cutout_url']}) |")
     lines.extend([
         "", "## Scientific boundaries", "",
         "- The near-neighbour counts describe **Gaia-detected** objects only, not image-level cleanliness.",
