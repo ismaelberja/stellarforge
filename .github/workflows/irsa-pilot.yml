@@ -19,8 +19,15 @@ jobs:
         with:
           python-version: '3.11'
       - name: Run preregistered two-object astronomical data intake
-        run: python scripts/ci_observational_pilot.py reports/generated/private_irsa_pilot
+        run: python scripts/ci_observational_pilot.py reports/generated/private_irsa_pilot --fail-if-empty
+      - name: Show science-status audit even when HTTP intake fails
+        if: always()
+        run: |
+          if [ -f reports/generated/private_irsa_pilot/REPORT.md ]; then
+            cat reports/generated/private_irsa_pilot/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Archive raw responses privately for scientific identity review
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: taurus-two-target-raw-UNVERIFIED

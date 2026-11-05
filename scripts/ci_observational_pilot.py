@@ -4,6 +4,7 @@ The downloaded photometry is unverified source-association evidence, *not*
 proof that a Gaia Taurus member is variable. No raw observations enter Git.
 """
 from __future__ import annotations
+import argparse
 import csv
 import hashlib
 import io
@@ -11,6 +12,7 @@ import json
 import math
 from pathlib import Path
 import sys
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -39,13 +41,17 @@ def inspect_response(raw: bytes) -> dict:
     text=raw.decode('utf-8-sig')
     if text.lstrip().startswith(('<', '{')):
         raise ValueError('HTML, XML or JSON response, not ZTF CSV')
-    rows=list(csv.DictReader(io.StringIO(text)))
+    reader=csv.DictReader(io.StringIO(text))
+    if not reader.fieldnames:
+        raise ValueError('Missing CSV header')
+    names=set(reader.fieldnames);missing=REQUIRED-names
+    if missing:
+        raise ValueError('Missing photometry fields: '+','.join(sorted(missing)))
+    rows=list(reader)
     if not rows:
-        # A header-only response is not evidence that the star is non-variable.
-        return {'rows':0,'qc_accepted':0,'distinct_oid_bands':[],
+        # A valid header-only CSV does not establish non-variability or sky coverage.
+        return {'rows':0,'qc_accepted':0,'qc_rejected':0,'distinct_oid_bands':[],
                 'status':'NO_ROWS_RETURNED_COVERAGE_UNKNOWN'}
-    names=set(rows[0]);missing=REQUIRED-names
-    if missing:raise ValueError('Missing photometry fields: '+','.join(sorted(missing)))
     accepted=0;groups=set();rejected=0
     for row in rows:
         try:
@@ -82,10 +88,23 @@ def run(outdir: Path, fetcher=None) -> dict:
             info['raw_sha256']=hashlib.sha256(raw).hexdigest()
             info['raw_bytes']=len(raw)
             info['acquisition_status']='RAW_HTTP_RESPONSE_SAVED_ASSOCIATION_UNVERIFIED'
-        except Exception as exc:
-            # No raw payload, no assertion of missing sky coverage.
+        except (HTTPError, URLError, TimeoutError, OSError, ValueError,
+                UnicodeError) as exc:
+            # Never infer missing astronomical coverage from a failed HTTP request.
             info['acquisition_status']='REQUEST_FAILED_OR_FORMAT_UNVERIFIED'
             info['exception_type']=type(exc).__name__
+            if isinstance(exc, HTTPError):
+                # Record the server's numeric status rather than hiding 400/403/429/503.
+                # Do not persist potentially sensitive error bodies.
+                info['failure_class']='HTTP_RESPONSE_ERROR'
+                info['http_status']=int(exc.code)
+                info['http_retryable']=int(exc.code) in {429,500,502,503,504}
+            elif isinstance(exc, URLError):
+                info['failure_class']='NETWORK_ERROR'
+            elif isinstance(exc, (ValueError, UnicodeError)):
+                info['failure_class']='UNVERIFIED_RESPONSE_FORMAT'
+            else:
+                info['failure_class']='TRANSPORT_OR_IO_ERROR'
         outcomes.append(info)
     audit={'schema_version':'stellarforge-pilot-1.0',
            'catalog':'Luhman 2023 secondary mirror; original publisher comparison pending',
@@ -96,14 +115,16 @@ def run(outdir: Path, fetcher=None) -> dict:
     (outdir/'PILOT_STATUS.json').write_text(json.dumps(audit,indent=2,sort_keys=True)+'\n',encoding='utf-8')
     md=['# StellarForge — private IRSA acquisition pilot','',
         '> This is an intake experiment, not a stellar-variability discovery.','',
-        '| Target | Status | Accepted points | ZTF OID-band groups |',
-        '|---|---|---:|---:|']
+        '| Target | Status | HTTP status | Accepted points | ZTF OID-band groups |',
+        '|---|---|---:|---:|---:|']
     for x in outcomes:
         meta=x.get('inspection',{})
         md.append(f'| {x["target"]} | {x["acquisition_status"]} | '
+                  f'{x.get("http_status","n/a")} | '
                   f'{meta.get("qc_accepted","n/a")} | '
                   f'{len(meta.get("distinct_oid_bands",[]))} |')
     md += ['','**All OIDs and physical interpretations remain unverified.**',
+           'A failed request does NOT demonstrate absent survey coverage or no variability.',
            'Raw data are stored only in the private CI artifact, not in Git history.','']
     (outdir/'REPORT.md').write_text('\n'.join(md),encoding='utf-8')
     return audit
@@ -118,7 +139,20 @@ def _fetch(url):
 
 
 if __name__=='__main__':
-    dest=Path(sys.argv[1]) if len(sys.argv)>1 else Path('reports/generated/irsa_pilot')
-    x=run(dest)
+    parser=argparse.ArgumentParser(description='Two-target IRSA raw intake with explicit failures')
+    parser.add_argument('output',nargs='?',type=Path,
+                        default=Path('reports/generated/irsa_pilot'))
+    parser.add_argument('--fail-if-empty',action='store_true',
+                        help='CI gate: exit 2 if neither target returned valid-format raw data')
+    args=parser.parse_args()
+    x=run(args.output)
     print(json.dumps({'raw_responses':x['raw_photometry_responses'],
-                      'targets':[(a['target'],a['acquisition_status']) for a in x['results']]},indent=2))
+                      'targets':[
+                          {'target':a['target'],'status':a['acquisition_status'],
+                           'http_status':a.get('http_status'),
+                           'failure_class':a.get('failure_class')}
+                          for a in x['results']]},indent=2))
+    if args.fail_if_empty and x['raw_photometry_responses']==0:
+        print('ERROR: Zero valid-format IRSA responses; this is not a successful intake.',
+              file=sys.stderr)
+        raise SystemExit(2)

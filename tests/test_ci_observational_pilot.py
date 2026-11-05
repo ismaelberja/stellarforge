@@ -40,6 +40,39 @@ class TestCIPilot(unittest.TestCase):
             self.assertEqual(x['raw_photometry_responses'],0)
             self.assertTrue(all('exception_type' in z for z in x['results']))
 
+    def test_http_status_is_preserved_for_scientific_audit(self):
+        from urllib.error import HTTPError
+        def fail(url):
+            raise HTTPError(url, 503, 'Service unavailable', None, None)
+        with tempfile.TemporaryDirectory() as td:
+            x=mod.run(Path(td),fetcher=fail)
+            self.assertEqual(x['raw_photometry_responses'],0)
+            self.assertTrue(all(z['exception_type']=='HTTPError'
+                                and z['http_status']==503
+                                and z['http_retryable']
+                                and z['failure_class']=='HTTP_RESPONSE_ERROR'
+                                for z in x['results']))
+            self.assertTrue((Path(td)/'PILOT_STATUS.json').is_file())
+            self.assertFalse(any(Path(td).glob('*_IRSA_RAW.csv')))
+
+    def test_bad_http_status_is_not_a_valid_no_coverage_claim(self):
+        from urllib.error import HTTPError
+        def fail(url):
+            raise HTTPError(url, 400, 'Bad Request', None, None)
+        with tempfile.TemporaryDirectory() as td:
+            x=mod.run(Path(td),fetcher=fail)
+            self.assertEqual(x['raw_photometry_responses'],0)
+            self.assertTrue(all(z['http_status']==400 and not z['http_retryable']
+                                for z in x['results']))
+
+    def test_header_only_requires_real_ztf_columns(self):
+        with self.assertRaises(ValueError):
+            mod.inspect_response(b'error,message\n')
+        x=mod.inspect_response(b'oid,mjd,mag,magerr,catflags,filtercode\n')
+        self.assertEqual(x['rows'],0)
+        self.assertEqual(x['status'],'NO_ROWS_RETURNED_COVERAGE_UNKNOWN')
+        self.assertEqual(x['qc_rejected'],0)
+
     def test_html_is_rejected(self):
         with self.assertRaises(ValueError):mod.inspect_response(b'<html>not a table</html>')
 
