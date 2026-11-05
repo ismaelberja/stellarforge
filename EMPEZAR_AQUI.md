@@ -8,7 +8,7 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 ## ¿Qué está realmente conseguido?
 
-- **354 pruebas automáticas superadas** en GitHub Actions.
+- **357 pruebas automáticas superadas** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.
