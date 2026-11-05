@@ -1,0 +1,79 @@
+# One-time push validation of real ZTF FITS; switch to manual-only after first audit.
+name: v1.5 Real FITS pixel WCS screening (ephemeral image data)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v15-image-pixels.yml'
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Official original IRSA ZTF photometry artifact run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  fits-pixel-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image and scientific test dependencies
+        run: python -m pip install -e '.[test,images]'
+      - name: Full offline scientific and regression suite
+        run: python -m pytest -q
+      - name: Recover official IRSA responses in runner temp storage
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACQUISITION_RUN_ID: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v15_source"
+          gh run download "$ACQUISITION_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v15_source"
+      - name: Reconstruct a local ZIP without adding bytes to Git
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          folder=Path(os.environ['RUNNER_TEMP'])/'v15_source'
+          files=sorted(p for p in folder.iterdir() if p.is_file())
+          required={'PILOT_STATUS.json','REPORT.md',
+                    '149623711269425408_IRSA_RAW.csv',
+                    '3419110734340795648_IRSA_RAW.csv'}
+          if {p.name for p in files} != required:
+              raise ValueError("Source artifact inventory is not identical to original IRSA query")
+          with ZipFile(folder.parent/'v15_source.zip','w',compression=ZIP_DEFLATED) as z:
+              for path in files:
+                  z.write(path,path.name)
+          PY
+      - name: Inspect actual official FITS pixels and celestial WCS (never infer identity)
+        run: |
+          python scripts/run_v15_image_pixels.py "$RUNNER_TEMP/v15_source.zip" \
+            --output reports/generated/v1.5_image_pixels \
+            --attempts-per-curve 4 --timeout 8 --fail-if-none
+      - name: Record research findings even on transient IRSA failures
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.5_image_pixels/V15_PIXEL_WCS_AUDIT_NO_RAW.md ]; then
+            cat reports/generated/v1.5_image_pixels/V15_PIXEL_WCS_AUDIT_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload aggregate pixel/WCS diagnostics only (never FITS or raw light curves)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v15-FITS-pixel-WCS-aggregates-NO-RAW
+          path: |
+            reports/generated/v1.5_image_pixels/V15_PIXEL_WCS_AUDIT_NO_RAW.json
+            reports/generated/v1.5_image_pixels/V15_PIXEL_WCS_AUDIT_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
