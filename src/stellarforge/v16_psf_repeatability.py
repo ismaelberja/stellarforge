@@ -211,6 +211,7 @@ def summarize_science_repeatability(exposures: list[dict]) -> dict:
         "north_residual_range_arcsec": round(max(north)-min(north), 5),
         "median_gaussian_fwhm_proxy_arcsec": round(statistics.median(fwhm), 4),
         "observed_motion_or_single_source_confirmed": False,
+        "scientific_astrometric_consistency_confirmed": False,
         "wcs_systematics_removed": False,
         "reference_images_excluded": True,
     }
