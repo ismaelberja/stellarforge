@@ -3,12 +3,30 @@
 **Multi-Survey Stellar Variability & Anomaly Detection Platform**  
 *An open, reproducible research-software project at the intersection of astrophysics, data engineering and machine learning.*
 
-**Status: ACTIVE RESEARCH v1.1** — Literature-based Taurus coordinates and preliminary per-epoch Gaia/ZTF source-association screening are implemented. Two official ZTF requests for FT Tau and CIDA 11 were attempted in this environment and both failed due to networking (`URLError`); **no official ZTF light curve for Taurus has been acquired or authenticated**. All object-identification and disk-interpretation gates remain open. This is an **internal, not-yet-published** research project.
+**Status: ACTIVE RESEARCH v1.2** — Private GitHub Actions has now retrieved two official IRSA ZTF cone-query CSV responses (5 November 2026), covering **2,212 photometric rows and six distinct OIDs** near FT Tau and CIDA 11. Raw-byte SHA-256 and per-OID provenance are preserved privately. **No Gaia–ZTF counterpart identity, disk class, physical event or astrophysical discovery has been independently validated.** This remains an **internal, not-yet-published** research project.
 
 **Research and scientific direction:** Ismael Berja Ruiz.  
 **Development approach:** iterative work with AI coding assistance, explicit review of methods and results. The researcher must validate scientific interpretations and any eventual publication.
 
-## Current milestone — v1.1: quantitative selection bias and cohort design
+## Current milestone — v1.2: official ZTF transport and source-identity review
+
+**Transport succeeded; scientific cross-matching is pending.** The private CI acquisition returned 1,199 ZTF rows in four OIDs near FT Tau and 1,013 rows in two OIDs near CIDA 11. Their hashes and exact API URLs are recorded, with raw CSVs stored only in a seven-day private GitHub Actions artifact. An earlier pair of HTTP errors is documented without mistaking failure to retrieve data for absence of astronomical coverage.
+
+- [v1.2 real-data transport audit and OID counts](reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md)
+- [v1.2 acquisition error diagnostics and limitations](docs/PHASE12_IRSA_HTTP_DIAGNOSTICS.md)
+- [GitHub Actions acquisition run, private raw ZIP](https://github.com/ismaelberja/stellarforge/actions/runs/41995960368)
+- Reproducible preliminary figure generator: `scripts/plot_v12_raw_ztf.py`; **it verifies SHA-256 and never merges distinct OIDs**.
+
+```bash
+python -m pip install -e '.[test,analysis]'
+python -m pytest -q
+# Download the private ZIP artifact from the linked GitHub Actions run, then:
+python scripts/plot_v12_raw_ztf.py /path/to/taurus-two-target-raw-UNVERIFIED.zip
+```
+
+**Scientific gate:** source association with Gaia and ZTF image-level blending checks must be independently reviewed before claims about variability of FT Tau or CIDA 11. This milestone validates acquisition and software provenance, not astrophysical identity.
+
+## Prior milestone — v1.1: quantitative selection bias and cohort design
 
 **325 local tests passed.** The Luhman (2023) Taurus Table 2 mirror has 532 adopted members, of which 467 carry Gaia DR3 source IDs. Among the remaining 65 without Gaia identifiers, 64 also lack an assigned named kinematic group. This is an important completeness warning: using only group-assigned Gaia entries systematically excludes a subset of the Taurus census.
 
