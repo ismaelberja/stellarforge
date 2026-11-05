@@ -180,6 +180,8 @@ def audit_neighbours(gaia_rows: list[dict], *, target_id: str,
         "target_gaia_source_verified": True,
         "target_gaia_g_mag": target_g,
         "target_gaia_ruwe": main["ruwe"],
+        "target_ruwe_exceeds_1p4_quality_screen": (
+            main["ruwe"] is not None and main["ruwe"] > 1.4),
         "target_gaia_parallax_mas": main["parallax"],
         "target_pm_available": motion,
         "epoch_jyear": round(epoch_jyear, 6),
@@ -236,6 +238,36 @@ def ztf_science_cutout_url(row: dict, *,
     return f"{IRSA_SCIENCE_ROOT}/{date_path}/{filename}?{query}"
 
 
+def ztf_reference_cutout_url(row: dict, *,
+                             ra_center: float, dec_center: float,
+                             size_arcsec: float = 45) -> str:
+    """Official ZTF reference-image cutout URL, not proof of image availability."""
+    validate_icrs(ra_center, dec_center)
+    if not math.isfinite(size_arcsec) or not 15 <= size_arcsec <= 90:
+        raise ValueError("Cutout size must be 15..90 arcsec")
+    field = str(row["field"])
+    band = str(row["filtercode"]).lower()
+    if not field.isdigit() or not 1 <= int(field) <= 999999:
+        raise ValueError("Bad ZTF reference field")
+    if band not in ("zg", "zr", "zi"):
+        raise ValueError("Bad ZTF reference filter")
+    try:
+        ccd = int(str(row["ccdid"]), 0)
+        qid = int(str(row["qid"]), 0)
+    except ValueError as exc:
+        raise ValueError("Bad ZTF reference detector") from exc
+    if not 1 <= ccd <= 16 or not 1 <= qid <= 4:
+        raise ValueError("Reference detector out of range")
+    field6 = f"{int(field):06d}"
+    name = f"ztf_{field6}_{band}_c{ccd:02d}_q{qid}_refimg.fits"
+    path = (f"https://irsa.ipac.caltech.edu/ibe/data/ztf/products/ref/"
+            f"{field6[:3]}/field{field6}/{band}/ccd{ccd:02d}/q{qid}/{name}")
+    return path + "?" + urlencode({
+        "center": f"{ra_center:.8f},{dec_center:.8f}",
+        "size": f"{size_arcsec:g}arcsec", "gzip": "false",
+    })
+
+
 def selected_image_links(ztf_csv: bytes, *, target_ra_deg: float,
                          target_dec_deg: float,
                          target_pmra: float, target_pmdec: float) -> dict:
@@ -274,6 +306,8 @@ def selected_image_links(ztf_csv: bytes, *, target_ra_deg: float,
             "ztf_quadrant": row["qid"],
             "image_cutout_url": ztf_science_cutout_url(
                 row, ra_center=ra, dec_center=dec),
+            "reference_cutout_url": ztf_reference_cutout_url(
+                row, ra_center=ra, dec_center=dec),
             "image_fits_retrieved": False,
             "image_wcs_and_psf_review_complete": False,
         })
@@ -295,7 +329,8 @@ def probe_ztf_image_header(image_url: str, *, timeout_sec: float = 18.0,
     """
     u = urlparse(image_url)
     if (u.scheme != "https" or u.hostname != "irsa.ipac.caltech.edu"
-            or not u.path.startswith("/ibe/data/ztf/products/sci/")
+            or not (u.path.startswith("/ibe/data/ztf/products/sci/")
+                    or u.path.startswith("/ibe/data/ztf/products/ref/"))
             or u.username is not None or u.password is not None):
         raise ValueError("Disallowed image URL")
     if not 1 <= timeout_sec <= 45:
