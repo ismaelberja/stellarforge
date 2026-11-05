@@ -13,7 +13,7 @@ import io
 import json
 from pathlib import Path
 import statistics
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 from zipfile import ZipFile
 
 from .epoch_evidence import per_epoch_association_evidence
@@ -41,7 +41,9 @@ def _read_raw_group_metadata(raw: bytes) -> dict:
     for row in reader:
         oid = row["oid"]
         band = row["filtercode"].lower()
-        if not oid.isdigit() or band not in ("zg", "zr", "zi"):
+        if (not oid.isdigit() or band not in ("zg", "zr", "zi")
+                or not row["field"].strip() or not row["ccdid"].strip()
+                or not row["qid"].strip()):
             raise ValueError("Unexpected ZTF OID or passband")
         entry = groups[(oid, band)]
         entry["rows"] += 1
@@ -86,8 +88,25 @@ def review_irsa_artifact(archive_path: Path, seed_path: Path,
             if entry.get("acquisition_status") != "RAW_HTTP_RESPONSE_SAVED_ASSOCIATION_UNVERIFIED":
                 raise ValueError("Artifact target did not provide a raw response")
             url = urlparse(entry.get("official_url", ""))
-            if url.scheme != "https" or url.hostname != "irsa.ipac.caltech.edu" or url.path != "/cgi-bin/ZTF/nph_light_curves":
+            if (url.scheme != "https" or url.hostname != "irsa.ipac.caltech.edu"
+                    or url.port not in (None, 443)
+                    or url.path != "/cgi-bin/ZTF/nph_light_curves"
+                    or url.username is not None or url.password is not None):
                 raise ValueError("Raw response is not attributed to the official IRSA API")
+            query = parse_qs(url.query)
+            try:
+                circle = query["POS"][0].split()
+                ra_query, dec_query, radius_query = map(float, circle[1:])
+            except (KeyError, ValueError, IndexError) as err:
+                raise ValueError("Official query lacks valid POS=CIRCLE parameters") from err
+            if (len(circle) != 4 or circle[0] != "CIRCLE"
+                    or abs(ra_query - float(target["ra"])) > 1e-8
+                    or abs(dec_query - float(target["dec"])) > 1e-8
+                    or abs(radius_query - 2.0 / 3600.0) > 1e-8
+                    or query.get("FORMAT", [""])[0].lower() != "csv"
+                    or query.get("BAD_CATFLAGS_MASK") != ["32768"]
+                    or query.get("BANDNAME") != ["g,r"]):
+                raise ValueError("Official query does not match preregistered two-band radius")
             # File names come only from validated Gaia IDs, not arbitrary ZIP paths.
             raw = archive.read(f"{gaia_id}_IRSA_RAW.csv")
             sha256 = hashlib.sha256(raw).hexdigest()
