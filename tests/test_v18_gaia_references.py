@@ -36,8 +36,8 @@ def source(sid, *, east_arcsec=0.0, north_arcsec=0.0,
         "phot_g_mean_flux_over_error": snr,
         "ruwe": ruwe, "duplicated_source": duplicate,
         "astrometric_params_solved": solved,
-        "ra_error_mas": 0.3, "dec_error_mas": 0.5,
-        "pmra_error_mas_yr": 0.15, "pmdec_error_mas_yr": 0.15,
+        "ra_error": 0.3, "dec_error": 0.5,
+        "pmra_error": 0.15, "pmdec_error": 0.15,
     }
 
 
