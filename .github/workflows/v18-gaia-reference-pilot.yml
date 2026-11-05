@@ -1,11 +1,7 @@
-# First observed-data verification on adding this workflow.
-# After that, remote Gaia/IRSA requests are manually triggered.
+# Remote catalogue and ZTF archive access must be manually triggered.
 name: v1.8 Gaia DR3 references vs same ZTF science exposures (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v18-gaia-reference-pilot.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
