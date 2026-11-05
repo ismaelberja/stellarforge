@@ -1,0 +1,76 @@
+# IRSA reference-image transport is checked if the representative science exposure is unavailable.
+name: v1.4 Independent Gaia neighbours and ZTF image access audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Original official IRSA ZTF acquisition run (artifact must exist)"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  independent-field-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible research/test dependencies
+        run: python -m pip install -e '.[test,analysis]'
+      - name: Run scientific regression suite
+        run: python -m pytest -q
+      - name: Recover archived observational input to ephemeral runner only
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACQUISITION_RUN_ID: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v14_source"
+          gh run download "$ACQUISITION_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v14_source"
+      - name: Repackage ephemeral input without copying to Git
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import os
+          folder = Path(os.environ["RUNNER_TEMP"]) / "v14_source"
+          files = sorted(p for p in folder.iterdir() if p.is_file())
+          expected = {"PILOT_STATUS.json", "REPORT.md",
+                      "149623711269425408_IRSA_RAW.csv",
+                      "3419110734340795648_IRSA_RAW.csv"}
+          if {x.name for x in files} != expected:
+              raise ValueError("Unexpected original IRSA artifact file inventory")
+          with ZipFile(folder.parent / "v14_source.zip", "w", compression=ZIP_DEFLATED) as z:
+              for p in files:
+                  z.write(p, p.name)
+          PY
+      - name: Query independent Gaia DR3 field neighbours and check ZTF FITS headers
+        run: |
+          python scripts/run_v14_field_review.py "$RUNNER_TEMP/v14_source.zip" \
+            --output reports/generated/v1.4_fields \
+            --probe-images --require-gaia
+      - name: Record fail-closed scientific findings
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.4_fields/V14_GAIA_FIELD_AND_ZTF_IMAGE_AUDIT.md ]; then
+            cat reports/generated/v1.4_fields/V14_GAIA_FIELD_AND_ZTF_IMAGE_AUDIT.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload only aggregate Gaia/IRSA links and statuses (NO raw CSV or FITS)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v14-independent-neighbours-and-image-metadata-NO-RAW
+          path: |
+            reports/generated/v1.4_fields/V14_GAIA_FIELD_AND_ZTF_IMAGE_AUDIT.json
+            reports/generated/v1.4_fields/V14_GAIA_FIELD_AND_ZTF_IMAGE_AUDIT.md
+          retention-days: 7
+          if-no-files-found: warn
