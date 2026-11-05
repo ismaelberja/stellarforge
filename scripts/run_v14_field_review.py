@@ -55,7 +55,9 @@ def run(archive: Path, seed: Path, *, probe_images: bool = False) -> dict:
                 )
                 gaia_result["response_sha256"] = hashlib.sha256(gaia).hexdigest()
                 gaia_result["tap_service"] = "Gaia DR3 ARI TAP, 15-arcsec ICRS cone"
-                gaia_result["independent_gaia_query_completed"] = True
+                gaia_result["independent_gaia_query_completed"] = (
+                    gaia_result["target_gaia_source_verified"]
+                    and not gaia_result.get("truncated_by_max_rows", True))
             except (HTTPError, URLError, TimeoutError, OSError, ValueError) as error:
                 gaia_result["error_type"] = type(error).__name__
                 if isinstance(error, HTTPError):
