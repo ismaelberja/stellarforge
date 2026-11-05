@@ -2,9 +2,6 @@
 name: v1.4 Independent Gaia neighbours and ZTF image access audit
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v14-field-review.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
