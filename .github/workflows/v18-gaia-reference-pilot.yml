@@ -1,0 +1,80 @@
+# Remote catalogue and ZTF archive access must be manually triggered.
+name: v1.8 Gaia DR3 references vs same ZTF science exposures (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Run containing SHA-checked official IRSA raw photometry ZIP contents"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  reference-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install existing scientific imaging and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run synthetic regression suite before querying public archives
+        run: python -m pytest -q
+      - name: Recover SHA-verified official ZTF query responses to runner temp only
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACQUISITION_RUN_ID: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v18_original"
+          gh run download "$ACQUISITION_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v18_original"
+      - name: Package expected original files without publication
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile, ZIP_DEFLATED
+          from pathlib import Path
+          import os
+          folder=Path(os.environ["RUNNER_TEMP"])/"v18_original"
+          records=sorted(x for x in folder.iterdir() if x.is_file())
+          expected={"PILOT_STATUS.json","REPORT.md",
+            "149623711269425408_IRSA_RAW.csv",
+            "3419110734340795648_IRSA_RAW.csv"}
+          if {x.name for x in records}!=expected:
+              raise ValueError("Input artifact inventory does not match original audit")
+          with ZipFile(folder.parent/"v18_input.zip","w",compression=ZIP_DEFLATED) as out:
+              for path in records: out.write(path,path.name)
+          PY
+      - name: Query wider Gaia DR3 field and try same-exposure FITS of reference candidates
+        run: |
+          python scripts/run_v18_gaia_reference_pilot.py \
+            "$RUNNER_TEMP/v18_input.zip" \
+            --max-references 5 \
+            --exposures-per-target 2 \
+            --gaia-timeout 25 \
+            --image-timeout 6 \
+            --output reports/generated/v1.8_gaia_references \
+            --require-catalog
+      - name: Publish conservative report as job summary
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.8_gaia_references/V18_GAIA_REFERENCE_CANDIDATES_NO_RAW.md ]; then
+            cat reports/generated/v1.8_gaia_references/V18_GAIA_REFERENCE_CANDIDATES_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload aggregate candidate and image quality statuses, never Gaia CSV or FITS
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v18-Gaia-references-ZTF-science-pilot-NO-RAW
+          path: |
+            reports/generated/v1.8_gaia_references/V18_GAIA_REFERENCE_CANDIDATES_NO_RAW.json
+            reports/generated/v1.8_gaia_references/V18_GAIA_REFERENCE_CANDIDATES_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
