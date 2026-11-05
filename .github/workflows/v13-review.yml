@@ -1,0 +1,66 @@
+name: v1.3 Provisional Gaia-ZTF positional audit (ephemeral raw)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v13-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  provisional-astrometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install scientific/test dependencies
+        run: python -m pip install -e '.[test,analysis]'
+      - name: Verify science engineering regression tests
+        run: python -m pytest -q
+      - name: Download previous official IRSA responses to ephemeral runner
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/v13_private_input"
+          gh run download 41997079598 --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v13_private_input"
+      - name: Pack original files into ephemeral ZIP without committing them
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import os
+          source=Path(os.environ['RUNNER_TEMP'])/'v13_private_input'
+          contents=sorted(x for x in source.iterdir() if x.is_file())
+          expected={'PILOT_STATUS.json','REPORT.md',
+                    '149623711269425408_IRSA_RAW.csv',
+                    '3419110734340795648_IRSA_RAW.csv'}
+          if {x.name for x in contents} != expected:
+              raise ValueError('Raw input artifact files differ from original contract')
+          with ZipFile(source.parent/'v13_input.zip','w',compression=ZIP_DEFLATED) as archive:
+              for path in contents:
+                  archive.write(path,path.name)
+          PY
+      - name: Run authentic but provisional per-epoch astrometric review
+        run: |
+          python scripts/run_v13_astrometric_review.py \
+            "$RUNNER_TEMP/v13_input.zip" \
+            --output reports/generated/v1.3_astrometry
+          cat reports/generated/v1.3_astrometry/V13_PROVISIONAL_GAIA_ZTF_ASTROMETRY.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload aggregate reports only (no original CSV)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v13-astrometric-summary-NO-RAW
+          path: |
+            reports/generated/v1.3_astrometry/V13_PROVISIONAL_GAIA_ZTF_ASTROMETRY.json
+            reports/generated/v1.3_astrometry/V13_PROVISIONAL_GAIA_ZTF_ASTROMETRY.md
+          retention-days: 7
+          if-no-files-found: warn
