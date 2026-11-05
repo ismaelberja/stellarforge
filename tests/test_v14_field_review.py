@@ -8,6 +8,7 @@ import pytest
 from stellarforge.v14_field_review import (
     audit_neighbours, make_gaia_adql, parse_gaia_csv,
     selected_image_links, ztf_science_cutout_url, ztf_reference_cutout_url,
+    probe_ztf_image_header,
 )
 
 
@@ -187,3 +188,39 @@ def test_all_masked_points_fail_closed():
         selected_image_links(output.getvalue().encode(),
                              target_ra_deg=65.913324, target_dec_deg=24.937195,
                              target_pmra=7.448, target_pmdec=-21.849)
+
+
+class _FakeFitsResponse:
+    def __init__(self, data):
+        self.data = data
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc, tb):
+        return False
+    def read(self, n):
+        return self.data[:n]
+
+
+def test_header_probe_verifies_transport_not_image_qa():
+    url = ztf_science_cutout_url(
+        exposure_row(), ra_center=65.913324, dec_center=24.937195)
+    result = probe_ztf_image_header(
+        url, opener=lambda req, timeout: _FakeFitsResponse(b"SIMPLE  =  T" + b" " * 80))
+    assert result["status"] == "FITS_HEADER_TRANSPORT_CONFIRMED"
+    assert not result["fits_image_fully_downloaded"]
+    assert not result["wcs_and_psf_physically_inspected"]
+    assert not result["astrophysical_identity_confirmed"]
+
+
+def test_html_header_is_not_a_valid_fits_file():
+    url = ztf_reference_cutout_url(
+        exposure_row(), ra_center=65.913324, dec_center=24.937195)
+    result = probe_ztf_image_header(
+        url, opener=lambda req, timeout: _FakeFitsResponse(b"<html>HTTP error</html>"))
+    assert result["status"] == "UNRECOGNIZED_RESPONSE"
+
+
+def test_off_domain_image_probe_rejected():
+    with pytest.raises(ValueError):
+        probe_ztf_image_header(
+            "https://not-irsa.example.org/ibe/data/ztf/products/sci/test.fits")
