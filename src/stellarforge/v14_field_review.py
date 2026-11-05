@@ -12,8 +12,9 @@ import math
 from pathlib import Path
 import re
 import statistics
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 from .association import mjd_to_approximate_julian_year, propagate_gaia_position
 from .coordinates import angular_separation_arcsec, validate_icrs
@@ -283,3 +284,42 @@ def selected_image_links(ztf_csv: bytes, *, target_ra_deg: float,
         "image_cutouts": selected,
         "image_blending_verified_clean": False,
     }
+
+
+def probe_ztf_image_header(image_url: str, *, timeout_sec: float = 18.0,
+                           opener=urlopen) -> dict:
+    """Probe only the FITS header of an official image; never archive pixels.
+
+    A valid FITS signature confirms transport, not correct WCS, clean PSF,
+    deblending or physical source identity.
+    """
+    u = urlparse(image_url)
+    if (u.scheme != "https" or u.hostname != "irsa.ipac.caltech.edu"
+            or not u.path.startswith("/ibe/data/ztf/products/sci/")
+            or u.username is not None or u.password is not None):
+        raise ValueError("Disallowed image URL")
+    if not 1 <= timeout_sec <= 45:
+        raise ValueError("Bad image timeout")
+    request = Request(image_url, headers={"User-Agent":
+                                         "StellarForge/1.4 provenance-only FITS header probe"})
+    try:
+        with opener(request, timeout=timeout_sec) as response:
+            first = response.read(80)
+        return {
+            "status": "FITS_HEADER_TRANSPORT_CONFIRMED"
+                if first.startswith(b"SIMPLE  =") else "UNRECOGNIZED_RESPONSE",
+            "fits_image_fully_downloaded": False,
+            "wcs_and_psf_physically_inspected": False,
+            "astrophysical_identity_confirmed": False,
+        }
+    except (HTTPError, URLError, TimeoutError, OSError) as error:
+        record = {
+            "status": "IMAGE_TRANSPORT_FAILED",
+            "error_type": type(error).__name__,
+            "fits_image_fully_downloaded": False,
+            "wcs_and_psf_physically_inspected": False,
+            "astrophysical_identity_confirmed": False,
+        }
+        if isinstance(error, HTTPError):
+            record["http_status"] = int(error.code)
+        return record
