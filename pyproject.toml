@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellarforge-research"
-version = "1.5.0"
-description = "Multi-survey astronomy research platform: time-domain photometry, official ZTF raw intake, Gaia field-neighbour screens, image provenance and source-identity evidence gates"
+version = "1.6.0"
+description = "Multi-survey astronomy research platform: time-domain photometry, official ZTF raw intake, Gaia field-neighbour screens, bounded FITS image-profile proxies, repeatability, and evidence gates"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Ismael Berja Ruiz" }]
