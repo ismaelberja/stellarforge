@@ -7,7 +7,7 @@ import pytest
 
 from stellarforge.v14_field_review import (
     audit_neighbours, make_gaia_adql, parse_gaia_csv,
-    selected_image_links, ztf_science_cutout_url,
+    selected_image_links, ztf_science_cutout_url, ztf_reference_cutout_url,
 )
 
 
@@ -108,6 +108,7 @@ def test_gaia_neighbor_screen_never_declares_blending_clean():
     assert d["nearby_sources"][0]["delta_g_neighbour_minus_target"] == 2.7
     assert not d["image_blending_ruled_out"]
     assert not d["unresolved_or_non_gaia_contaminants_excluded"]
+    assert not d["target_ruwe_exceeds_1p4_quality_screen"]
 
 
 def test_missing_target_does_not_mean_empty_field():
@@ -131,6 +132,25 @@ def test_ztf_science_url_expands_hex_ccd_quadrant_correctly():
     assert args["gzip"] == ["false"]
 
 
+def test_reference_url_uses_official_field_path():
+    url = ztf_reference_cutout_url(
+        exposure_row(), ra_center=65.913324, dec_center=24.937195)
+    assert "/ref/000/field000609/zg/ccd08/q4/" in url
+    assert "ztf_000609_zg_c08_q4_refimg.fits" in url
+    assert "45arcsec" in url
+
+
+def test_bad_ruwe_is_not_itself_proof_of_a_companion():
+    rows = parse_gaia_csv(gaia_table())
+    rows[0]["ruwe"] = 8.5
+    out = audit_neighbours(
+        rows, target_id="149623711269425408",
+        ra_deg=65.913324, dec_deg=24.937195, epoch_jyear=2021.0,
+    )
+    assert out["target_ruwe_exceeds_1p4_quality_screen"]
+    assert not out["image_blending_ruled_out"]
+
+
 @pytest.mark.parametrize("row", [
     exposure_row(filefracday="../something"),
     exposure_row(filtercode="u"),
@@ -152,6 +172,7 @@ def test_links_keep_independent_oid_bands_and_mask_bad_data():
     assert result["image_blending_verified_clean"] is False
     assert {x["band"] for x in result["image_cutouts"]} == {"zg", "zr"}
     assert all(not x["image_fits_retrieved"] for x in result["image_cutouts"])
+    assert all("/products/ref/" in x["reference_cutout_url"] for x in result["image_cutouts"])
 
 
 def test_all_masked_points_fail_closed():
