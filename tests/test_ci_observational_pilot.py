@@ -67,8 +67,8 @@ class TestCIPilot(unittest.TestCase):
 
     def test_header_only_requires_real_ztf_columns(self):
         with self.assertRaises(ValueError):
-            mod.inspect_response(b'error,message\\n')
-        x=mod.inspect_response(b'oid,mjd,mag,magerr,catflags,filtercode\\n')
+            mod.inspect_response(b'error,message\n')
+        x=mod.inspect_response(b'oid,mjd,mag,magerr,catflags,filtercode\n')
         self.assertEqual(x['rows'],0)
         self.assertEqual(x['status'],'NO_ROWS_RETURNED_COVERAGE_UNKNOWN')
         self.assertEqual(x['qc_rejected'],0)
