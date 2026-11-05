@@ -1,3 +1,16 @@
+# CURRENT SOURCE AND REFERENCE ACCESS — v1.8, 5 November 2026
+
+**This v1.8 status supersedes the historical milestones below; older results are retained with their original dated limitations.**
+
+- Official IRSA original 2,212 positional-cone photometric rows remain SHA-checked; they are **not physically confirmed Gaia/ZTF light curves**.
+- Independent wider Gaia DR3 210-arcsec TAP sources returned **50 entries around FT Tau and 250 around CIDA 11**, allowing **3 and 5 conservative candidate reference selections** after quality, RUWE, brightness and isolation tests. These are **not authenticated clean PSF stars**.
+- The real [v1.8 reference-image run](https://github.com/ismaelberja/stellarforge/actions/runs/42077605987) obtained **4 real target FITS Gaussian proxy fits and 13 valid candidate reference image fits out of 16 attempted reference cutouts**, all sharing the respective dated ZTF science archive product paths.
+- With >=3 different Gaia candidate IDs, **three exposures** permit a provisional median signed east/north offset: FT Tau MJD 58491.184780 (+0.08708″,+0.01267″); CIDA 11 MJD 58475.113750 (+0.05232″,+0.05436″) and MJD 58849.135984 (−0.00793″,+0.02166″). A fourth frame had only one usable reference.
+- No **independently validated WCS, empirical PSF or Gaia/ZTF crossmatch** has been obtained. Linear 2D Gaia proper motion ignores full covariance/parallax. CIDA 11 Gaia RUWE ~8.57 requires caution; small nominal residuals are not accuracy claims.
+- Public GitHub contains only vetted aggregate data and code, not original Gaia TAP CSV responses, original individual ZTF photometry or FITS pixel arrays. [Detailed real v1.8 report](../reports/gaia_reference_v1.8/REAL_REFERENCE_CANDIDATE_EVIDENCE.md).
+
+---
+
 # CURRENT SOURCE/IMAGE ACCESS — v1.7, 5 November 2026
 
 **This section supersedes the historical v1.6 and earlier access notes below; all previous observations are kept for chronology.**
