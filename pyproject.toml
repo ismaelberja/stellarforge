@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellarforge-research"
-version = "1.1.0"
-description = "Multi-survey astronomy research platform: time-domain photometry, private IRSA pilot intake, chromatic diagnostics and evidence gates"
+version = "1.2.0"
+description = "Multi-survey astronomy research platform: time-domain photometry, official ZTF raw intake, chromatic diagnostics and source-identity evidence gates"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Ismael Berja Ruiz" }]
