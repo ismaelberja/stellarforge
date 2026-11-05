@@ -1,0 +1,75 @@
+# Network-heavy archival image analysis is always user-triggered after the first verified run.
+name: v1.6 ZTF provisional PSF-proxy and multi-exposure audit (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Prior official IRSA ZTF raw-query artifact run"
+        type: string
+        required: true
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  two-star-psf-proxy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install scientific regression and image-analysis dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run complete offline regression tests
+        run: python -m pytest -q
+      - name: Fetch prior real IRSA responses into temporary storage
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACQUISITION_RUN_ID: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v16_original_irsa"
+          gh run download "$ACQUISITION_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v16_original_irsa"
+      - name: Repack original files into ephemeral ZIP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          import os
+          folder=Path(os.environ['RUNNER_TEMP'])/'v16_original_irsa'
+          files=sorted(x for x in folder.iterdir() if x.is_file())
+          expected={'PILOT_STATUS.json','REPORT.md',
+                    '149623711269425408_IRSA_RAW.csv',
+                    '3419110734340795648_IRSA_RAW.csv'}
+          if {f.name for f in files} != expected:
+              raise ValueError('Unexpected source artifact inventory')
+          with ZipFile(folder.parent/'v16_original.zip','w',compression=ZIP_DEFLATED) as z:
+              for f in files:
+                  z.write(f, f.name)
+          PY
+      - name: Fit provisional single-Gaussian image shapes on independent ZTF science exposures
+        run: |
+          python scripts/run_v16_psf_repeatability.py "$RUNNER_TEMP/v16_original.zip" \
+            --output reports/generated/v1.6_psf --timeout 8 --fail-if-no-fit
+      - name: Show scientific caveats even on archive failures
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.6_psf/V16_PSF_PROXY_AND_REPEATABILITY.md ]; then
+            cat reports/generated/v1.6_psf/V16_PSF_PROXY_AND_REPEATABILITY.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload aggregate diagnostics only (NEVER raw FITS or ZTF CSV)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v16-PSF-shape-and-repeatability-NO-RAW
+          path: |
+            reports/generated/v1.6_psf/V16_PSF_PROXY_AND_REPEATABILITY.json
+            reports/generated/v1.6_psf/V16_PSF_PROXY_AND_REPEATABILITY.md
+          retention-days: 7
+          if-no-files-found: warn

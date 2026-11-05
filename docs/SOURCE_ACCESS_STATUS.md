@@ -1,3 +1,17 @@
+# CURRENT SOURCE ACCESS — v1.6, 5 November 2026
+
+**The following current status supersedes all earlier entries below; historical notes are preserved and must not be read as the latest status.**
+
+- **Official IRSA/ZTF raw transport: completed for two position queries.** FT Tau cone: 1,199 photometric rows across four ZTF OIDs; CIDA 11 cone: 1,013 rows across two OIDs. Original raw SHA-256 hashes are recorded in the [v1.2 transport audit](../reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md), and source-identity evidence in the [v1.3 provisional astrometric report](../reports/astrometry_v1.3/PROVISIONAL_POSITIONS_REPORT.md).
+- **Crossmatch identity is not confirmed:** a positional IRSA cone response, even with a close ZTF catalogue position, does not independently identify a Gaia star or exclude blends.
+- **Independent Gaia DR3 field checks:** two 15-arcsec TAP cone queries each returned only the target DR3 entry, but no other catalogued Gaia source is not proof that the field is uncontaminated. CIDA 11's RUWE ≈ 8.57 is a major astrometric-fit quality concern; [v1.4 report](../reports/field_review_v1.4/GAIA_NEIGHBOURS_AND_IRSA_IMAGES.md).
+- **Real ZTF imaging:** v1.5 validated pixels and header WCS in five of six OID-band groups using three individual science frames and two reference coadds. This is a provisional pixel screen, not a calibrated PSF or confirmed crossmatch.
+- **Image-profile fits in v1.6:** three individual FT Tau science images were modeled with a robust single-Gaussian-plus-planar-background **proxy**. All three have substantial positive model residuals; 0 curves had at least two independently usable science images for repeatability. No CIDA 11 profile fit in v1.6; many IRSA requests were HTTP 503. See [real v1.6 audit](../reports/psf_v1.6/REAL_GAUSSIAN_FIT_REVIEW.md).
+- **Scientific confirmations remain zero:** 0 verified Gaia–ZTF physical source identities, 0 proven unblended sources, 0 confirmed new physical events or disk classifications. Publisher-original Taurus parent table byte comparison remains open.
+- **Public repository data policy:** archived source downloads and transient FITS pixels are not committed; use the authorized original archive and its checksums for reproduction. Public GitHub Actions artifacts contain only summary diagnostics; historical acquisition artifacts have a short retention period.
+
+---
+
 # CURRENT ACCESS STATUS (2026-11-04, v0.8)
 
 - **Taurus catalogue data:** 24 real, provisional coordinate records in a pinned third-party copy of the 532-member Luhman (2023) adopted-members table. The original author's/publisher's file has not been byte-compared to the third-party mirror.

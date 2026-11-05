@@ -1,3 +1,18 @@
+## Current research/engineering roadmap — v1.6 (5 November 2026)
+
+**Engineering milestone implemented:** 387 automated tests, acquisition of 2,212 original IRSA ZTF position-query records with source hashes, cautious per-epoch positional screening, independent Gaia DR3 15-arcsec field-neighbour checks, real FITS/WCS pixel access and single-Gaussian image-profile proxies for three FT Tau science exposures. See the [current status](PROJECT_STATUS.md), [v1.5 real FITS audit](../reports/real_fits_v1.5/PIXEL_WCS_RESULTS.md), and [v1.6 Gaussian-profile real-image audit](../reports/psf_v1.6/REAL_GAUSSIAN_FIT_REVIEW.md).
+
+**Science gates still open (do not claim completed from a software test):**
+1. Independently verify Gaia–ZTF stellar identity using realistic Gaia full astrometric uncertainties, image calibration and source alternatives; CIDA 11 has very high RUWE.
+2. Compare targets with **same-field empirical PSFs**, spatially varying image backgrounds, instrumental masks and WCS residuals. A simple single-Gaussian residual is not evidence of a physical companion.
+3. Obtain at least two independent and valid dated science exposures within an OID/filter. Temporary HTTP 503 archive errors must not be treated as absence of coverage; reference coadds do not count.
+4. Verify the publisher's original Luhman (2023) membership table, independent disk classes and source sample selection before any occurrence-rate estimate.
+5. Quantify real-cadence sensitivity with vetted comparison stars, injection/recovery and uncertainty budgets before any physical variability discovery or period/incidence claim.
+
+**External/public code:** repo is public for software portfolio inspection. Raw photometric CSV and FITS image pixels are not committed to Git; only vetted aggregate results are added. This roadmap remains historical below so earlier phases can be understood in context.
+
+---
+
 ## Current v0.8 milestone and next scientific gate
 
 - v0.8 is complete as a **technical research phase**: offline secondary ZTF-format compatibility, dual-clock MJD/HJD fix, exact event-start cadence geometry, 24-source readiness ledger, and 239 passing tests. **Zero verified Taurus ZTF photometric curves and zero physical discoveries.**
