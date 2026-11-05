@@ -1,3 +1,18 @@
+# Current research/engineering roadmap — v1.8, 5 November 2026
+
+**New verified research-software milestone:** 422 automated tests; two original SHA-checked IRSA positional cone queries (2,212 rows); six ZTF OID/filter groups with two independent usable science images apiece (v1.7); **independent Gaia DR3 210-arcsec reference selection** (50 FT Tau + 250 CIDA 11 catalogue sources), **eight conservative candidate references**, 13 measured same-ZTF-science-product reference cutouts and three provisional signed WCS translation proxies (v1.8). These are **neither independently calibrated PSFs/WCS nor confirmed stellar source identities**. See the [real v1.8 report](../reports/gaia_reference_v1.8/REAL_REFERENCE_CANDIDATE_EVIDENCE.md).
+
+**Priority next scientific work:**
+1. Validate Gaia-selected candidate reference stars using catalogue cross-checks, morphology, saturation and field/filter-specific instrumental PSFs. Quality-screened Gaia entries are not guaranteed isolated ZTF PSF standards.
+2. Perform independently controlled multi-source WCS distortion/shift and uncertainty calibration with robust matching, proper error propagation and full Gaia parallax, correlation and covariance terms. High CIDA 11 RUWE (about 8.57) demands scrutiny.
+3. Evaluate background, detector masks, colour PSF mismatch, nebular emission and blending before claiming clean stellar measurements. Extend limited one-g-band-per-target pilot to the remaining ZTF OID/filter groups and multiple science epochs.
+4. Independently verify the publisher-original Luhman (2023) membership table, disk classes and source IDs, then validate real photometric variability/selection efficiency with field stars and injection/recovery.
+5. Maintain fail-closed acquisition, input SHA-256 provenance and **no publication of raw third-party Gaia/ZTF CSVs or FITS pixel arrays**. Numerical precision of offset reports is not calibrated astrophysical measurement accuracy.
+
+No new physical companions, source crossmatches, stellar disk classifications or physical variability events are confirmed.
+
+---
+
 # Research/engineering roadmap — CURRENT v1.7, 5 November 2026
 
 **Completed engineering work:** reproducible official IRSA raw transport (2,212 SHA-checked ZTF rows), provisional Gaia–ZTF positional and Gaia DR3 field screens, five image cutout screens in v1.5, preliminary Gaussian proxies in v1.6, **twelve real and distinct science FITS images (two per OID/filter) in v1.7**, all with bounded celestial WCS/shape screening, synthetic regression coverage and **400 passed tests**. Read the [v1.7 observational report](../reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md).
