@@ -155,8 +155,14 @@ def test_links_keep_independent_oid_bands_and_mask_bad_data():
 
 
 def test_all_masked_points_fail_closed():
-    raw = lightcurve_csv().decode().replace(",0\n", ",32768\n")
+    reader = csv.DictReader(io.StringIO(lightcurve_csv().decode()))
+    output = io.StringIO()
+    writer = csv.DictWriter(output, fieldnames=reader.fieldnames)
+    writer.writeheader()
+    for row in reader:
+        row["catflags"] = "32768"
+        writer.writerow(row)
     with pytest.raises(ValueError):
-        selected_image_links(raw.encode(),
+        selected_image_links(output.getvalue().encode(),
                              target_ra_deg=65.913324, target_dec_deg=24.937195,
                              target_pmra=7.448, target_pmdec=-21.849)
