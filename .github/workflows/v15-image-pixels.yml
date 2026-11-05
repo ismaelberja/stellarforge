@@ -1,10 +1,7 @@
-# One-time push validation of real ZTF FITS; switch to manual-only after first audit.
+# Remote archival FITS requests must be manually initiated; no automated re-downloads.
 name: v1.5 Real FITS pixel WCS screening (ephemeral image data)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v15-image-pixels.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
