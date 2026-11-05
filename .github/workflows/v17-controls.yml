@@ -1,0 +1,80 @@
+# Initial controlled observational audit on adding this workflow; use manual-only afterward.
+name: v1.7 ZTF same-field control peaks and independent science epochs (NO RAW)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v17-controls.yml'
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Original SHA-audited official IRSA photometry artifact"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  field-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install scientific image and regression dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Confirm 400+ regression tests without network
+        run: python -m pytest -q
+      - name: Download original IRSA cone-query bytes in ephemeral runner
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACQUISITION_RUN_ID: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v17_input"
+          gh run download "$ACQUISITION_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v17_input"
+      - name: Recover the original signed inventory in an ephemeral ZIP
+        run: |
+          python - <<'PY'
+          import os
+          from zipfile import ZipFile, ZIP_DEFLATED
+          from pathlib import Path
+          folder=Path(os.environ['RUNNER_TEMP'])/'v17_input'
+          entries=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={'PILOT_STATUS.json','REPORT.md',
+                    '149623711269425408_IRSA_RAW.csv',
+                    '3419110734340795648_IRSA_RAW.csv'}
+          if {p.name for p in entries} != expected:
+              raise ValueError('Input inventory is not identical to source observational manifest')
+          with ZipFile(folder.parent/'v17_original.zip','w',compression=ZIP_DEFLATED) as z:
+              for p in entries:
+                  z.write(p,p.name)
+          PY
+      - name: Review 90-arcsec real FITS fields and bounded independent science frames
+        run: |
+          python scripts/run_v17_field_controls.py \
+            "$RUNNER_TEMP/v17_original.zip" \
+            --output reports/generated/v1.7_controls \
+            --science-attempts 6 --timeout 5 --fail-if-no-science
+      - name: Publish research limitations in workflow summary
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.7_controls/V17_FIELD_CONTROLS_AGGREGATE_NO_RAW.md ]; then
+            cat reports/generated/v1.7_controls/V17_FIELD_CONTROLS_AGGREGATE_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload only aggregate diagnostics; NEVER raw ZTF/FITS data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v17-same-field-unclassified-controls-NO-RAW
+          path: |
+            reports/generated/v1.7_controls/V17_FIELD_CONTROLS_AGGREGATE_NO_RAW.json
+            reports/generated/v1.7_controls/V17_FIELD_CONTROLS_AGGREGATE_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
