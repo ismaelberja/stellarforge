@@ -16,7 +16,7 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 | Engineering result | Verified scope |
 |---|---|
-| **354 automated tests passed** | GitHub Actions on the v1.4 research branch (5 November 2026) |
+| **357 automated tests passed** | GitHub Actions on the v1.4 research branch (5 November 2026) |
 | **2,212 real photometric rows retrieved** | Two official IRSA cone searches around published positions for FT Tau and CIDA 11, **not yet authenticated as those stars** |
 | **Six ZTF object identifiers** | Kept separate by source ID, filter and field rather than blended |
 | **Two independent Gaia DR3 15″ field audits** | No *additional catalogued Gaia* sources returned near either target; unresolved companions are not excluded |
@@ -34,7 +34,7 @@ StellarForge now builds **official ZTF science and reference FITS cutout links f
 
 - [v1.4 independent Gaia and FITS access results](reports/field_review_v1.4/GAIA_NEIGHBOURS_AND_IRSA_IMAGES.md)
 - [v1.4 methods and limits](docs/PHASE14_INDEPENDENT_GAIA_AND_ZTF_IMAGE_QA.md)
-- [Observed verification run (354 tests)](https://github.com/ismaelberja/stellarforge/actions/runs/42004372822)
+- [Observed live Gaia/IRSA field audit](https://github.com/ismaelberja/stellarforge/actions/runs/42004372822)
 
 **All source identity, contamination and physical-event claims remain unverified.**
 
@@ -105,6 +105,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 - [Validation plan](docs/VALIDATION.md)
 - [Spanish getting-started guide](EMPEZAR_AQUI.md)
 - [Engineering and scientific history](RESEARCH_HISTORY.md)
+- [v1.4 release notes](RELEASE_NOTES_v1.4.md)
 - [Contribution guidelines](CONTRIBUTING.md)
 
 ## Roadmap
