@@ -1,10 +1,7 @@
-# One-time archive evaluation on workflow addition; switch to manual-only after run.
+# Network-heavy archival image analysis is always user-triggered after the first verified run.
 name: v1.6 ZTF provisional PSF-proxy and multi-exposure audit (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v16-psf-repeatability.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
