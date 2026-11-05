@@ -22,7 +22,7 @@ from stellarforge.v17_field_controls import stratified_ztf_image_candidates
 from stellarforge.v18_gaia_references import (
     download_reference_catalog, estimate_provisional_wcs_translation,
     parse_reference_catalog, screen_reference_on_exposure,
-    select_gaia_reference_candidates,
+    select_gaia_reference_candidates, subtract_candidate_reference_translation,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -133,6 +133,8 @@ def run(archive_path: Path, seed_path: Path, *,
                     "n_gaia_references_with_image_model": sum(
                         r.get("status") in PSF_OK for r in refs),
                     "provisional_wcs_translation": correction,
+                    "target_after_provisional_reference_translation":
+                        subtract_candidate_reference_translation(target_fit, correction),
                     "independently_wcs_calibrated": False,
                 })
             targets.append({
