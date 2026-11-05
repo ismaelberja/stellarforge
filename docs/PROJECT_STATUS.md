@@ -5,7 +5,7 @@
 ## Implemented
 
 - Full Python package, command-line utilities, tests, continuous integration and research documentation.
-- 354/354 automated tests passed in GitHub Actions on the v1.4 research branch (5 November 2026).
+- 357/357 automated tests passed in GitHub Actions on the v1.4 research branch (5 November 2026).
 - Pinned secondary Taurus catalog audit: 532 adopted members, 467 Gaia identifiers; 24-object technical seed.
 - Two official IRSA ZTF cone-query responses near FT Tau and CIDA 11 on 5 November 2026, totaling 2,212 rows across six distinct ZTF OIDs; integrity hashes and failures are logged.
 - Reproducible SHA-checked **provisional Gaia-to-ZTF per-epoch screen** for all six OID/passbands; median positional separations ~0.063–0.092 arcsec (not independently verified identities).
