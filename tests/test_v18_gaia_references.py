@@ -12,6 +12,7 @@ from stellarforge.v18_gaia_references import (
     GAIA_COLUMNS_V18, reference_adql, parse_reference_catalog,
     select_gaia_reference_candidates, retarget_same_ztf_exposure,
     screen_reference_on_exposure, estimate_provisional_wcs_translation,
+    subtract_candidate_reference_translation,
 )
 
 RA, DEC = 65.913324, 24.937195
@@ -253,3 +254,40 @@ def test_two_references_never_count_as_independent_wcs():
     ])
     assert out["status"]=="INSUFFICIENT_INDEPENDENT_IMAGE_VALIDATED_GAIA_CANDIDATES"
     assert not out["independent_wcs_calibration_completed"]
+
+
+
+def test_provisional_reference_subtracted_target_offset_is_never_astro_calibration():
+    target = {
+        "status": "PSF_PROXY_REVIEW_REQUIRED",
+        "east_wcs_minus_gaia_arcsec": 0.16,
+        "north_wcs_minus_gaia_arcsec": -0.05,
+    }
+    reference_shift = {
+        "status": "PROVISIONAL_LOCAL_WCS_TRANSLATION_ONLY",
+        "n_reference_candidates_usable": 3,
+        "median_east_residual_arcsec": 0.1,
+        "median_north_residual_arcsec": -0.02,
+    }
+    result = subtract_candidate_reference_translation(target, reference_shift)
+    assert result["status"] == "PROVISIONAL_TARGET_MINUS_GAIA_REFERENCES_ONLY"
+    assert result["east_residual_arcsec"] == 0.06
+    assert result["north_residual_arcsec"] == -0.03
+    assert result["radial_residual_arcsec"] == pytest.approx(.06708, abs=.00001)
+    assert not result["independent_astrometry_calibrated"]
+    assert not result["target_source_identity_confirmed"]
+
+
+def test_two_references_cannot_generate_target_corrected_offset():
+    target = {
+        "status": "PSF_PROXY_PROVISIONAL_ONLY",
+        "east_wcs_minus_gaia_arcsec": 0.1,
+        "north_wcs_minus_gaia_arcsec": 0.0,
+    }
+    insufficient = {
+        "status": "INSUFFICIENT_INDEPENDENT_IMAGE_VALIDATED_GAIA_CANDIDATES",
+        "n_reference_candidates_usable": 2,
+    }
+    result = subtract_candidate_reference_translation(target, insufficient)
+    assert result["status"] == "REFERENCE_TRANSLATION_OR_TARGET_FIT_INCOMPLETE"
+    assert "radial_residual_arcsec" not in result
