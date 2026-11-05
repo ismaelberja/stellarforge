@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install image and scientific test dependencies
-        run: python -m pip install -e '.[test,images]'
+        run: python -m pip install -e '.[test,analysis,images]'
       - name: Full offline scientific and regression suite
         run: python -m pytest -q
       - name: Recover official IRSA responses in runner temp storage
