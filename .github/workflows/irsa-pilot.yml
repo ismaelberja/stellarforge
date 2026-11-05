@@ -1,9 +1,8 @@
-name: Private Taurus observational intake pilot
+# Public-repository-safe diagnostics:
+# This workflow never uploads raw astronomical CSVs as GitHub artifacts.
+name: ZTF live intake diagnostics (ephemeral, no raw artifacts)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/irsa-pilot.yml'
   workflow_dispatch:
 
 permissions:
@@ -18,19 +17,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run preregistered two-object astronomical data intake
+      - name: Query preregistered two-position observational pilot
         run: python scripts/ci_observational_pilot.py reports/generated/private_irsa_pilot --fail-if-empty
-      - name: Show science-status audit even when HTTP intake fails
+      - name: Report sanitized science status (never archive raw)
         if: always()
         run: |
           if [ -f reports/generated/private_irsa_pilot/REPORT.md ]; then
             cat reports/generated/private_irsa_pilot/REPORT.md >> "$GITHUB_STEP_SUMMARY"
           fi
-      - name: Archive raw responses privately for scientific identity review
+      - name: Upload provenance-only metadata (NO CSV or images)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: taurus-two-target-raw-UNVERIFIED
-          path: reports/generated/private_irsa_pilot/
+          name: ztf-transport-status-no-raw
+          path: |
+            reports/generated/private_irsa_pilot/PILOT_STATUS.json
+            reports/generated/private_irsa_pilot/REPORT.md
           retention-days: 7
-          if-no-files-found: error
+          if-no-files-found: warn
