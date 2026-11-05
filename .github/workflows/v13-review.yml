@@ -1,10 +1,13 @@
 name: v1.3 Provisional Gaia-ZTF positional audit (ephemeral raw)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v13-review.yml'
   workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: 'GitHub Actions run with original IRSA raw artifact (must still exist)'
+        required: true
+        type: string
+        default: '41997079598'
 
 permissions:
   contents: read
@@ -26,9 +29,10 @@ jobs:
       - name: Download previous official IRSA responses to ephemeral runner
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACQUISITION_RUN_ID: ${{ inputs.acquisition_run_id }}
         run: |
           mkdir -p "$RUNNER_TEMP/v13_private_input"
-          gh run download 41997079598 --repo "$GITHUB_REPOSITORY" \
+          gh run download "$ACQUISITION_RUN_ID" --repo "$GITHUB_REPOSITORY" \
             --name taurus-two-target-raw-UNVERIFIED \
             --dir "$RUNNER_TEMP/v13_private_input"
       - name: Pack original files into ephemeral ZIP without committing them
