@@ -1,3 +1,4 @@
+# IRSA reference-image transport is checked if the representative science exposure is unavailable.
 name: v1.4 Independent Gaia neighbours and ZTF image access audit
 
 on:
