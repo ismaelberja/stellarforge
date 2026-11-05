@@ -1,3 +1,17 @@
+# CURRENT SOURCE/IMAGE ACCESS — v1.7, 5 November 2026
+
+**This section supersedes the historical v1.6 and earlier access notes below; all previous observations are kept for chronology.**
+
+- **Official IRSA raw photometry:** two SHA-checked 2-arcsec position queries, 2,212 ZTF rows (FT Tau cone 1,199 and CIDA 11 cone 1,013), six separate OID/filter groups. These are NOT independently confirmed Gaia/ZTF matches. See the [transport audit](../reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md).
+- **Real ZTF science images:** the v1.7 verified run [42058770141](https://github.com/ismaelberja/stellarforge/actions/runs/42058770141) read **12 individual original science FITS pixel arrays**, **two independently different FITS files per OID/band**, 8 for FT Tau and 4 for CIDA 11. Each has provisional celestial WCS/radial-profile image checks; no reference coadd was used as a science epoch. 14 remote requests: 12 success, 2 URLError.
+- **Descriptive repeated-epoch proxy:** pairwise differences between the two Gaussian centroid residual vectors within each OID/filter group **0.024–0.097 arcsec**. These are *not calibrated accuracy, physical motions or verified source association*: FITS WCS astrometric residuals and Gaia parallax/covariance remain unknown.
+- **Same-field controls:** 90-arcsec cutouts yielded **zero science images with >=2 acceptable unclassified comparison image peaks**. This does not establish an empty field or source cleanliness; no empirical PSF can yet be scientifically calibrated.
+- **Image shape:** 11/12 simple Gaussian target fits require residual review; one is provisionally acceptable under the simple model, but no source, binary or physical event is established. High Gaia DR3 RUWE for CIDA 11 (~8.57) remains a serious astrometric-model caution.
+- **Scientific confirmations: ZERO:** physical source crossmatches, validated unblended fields, new companions, and real physical variability events all remain unconfirmed.
+- **Public project/provenance:** [v1.7 real-image report](../reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md) and [v1.7 method limitations](PHASE17_SAME_IMAGE_CONTROLS.md). All source photometry and FITS pixels remain outside the public Git history; CI artifacts contain aggregate-only diagnostics.
+
+---
+
 # CURRENT SOURCE ACCESS — v1.6, 5 November 2026
 
 **The following current status supersedes all earlier entries below; historical notes are preserved and must not be read as the latest status.**

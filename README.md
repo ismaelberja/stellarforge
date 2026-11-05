@@ -10,22 +10,28 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 **Created and scientifically directed by Ismael Berja Ruiz**, with AI-assisted software development and human review of scientific methodology.
 
-> **Research status (v1.6, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+> **Research status (v1.7, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
 
 ## At a glance
 
 | Engineering result | Verified scope |
 |---|---|
-| **387 automated tests passed** | GitHub Actions v1.6 research branch (5 November 2026) |
+| **400 automated tests passed** | GitHub Actions v1.7 observational research branch (5 November 2026) |
 | **2,212 real photometric rows retrieved** | Two official IRSA cone searches around published positions for FT Tau and CIDA 11, **not yet authenticated as those stars** |
 | **Six ZTF object identifiers** | Kept separate by source ID, filter and field rather than blended |
 | **Two independent Gaia DR3 15″ field audits** | No *additional catalogued Gaia* sources returned near either target; unresolved companions are not excluded |
 | **Real FITS pixel/WCS screening** | Five of six ZTF OID-band groups were screened in v1.5; no identity or blend clearance claimed |
-| **Provisional Gaussian image-profile analysis** | Three FT Tau science FITS images modeled in v1.6; all require PSF residual review; no multi-exposure evidence yet |
+| **Multi-epoch real-image evidence** | 12 individual ZTF science FITS images processed in v1.7, two distinct epochs in every OID/band group; no calibrated source identity |
 | **532 Taurus catalog members audited** | Pinned third-party Luhman (2023) Table 2 mirror; original publisher-file comparison pending |
 | **24-star technical pilot** | Real published coordinates, not a representative or disk-classified scientific population |
 
 The official requests and SHA-256 checksums are documented in the [v1.2 observational transport audit](reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md). The [v1.3 provisional astrometric report](reports/astrometry_v1.3/PROVISIONAL_POSITIONS_REPORT.md) finds median epoch-corrected Gaia/ZTF position separations of 0.063–0.092 arcsec across six curves, **without confirming any astrophysical source identity**. **Raw ZTF downloads and private research artifacts are not committed to Git.**
+
+## v1.7 — repeated science exposures and same-image shape controls
+
+The [v1.7 real ZTF FITS audit](reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md) has now **processed 12 individual science frames** from six distinct ZTF OID/filter groups — **two independent FITS SHA-256s for each group**, including two g-band and two r-band CIDA 11 science images. This moves beyond the unavailable repeatability of v1.6. Observed *WCS-referenced Gaussian proxy centroid-residual differences* across each two-frame pair are **0.024–0.097 arcsec**, but **these are not independent astrometric accuracies, validated source matches, physical motions or discoveries**.
+
+An initial 90-arcsec **same-image radial profile control** survey found **no images with at least two usable comparison brightness peaks**. Such peaks would themselves need catalog authentication before they could become stellar PSF standards; the current field does **not** support empirical PSF calibration or a claim of absent blending. The new implementation includes bounded requests, independent science-epoch deduplication, source-hash checks and **400 automated passing tests**. All raw FITS/CSV bytes are excluded from the public repository.
 
 ## v1.6 — quantitative image-profile proxies and repeatability gates
 
@@ -121,6 +127,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 ## Project documentation
 
 - [Current status and next milestones](docs/PROJECT_STATUS.md)
+- [v1.7 real-image science-epoch and same-field control evidence](reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md)
 - [v1.6 real Gaussian profile and repeatability audit](reports/psf_v1.6/REAL_GAUSSIAN_FIT_REVIEW.md)
 - [v1.5 real FITS pixel and WCS audit](reports/real_fits_v1.5/PIXEL_WCS_RESULTS.md)
 - [v1.4 Gaia-neighbour and ZTF image-access audit](reports/field_review_v1.4/GAIA_NEIGHBOURS_AND_IRSA_IMAGES.md)
@@ -130,13 +137,14 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 - [Validation plan](docs/VALIDATION.md)
 - [Spanish getting-started guide](EMPEZAR_AQUI.md)
 - [Engineering and scientific history](RESEARCH_HISTORY.md)
+- [v1.7 release notes](RELEASE_NOTES_v1.7.md)
 - [v1.6 release notes](RELEASE_NOTES_v1.6.md)
 - [v1.4 release notes](RELEASE_NOTES_v1.4.md)
 - [Contribution guidelines](CONTRIBUTING.md)
 
 ## Roadmap
 
-1. **Next — empirical PSF and independent source validation:** compare with same-field stellar PSFs, obtain multiple usable science exposures, model WCS errors/PSF wings, test non-Gaia blends and full Gaia astrometric uncertainties; prioritize CIDA 11's high RUWE.
+1. **Next — authenticated empirical PSF and source validation:** identify genuine external reference stars (none authenticated yet within the 90-arcsec fields), calibrate WCS errors/PSF wings across the now-available independent frames, and model full Gaia uncertainties, especially high-RUWE CIDA 11.
 2. **Observational validation:** real-cadence injection/recovery, field-star controls, uncertainty budgets and documented false positives.
 3. **Scientific reporting:** independently reviewed candidate dossiers, reproducible figures and optional interactive tools.
 

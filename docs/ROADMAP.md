@@ -1,3 +1,20 @@
+# Research/engineering roadmap — CURRENT v1.7, 5 November 2026
+
+**Completed engineering work:** reproducible official IRSA raw transport (2,212 SHA-checked ZTF rows), provisional Gaia–ZTF positional and Gaia DR3 field screens, five image cutout screens in v1.5, preliminary Gaussian proxies in v1.6, **twelve real and distinct science FITS images (two per OID/filter) in v1.7**, all with bounded celestial WCS/shape screening, synthetic regression coverage and **400 passed tests**. Read the [v1.7 observational report](../reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md).
+
+**New critical observation:** no v1.7 90-arcsec science frame had two usable **unclassified** same-field image control peaks, so empirical instrumental PSF calibration is NOT completed. The small pairwise centroid residual differences are only descriptive; Gaia source identity, independent WCS error and unblended photometry remain unverified.
+
+**Priority scientific gates (all open):**
+1. Authenticate one or more field stars from catalogued/imaged sources in each ZTF field; if necessary query larger official image products under a controlled request plan. Distinguish extended nebulae, galaxies, saturation and unclassified maxima; do not silently treat brightness peaks as stellar controls.
+2. Estimate **empirical field-variable PSFs**, masks and source/background residuals with valid controls. A single-Gaussian target-model residual does not imply a physical companion.
+3. Use the now-available independent science frames for **calibrated** multi-epoch comparisons with WCS recalibration, centroid errors, full Gaia proper-motion/parallax/covariance, realistic correlated instrument systematics and absolute time definitions.
+4. Resolve CIDA 11's unusually high Gaia DR3 RUWE and alternative/non-Gaia neighboring sources. **No Gaia–ZTF physical identity confirmed.**
+5. Verify the original Luhman (2023) publisher membership dataset, independent disk classifications, external field reference stars and real-cadence injection/recovery before estimating detection sensitivity, incidence or a physical event rate.
+
+**Public repository:** GitHub can be shown on a CV now; code and findings are versioned for transparent research-software review, with individual third-party ZTF CSV and FITS pixel arrays kept outside Git. This supersedes earlier milestone roadmaps below, which remain historical.
+
+---
+
 ## Current research/engineering roadmap — v1.6 (5 November 2026)
 
 **Engineering milestone implemented:** 387 automated tests, acquisition of 2,212 original IRSA ZTF position-query records with source hashes, cautious per-epoch positional screening, independent Gaia DR3 15-arcsec field-neighbour checks, real FITS/WCS pixel access and single-Gaussian image-profile proxies for three FT Tau science exposures. See the [current status](PROJECT_STATUS.md), [v1.5 real FITS audit](../reports/real_fits_v1.5/PIXEL_WCS_RESULTS.md), and [v1.6 Gaussian-profile real-image audit](../reports/psf_v1.6/REAL_GAUSSIAN_FIT_REVIEW.md).
