@@ -1,10 +1,7 @@
-# Initial controlled observational audit on adding this workflow; use manual-only afterward.
+# All future external observational archive requests require manual initiation.
 name: v1.7 ZTF same-field control peaks and independent science epochs (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v17-controls.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
