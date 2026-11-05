@@ -333,3 +333,36 @@ def estimate_provisional_wcs_translation(refs: list[dict], *,
         "gaia_ztf_target_identity_confirmed": False,
         "full_astrometric_covariance_included": False,
     }
+
+
+def subtract_candidate_reference_translation(target_fit: dict,
+                                             translation: dict) -> dict:
+    """Diagnostic target-minus-reference median offset, NOT calibrated astrometry.
+
+    Only computes when both independent reference count and shape/center
+    screening succeeded. Gaia full astrometric uncertainties and target/source
+    identity are not established. Must not be interpreted as proper motion.
+    """
+    if (target_fit.get("status") not in PSF_OK
+            or translation.get("status") != "PROVISIONAL_LOCAL_WCS_TRANSLATION_ONLY"
+            or translation.get("n_reference_candidates_usable", 0) < 3):
+        return {
+            "status": "REFERENCE_TRANSLATION_OR_TARGET_FIT_INCOMPLETE",
+            "independent_astrometry_calibrated": False,
+            "target_source_identity_confirmed": False,
+        }
+    east = (float(target_fit["east_wcs_minus_gaia_arcsec"])
+            - float(translation["median_east_residual_arcsec"]))
+    north = (float(target_fit["north_wcs_minus_gaia_arcsec"])
+             - float(translation["median_north_residual_arcsec"]))
+    if not (math.isfinite(east) and math.isfinite(north)):
+        raise ValueError("Non-finite reference-minus-target residual")
+    return {
+        "status": "PROVISIONAL_TARGET_MINUS_GAIA_REFERENCES_ONLY",
+        "east_residual_arcsec": round(east, 5),
+        "north_residual_arcsec": round(north, 5),
+        "radial_residual_arcsec": round(math.hypot(east,north),5),
+        "independent_astrometry_calibrated": False,
+        "target_source_identity_confirmed": False,
+        "full_Gaia_astrometric_covariance_propagated": False,
+    }
