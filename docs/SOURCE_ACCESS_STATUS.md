@@ -1,3 +1,16 @@
+# Current source/observation access — StellarForge v1.11 (6 November 2026)
+
+This is the latest version; older notes below are historical.
+
+- **Gaia DR3 reference astrometry:** v1.11 queried **ten exact Gaia DR3 IDs**, including the eight reference candidates measured with ZTF Gaussian profiles in v1.8 and the two target stars. Full five-parameter catalogue **formal covariance** and all ten correlations were returned for each, and individual Earth-geocentric first-order annual parallax shifts were modeled at the original exposure MJDs. [Observed 484-test Gaia run](https://github.com/ismaelberja/stellarforge/actions/runs/42254052752).
+- **Reanalyzed ZTF derived image offsets:** 13 original reference models in four actual dated g-band science exposures, from [historical v1.8 official ZTF run](https://github.com/ismaelberja/stellarforge/actions/runs/42077605987) and [small public derived ledger](../data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json); no original FITS pixels re-fitted and no new ZTF raw images acquired in this phase.
+- **Actual sensitivity:** after each Gaia reference's parallax correction the strict reference holdout RMS is **0.075770″ FT Tau** (vs 0.075782″ before) and **0.092971″ CIDA 11** (vs 0.093046″ before). Maximum individual reference-star geometric correction was **0.60918 mas**. Strict eligible exposure count remains 2 of 4.
+- **Catalogue vs instrument:** the Gaia formal east/north source uncertainties (median **0.15786/0.11637 mas** for the 13 reference observations) are NOT ZTF detector WCS or PSF uncertainties, and do not correct shared source model or instrument calibration systematics. High CIDA 11 RUWE ~8.57 remains unresolved.
+- **Source provenance:** new Gaia exact-ID TAP raw response SHA-256 `688e7cfcda6f528d58bc1f92c44b86396de905eef2e28d0db4ce28d4558aa545`; original ZTF v1.8 derived aggregate SHA-256 `fb7d5c315cbef56b2551e73920c67920827d91160b4c0bd35f3fd77113166beb`. Raw Gaia TAP records, ZTF light curves and FITS pixels are not published.
+- **Research scientific gates remain open:** no independently confirmed Gaia/ZTF association, empirical PSF/wavelength control, calibrated detector astrometric errors, physical variability events or new companions. Detailed [v1.11 scientific report](../reports/reference_parallax_v1.11/REAL_GAIA_REFERENCE_PARALLAX_LOO.md).
+
+---
+
 # CURRENT REAL-DATA EVIDENCE AND ACCESS — v1.10 (6 November 2026)
 
 The older milestones below remain historical and are superseded by this current status.
