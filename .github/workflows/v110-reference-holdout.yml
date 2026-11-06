@@ -1,0 +1,42 @@
+# Initial run on added workflow, then switch to workflow_dispatch-only.
+# Only reads versioned derived image-model offsets. No remote archive access.
+name: v1.10 Offline real Gaia/ZTF reference holdout QA (NO RAW)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v110-reference-holdout.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-reference-holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install scientific and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Validate full offline regression tests and v1.8 input provenance
+        run: python -m pytest -q
+      - name: Re-evaluate four actual ZTF science exposures with held-out Gaia references
+        run: |
+          python scripts/run_v110_reference_holdout.py \
+            --input data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --output reports/generated/v1.10_reference_holdout
+      - name: Publish conservative reference-validation findings
+        run: cat reports/generated/v1.10_reference_holdout/V110_REFERENCE_HOLDOUT_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload only derived reference quality and holdout scores
+        uses: actions/upload-artifact@v4
+        with:
+          name: v110-LOO-reference-validation-aggregates-NO-RAW
+          path: |
+            reports/generated/v1.10_reference_holdout/V110_REFERENCE_HOLDOUT_NO_RAW.json
+            reports/generated/v1.10_reference_holdout/V110_REFERENCE_HOLDOUT_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: error
