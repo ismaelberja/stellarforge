@@ -1,0 +1,48 @@
+# First real Gaia DR3 audit when adding this workflow; manual-only thereafter.
+# Small exact-ID Gaia query; no raw ZTF or FITS download/published artifacts.
+name: v1.11 Gaia 5p parallax-aware real-reference holdout (NO RAW)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v111-reference-parallax.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gaia-reference-parallax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install astrometric and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run full offline suite, including synthetic parallax and missing-source safeguards
+        run: python -m pytest -q
+      - name: Fetch only ten exact official Gaia DR3 source IDs and re-audit derived real ZTF references
+        run: |
+          python scripts/run_v111_reference_parallax.py \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --output reports/generated/v1.11_reference_parallax \
+            --timeout 25
+      - name: Display bounded evidence and limitations
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.11_reference_parallax/V111_REFERENCE_GAIA_PARALLAX_NO_RAW.md ]; then
+            cat reports/generated/v1.11_reference_parallax/V111_REFERENCE_GAIA_PARALLAX_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload only derived data and source SHA-256, never raw catalogue or image bytes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v111-Gaia-reference-parallax-formal-5p-NO-RAW
+          path: |
+            reports/generated/v1.11_reference_parallax/V111_REFERENCE_GAIA_PARALLAX_NO_RAW.json
+            reports/generated/v1.11_reference_parallax/V111_REFERENCE_GAIA_PARALLAX_NO_RAW.md
+          if-no-files-found: warn
+          retention-days: 7
