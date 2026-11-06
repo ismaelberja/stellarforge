@@ -1,3 +1,16 @@
+# CURRENT REAL-DATA EVIDENCE AND ACCESS — v1.10 (6 November 2026)
+
+The older milestones below remain historical and are superseded by this current status.
+
+- v1.10 uses the real [v1.8 Gaia reference/ZTF image workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42077605987), archived as a **small derived 13-reference / 4-exposure** ledger with original JSON SHA-256 `fb7d5c315cbef56b2551e73920c67920827d91160b4c0bd35f3fd77113166beb`. The reduced public [ledger](../data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json) contains no FITS pixel arrays, raw ZTF light curves or original Gaia TAP CSV.
+- Actual leave-one-Gaia-reference-out diagnostics: FT Tau MJD 58491.184780 has three strict models, LOO RMS **0.075782 arcsec**; CIDA 11 MJD 58475.113750 has four strict models, LOO RMS **0.093046 arcsec**. The later CIDA 11 MJD 58849.135984 has five *inclusive* reference fits but only two strict fits — **not enough for strict LOO QA**.
+- v1.9 Gaia 5D formal uncertainty/parallax applies to the two Gaia **targets**, not the historical v1.8 **reference** star positions. Internal holdout discrepancies do not establish ZTF instrument astrometric precision or physically authenticated source matches.
+- The original public v1.8 external artifact expires on **12 November 2026**; derived evidence is retained, but that is not the original FITS/raw-data archive. Existing historic original ZTF raw artifacts may remain accessible until their configured GitHub Actions expiry.
+- All scientific source identity, empirical PSF calibration, independent WCS/distortion and astrophysical event claims remain **UNVERIFIED**. High CIDA 11 Gaia RUWE ~8.57 requires explicit quality warnings.
+- v1.10 offline evidence/test workflow: [successful 468-test validation](https://github.com/ismaelberja/stellarforge/actions/runs/42214593233), using neither remote service nor raw archive access.
+
+---
+
 # CURRENT GAIA/IRSA ACCESS AND ASTROMETRIC EVIDENCE — v1.9 (6 November 2026)
 
 **This is the latest verified project status. The historical v1.8 and earlier entries below remain for provenance.**

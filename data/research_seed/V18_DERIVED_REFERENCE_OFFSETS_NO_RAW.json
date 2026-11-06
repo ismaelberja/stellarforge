@@ -1,0 +1,181 @@
+{
+  "schema_version": "stellarforge-v1.10-derived-v1.8-reference-offsets",
+  "provenance": {
+    "original_run_id": 42077605987,
+    "original_artifact_name": "v18-Gaia-references-ZTF-science-pilot-NO-RAW",
+    "original_json_sha256": "fb7d5c315cbef56b2551e73920c67920827d91160b4c0bd35f3fd77113166beb",
+    "origin": "Derived aggregate of archived actual Gaia-candidate/ZTF image fits, not raw Gaia/ZTF source catalogues or FITS pixels",
+    "caution": "Gaia/ZTF source identity and PSF purity unverified; offsets are nominal against original FITS WCS and linear Gaia motion"
+  },
+  "exposures": [
+    {
+      "target": "FT Tau",
+      "target_gaia_id": "149623711269425408",
+      "oid": "1605115300003377",
+      "band": "zg",
+      "mjd": 58388.389016,
+      "n_reference_requests": 3,
+      "target_fit_status": "PSF_PROXY_REVIEW_REQUIRED",
+      "target_east_arcsec": -0.04064,
+      "target_north_arcsec": 0.03906,
+      "refs": [
+        {
+          "id": "149623505110996992",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": -0.03341,
+          "north": 0.02377,
+          "residual_proxy": 2.504,
+          "axis_ratio": 1.1625,
+          "fit_near_bound": false
+        }
+      ]
+    },
+    {
+      "target": "FT Tau",
+      "target_gaia_id": "149623711269425408",
+      "oid": "1605115300003377",
+      "band": "zg",
+      "mjd": 58491.18478,
+      "n_reference_requests": 3,
+      "target_fit_status": "PSF_PROXY_REVIEW_REQUIRED",
+      "target_east_arcsec": -0.00675,
+      "target_north_arcsec": 0.02844,
+      "refs": [
+        {
+          "id": "149623470751259776",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.04792,
+          "north": 0.01267,
+          "residual_proxy": 3.384,
+          "axis_ratio": 1.013,
+          "fit_near_bound": false
+        },
+        {
+          "id": "149623505110996992",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.08708,
+          "north": 0.10961,
+          "residual_proxy": 4.169,
+          "axis_ratio": 1.0246,
+          "fit_near_bound": false
+        },
+        {
+          "id": "149625115720662528",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.09484,
+          "north": 0.01074,
+          "residual_proxy": 3.091,
+          "axis_ratio": 1.1818,
+          "fit_near_bound": false
+        }
+      ]
+    },
+    {
+      "target": "CIDA 11",
+      "target_gaia_id": "3419110734340795648",
+      "oid": "610106300008010",
+      "band": "zg",
+      "mjd": 58475.11375,
+      "n_reference_requests": 5,
+      "target_fit_status": "PSF_PROXY_PROVISIONAL_ONLY",
+      "target_east_arcsec": 0.11564,
+      "target_north_arcsec": -0.00569,
+      "refs": [
+        {
+          "id": "3419111112297915264",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.10953,
+          "north": 0.07617,
+          "residual_proxy": 2.995,
+          "axis_ratio": 1.213,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419158047700527232",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.02137,
+          "north": 0.0772,
+          "residual_proxy": 3.961,
+          "axis_ratio": 1.1809,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419109188152579584",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": -0.00264,
+          "north": -0.00137,
+          "residual_proxy": 2.325,
+          "axis_ratio": 1.2153,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419111520318480128",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.08327,
+          "north": 0.03254,
+          "residual_proxy": 2.642,
+          "axis_ratio": 1.1506,
+          "fit_near_bound": false
+        }
+      ]
+    },
+    {
+      "target": "CIDA 11",
+      "target_gaia_id": "3419110734340795648",
+      "oid": "610106300008010",
+      "band": "zg",
+      "mjd": 58849.135984,
+      "n_reference_requests": 5,
+      "target_fit_status": "PSF_PROXY_REVIEW_REQUIRED",
+      "target_east_arcsec": -0.06477,
+      "target_north_arcsec": 0.02874,
+      "refs": [
+        {
+          "id": "3419158043404221568",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": 0.01943,
+          "north": 0.02166,
+          "residual_proxy": 3.667,
+          "axis_ratio": 1.3163,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419111112297915264",
+          "status": "PSF_PROXY_PROVISIONAL_ONLY",
+          "east": -0.00598,
+          "north": 0.02099,
+          "residual_proxy": 3.196,
+          "axis_ratio": 1.3041,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419158047700527232",
+          "status": "PSF_PROXY_REVIEW_REQUIRED",
+          "east": -0.05817,
+          "north": 0.05299,
+          "residual_proxy": 10.623,
+          "axis_ratio": 1.2428,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419109188152579584",
+          "status": "PSF_PROXY_REVIEW_REQUIRED",
+          "east": -0.00793,
+          "north": 0.04622,
+          "residual_proxy": 7.558,
+          "axis_ratio": 1.3396,
+          "fit_near_bound": false
+        },
+        {
+          "id": "3419111520318480128",
+          "status": "PSF_PROXY_REVIEW_REQUIRED",
+          "east": -0.07126,
+          "north": 0.01474,
+          "residual_proxy": 8.021,
+          "axis_ratio": 1.3303,
+          "fit_near_bound": false
+        }
+      ]
+    }
+  ]
+}
