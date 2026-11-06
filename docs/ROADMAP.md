@@ -1,3 +1,20 @@
+# Current research/engineering roadmap — StellarForge v1.11 (6 November 2026)
+
+**Verified:** 484 automated tests, 2,212 real ZTF positional-cone photometric rows, 12 separate ZTF FITS science exposures across the original six OID/passband groups, eight Gaia DR3 candidate controls with 13 real FITS image-model fits, 5D formal Gaia source covariance for all ten v1.11 targets and references, and individual Earth-geocentric annual parallax corrections at four historical ZTF science epochs. [Real Gaia reference parallax sensitivity report](../reports/reference_parallax_v1.11/REAL_GAIA_REFERENCE_PARALLAX_LOO.md).
+
+**Critical result:** Including each reference's annual parallax changes the strict internal leave-one-reference-out RMS from 0.075782″ to 0.075770″ (FT Tau) and from 0.093046″ to 0.092971″ (CIDA 11), only **0.012 / 0.075 mas**. The original reference-image disagreement therefore remains largely unexplained by this correction. Only two of four original reference-field exposures retain enough high-quality Gaussian models. These RMS values are NOT physical motion, an instrument calibration, PSF error bars or source identities.
+
+**Next scientific gates:**
+1. Obtain an independently vetted, spatially representative pool of genuine same-detector ZTF field stars; check saturation/crowding, image masks, colour and fitted PSF wings rather than trusting Gaia RUWE/brightness alone.
+2. On raw FITS science exposures, independently calibrate WCS distortion, detector-dependent PSF and astrometric residuals with **held-out** reference stars not used to fit the astrometric model; estimate repeatable uncertainty budgets and correlated systematics, not simply internal scatter.
+3. Verify original exposure timing, observer location and topocentric aberration/refraction/atmospheric colour effects. The Gaia v1.11 5D covariance is **catalogue-formal** and cannot automatically replace ZTF instrumental uncertainty.
+4. Independently confirm Gaia–ZTF source IDs, including high-RUWE CIDA 11 (RUWE ≈ 8.57), and review field contamination/non-Gaia sources.
+5. Validate the original Taurus publisher membership catalogue, disk classes, selection function and real-cadence injection/recovery before any astronomical variability/companion claim.
+
+**Not confirmed:** isolated empirical PSFs, independently calibrated ZTF WCS, physical Gaia–ZTF source identities, newly discovered companions or astrophysical events. Retain public Git only for code and vetted derived aggregate evidence, not raw third-party photometry or FITS images.
+
+---
+
 # CURRENT RESEARCH/SOFTWARE ROADMAP — v1.10 (6 November 2026)
 
 **Verified science-software milestone:** 468 automated tests; original real ZTF positional-cone photometry and FITS screen, Gaia DR3 formal 5D/annual parallax modeling for two target sources, and now a **reproducible leave-one-Gaia-reference-out image-offset quality audit** of the original v1.8 derived 13 reference fits (four dated ZTF g-band science frames). A small derived summary with the historic original aggregate SHA-256 is versioned to survive time-limited external workflow artifacts.
