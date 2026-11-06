@@ -1,3 +1,16 @@
+# CURRENT GAIA/IRSA ACCESS AND ASTROMETRIC EVIDENCE — v1.9 (6 November 2026)
+
+**This is the latest verified project status. The historical v1.8 and earlier entries below remain for provenance.**
+
+- **Official Gaia DR3 v1.9 covariance query:** two exact IDs (FT Tau `149623711269425408`, CIDA 11 `3419110734340795648`) with all **five astrometric parameter errors and ten correlations**, Gaia RUWE and original astrometric solution metadata. Four historical ZTF science observation MJDs were used for a **geocentric first-order annual parallax** and propagated **formal Gaia-only** 2D covariance. See [real Gaia v1.9 report](../reports/gaia_formal_v1.9/GAIA_COVARIANCE_AND_ANNUAL_PARALLAX.md) and [observed workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42175644367).
+- **Gaia parallax corrections vs linear-motion-only source predictions:** FT Tau east +6.791 / −4.781 mas; CIDA 11 east −1.362 / −2.250 mas at two dates each. These are *not observed physical displacements*.
+- **Formal Gaia-only positional uncertainty:** FT Tau east 0.070–0.073 mas, CIDA 11 east 0.444–0.585 mas, without any instrumental ZTF error component. CIDA 11 **RUWE 8.56752** seriously weakens treating the formal single-star covariance as a complete astrometric error budget.
+- **IRSA empirical precursor:** 2,212 original photometric positional-cone rows, 12 original science FITS epochs across six ZTF OID/bands (v1.7), 8 Gaia catalogue reference candidates and 13 candidate ZTF image model fits (v1.8). Source matching, isolated stellar PSF and WCS distortion calibration are *not independently confirmed*.
+- **Public data policy:** source Gaia TAP CSV and all original ZTF FITS pixels are used only transiently, never committed or uploaded as raw artifacts by the v1.9 workflow. The historical earlier ZTF acquisition artifacts have their own retention and must not be mistaken for a permanent raw-data archive.
+- **All astrophysical source IDs / new variability events remain UNVERIFIED.** The v1.9 time scale is provisionally UTC; observer-specific apparent sky position, radial velocity/perspective and topocentric data remain unmodeled.
+
+---
+
 # CURRENT SOURCE AND REFERENCE ACCESS — v1.8, 5 November 2026
 
 **This v1.8 status supersedes the historical milestones below; older results are retained with their original dated limitations.**
