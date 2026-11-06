@@ -1,11 +1,8 @@
-# First real Gaia DR3 audit when adding this workflow; manual-only thereafter.
-# Small exact-ID Gaia query; no raw ZTF or FITS download/published artifacts.
+# Remote Gaia DR3 catalogue retrieval manual-only after completed bounded pilot.
+# Only derived source uncertainties/quality are published, no raw ZTF/FITS data.
 name: v1.11 Gaia 5p parallax-aware real-reference holdout (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v111-reference-parallax.yml'
   workflow_dispatch:
 
 permissions:
