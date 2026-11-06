@@ -1,11 +1,8 @@
-# Initial run on added workflow, then switch to workflow_dispatch-only.
-# Only reads versioned derived image-model offsets. No remote archive access.
+# Reproducible offline holdout runner, manual-only after initial real-data validation.
+# No remote catalogues, downloaded source images or original photometry.
 name: v1.10 Offline real Gaia/ZTF reference holdout QA (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v110-reference-holdout.yml'
   workflow_dispatch:
 
 permissions:
