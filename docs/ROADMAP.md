@@ -1,3 +1,20 @@
+# CURRENT SCIENTIFIC & SOFTWARE ROADMAP — v1.9 (6 November 2026)
+
+**Implemented and validated:** 444 offline tests; original 2,212 SHA-checked ZTF positional-cone photometry rows; 12 actual distinct ZTF science FITS observations across six OID/passband groups; eight Gaia DR3 catalogue quality-screened instrumental reference candidates with 13 real ZTF image-model fits; three provisional local median WCS shift estimates; **new v1.9 exact-source Gaia DR3 5×5 formal covariance including all ten correlations and epoch-dependent Earth-geocentric annual parallax** at four original ZTF observation dates. See [real v1.9 astrometry report](../reports/gaia_formal_v1.9/GAIA_COVARIANCE_AND_ANNUAL_PARALLAX.md).
+
+**What is NOT validated:** independent physical Gaia–ZTF source IDs, unblended stellar PSFs, detector astrometric WCS, uncertainty-calibrated individual ZTF centroids, six-parameter pseudocolour modeling, Gaia radial velocity/perspective acceleration, observatory aberration and refraction, source multiplicity, astrophysical variability event counts.
+
+**Next defensible steps:**
+1. Authenticate instrument PSF reference stars using independent classification, detector quality flags, calibrated magnitudes, WCS accuracy and image morphology; the v1.8 candidate Gaia stars are **not yet empirically calibrated PSF standards**.
+2. On actual dated science images, independently model the detector distortion and image-specific PSF/WCS/background error contributions. Combine those with **Gaia's v1.9 formal covariance** in a calibrated, uncertainty-aware comparison, never pretending the catalogue covariance includes instrument or high-RUWE source systematics.
+3. Verify the ZTF exposure time-scale in raw FITS headers; account for observer velocity/aberration, parallax, full Gaia radial/perspective motion where available. Treat **CIDA 11 RUWE ≈ 8.57** as an explicit source-model reliability warning.
+4. Extend only the validated method to all six ZTF OID/bands and multiple original science dates. Use controls, image masks and injection/recovery before an astronomical source identity or any real variability/companion claim.
+5. Verify the publisher-original Luhman (2023) table, disk classifications and selection biases. Continue minimal public aggregate results, no raw third-party Gaia/ZTF source downloads or FITS pixel matrices in public Git.
+
+**Science confirmations remain zero:** new physical companions, resolved blends, authenticated Gaia–ZTF sources or astrophysical variability events.
+
+---
+
 # Current research/engineering roadmap — v1.8, 5 November 2026
 
 **New verified research-software milestone:** 422 automated tests; two original SHA-checked IRSA positional cone queries (2,212 rows); six ZTF OID/filter groups with two independent usable science images apiece (v1.7); **independent Gaia DR3 210-arcsec reference selection** (50 FT Tau + 250 CIDA 11 catalogue sources), **eight conservative candidate references**, 13 measured same-ZTF-science-product reference cutouts and three provisional signed WCS translation proxies (v1.8). These are **neither independently calibrated PSFs/WCS nor confirmed stellar source identities**. See the [real v1.8 report](../reports/gaia_reference_v1.8/REAL_REFERENCE_CANDIDATE_EVIDENCE.md).
