@@ -10,23 +10,32 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 **Created and scientifically directed by Ismael Berja Ruiz**, with AI-assisted software development and human review of scientific methodology.
 
-> **Research status (v1.8, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+> **Research status (v1.9, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
 
 ## At a glance
 
 | Engineering result | Verified scope |
 |---|---|
-| **422 automated tests passed** | GitHub Actions on the v1.8 research branch (5 November 2026) |
+| **444 automated tests passed** | GitHub Actions v1.9 real Gaia DR3 audit (6 November 2026) |
 | **2,212 real photometric rows retrieved** | Two official IRSA cone searches around published positions for FT Tau and CIDA 11, **not yet authenticated as those stars** |
 | **Six ZTF object identifiers** | Kept separate by source ID, filter and field rather than blended |
 | **Two independent Gaia DR3 15″ field audits** | No *additional catalogued Gaia* sources returned near either target; unresolved companions are not excluded |
 | **Real FITS pixel/WCS screening** | Five of six ZTF OID-band groups were screened in v1.5; no identity or blend clearance claimed |
 | **Multi-epoch real-image evidence** | 12 individual ZTF science FITS images processed in v1.7, two distinct epochs in every OID/band group; no calibrated source identity |
 | **Gaia-backed ZTF reference pilot (v1.8)** | 8 catalogue-screened Gaia reference candidates, 13 real FITS reference-image model fits; provisional local translations in 3 exposures, no full WCS calibration |
+| **Formal Gaia 5D uncertainty + annual parallax (v1.9)** | All ten Gaia cross-correlations propagated at four actual observation dates for two DR3 sources; not a ZTF astrometric error budget |
 | **532 Taurus catalog members audited** | Pinned third-party Luhman (2023) Table 2 mirror; original publisher-file comparison pending |
 | **24-star technical pilot** | Real published coordinates, not a representative or disk-classified scientific population |
 
 The official requests and SHA-256 checksums are documented in the [v1.2 observational transport audit](reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md). The [v1.3 provisional astrometric report](reports/astrometry_v1.3/PROVISIONAL_POSITIONS_REPORT.md) finds median epoch-corrected Gaia/ZTF position separations of 0.063–0.092 arcsec across six curves, **without confirming any astrophysical source identity**. **Raw ZTF downloads and private research artifacts are not committed to Git.**
+
+## v1.9 — Gaia five-parameter covariance and annual parallax
+
+The independent public Gaia DR3 source query now retrieves **all five astrometric parameters, their formal uncertainties and all ten pairwise correlations** for the FT Tau and CIDA 11 pilot. A bounded Astropy calculation adds **epoch-dependent geometric annual parallax** to the existing proper-motion model, propagates the **full 5×5 Gaia formal covariance** and explicitly flags the limitations of the high-RUWE CIDA 11 astrometric fit.
+
+For four real ZTF exposure MJDs, the annual east correction ranges from **+6.79 to −4.78 mas for FT Tau** and **−1.36 to −2.25 mas for CIDA 11**; these are corrections to the **Gaia-predicted catalogue position**, not measured ZTF motions. Gaia-only formal east sigmas are ~0.07 mas for FT Tau and ~0.44–0.58 mas for CIDA 11. **Instrumental WCS/PSF and source identity have not been validated**, and the CIDA 11 covariance may substantially underestimate its real astrometric uncertainty.
+
+[Full real v1.9 scientific evidence](reports/gaia_formal_v1.9/GAIA_COVARIANCE_AND_ANNUAL_PARALLAX.md) | [Explicit mathematical assumptions](docs/PHASE19_GAIA_FORMAL_5P_AND_PARALLAX.md) | **444 passing automated tests**.
 
 ## v1.8 — Gaia DR3 reference candidates and genuine ZTF FITS image checks
 
@@ -136,6 +145,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 ## Project documentation
 
 - [Current status and next milestones](docs/PROJECT_STATUS.md)
+- [v1.9 official Gaia five-parameter covariance and annual parallax](reports/gaia_formal_v1.9/GAIA_COVARIANCE_AND_ANNUAL_PARALLAX.md)
 - [v1.8 Gaia DR3 reference-candidate and ZTF same-exposure audit](reports/gaia_reference_v1.8/REAL_REFERENCE_CANDIDATE_EVIDENCE.md)
 - [v1.7 real-image science-epoch and same-field control evidence](reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md)
 - [v1.6 real Gaussian profile and repeatability audit](reports/psf_v1.6/REAL_GAUSSIAN_FIT_REVIEW.md)
@@ -147,6 +157,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 - [Validation plan](docs/VALIDATION.md)
 - [Spanish getting-started guide](EMPEZAR_AQUI.md)
 - [Engineering and scientific history](RESEARCH_HISTORY.md)
+- [v1.9 release notes](RELEASE_NOTES_v1.9.md)
 - [v1.8 release notes](RELEASE_NOTES_v1.8.md)
 - [v1.7 release notes](RELEASE_NOTES_v1.7.md)
 - [v1.6 release notes](RELEASE_NOTES_v1.6.md)
@@ -155,7 +166,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 
 ## Roadmap
 
-1. **Next — authenticate reference PSFs and calibrated astrometry:** validate the Gaia-selected reference images against independent morphology/color/mask criteria, model WCS distortion and Gaia parallax/covariance, then expand to all original ZTF OIDs and epochs; prioritize high-RUWE CIDA 11.
+1. **Next — instrument-level WCS/PSF calibration and source identity:** validate Gaia-selected reference images independently for morphology/color/masks, estimate field-dependent WCS and PSF uncertainties, verify exposure time scales and investigate high-RUWE CIDA 11; extend the Gaia formal covariance model to all original image epochs only when source identity has independent evidence.
 2. **Observational validation:** real-cadence injection/recovery, field-star controls, uncertainty budgets and documented false positives.
 3. **Scientific reporting:** independently reviewed candidate dossiers, reproducible figures and optional interactive tools.
 
