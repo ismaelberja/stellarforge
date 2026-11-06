@@ -1,3 +1,20 @@
+# CURRENT RESEARCH/SOFTWARE ROADMAP — v1.10 (6 November 2026)
+
+**Verified science-software milestone:** 468 automated tests; original real ZTF positional-cone photometry and FITS screen, Gaia DR3 formal 5D/annual parallax modeling for two target sources, and now a **reproducible leave-one-Gaia-reference-out image-offset quality audit** of the original v1.8 derived 13 reference fits (four dated ZTF g-band science frames). A small derived summary with the historic original aggregate SHA-256 is versioned to survive time-limited external workflow artifacts.
+
+**Critical observation:** 3/4 frames have at least three inclusive candidate reference image models; only 2/4 retain at least three *non-flagged* Gaussian image models. FT Tau MJD58491 has holdout disagreement RMS ~0.076 arcsec, CIDA 11 MJD58475 ~0.093 arcsec. CIDA 11 MJD58849 falls from five inclusive to two strict references: **no strict holdout inference**. These values are internal disagreement, not ZTF absolute WCS calibration errors or verified source matches. [Real reference holdout evidence](../reports/holdout_v1.10/REAL_REFERENCE_HOLDOUT_EVIDENCE.md).
+
+**Next science gates:**
+1. Independently authenticate reference stars using Gaia catalogue and ZTF image morphology, saturation/crowding masks, PSF quality, color and other surveys. More stars per field, unbiased spatial sampling and vetted original science frames are needed.
+2. Recompute Gaia **each reference star** position with its own full five-parameter formal covariance, annual parallax and source quality at precise FITS timing; the v1.9 model covered only the two targets.
+3. Estimate an independent real detector WCS/PSF and background error budget, including correlated distortions, systematic/measurement errors, and checks outside any fit/control selection.
+4. Resolve high CIDA 11 RUWE (~8.57), source multiplicity alternatives, Gaia/ZTF source identity, the publisher Taurus catalogue and real-time-domain injection/recovery before physical variability claims.
+5. Keep external raw ZTF FITS/light curves and Gaia TAP CSV outside public Git; preserve only verified derived aggregates, immutable provenance and tests.
+
+**Still unconfirmed:** physical Gaia–ZTF source identifications, isolated empirical PSFs, independently calibrated image WCS, new companions or physical variability events.
+
+---
+
 # CURRENT SCIENTIFIC & SOFTWARE ROADMAP — v1.9 (6 November 2026)
 
 **Implemented and validated:** 444 offline tests; original 2,212 SHA-checked ZTF positional-cone photometry rows; 12 actual distinct ZTF science FITS observations across six OID/passband groups; eight Gaia DR3 catalogue quality-screened instrumental reference candidates with 13 real ZTF image-model fits; three provisional local median WCS shift estimates; **new v1.9 exact-source Gaia DR3 5×5 formal covariance including all ten correlations and epoch-dependent Earth-geocentric annual parallax** at four original ZTF observation dates. See [real v1.9 astrometry report](../reports/gaia_formal_v1.9/GAIA_COVARIANCE_AND_ANNUAL_PARALLAX.md).
