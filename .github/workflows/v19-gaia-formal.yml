@@ -1,0 +1,47 @@
+# One-time empirical Gaia DR3 query when this workflow is added.
+# Change to manual-only after this observed-data pilot is validated.
+name: v1.9 Gaia full 5p covariance and annual parallax pilot (NO RAW)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v19-gaia-formal.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gaia-astrometric-formal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install scientific regression and astrometry dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Validate complete offline regression suite before live data
+        run: python -m pytest -q
+      - name: Query two exact Gaia DR3 IDs at four documented ZTF epochs
+        run: |
+          python scripts/run_v19_gaia_formal.py \
+            --output reports/generated/v1.9_gaia_formal \
+            --timeout 25
+      - name: Publish scientific caveats in job summary
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.9_gaia_formal/V19_GAIA_FORMAL_PARALLAX_NO_RAW.md ]; then
+            cat reports/generated/v1.9_gaia_formal/V19_GAIA_FORMAL_PARALLAX_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload aggregate Gaia formal 2D covariance and parallax only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v19-Gaia-five-parameter-formal-parallax-NO-RAW
+          path: |
+            reports/generated/v1.9_gaia_formal/V19_GAIA_FORMAL_PARALLAX_NO_RAW.json
+            reports/generated/v1.9_gaia_formal/V19_GAIA_FORMAL_PARALLAX_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
