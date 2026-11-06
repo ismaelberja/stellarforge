@@ -1,11 +1,7 @@
-# One-time empirical Gaia DR3 query when this workflow is added.
-# Change to manual-only after this observed-data pilot is validated.
+# Public Gaia catalogue queries after the validated 2026-11-06 pilot are manual-only.
 name: v1.9 Gaia full 5p covariance and annual parallax pilot (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v19-gaia-formal.yml'
   workflow_dispatch:
 
 permissions:
