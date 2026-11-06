@@ -1,6 +1,6 @@
 # StellarForge — Empezar aquí
 
-**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.9** · noviembre de 2026.
+**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.10** · noviembre de 2026.
 
 StellarForge está pensado para analizar variabilidad estelar con datos de distintos archivos astronómicos. Es un proyecto personal de investigación y software en desarrollo, útil también para demostrar capacidades de ingeniería de datos, análisis temporal y calidad del código.
 
@@ -8,7 +8,7 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 ## ¿Qué está realmente conseguido?
 
-- **444 pruebas automáticas superadas** en GitHub Actions.
+- **468 pruebas automáticas superadas** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.
@@ -22,6 +22,8 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 - **Comprobación de referencias Gaia en imágenes ZTF (v1.8):** dos consultas amplias a Gaia DR3 han permitido seleccionar ocho posibles fuentes de control (tres cerca de FT Tau y cinco cerca de CIDA 11). Se han realizado trece ajustes válidos de imagen de referencia, con tres estimaciones preliminares del desplazamiento local WCS. Todavía no equivalen a calibración astrométrica independiente ni validación de estrellas aisladas.
 
 - **Astrometría formal Gaia y paralaje anual (v1.9):** recogidos todos los errores y correlaciones de los cinco parámetros astrométricos de FT Tau y CIDA 11, y calculada la corrección de paralaje con la posición terrestre para cuatro fechas reales. Los desplazamientos anuales son de unos pocos milisegundos de arco, pero las incertidumbres calculadas son **solo las formales de Gaia**, sin errores de ZTF. El elevado RUWE de CIDA 11 sigue impidiendo interpretar su posición como una solución simple y plenamente fiable.
+
+- **Validación cruzada de referencias en imágenes reales (v1.10):** reanalizados 13 ajustes derivados de imágenes ZTF, con dos criterios de calidad y una prueba que excluye cada estrella de referencia por turnos. Tres de cuatro exposiciones admiten la revisión con todos los ajustes, pero solo dos con referencias de mejor calidad. Los desacuerdos internos (~0,076″ en FT Tau y ~0,093″ en una imagen de CIDA 11) **no** equivalen a errores astrométricos instrumentales calibrados.
 
 **No hay nuevas detecciones astrofísicas confirmadas.** Quedan pendientes la revisión de imágenes, las asociaciones Gaia–ZTF y la validación científica de cualquier episodio.
 
@@ -48,6 +50,7 @@ Los valores de la primera instrucción son coordenadas de demostración técnica
 ## Dónde encontrar los resultados
 
 - [README principal (inglés)](README.md): presentación resumida para empresas e investigadores.
+- [Validación cruzada real de referencias v1.10](reports/holdout_v1.10/REAL_REFERENCE_HOLDOUT_EVIDENCE.md).
 - [Informe de paralaje anual e incertidumbre astrométrica v1.9](reports/gaia_formal_v1.9/GAIA_COVARIANCE_AND_ANNUAL_PARALLAX.md).
 - [Auditoría Gaia y referencias de imagen v1.8](reports/gaia_reference_v1.8/REAL_REFERENCE_CANDIDATE_EVIDENCE.md).
 - [Informe de las doce imágenes y controles de campo v1.7](reports/field_controls_v1.7/REAL_MULTIEPOCH_AND_CONTROL_LIMITS.md).
@@ -64,4 +67,4 @@ Los datos originales descargados no se incluyen en este repositorio. La visibili
 
 ## Próximo objetivo
 
-El siguiente paso científico será **validar las estrellas de referencia y calibrar independientemente el WCS y la PSF instrumental de ZTF**, incorporando las incertidumbres astrométricas formales de Gaia sin confundirlas con los errores de imagen. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
+El siguiente paso científico será **verificar de forma independiente la calidad de las estrellas de referencia y calibrar el WCS/PSF de ZTF**, incorporando paralaje e incertidumbres para cada referencia y comprobando que existan suficientes ajustes válidos. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
