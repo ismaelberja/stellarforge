@@ -259,8 +259,8 @@ def propagate_gaia_5p_formal(gaia_row: dict, *,
         "high_or_missing_ruwe_quality_warning":warning,
         "status":("FORMAL_COVARIANCE_MODEL_WITH_ASTROMETRIC_QUALITY_WARNING"
                   if warning else "FORMAL_COVARIANCE_MODEL_NOT_INSTRUMENT_CALIBRATION"),
-        "geocentric_apparent_ra_deg":round(full[0],10),
-        "geocentric_apparent_dec_deg":round(full[1],10),
+        "geocentric_parallax_adjusted_ra_deg":round(full[0],10),
+        "geocentric_parallax_adjusted_dec_deg":round(full[1],10),
         "geocentric_annual_parallax_minus_linear_east_mas":
             round(parallax_east,5),
         "geocentric_annual_parallax_minus_linear_north_mas":
