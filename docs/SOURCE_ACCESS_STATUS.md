@@ -1,3 +1,18 @@
+# CURRENT OFFICIAL REAL ZTF SCIENCE/MASK + SPATIAL PSF DATA — StellarForge v1.16, 8 November 2026
+
+The latest [real ZTF original masked source-pixel PSF workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42518746629) succeeds with **614 automated tests**, original SHA-verified 2,212-row position-cone input and **four original dated single-exposure g-band science frames** for FT Tau/CIDA 11.
+
+- **Original source spatial PSF products:** all 4 original full `psfcat.fits`, all 4 native `sciimgdao.psf` spatial DAOPhot files and all 4 official `sciimgdaopsfcent.fits` center-stamp consistency checks were accessible. Each original DAOPhot spatial PSF has a Gaussian analytic kernel plus 3×47×47 correction tables; source-local model is 23×23 original pixels, not a star-authenticated empirical PSF.
+- **Actual original image science/mask data:** every one of **16/16 v1.14 provisionally selected native PSF candidate source positions** was retrieved as a matching `sciimg.fits`+ `mskimg.fits` pair using original 60″ cutouts and independent matching celestial WCS grids. All sixteen native source catalog subpixel phases agreed, all original source 4.5-pixel cores had **0 official 6141 bad/saturated pixels**, and **all 16 model amplitude + sky-plane fits** completed on original ZTF image **DN** values (not calibrated magnitudes).
+- **Science pixel residuals:** original same-image checkerboard withheld pixel diagnostics: **13** provisional screens passed, **3** positive residual peaks flagged for review; median held-out RMS/robust annular sky-MAD proxy **1.1015**. These are **not independent source-star validation** or calibrated 1σ instrumental uncertainty. In this one bounded run there were **zero HTTP 503** for the 16 source requests; earlier archive access failures remain historically documented below.
+- **Three unresolved real review sources:** FT Tau target MJD 58491.184780 peak residual/noise proxy 7.6730; CIDA 11 target MJD 58849.135984 11.8679; and Gaia candidate reference `3419111520318480128` in the CIDA 11 field same date 7.8125. These ratios are engineering review indicators **not source-companion, physical variability or formal-significance detections**.
+- **Original source provenance and rights:** original acquisition GitHub Actions run `41997079598` SHA-manifested IRSA dataset may expire around **12 November 2026**; if unavailable, reacquire original official IRSA data with new documented SHA-256 and exact source provenance. Gaia DR3 exact ten-source formal 5D correlation/geocentric parallax cannot authenticate a physical ZTF match or account for high RUWE CIDA 11. Original raw Gaia TAP CSV, original FITS science/mask pixels, native spatial PSF coefficients and full native PSFcat source tables never enter public Git/CI artifacts.
+- **Open gate:** independent Gaia/ZTF star identification, independent spatially distributed **different-star** masked PSF/WCS validation, detector correlated variance, physical crowding and matching false-positive assessment, exact original exposure timing/topocentric/chromatic systematics and full field-star instrument PSF calibration before any astrophysical discovery.
+
+[Full actual observed source-pixel v1.16 report](../reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md) · [Methods and caveats](PHASE116_ORIGINAL_MASKED_PSF_PIXEL_RESIDUALS.md) · [Official IRSA ZTF image units, matching ancillary file names and time conventions](https://irsa.ipac.caltech.edu/data/ZTF/docs/releases/dr06/src/dr06.html).
+
+---
+
 # CURRENT ORIGINAL ZTF SPATIAL DAOPhot PSF FILE STATUS — StellarForge v1.15, 8 November 2026
 
 This is the latest verified access and science status. Historical records retained below.
