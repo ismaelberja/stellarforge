@@ -209,6 +209,7 @@ def test_remote_http_503_is_transport_not_source_nondetection():
         EXPOSURE,_gaia(),mjd_assumed_utc=59000,fetch=fail)
     assert out["status"]=="ZTF_SCIENCE_FITS_ACCESS_OR_VALIDATION_FAILED"
     assert out["http_status"]==503
+    assert out["science_fits_pixel_source_refitted"] is False
     assert out["gaia_ztf_source_identity_confirmed"] is False
 
 
