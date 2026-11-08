@@ -1,11 +1,11 @@
 # StellarForge — Current project status
 
-**Version:** 1.15.0 · **Updated:** 2026-11-08 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
+**Version:** 1.16.0 · **Updated:** 2026-11-08 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
 
 ## Implemented
 
 - Full Python package, command-line utilities, tests, continuous integration and research documentation.
-- 590/590 automated tests passed in GitHub Actions during the v1.15 real-original-ZTF spatial DAOPhot model reconstruction and 4/4 native field-center FITS consistency pilot (8 November 2026), reusing the same four historic original science epochs.
+- 614/614 automated tests passed in GitHub Actions during the v1.16 **real original-science ZTF masked source PSF pixel residual pilot** (8 November 2026), reusing the same four original science epochs.
 - Pinned secondary Taurus catalog audit: 532 adopted members, 467 Gaia identifiers; 24-object technical seed.
 - Two official IRSA ZTF cone-query responses near FT Tau and CIDA 11 on 5 November 2026, totaling 2,212 rows across six distinct ZTF OIDs; integrity hashes and failures are logged.
 - Reproducible SHA-checked **provisional Gaia-to-ZTF per-epoch screen** for all six OID/passbands; median positional separations ~0.063–0.092 arcsec (not independently verified identities).
@@ -24,6 +24,7 @@
 - **v1.13 original ZTF instrument products verified:** 20 target/reference candidate locations screened for matching official `mskimg.fits` bad-pixel maps and same-dated original `sciimg.fits` pixel grids with 0.05-pixel WCS registration tolerance. **Four reference candidates** yielded valid, aligned science+mask products, with zero disqualifying 6141 bad-mask bits and zero saturation-bit flags in their 4.5-pixel nominal Gaia apertures; **all 4 target-mask checks and 12 other reference checks returned HTTP 503**. Two native 23×23 center PSFs parsed on initial run A; two **different, complementary** original 23×23 center-PSF products parsed on rerun B, providing **all four unique original center-PSF stamps across both runs**. Run B had HTTP 503 on **all 20** science/mask attempts; only the four first-run reference masks remain verifiably screened. Zero source-specific native PSFs, authenticated matches or calibrated WCS errors; source marker bits 1/11 are not bad pixels.
 - **v1.14 official native ZTF PSF source fit catalogues:** 4 actual original `psfcat.fits` BINTABLE catalogues parsed (3,970 + 5,569 + 5,313 + 12,355 = 27,207 per-exposure detections), 20 Gaia target/reference predicted source positions screened using original PSF `chi`/`sharp`/SNR/`flags` and ≤1″. **16/20** provisional unique nearby source fit candidates pass, three have `chi<0.5` and require quality review, one historical FT Tau reference has no catalog entry within local search; target passes 3/4 technical epochs, references 13/16. Four original spatial DAOPhot `sciimgdao.psf` files retrieved and source-hashed but **not decoded or evaluated at any source position**. No WCS-calibrated precision, authenticated source identity or discovery.
 - **v1.15 original native spatial ZTF DAOPhot PSF models actually reconstructed:** all four 88,465-byte original `sciimgdao.psf` files decoded (GAUSSIAN + 3 × 47 × 47 half-pixel lookup correction arrays), each evaluated on a 23 × 23 original image pixel PSF stamp. All **four numerical model reconstructions at the detector center** closely reproduce their corresponding native `sciimgdaopsfcent.fits` FITS stamp (cosine 0.999999–1.0, L1 0.000278–0.000984), while **16/16** original v1.14 provisional `psfcat` candidate-source detector positions now have an evaluated approximate local *model* PSF shape. **No original source-local real image pixels/masks fit**, independent source-PSF calibration, astrophysical identity or WCS uncertainty claimed. Cubic B-spline lookup interpolation is not proven identical to original DAOPhot.
+- **v1.16 real original masked ZTF source pixel residual analysis:** all **16/16** original `sciimg.fits`+`mskimg.fits` paired source cutouts successfully retrieved and independently WCS-aligned, with compatible source native catalogue detector subpixel phases and **zero original 6141 bad/saturation pixels** in all 16 nominal star cores. Fitted fixed original native spatial DAOPhot PSF amplitude in DN plus a sky plane to checkerboard training pixels of each same source image, then evaluated *different pixels of the same star* (not independent stellar controls). **13/16** selected source fits passed internal provisional residual/noise screens; **3/16** have high positive residual peaks and remain review-required (one FT Tau target at MJD58491, one CIDA 11 target and one CIDA 11 reference at MJD58849). Median held-out pixel RMS/sky MAD proxy ~1.1015. No external WCS/PSF error, astrophysical Gaia/ZTF identity or physical companion/variability confirmed.
 - Scientific data integrity gates: distinct OIDs/bands, flag masking, hashes, time-scale handling, provisional astrometric checks and synthetic-only benchmarking.
 
 ## Not yet established
@@ -39,7 +40,7 @@ The repository may be viewed as *research software in development*. Do not inter
 
 ## Next scientific milestone
 
-**Next science gate:** actually fit the newly reconstructed v1.15 approximate source-local ZTF spatial PSF to genuine **same-dated original `sciimg.fits` pixels**, with co-registered real **`mskimg.fits` bad-pixel maps** and independent PSF-star control validation. Cross-validate source morphology, sky background and residual/error model on separately vetted Gaia/ZTF field sources; do not call present center-stamp agreement observational PSF accuracy.
+**Next science gate:** independent *field-star* PSF residual and detector WCS validation: expand beyond the 16 preselected source stamps and four historic science epochs, vet Gaia/ZTF physical identities, treat background/nebulosity/crowding and CCD pixel noise with realistic errors, and withhold **distinct stars/epochs** rather than only checkerboard pixels of the same image. Investigate three high-positive-residual cases without claiming any companion or physical variability.
 
 Read the [observational transport report](../reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md) for precise counts and caveats.
 
@@ -68,3 +69,5 @@ Read the [v1.11 real Gaia reference parallax/formal covariance sensitivity resul
 [Detailed v1.14 real PSF catalogue candidate evidence](../reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md) · [source crossmatch and native DAOPhot spatial PSF methodological limits](PHASE114_NATIVE_PSF_CATALOGUE_AND_SPATIAL_MODEL_GATE.md).
 
 [Real original v1.15 spatial DAOPhot model/FITS-center comparison](../reports/spatial_daophot_v1.15/REAL_DAOPHOT_CENTER_AND_LOCAL_SHAPES.md) · [DAOPhot format/method/limitations](PHASE115_DAOPHOT_SPATIAL_MODEL_VALIDATION.md).
+
+[Real v1.16 ZTF source science/mask pixel residual evidence](../reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md) · [methods and scientific caveats](PHASE116_ORIGINAL_MASKED_PSF_PIXEL_RESIDUALS.md).
