@@ -1,11 +1,11 @@
 # StellarForge — Current project status
 
-**Version:** 1.11.0 · **Updated:** 2026-11-06 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
+**Version:** 1.12.0 · **Updated:** 2026-11-08 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
 
 ## Implemented
 
 - Full Python package, command-line utilities, tests, continuous integration and research documentation.
-- 484/484 automated tests passed in GitHub Actions during the v1.11 actual Gaia DR3 10-ID formal covariance and parallax audit (6 November 2026).
+- 506/506 automated tests passed in GitHub Actions during the v1.12 original-ZTF-FITS two-centroid-model audit (8 November 2026).
 - Pinned secondary Taurus catalog audit: 532 adopted members, 467 Gaia identifiers; 24-object technical seed.
 - Two official IRSA ZTF cone-query responses near FT Tau and CIDA 11 on 5 November 2026, totaling 2,212 rows across six distinct ZTF OIDs; integrity hashes and failures are logged.
 - Reproducible SHA-checked **provisional Gaia-to-ZTF per-epoch screen** for all six OID/passbands; median positional separations ~0.063–0.092 arcsec (not independently verified identities).
@@ -20,6 +20,7 @@
 - **v1.9 actual Gaia DR3 5×5 formal astrometric covariance and annual parallax:** independent TAP returns exact FT Tau/CIDA 11 Gaia IDs with ten correlations and five positional/parallax/PM formal errors. Four real ZTF observation MJDs evaluated with offline Earth-geocentric geometric parallax, providing signed offsets and formal Gaia-only 2D covariance; **no ZTF WCS/PSF uncertainty or physical source identity validated**. High CIDA 11 RUWE ≈ 8.57 cautions that catalogue formal errors may underestimate physical uncertainties.
 - **v1.10 reference holdout evidence:** preserved 13 actual derived Gaia candidate image-model offsets from four ZTF science frames with the SHA-256 of original v1.8 aggregate; independent reference-exclusion tests show 3 inclusive and only 2 strict exposures with enough stars. FT Tau MJD58491 LOO RMS ~0.076 arcsec, CIDA 11 MJD58475 ~0.093 arcsec; these are *internal disagreement* not calibrated detector astrometric errors. CIDA 11 MJD58849 has five inclusive but only two strict references.
 - **v1.11 corrected reference-star Gaia model:** actual official Gaia DR3 five-parameter formal covariance and annual geometric parallax propagated for 8 candidate references plus 2 target source IDs at their actual ZTF exposure dates. Thirteen old real Gaussian image-model offsets re-evaluated without refitting FITS pixels. Strict LOO RMS changes are only −0.012 mas (FT Tau) and −0.075 mas (CIDA 11), with the same 2/4 exposure eligibility. These are **internal disagreement metrics, not calibrated instrument errors**.
+- **v1.12 real original science FITS remeasurement:** retrieved 20 bounded source cutouts (4 target + 16 reference candidates) from four original dated ZTF science frames, each predicted with source-specific Gaia 5D formal covariance and geometric annual parallax. Nine returned HTTP 503, two had inconclusive pixel screens, **nine completed Gaussian+aperture centroid screens**. Six reference models passed *provisional internal cross-model agreement*, only one of four exposure groups had >=3 such controls; median inter-model center separation 0.116948″ across nine complete images. On CIDA 11 MJD58475, internal reference holdout RMS 0.072594″ (Gaussian) versus 0.118163″ (aperture), **not instrumental WCS error bars**. Official detector masks/PSFs not yet used.
 - Scientific data integrity gates: distinct OIDs/bands, flag masking, hashes, time-scale handling, provisional astrometric checks and synthetic-only benchmarking.
 
 ## Not yet established
@@ -35,7 +36,7 @@ The repository may be viewed as *research software in development*. Do not inter
 
 ## Next scientific milestone
 
-**Next science gate:** independently validate real single-star Gaia/ZTF controls and instrument-level FITS timing, WCS, background and empirical PSF, then remeasure image astrometry with a field-distortion/systematics error budget. Gaia formal 5D and geometric annual reference parallax corrections are now implemented but do not resolve the image-model reference disagreement.
+**Next science gate:** retrieve matching official ZTF science `mskimg.fits` pixel masks and native empirical PSF products; verify contamination/saturation/time metadata and independently authenticate field stars before attempting WCS distortion, PSF photometry or realistic image-centroid error budgets. v1.12 Gaussian/aperture agreement measures model sensitivity, not calibrated telescope precision.
 
 Read the [observational transport report](../reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md) for precise counts and caveats.
 
@@ -56,3 +57,5 @@ Read the [v1.9 real Gaia DR3 formal covariance and annual parallax audit](../rep
 See the [v1.10 real Gaia-reference holdout report](../reports/holdout_v1.10/REAL_REFERENCE_HOLDOUT_EVIDENCE.md) and [reproducible reduced derived ledger](../data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json).
 
 Read the [v1.11 real Gaia reference parallax/formal covariance sensitivity results](../reports/reference_parallax_v1.11/REAL_GAIA_REFERENCE_PARALLAX_LOO.md). All physical source identity and observational precision claims remain open.
+
+[Real observed-data v1.12 aperture-versus-Gaussian reference model evidence](../reports/real_fits_v1.12/REAL_TWO_CENTROID_MODEL_QA.md) · [Scientific methods and limitations](PHASE112_PIXEL_CENTROID_AND_WCS_LIMITS.md).
