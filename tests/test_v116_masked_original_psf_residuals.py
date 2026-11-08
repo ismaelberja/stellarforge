@@ -40,7 +40,7 @@ def model_parsed():
 
 
 def _wcs(*,x=.3,y=.4,offset=0,missing=False):
-    if missing:return {}
+    if missing:return fits.Header()
     w=WCS(naxis=2)
     w.wcs.crpix=[36+x+offset,36+y]
     w.wcs.crval=[RA,DEC]
