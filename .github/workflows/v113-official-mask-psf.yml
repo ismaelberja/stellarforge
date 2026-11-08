@@ -1,10 +1,8 @@
-# Repeat verified official ZTF instrument-product pilot once on the same four source exposure epochs, then manual-only.
+# After two verified original-product pilots, remote IRSA downloads are manual-only.
+# Source FITS, original survey photometry and Gaia TAP raw CSV never enter public Git.
 name: v1.13 Real ZTF mask and native detector-center PSF QA (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v113-official-mask-psf.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
