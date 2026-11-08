@@ -1,11 +1,8 @@
-# First bounded observed-data pilot when workflow added; manual-only after validation.
-# Full ZTF PSF catalogues and DAOPhot bytes stay transient inside runner.
+# After successful original-source pilot, official IRSA full-catalog/DAOPhot retrieval is manual only.
+# Full ZTF native catalogues and DAOPhot bytes stay transient inside runner.
 name: v1.14 Original ZTF PSF catalog Gaia candidate screens (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v114-original-psfcat.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
