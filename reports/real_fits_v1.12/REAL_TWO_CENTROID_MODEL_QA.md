@@ -1,8 +1,39 @@
 # StellarForge v1.12 — Real original ZTF FITS: Gaussian versus aperture-centroid screening
 
-**Observed 8 November 2026 · [Successful original-FITS/real-Gaia workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42459615687).**
+**Observed 8 November 2026: two successful bounded runs against the same historical science exposure dates — [initial run A](https://github.com/ismaelberja/stellarforge/actions/runs/42459615687) and [final code run B](https://github.com/ismaelberja/stellarforge/actions/runs/42460247095).**
 
 **Status:** diagnostic comparison of **two image centroid estimators applied to the same original pixels**, not a validated Gaia–ZTF crossmatch, empirical ZTF PSF, independent WCS calibration or physical discovery. In this version we deliberately **do not infer an instrumental astrometric accuracy** from agreement between estimators.
+
+## Final validation: real archive transport varies across repeat requests
+
+The finalized v1.12 code was independently executed again against the **same four original dated ZTF science exposures and ten exact Gaia DR3 IDs**, without refitting different epochs or changing the candidate-star selection. That run B succeeded with **506 passing automated tests**. The repeat is an **access reproducibility** check, **not a new independent astronomical exposure**.
+
+| Aggregate | First run A (initial code) | Final run B |
+|---|---:|---:|
+| Official science FITS cutout attempts | 20 | 20 |
+| HTTP 503 transport failures | 9 | **8** |
+| Complete two-estimator FITS image screens | 9 (3 target, 6 reference) | **12 (1 target, 11 reference)** |
+| Pixel signal screens inconclusive | 2 | **0** |
+| Image model review flags among completed screens | 2 | **3** |
+| Candidate references with provisional Gaussian/aperture agreement | 6 | **9** |
+| Exposure groups with >=3 provisionally agreeing references | 1 | **1** |
+| Median absolute aperture-versus-Gaussian centroid separation | 0.116948″ | **0.104720″** |
+| Automated regression tests passed | 506 | **506** |
+
+**Run B per original dated exposure:**
+
+| Target | Science MJD | Target cutout | Reference candidates with provisional agreement |
+|---|---:|---|---:|
+| FT Tau | 58388.389016 | Profile review required | 1 |
+| FT Tau | 58491.184780 | HTTP 503 | 2 |
+| CIDA 11 | 58475.113750 | HTTP 503 | 4 |
+| CIDA 11 | 58849.135984 | HTTP 503 | 2 |
+
+In the **CIDA 11 MJD 58475.113750 reference sample** from run B, all four accessible reference candidates pass the two-model provisional check. The same-source leave-one-reference-out internal disagreement is **0.064675″ with Gaussian estimates** versus **0.155762″ with positive-flux aperture estimates**. The **target image itself was unavailable (HTTP 503)** in this rerun, so neither diagnostic supports a new target position or astrophysical interpretation.
+
+**Provenance reproducibility:** Four reference cutouts were successfully downloaded in **both** runs. All four had **exactly matching FITS SHA-256 byte hashes** and identical screen outcomes, so there is no evidence of changed image bytes in that overlapping subset. The different run totals arise from **intermittent archive HTTP 503/availability**, not additional real observations or a new physical detection. This check applies only to the four overlapping files, not all twenty attempted cutouts.
+
+Because the original science frames, source IDs and dates were the same, **do not pool run A and run B into 40 independent scientific observations** or average their LOO values as if they sampled new sky epochs. The detector bitmask/empirical PSF/WCS science gates remain **open** in both runs.
 
 ## Input and verified provenance
 
@@ -31,7 +62,7 @@ The FITS header's `OBSMJD`/`MJD-OBS` values, if present, are checked for rough a
 
 Critically, **no calibrated `mskimg.fits` bitmask, saturation flag calibration, instrumental pixel variance/PSF model, filter-colour residual model, or independently registered sky solution is yet used**. The official [IRSA ZTF product list](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_metadata.html) also provides `mskimg.fits`, `psfcat.fits` and `sciimgdao.psf` / `sciimgdaopsfcent.fits` associated with each science exposure. Those are logical next primary-survey resources to validate rather than simulate instrumental models.
 
-## Real results (source counts, including archive failures)
+## Initial run A — original pixel screen findings (retained for audit)
 
 **Twenty** actual original science cutout requests resulted in:
 
@@ -40,7 +71,7 @@ Critically, **no calibrated `mskimg.fits` bitmask, saturation flag calibration, 
 - **9 usable two-centroid image screens**: **3 targets** and **6 reference candidates**.
 - Of the six reference two-model screens, **all six met the defined provisional internal image-estimator agreement gate**. This does not independently authenticate a single clean star or calibrate detector WCS.
 
-The **median aperture-versus-Gaussian centroid separation was 0.116948″ across nine completed two-model screens**. The range was 0.040506–0.184142″. This is not a source positional error or standard error; it is an estimator/model-dependence diagnostic on the same pixels.
+The **initial run A median aperture-versus-Gaussian centroid separation was 0.116948″ across nine completed two-model screens**. The range was 0.040506–0.184142″. This is not a source positional error or standard error; it is an estimator/model-dependence diagnostic on the same pixels.
 
 | Technical target | Original science MJD | Target screen | Gaia candidate references screened with both models | Internal-consistent reference candidates |
 |---|---:|---|---:|---:|
@@ -67,12 +98,13 @@ The FT Tau MJD 58388 target HTTP 503 is transport failure only. Two other target
 
 ## Software validation and provenance
 
-The real observed-data workflow completed successfully on GitHub Actions with **506 automated tests passed**, together with the source-archive and Gaia-ID integrity checks. The source runs on an ephemeral runner, records HTTP errors and SHA-256 for available FITS downloads, and uploads an **aggregate-only report** (not source pixels).
+Both observed-data workflows completed successfully on GitHub Actions with **506 automated tests passed** each, together with the source-archive and Gaia-ID integrity checks. The source runs on an ephemeral runner, records HTTP errors and SHA-256 for available FITS downloads, and uploads an **aggregate-only report** (not source pixels).
 
 - [Methods and image quality safeguards](../../docs/PHASE112_PIXEL_CENTROID_AND_WCS_LIMITS.md)
 - [Source code](../../src/stellarforge/v112_pixel_model_crosscheck.py)
 - [Real-data execution script](../../scripts/run_v112_real_fits_crosscheck.py)
-- [Real-data GitHub Actions evidence](https://github.com/ismaelberja/stellarforge/actions/runs/42459615687)
+- [Initial real ZTF FITS run A](https://github.com/ismaelberja/stellarforge/actions/runs/42459615687)
+- [Final-code real ZTF FITS run B](https://github.com/ismaelberja/stellarforge/actions/runs/42460247095)
 
 **Scientific gate status: 0 independently calibrated detector WCS solutions; 0 verified empirical single-star PSFs; 0 confirmed Gaia–ZTF physical source identities; 0 new companions; 0 physical variability detections.**
 
