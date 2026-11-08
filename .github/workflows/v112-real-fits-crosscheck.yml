@@ -1,0 +1,81 @@
+# Remote original-ZTF-FITS retrieval requires manual initiation after two validated runs.
+# Raw FITS/source photometry never enter Git or published workflow artifacts.
+name: v1.12 Real ZTF FITS multi-estimator centroid validation (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Verified original 2-target official IRSA transport run with private-ish raw artifact"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  real-fits-crosscheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install scientific FITS imaging and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run offline regressions and malformed FITS quality-gate tests
+        run: python -m pytest -q
+      - name: Recover verified historical IRSA files ONLY to ephemeral runner
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_ACQUISITION_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v112_original_irsa"
+          gh run download "$ORIGINAL_ACQUISITION_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v112_original_irsa"
+      - name: Verify source inventory and package original bytes in temp
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          folder=Path(os.environ['RUNNER_TEMP'])/'v112_original_irsa'
+          files=sorted(x for x in folder.iterdir() if x.is_file())
+          expected={'PILOT_STATUS.json','REPORT.md',
+            '149623711269425408_IRSA_RAW.csv',
+            '3419110734340795648_IRSA_RAW.csv'}
+          if {x.name for x in files}!=expected:
+            raise ValueError("Input historical IRSA artifact does not match preregistered inventory")
+          with ZipFile(folder.parent/'v112_original_irsa.zip','w',compression=ZIP_DEFLATED) as z:
+            for item in files:
+              z.write(item,item.name)
+          PY
+      - name: Refit original dated ZTF science FITS of each target and Gaia DR3 candidate reference
+        run: |
+          python scripts/run_v112_real_fits_crosscheck.py \
+            "$RUNNER_TEMP/v112_original_irsa.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --image-timeout 6 --gaia-timeout 25 \
+            --output reports/generated/v1.12_fits_crosscheck \
+            --require-some-valid-images
+      - name: Report exactly measured pixels and scientific limitations
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.12_fits_crosscheck/V112_FITS_CENTROID_MODEL_CROSSCHECK_NO_RAW.md ]; then
+            cat reports/generated/v1.12_fits_crosscheck/V112_FITS_CENTROID_MODEL_CROSSCHECK_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload only aggregate diagnostics and FITS SHA-256, NOT original pixels
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v112-original-science-FITS-centroid-QA-NO-RAW
+          path: |
+            reports/generated/v1.12_fits_crosscheck/V112_FITS_CENTROID_MODEL_CROSSCHECK_NO_RAW.json
+            reports/generated/v1.12_fits_crosscheck/V112_FITS_CENTROID_MODEL_CROSSCHECK_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn

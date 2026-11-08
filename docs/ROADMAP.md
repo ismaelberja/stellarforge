@@ -1,3 +1,20 @@
+# CURRENT SCIENTIFIC AND SOFTWARE ROADMAP — StellarForge v1.12, 8 November 2026
+
+**Completed engineering work:** 506 passing automated tests, verified 2,212 ZTF positional-cone records, real FITS/WCS checks of original science frames, independent Gaia DR3 five-parameter formal covariance and annual geometric parallax for both technical targets and eight candidate references, and now a **real-original-FITS pixel remeasurement audit with a new sky-plane-corrected aperture centroid compared against the original constrained Gaussian model**. [Read the original-image observational evidence](../reports/real_fits_v1.12/REAL_TWO_CENTROID_MODEL_QA.md).
+
+**Key scientific finding:** two 20-request audits were completed on the same original ZTF science epochs, revealing intermittent IRSA HTTP 503 archive availability. In the **final run**, eight HTTP 503 and **12 complete dual-centroid image screens** (1 target, 11 Gaia references) produced **9 provisionally model-consistent candidate references**, with median Gaussian/aperture centroid separation **0.104720″**. The CIDA 11 MJD58475 exposure had four reference candidates with Gaussian/aperture internal LOO RMS **0.064675″ versus 0.155762″**, although the target FITS was inaccessible. The four FITS files available in both runs had identical SHA-256 bytes. These figures measure estimator/reference-sample sensitivity on shared pixels, **not calibrated instrument astrometry, source motions or independent observing epochs**. Only one of four exposure groups had enough cross-model references.
+
+**Scientific priority for next phase:**
+1. Retrieve the **official IRSA ZTF matching `mskimg.fits` bad-pixel bitmask** and native `sciimgdao.psf`, `sciimgdaopsfcent.fits` / `psfcat.fits` products for the same dated science exposure IDs, under a fixed request budget. Decode appropriate flag semantics, WCS alignment and PSF model provenance rather than assuming `sciimg.fits` by itself proves a clean detector. See [IRSA product metadata](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_metadata.html).
+2. Use a larger, independently vetted sample of spatially distributed Gaia/ZTF field stars, with catalogue cross-identification and physical morphology/crowding checks, to fit and test detector-dependent empirical PSF and WCS distortion. Preserve *held-out* stars not used in the model.
+3. Verify ZTF header epoch/time convention and full topocentric/aberration/refraction corrections, source-specific Gaia 5D covariance and high-RUWE CIDA 11 model reliability, without confusing formal Gaia catalogue errors with actual imaging errors.
+4. Extend only verified, mask-checked calibration to all original six OID/filter groups and representative independent epochs, quantifying selection/injection-recovery and alternative physical explanations before any variability/discovery claim.
+5. Keep public artifacts **derived aggregate only**; never publish original ZTF light curves/FITS pixels or Gaia TAP raw catalogues without a separate verified provenance/rights review.
+
+**Still unconfirmed:** independently authenticated Gaia–ZTF source identities, clean isolated stellar PSFs, calibrated instrumental astrometric uncertainties, newly discovered companions and physical variability events. Historical sections below are retained for audit traceability.
+
+---
+
 # Current research/engineering roadmap — StellarForge v1.11 (6 November 2026)
 
 **Verified:** 484 automated tests, 2,212 real ZTF positional-cone photometric rows, 12 separate ZTF FITS science exposures across the original six OID/passband groups, eight Gaia DR3 candidate controls with 13 real FITS image-model fits, 5D formal Gaia source covariance for all ten v1.11 targets and references, and individual Earth-geocentric annual parallax corrections at four historical ZTF science epochs. [Real Gaia reference parallax sensitivity report](../reports/reference_parallax_v1.11/REAL_GAIA_REFERENCE_PARALLAX_LOO.md).
