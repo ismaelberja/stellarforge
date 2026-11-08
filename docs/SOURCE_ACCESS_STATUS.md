@@ -1,3 +1,18 @@
+# CURRENT ORIGINAL ZTF SPATIAL DAOPhot PSF FILE STATUS — StellarForge v1.15, 8 November 2026
+
+This is the latest verified access and science status. Historical records retained below.
+
+- **Actual original PSF files:** [real observed-data run](https://github.com/ismaelberja/stellarforge/actions/runs/42514987086) retrieved and decoded **all four original 88,465-byte `sciimgdao.psf` spatial DAOPhot Gaussian+3×47×47 correction-table files**, one per original dated science exposure of FT Tau/CIDA 11, plus **all four genuine separate 23×23 `sciimgdaopsfcent.fits` native center-PSF stamps**. The original files were used in an ephemeral runner and are **not** in public Git/artifacts.
+- **Model reconstruction versus original official center FITS:** same-field native center cosine similarity **0.999999–1.000000**, normalized L1 differences **0.000278–0.000984**. All four center comparisons pass internal reconstruction checks, **not independent observational/empirical PSF or telescope WCS accuracy validation**, since both products derive from the same ZTF DAOPhot processing.
+- **Source-specific shape model:** original `psfcat.fits` full native catalogues also retrieved for four epochs (from historical v1.14 source pilot, total 27,207 original PSF-fit rows). **Sixteen** of twenty Gaia-target/reference × epoch positions were already provisional catalogue counterparts, and all sixteen received approximate normalized 23×23 spatial PSF *model* shapes at the original CCD native `xpos/ypos`. These are not residual-tested against same-date original star-image pixels.
+- **Important approximation:** SciPy cubic B-spline correction interpolation matches official field-center reconstructions exceptionally well but is not a formally validated DAOPhot native bicubic routine at arbitrary spatial position or fractional pixel phase.
+- **Original source provenance:** recovered SHA-audited official 2,212-row ZTF positional-cone dataset from historical GitHub Actions original acquisition `41997079598`, with v1.8 immutable derived reference ledger source SHA-256 `fb7d5c315cbef56b2551e73920c67920827d91160b4c0bd35f3fd77113166beb`. Original acquisition artifacts are time-limited; expected expiry **12 November 2026**. Future reruns after expiry require a new official original acquisition with its own hashes, not a substituted unverified CSV.
+- **Still missing:** robust source-by-source original `sciimg.fits` and `mskimg.fits` matched pixel-mask residual tests, independently authenticated Gaia/ZTF star associations and isolated source PSFs, full-time topocentric apparent place, detector WCS distortion and held-out instrumental uncertainty calibration. Gaia CIDA 11 RUWE ~8.57 remains a strong astrophysical source-model caution. **No new confirmed variability, companions or calibrated WCS errors**.
+
+[Observed v1.15 source-data evidence and PSF model numerical checks](../reports/spatial_daophot_v1.15/REAL_DAOPHOT_CENTER_AND_LOCAL_SHAPES.md) · [Methods and limitations](PHASE115_DAOPHOT_SPATIAL_MODEL_VALIDATION.md) · [GitHub Actions real 590-test validation](https://github.com/ismaelberja/stellarforge/actions/runs/42514987086).
+
+---
+
 # CURRENT OFFICIAL ZTF NATIVE PSF DATA ACCESS — StellarForge v1.14, 8 November 2026
 
 This section is the most recent verified source status. Historical sections remain below for audit.
