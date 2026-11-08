@@ -1,6 +1,6 @@
 # StellarForge v1.13 — Real ZTF detector masks and native field-center PSF evidence
 
-**Observed 8 November 2026 · [Actual source-mask/native-PSF GitHub Actions run](https://github.com/ismaelberja/stellarforge/actions/runs/42467665500).**
+**Observed 8 November 2026: two successful read-only runs on the same four original ZTF exposures — [initial run A](https://github.com/ismaelberja/stellarforge/actions/runs/42467665500) and [repeat run B](https://github.com/ismaelberja/stellarforge/actions/runs/42468217065).**
 
 **Scientific interpretation:** genuine original ZTF instrument files were obtained, opened and compared against matching science exposures. This is **pixel-level mask validation and native field-center PSF availability/shape screening**. It is **NOT an independent WCS uncertainty calibration, a local empirical point-spread function for a source, a verified astrophysical Gaia–ZTF crossmatch, or a new companion/variability detection**.
 
@@ -13,7 +13,33 @@
 - The [ZTF explanatory supplement](https://irsa.ipac.caltech.edu/data/ZTF/docs/ztf_explanatory_supplement.pdf) defines the disqualifying mask-bit template **6141** and the extracted-source information bits **2050**; `2^8 = 256` flags saturation. The [IRSA metadata guide](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_metadata.html) specifies both ancillary product names and full paths.
 - The real-data workflow passed **533 tests** and committed/exported only derived diagnostics and SHA-256 digests. No original FITS pixels, instrument mask arrays or raw Gaia TAP/IRSA photometric source tables were made public.
 
-## Live initial pilot — exact verified findings
+## Two-run source availability and full native-PSF inventory
+
+The bounded workflow was **repeated once against exactly the same four original science exposure identifiers and ten Gaia IDs**; these are archive rerequests, **not eight independent observing epochs** or new astrophysical measurements.
+
+| Verified original-product result | Run A | Run B | Unique successfully inspected over both runs |
+|---|---:|---:|---:|
+| Reference/target mask-science pairs attempted | 20 | 20 | 20 distinct source positions |
+| WCS-aligned science+mask pairs accessible | **4** | **0** | **4** distinct Gaia reference-position cutouts |
+| Mask/science HTTP 503 | 16 | **20** | Archive access failures, not sources absent |
+| Target cores with a verifiable mask | 0 | 0 | **0** |
+| Field-center original native PSF stamp files requested | 4 | 4 | 4 original science exposures |
+| Original PSF stamps actually parsed | **2** | **2** | **4 unique native center-PSF products** |
+
+**All four original `sciimgdaopsfcent.fits` PSF stamps were individually retrieved across the two runs**, because the two successful PSF downloads in run B were exactly the two products that returned HTTP 503 in run A. Every parsed stamp is **23 × 23 pixels**, with a fully finite image.
+
+| Original dated field | Science MJD | Retrieved in | Positive-weighted native center PSF σx (pixels) | σy (pixels) |
+|---|---:|---|---:|---:|
+| FT Tau | 58388.389016 | A | 1.3705 | 1.3372 |
+| FT Tau | 58491.184780 | B | 1.7788 | 1.8782 |
+| CIDA 11 | 58475.113750 | B | 1.6202 | 1.4829 |
+| CIDA 11 | 58849.135984 | A | 1.4397 | 1.2984 |
+
+This is **complete file-access coverage of the four original native field-center PSF products**, but it does **not** mean the source-location PSFs have been evaluated or calibrated. The original detector-center stamps are different *dated science products*; there is no repeated successful download of the same PSF product in both runs for a byte-for-byte PSF repeatability comparison. Likewise, no original mask cutout was retrieved in both runs, so the **four mask-science successes from run A have not been independently repeated** at the pixel-byte level.
+
+Run B's complete absence of accessible mask/science pairs is an **archive HTTP 503 service limitation**. Do not erase the four properly measured run A mask checks, and do not count 40 HTTP requests as forty new source observations. Both runs passed the entire **533-test regression suite**.
+
+## Initial run A — exact verified findings
 
 | Measure | Actual result |
 |---|---:|
@@ -46,7 +72,7 @@ All four successful mask+science pairs matched exactly at the sampled celestial 
 
 ### Actual archived native center PSF stamps
 
-Two genuine original `sciimgdaopsfcent.fits` field-center stamps were accessible; the other two were HTTP 503.
+In initial run A, two genuine original `sciimgdaopsfcent.fits` field-center stamps were accessible and two were HTTP 503. **The two missing ones were subsequently opened in repeat run B**; the four-product combined inventory is listed above.
 
 | Original field | MJD | Native PSF FITS dimensions | Positive-weight second moment σx (pixels) | σy (pixels) |
 |---|---:|---:|---:|---:|
@@ -79,4 +105,4 @@ python scripts/run_v113_masks_native_psf.py /path/to/verified_original_IRSA_acqu
 
 Next, examine official `sciimgdao.psf` (the **spatially varying DAOPhot PSF**) and original `psfcat.fits` detections with positional cross-matching, validating true source morphology and color and independently held-out field-star astrometric errors. This is required before declaring a calibrated PSF, WCS source association, new binary companion or stellar variability detection.
 
-**Scientific confirmation counts: 0 independently calibrated detector WCS; 0 localized empirical reference PSFs; 0 independently authenticated astrophysical Gaia–ZTF matches; 0 new physical companions/variability events.**
+**Scientific confirmation counts (both runs): 0 independently calibrated detector WCS; 0 localized empirical reference PSFs; 0 independently authenticated astrophysical Gaia–ZTF matches; 0 new physical companions/variability events.**
