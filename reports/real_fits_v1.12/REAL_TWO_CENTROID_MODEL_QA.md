@@ -33,7 +33,7 @@ Critically, **no calibrated `mskimg.fits` bitmask, saturation flag calibration, 
 
 ## Real results (source counts, including archive failures)
 
-<escape>20</escape> actual original science cutout requests resulted in:
+**Twenty** actual original science cutout requests resulted in:
 
 - **9 HTTP 503** (service transport errors, **not physical non-detections**);
 - **2 inconclusive aperture screens** (insufficient signal/model check);
