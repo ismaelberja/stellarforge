@@ -1,6 +1,6 @@
 # StellarForge — Empezar aquí
 
-**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.15** · noviembre de 2026.
+**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.16** · noviembre de 2026.
 
 StellarForge está pensado para analizar variabilidad estelar con datos de distintos archivos astronómicos. Es un proyecto personal de investigación y software en desarrollo, útil también para demostrar capacidades de ingeniería de datos, análisis temporal y calidad del código.
 
@@ -8,7 +8,7 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 ## ¿Qué está realmente conseguido?
 
-- **590 pruebas automáticas superadas** en GitHub Actions.
+- **614 pruebas automáticas superadas** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.
@@ -35,6 +35,8 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 - **Reconstrucción espacial real de la PSF ZTF (v1.15):** descodificados los **cuatro archivos oficiales `sciimgdao.psf`** de las exposiciones estudiadas. Cada uno contiene una base gaussiana y **tres tablas de corrección espacial de 47×47 muestras**. Nuestro algoritmo calcula un modelo PSF de **23×23 píxeles** en las coordenadas originales del detector, y sus reconstrucciones en el centro coinciden muy bien con las **cuatro imágenes PSF oficiales de ZTF** (similitud de forma ≥0,999999). Se han evaluado modelos de PSF locales para las **16 fuentes candidatas** aceptadas provisionalmente en la v1.14. **Esto demuestra consistencia en el formato y la reconstrucción; no verifica todavía que esos modelos ajusten bien las estrellas reales, que estén aisladas o que Gaia/ZTF correspondan físicamente a la misma fuente.** Faltan los residuos sobre imágenes científicas originales con máscaras válidas y una calibración WCS independiente.
 
+- **Ajustes PSF sobre píxeles científicos originales de ZTF (v1.16):** hemos pasado de reconstruir únicamente las PSF de ZTF a **ajustarlas directamente a las imágenes reales `sciimg.fits`, usando las máscaras de píxeles `mskimg.fits` correspondientes**. Se recuperaron los **16 pares originales de imagen y máscara**, se comprobó su geometría WCS y la fase subpíxel del detector, y se ajustó la amplitud de la PSF espacial con un plano de fondo en unidades DN. **Los 16 ajustes se completaron**; **13 superan una comprobación provisional de residuos** y **3 necesitan revisión** (un objetivo FT Tau, un objetivo CIDA 11 y una posible estrella de referencia). La comparación se realiza dejando fuera algunos píxeles de la **misma imagen**, no estrellas independientes. **No demuestra que las asociaciones Gaia–ZTF sean físicamente correctas, que las estrellas estén aisladas ni que los residuos indiquen un compañero o variabilidad.** Falta una calibración WCS/PSF con estrellas externas realmente independientes.
+
 **No hay nuevas detecciones astrofísicas confirmadas.** Quedan pendientes la revisión de imágenes, las asociaciones Gaia–ZTF y la validación científica de cualquier episodio.
 
 ## Cómo comprobar que funciona
@@ -44,7 +46,7 @@ Necesitas Python 3.10 o superior y Git.
 ```bash
 git clone https://github.com/ismaelberja/stellarforge.git
 cd stellarforge
-python -m pip install -e '.[test,analysis]'
+python -m pip install -e '.[test,analysis,images]'
 python -m pytest -q
 ```
 
@@ -60,6 +62,7 @@ Los valores de la primera instrucción son coordenadas de demostración técnica
 ## Dónde encontrar los resultados
 
 - [README principal (inglés)](README.md): presentación resumida para empresas e investigadores.
+- [Residuos reales sobre píxeles de ZTF con PSF espacial y máscaras v1.16](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md).
 - [Reconstrucción espacial DAOPhot y contraste real de PSF ZTF v1.15](reports/spatial_daophot_v1.15/REAL_DAOPHOT_CENTER_AND_LOCAL_SHAPES.md).
 - [Catálogos originales PSF y asociaciones candidatas Gaia–ZTF v1.14](reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md).
 - [Máscaras de ZTF y PSF nativa real v1.13](reports/original_masks_psf_v1.13/REAL_ZTF_MASK_AND_NATIVE_CENTER_PSF_EVIDENCE.md).
@@ -82,4 +85,4 @@ Los datos originales descargados no se incluyen en este repositorio. La visibili
 
 ## Próximo objetivo
 
-El siguiente paso científico será **contrastar las PSF espaciales ya reconstruidas con píxeles científicos originales `sciimg.fits` y máscaras reales `mskimg.fits` de las mismas exposiciones**, ajustando amplitud y fondo para medir residuos en estrellas independientes. Deberemos validar las correspondencias Gaia–ZTF y estimar un error instrumental WCS/PSF usando estrellas de control separadas del conjunto de ajuste. Los catálogos nativos ya están recuperados, pero todavía no demuestran identidad física, ausencia de mezclas ni errores astrométricos calibrados. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
+El siguiente paso científico será **validar la PSF instrumental con estrellas distintas, seleccionadas y verificadas de manera independiente**, no solamente con píxeles diferentes de la misma imagen. Ya hemos ajustado los 16 pares originales de imagen y máscara, pero aún debemos ampliar los controles de campo, analizar contaminación y fondo nebular, modelar los errores del detector y estimar la incertidumbre WCS/PSF utilizando estrellas externas que no participen en el ajuste. Revisaremos también las tres fuentes con residuos elevados antes de plantear ninguna interpretación astrofísica. Los catálogos nativos ya están recuperados, pero todavía no demuestran identidad física, ausencia de mezclas ni errores astrométricos calibrados. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
