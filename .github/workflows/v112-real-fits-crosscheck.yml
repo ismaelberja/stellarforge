@@ -1,10 +1,8 @@
-# Repeat the official-data pilot on finalized v1.12 science code; switch to manual-only afterward.
+# Remote original-ZTF-FITS retrieval requires manual initiation after two validated runs.
+# Raw FITS/source photometry never enter Git or published workflow artifacts.
 name: v1.12 Real ZTF FITS multi-estimator centroid validation (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v112-real-fits-crosscheck.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
