@@ -223,6 +223,7 @@ def main():
     p.add_argument("--gaia-timeout",type=float,default=25)
     p.add_argument("--output",type=Path,
                    default=ROOT/"reports/generated/v1.13_masks_native_psf")
+    p.add_argument("--require-some-instrument-products",action="store_true")
     args=p.parse_args()
     result=run(args.original_irsa_zip,args.seed,args.ledger,
                image_timeout=args.image_timeout,gaia_timeout=args.gaia_timeout)
@@ -235,6 +236,10 @@ def main():
         "independent_wcs_calibrations":0,
         "report_files":[str(x) for x in paths],
     },indent=2))
+    if args.require_some_instrument_products and (
+            result["n_sources_with_matching_mask_and_science_wcs"]+
+            result["n_native_center_psf_stamps_parsed"]==0):
+        p.exit(2,"No official ZTF mask/PSF instrument product validated; this is archive access failure, not astronomical non-detection.\n")
 
 
 if __name__=="__main__":
