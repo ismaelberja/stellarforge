@@ -1,10 +1,8 @@
-# First observed-data reconstruction/official center-FITS validation; manual-only after.
+# Remote official ZTF/Gaia original-data access manual-only after successful observed-data validation.
+# Source FITS, original DAOPhot arrays and Gaia/IRSA raw records remain ephemeral.
 name: v1.15 Original DAOPhot spatial PSF reconstruction/center FITS QA (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v115-original-spatial-psf.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
