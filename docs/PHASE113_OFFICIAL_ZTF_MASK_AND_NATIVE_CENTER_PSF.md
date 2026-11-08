@@ -43,7 +43,7 @@ The native ZTF `sciimgdaopsfcent.fits` is specifically a **PSF image evaluated a
 
 Read-only source access uses the official Gaia TAP and NASA/IPAC IRSA archive. The original IRSA catalog bytes are revalidated against their exact acquisition manifest and SHA-256; ancillary raw FITS are used exclusively in memory on the temporary CI runner. Public Git and the GitHub Actions artifact contain **only derived counts, source IDs, FITS/SHA-256 digests, outcome codes, quality flags and scientific limitations**, not original raw photometry, raw Gaia TAP CSV, FITS pixel arrays or complete FITS headers.
 
-The public workflow is manual-only after an observed-data pilot, preventing repeated unattended archive traffic or misleading nondetection claims during HTTP outages.
+The public workflow is manual-only after two completed observed-data pilots on the same original science exposures, preventing repeated unattended archive traffic or misleading nondetection claims during HTTP outages. The initial run validated four paired reference masks and two native field-center PSFs. A repeat retrieved the **other two original field-center PSF products** but encountered HTTP 503 for all twenty paired masks/science cutouts; the four initial mask checks cannot be independently reverified from that rerun. The [real evidence report](../reports/original_masks_psf_v1.13/REAL_ZTF_MASK_AND_NATIVE_CENTER_PSF_EVIDENCE.md) preserves the two runs separately rather than counting their requests as new science epochs.
 
 ## Scientific thresholds and next gate
 
