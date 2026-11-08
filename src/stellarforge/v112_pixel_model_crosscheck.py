@@ -266,7 +266,7 @@ def analyze_real_science_reference_cutout(
             source_gaia_position["formal_gaia_north_sigma_mas"],
         "gaia_ruwe_quality_warning":
             source_gaia_position["high_or_missing_ruwe_quality_warning"],
-        "science_fits_pixel_source_refitted":True,
+        "science_fits_pixel_source_refitted":False,
         "gaia_ztf_source_identity_confirmed":False,
     }
     try:
@@ -274,6 +274,8 @@ def analyze_real_science_reference_cutout(
         result=inspect(raw,expected_ra_deg=ra,expected_dec_deg=dec,
                        mjd_assumed_utc=mjd_assumed_utc)
         report.update(result)
+        report["science_fits_pixel_source_refitted"]=(
+            result.get("status") in (SUCCESS,REVIEW))
     except (HTTPError,URLError,TimeoutError,OSError,ValueError) as exc:
         report["status"]="ZTF_SCIENCE_FITS_ACCESS_OR_VALIDATION_FAILED"
         report["error_type"]=type(exc).__name__
