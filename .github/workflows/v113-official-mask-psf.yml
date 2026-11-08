@@ -1,4 +1,4 @@
-# First empirical 4-exposure official ZTF instrument product pilot; manual-only after.
+# Repeat verified official ZTF instrument-product pilot once on the same four source exposure epochs, then manual-only.
 name: v1.13 Real ZTF mask and native detector-center PSF QA (NO RAW)
 
 on:
