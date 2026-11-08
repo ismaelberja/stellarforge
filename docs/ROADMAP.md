@@ -1,3 +1,21 @@
+# CURRENT SCIENTIFIC AND ENGINEERING ROADMAP — StellarForge v1.14, 8 November 2026
+
+**New verified milestone:** real [v1.14 native original ZTF PSF-catalogue and Gaia screening evidence](../reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md), **564 automated tests passed**, and all four original `psfcat.fits` native PSF-fit FITS catalogues retrieved for two distinct dated original g-band exposures in each FT Tau/CIDA 11 technical field. The four catalogs contain **27,207 native PSF-fit detections**, and all **four native spatial `sciimgdao.psf` files** were also downloaded and SHA-provenanced. No native spatial DAOPhot model was decoded/evaluated at any source position.
+
+**Preregistered exact-source screening:** each of twenty Gaia DR3 target/reference predicted positions was compared with the independent ZTF original native PSF-fit detection coordinates, `chi`, `sharp`, SNR and source pixel flags. **Sixteen** unique nearest ≤1″ candidates passed provisional quality screening, **three** required low-`chi` model review, **one** FT Tau reference had no nearby PSF catalog row. The sixteen provisional angular offsets are **0.032641″–0.345256″ (median 0.1258465″)**. These offsets are *not* a validated physical source crossmatch, instrumental WCS precision, companion signal, or true proper motion. The CIDA 11 astrometric high RUWE warning remains.
+
+**Next scientifically justified work:**
+1. **Decode/evaluate original ZTF `sciimgdao.psf` spatial DAOPhot lookup table** at the native CCD-quadrant `xpos/ypos` of source candidates in `psfcat.fits`. Verify exact model format, coordinate conventions, normalization and spatial terms rather than treating the field-center 23×23 image as a local PSF.
+2. Use original same-dated `sciimg.fits`, `mskimg.fits` and source-specific PSF predictions to compare masked real image residuals, deblend/crowding alternatives and source-specific flux/centroid uncertainty. v1.13 aligned masks existed only for four reference-source cutouts, not targets; source catalogue `flags` do not replace full pixel-mask verification.
+3. Establish true **independent** Gaia/ZTF source association on spatially distributed field stars, with catalogue source quality, astrophysical morphology, 2018–2020 position epoch, known high RUWE, color terms, actual observing-time/Palomar apparent-place corrections and non-Gaia contamination. Estimate error budget and false-match rate, not merely matching radii.
+4. Build a detector WCS/PSF local astrometric model trained on some authenticated reference stars and independently tested on **separate withheld sources**, with realistic correlated PSF/WCS/systematic noise and observational metadata. Only after this gate may instrumental precision be asserted.
+5. Expand to all historic six OID/filter groups and representative independent image epochs, and validate the original publisher Taurus table, source selection/injection recovery and astrophysical variability hypotheses before any population results.
+6. Retain original raw Gaia TAP, ZTF positional-cone photometry, `psfcat.fits` tables, original science/mask FITS pixels and native DAOPhot bytes in ephemeral controlled environments. Public Git publishes code, reports, reproducibility hashes and **derived aggregate metrics only**.
+
+**Unconfirmed:** independently authenticated Gaia–ZTF physical associations, actually evaluated local spatial PSFs, calibrated instrument WCS/PSF errors, discovered stellar/substellar companions or confirmed physical variability events. Historical milestones are preserved below.
+
+---
+
 # CURRENT SCIENTIFIC AND SOFTWARE ROADMAP — StellarForge v1.13, 8 November 2026
 
 **Implemented and verified:** 533 automated regressions; original 2,212 ZTF positional-cone photometry rows with source hashes; genuine science FITS from original dated exposures; Gaia DR3 ten-source five-parameter formal correlated astrometry and first-order annual geocentric parallax; independent-code Gaussian/aperture centroid-model comparisons; and now **original ZTF instrument bad-pixel masks and native science-field-center PSF stamps**.
