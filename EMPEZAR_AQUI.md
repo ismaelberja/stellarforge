@@ -1,6 +1,6 @@
 # StellarForge — Empezar aquí
 
-**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.12** · noviembre de 2026.
+**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.13** · noviembre de 2026.
 
 StellarForge está pensado para analizar variabilidad estelar con datos de distintos archivos astronómicos. Es un proyecto personal de investigación y software en desarrollo, útil también para demostrar capacidades de ingeniería de datos, análisis temporal y calidad del código.
 
@@ -8,7 +8,7 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 ## ¿Qué está realmente conseguido?
 
-- **506 pruebas automáticas superadas** en GitHub Actions.
+- **533 pruebas automáticas superadas** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.
@@ -28,6 +28,8 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 - **Paralaje e incertidumbre formal de cada estrella de referencia (v1.11):** consultadas diez fuentes Gaia DR3 (ocho referencias y dos objetivos) y recalculados 13 ajustes derivados de imágenes ZTF reales. Las correcciones de paralaje cambian muy poco el desacuerdo entre referencias, apenas 0,012 mas en FT Tau y 0,075 mas en CIDA 11; dos de cuatro exposiciones siguen superando el control de calidad estricto. No es una calibración instrumental de WCS ni una detección nueva.
 
 - **Reanálisis de píxeles FITS reales (v1.12):** sobre las imágenes originales de ZTF se han comparado dos métodos distintos para localizar el centro de las fuentes: un ajuste gaussiano y un centroide de apertura con corrección del fondo. Se hicieron dos comprobaciones de 20 solicitudes sobre **las mismas imágenes históricas** (no son cuarenta exposiciones independientes). La primera obtuvo 9 ajustes completos y 9 errores HTTP 503; la ejecución definitiva obtuvo **12 ajustes completos** (un objetivo y once referencias), con 8 errores HTTP 503. Nueve posibles referencias mostraron concordancia provisional entre modelos, con separación mediana de **0,105″** entre ambos métodos: **es sensibilidad al método, no precisión astrométrica calibrada**. Solo una exposición tuvo referencias suficientes: en CIDA 11, el desacuerdo interno de las cuatro referencias fue **0,065″** con gaussiana y **0,156″** por apertura; la imagen del objetivo no estuvo disponible en esa segunda ejecución. Quedan pendientes los mapas oficiales de máscaras y la PSF instrumental de ZTF.
+
+- **Máscaras de píxeles y PSF oficial de ZTF (v1.13):** por primera vez se han descargado y cotejado los mapas reales `mskimg.fits` con las imágenes científicas originales, comprobando que la geometría WCS coincide antes de interpretar los píxeles. De 20 posiciones de fuentes objetivo/referencia, cuatro referencias tenían máscara e imagen accesibles y alineadas, sin bits problemáticos ni saturación en la apertura examinada. Las otras dieciséis fallaron por HTTP 503, incluidos los dos objetivos. Se han abierto además dos modelos oficiales de PSF del **centro del campo**, ambos de 23×23 píxeles. **No son PSF específicas de cada estrella ni permiten confirmar ausencia de mezclas, identidad estelar o calibración astrométrica.**
 
 **No hay nuevas detecciones astrofísicas confirmadas.** Quedan pendientes la revisión de imágenes, las asociaciones Gaia–ZTF y la validación científica de cualquier episodio.
 
@@ -54,6 +56,7 @@ Los valores de la primera instrucción son coordenadas de demostración técnica
 ## Dónde encontrar los resultados
 
 - [README principal (inglés)](README.md): presentación resumida para empresas e investigadores.
+- [Máscaras de ZTF y PSF nativa real v1.13](reports/original_masks_psf_v1.13/REAL_ZTF_MASK_AND_NATIVE_CENTER_PSF_EVIDENCE.md).
 - [Resultados de píxeles FITS y comparación de centroides v1.12](reports/real_fits_v1.12/REAL_TWO_CENTROID_MODEL_QA.md).
 - [Correcciones Gaia por paralaje de las referencias v1.11](reports/reference_parallax_v1.11/REAL_GAIA_REFERENCE_PARALLAX_LOO.md).
 - [Validación cruzada real de referencias v1.10](reports/holdout_v1.10/REAL_REFERENCE_HOLDOUT_EVIDENCE.md).
@@ -73,4 +76,4 @@ Los datos originales descargados no se incluyen en este repositorio. La visibili
 
 ## Próximo objetivo
 
-El siguiente paso científico será **descargar y analizar las máscaras de píxeles y los modelos oficiales de PSF de ZTF** de las mismas exposiciones, para identificar saturación, píxeles defectuosos, mezclas y efectos instrumentales. Después habrá que construir una calibración WCS con suficientes referencias de campo realmente verificadas y estimar las incertidumbres sin confundirlas con la concordancia entre dos métodos sobre la misma imagen. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
+El siguiente paso científico será **trabajar con el modelo espacial real de PSF `sciimgdao.psf` o el catálogo `psfcat.fits` de ZTF en la posición de cada fuente**, y verificar de forma independiente las referencias Gaia/ZTF. Las máscaras de píxeles originales y las PSF del centro del detector ya se han inspeccionado, pero falta construir y comprobar una calibración WCS/PSF completa con suficientes estrellas de control, sin confundir indicadores internos con incertidumbres astrométricas reales. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
