@@ -1,0 +1,82 @@
+# First bounded original ZTF science/mask residual pilot on addition; manual only after review.
+name: v1.16 Real original ZTF masked PSF residuals and same-image pixel holdout (NO RAW)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v116-real-masked-spatial-psf.yml'
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Historical original SHA-verified IRSA/ZTF photometric acquisition run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  actual-original-science-mask-pixel-residuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install scientific original FITS DAOPhot regression tools
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run all offline and synthetic masked PSF/WCS/phase/HTTP safeguard regressions
+        run: python -m pytest -q
+      - name: Recover original SHA-audited IRSA photometry ONLY to temporary runner
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          SOURCE_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v116_irsa_original"
+          gh run download "$SOURCE_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v116_irsa_original"
+      - name: Check original exact source inventory; construct transient manifest ZIP
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          folder=Path(os.environ["RUNNER_TEMP"])/"v116_irsa_original"
+          files=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={"PILOT_STATUS.json","REPORT.md",
+                    "149623711269425408_IRSA_RAW.csv",
+                    "3419110734340795648_IRSA_RAW.csv"}
+          if {p.name for p in files}!=expected:
+              raise ValueError("Wrong historical SHA-controlled IRSA source inventory")
+          with ZipFile(folder.parent/"v116_irsa_original.zip","w",compression=ZIP_DEFLATED) as z:
+              for p in files:z.write(p,p.name)
+          PY
+      - name: Read original ZTF science DN pixels + aligned bad-pixel masks and fit actual source local PSF
+        run: |
+          python scripts/run_v116_original_masked_psf_residuals.py \
+            "$RUNNER_TEMP/v116_irsa_original.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --gaia-timeout 25 --archive-timeout 6 \
+            --output reports/generated/v1.16_original_masked_psf \
+            --require-some-real-pixel-fits
+      - name: Show observed native masked science pixel residuals and explicit calibration gaps
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.16_original_masked_psf/V116_ORIGINAL_SCIENCE_MASK_SPATIAL_PSF_RESIDUALS_NO_RAW.md ]; then
+            cat reports/generated/v1.16_original_masked_psf/V116_ORIGINAL_SCIENCE_MASK_SPATIAL_PSF_RESIDUALS_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload only small aggregate original FITS source PSF checks, NO raw pixels
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v116-original-science-masked-local-PSF-pixel-residuals-NO-RAW
+          path: |
+            reports/generated/v1.16_original_masked_psf/V116_ORIGINAL_SCIENCE_MASK_SPATIAL_PSF_RESIDUALS_NO_RAW.json
+            reports/generated/v1.16_original_masked_psf/V116_ORIGINAL_SCIENCE_MASK_SPATIAL_PSF_RESIDUALS_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
