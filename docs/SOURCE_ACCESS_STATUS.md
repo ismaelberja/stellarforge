@@ -1,3 +1,18 @@
+# CURRENT OFFICIAL ZTF INSTRUMENT ACCESS — StellarForge v1.13, 8 November 2026
+
+This status supersedes older entries below, which remain for historical audit.
+
+- **Original official ZTF IRSA pilot:** same SHA-verified 2,212-row position-query artifact, acquired in historic run `41997079598` and still accessible to a temporary GitHub Actions runner at the time of the v1.13 audit. The original 2026-11-05 raw source artifact is scheduled to expire on **12 November 2026**. Its expiry is an input reproducibility/rights-and-access issue, not evidence about astronomical sources.
+- **Original `mskimg.fits` instrument bit-mask products:** 20 candidate source apertures on four original single-exposure g-band dated science images were attempted. **Four** Gaia reference-source masks were successfully retrieved along with matching science FITS pixels, and both original FITS celestial WCS grids aligned exactly at sampled locations. All four nominal 4.5-pixel apertures had **zero disqualifying 6141 mask bits and zero bit-8 saturation pixels**. **16** other source attempts were HTTP 503; **all four technical target-star cores were inaccessible**. A mask-clean aperture does not validate a single isolated Gaia–ZTF match.
+- **Native `sciimgdaopsfcent.fits` products:** across two read-only passes over the same original science dates, all **four unique original science-field-center 23×23 PSF FITS stamps were accessible/parsable** (first run accessed two; rerun the other two). They represent **the field center only**, not local PSF evaluations at the four original target/reference positions, and cannot produce independent WCS uncertainties. The [repeat run](https://github.com/ismaelberja/stellarforge/actions/runs/42468217065) passed 533 tests but all **20 original mask/science pair attempts returned HTTP 503**; it did not repeat any of the four successful initial mask checks.
+- **Reference data model:** exact ten Gaia DR3 source IDs with formal full five-parameter correlations and first-order Earth-geocentric annual parallax at original exposure dates, not full observatory topocentric apparent-coordinate or non-single-star solutions. CIDA 11 RUWE ≈8.57 is a strong astrometric model-quality warning.
+- **Official archive definitions:** [IRSA ZTF metadata suffixes](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_metadata.html) and [ZTF explanatory supplement Section 10.3, disqualifying mask bits 6141](https://irsa.ipac.caltech.edu/data/ZTF/docs/ztf_explanatory_supplement.pdf).
+- **Remaining science gate:** field-dependent `sciimgdao.psf` / `psfcat.fits` per-source validation, genuine Gaia/ZTF source association, independent WCS/PSF instrumental uncertainty and real physical variability/companions. Source FITS/mask/PSF pixel bytes and raw IRSA/Gaia catalogs are never committed or exported to public artifacts.
+
+[Actual measured v1.13 instrument mask and native PSF evidence](../reports/original_masks_psf_v1.13/REAL_ZTF_MASK_AND_NATIVE_CENTER_PSF_EVIDENCE.md).
+
+---
+
 # CURRENT ORIGINAL-ZTF SCIENCE IMAGE ACCESS STATUS — StellarForge v1.12, 8 November 2026
 
 This latest section supersedes the historical entries retained below for reproducibility.

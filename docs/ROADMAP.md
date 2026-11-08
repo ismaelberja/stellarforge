@@ -1,3 +1,20 @@
+# CURRENT SCIENTIFIC AND SOFTWARE ROADMAP — StellarForge v1.13, 8 November 2026
+
+**Implemented and verified:** 533 automated regressions; original 2,212 ZTF positional-cone photometry rows with source hashes; genuine science FITS from original dated exposures; Gaia DR3 ten-source five-parameter formal correlated astrometry and first-order annual geocentric parallax; independent-code Gaussian/aperture centroid-model comparisons; and now **original ZTF instrument bad-pixel masks and native science-field-center PSF stamps**.
+
+**Actual instrument result:** the [observed v1.13 ZTF mask/PSF audit](../reports/original_masks_psf_v1.13/REAL_ZTF_MASK_AND_NATIVE_CENTER_PSF_EVIDENCE.md) attempted 20 original target/reference source locations on four dated science exposures. Four Gaia candidate reference source masks and same-dated science FITS pixels were jointly accessible with exactly aligned celestial WCS mapping and no documented 6141 bad bits or saturation flags in nominal 4.5-pixel source apertures. **All 4 target source masks and 12 other reference masks were unavailable (HTTP 503)**, so target-source instrumental contamination cannot be assessed. **Across two runs on the same four historical exposures, all four distinct real 23×23 `sciimgdaopsfcent.fits` center-of-field PSF stamps were accessed and parsed** (two on each run, complementary exposure IDs). The first run validated four reference masks; **the repeat had HTTP 503 for all 20 paired mask/science attempts**, showing archive availability is unstable. These stamps are not local source-specific empirical PSF calibrations.
+
+**Next primary research gates, in priority order:**
+1. Retrieve/interpret original **spatially varying `sciimgdao.psf`** or **`psfcat.fits` source extraction catalog** at exact same-date/detector coordinates, using independent Gaia source associations and mask-valid image samples. The field-center stamp alone does not give a PSF at an arbitrary source location.
+2. Establish a spatially representative source-control sample with vetted Gaia/ZTF crossmatches, detector saturation/bitmask histories, morphology, crowding and non-Gaia neighbors. Strong Gaia RUWE (~8.57 for CIDA 11) needs a separate astrometric model.
+3. Fit and **independently test** a per-exposure detector WCS/PSF distortion and source centroid-error budget on held-out reference stars, including true time scale, topocentric geometry/aberration/refraction, Gaia covariance and correlated CCD/PSF bias terms.
+4. Repeat on representative dates and all six original ZTF OID/filter groups; assess injection/recovery, background/nebulosity alternatives, source identity, astrophysical selection and original Taurus publisher catalogue before physical events or companion claims.
+5. Publish only verified code, methods and **derived aggregates** in public Git; retain raw ZTF FITS, masks, PSF pixels, photometry and Gaia TAP CSV solely in ephemeral controlled environments.
+
+**UNVERIFIED:** physical Gaia–ZTF source IDs, authenticated single/unblended stars, local empirical PSFs, calibrated instrumental WCS uncertainty, new stellar companions and physical variability events.
+
+---
+
 # CURRENT SCIENTIFIC AND SOFTWARE ROADMAP — StellarForge v1.12, 8 November 2026
 
 **Completed engineering work:** 506 passing automated tests, verified 2,212 ZTF positional-cone records, real FITS/WCS checks of original science frames, independent Gaia DR3 five-parameter formal covariance and annual geometric parallax for both technical targets and eight candidate references, and now a **real-original-FITS pixel remeasurement audit with a new sky-plane-corrected aperture centroid compared against the original constrained Gaussian model**. [Read the original-image observational evidence](../reports/real_fits_v1.12/REAL_TWO_CENTROID_MODEL_QA.md).

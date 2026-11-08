@@ -1,0 +1,80 @@
+# After two verified original-product pilots, remote IRSA downloads are manual-only.
+# Source FITS, original survey photometry and Gaia TAP raw CSV never enter public Git.
+name: v1.13 Real ZTF mask and native detector-center PSF QA (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Original SHA-verified official ZTF position-cone artifact workflow run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-masks-and-center-psf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install FITS, astrometry and regression suite requirements
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run complete offline suite including 6141 mask and WCS safety gates
+        run: python -m pytest -q
+      - name: Recover SHA-verified historical IRSA source bytes to ephemeral runner ONLY
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_ACQUISITION_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v113_original_irsa"
+          gh run download "$ORIGINAL_ACQUISITION_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v113_original_irsa"
+      - name: Verify exact source inventory and pack raw input in ephemeral temp
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          folder=Path(os.environ['RUNNER_TEMP'])/'v113_original_irsa'
+          files=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={'PILOT_STATUS.json','REPORT.md',
+                    '149623711269425408_IRSA_RAW.csv',
+                    '3419110734340795648_IRSA_RAW.csv'}
+          if {p.name for p in files}!=expected:
+              raise ValueError("Unexpected raw source files: refuse to analyze")
+          with ZipFile(folder.parent/'v113_original_irsa.zip','w',compression=ZIP_DEFLATED) as z:
+              for p in files:z.write(p,p.name)
+          PY
+      - name: Inspect bounded same-date official ZTF masks and native science-field-center PSFs
+        run: |
+          python scripts/run_v113_masks_native_psf.py \
+            "$RUNNER_TEMP/v113_original_irsa.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --image-timeout 6 --gaia-timeout 25 \
+            --output reports/generated/v1.13_masks_native_psf \
+            --require-some-instrument-products
+      - name: Publish observational mask/PSF failures and caveats to job summary
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.13_masks_native_psf/V113_ZTF_MASK_NATIVE_PSF_QA_NO_RAW.md ]; then
+            cat reports/generated/v1.13_masks_native_psf/V113_ZTF_MASK_NATIVE_PSF_QA_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Archive only small derived mask/PSF findings; never raw FITS/Gaia/photometry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v113-ZTF-instrument-mask-and-center-PSF-NO-RAW
+          path: |
+            reports/generated/v1.13_masks_native_psf/V113_ZTF_MASK_NATIVE_PSF_QA_NO_RAW.json
+            reports/generated/v1.13_masks_native_psf/V113_ZTF_MASK_NATIVE_PSF_QA_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
