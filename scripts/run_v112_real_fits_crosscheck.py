@@ -14,6 +14,7 @@ import csv
 import hashlib
 import json
 import math
+import statistics
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from zipfile import ZipFile
@@ -116,6 +117,11 @@ def run(original_irsa_zip: Path, seed_path:Path=SEED, *,
     tar_reports=[e["new_gaia_5p_corrected_target_image_remeasurement"]
                  for e in exposures]
     done=lambda r:r.get("status") in (SUCCESS,REVIEW)
+    all_reports=tar_reports+ref_reports
+    estimator_disagreements=[
+        r["aperture_vs_gaussian_centroid_difference_arcsec"]
+        for r in all_reports if done(r) and
+        r.get("aperture_vs_gaussian_centroid_difference_arcsec") is not None]
     return {
         "schema_version":"stellarforge-v1.12-real-ztf-fits-centroid-estimator-comparison",
         "original_official_irsa_raw_rows_sha_checked":original["n_rows"],
@@ -127,6 +133,12 @@ def run(original_irsa_zip: Path, seed_path:Path=SEED, *,
         "n_target_fits_attempted":len(tar_reports),
         "n_reference_fits_attempted":len(ref_reports),
         "n_real_fits_image_requests":len(tar_reports)+len(ref_reports),
+        "n_remote_http_503_failures":sum(r.get("http_status")==503 for r in all_reports),
+        "n_incomplete_pixel_screens":sum(
+            r.get("status")=="APERTURE_CENTROID_SCREEN_INCOMPLETE" for r in all_reports),
+        "median_two_model_centroid_disagreement_arcsec":(
+            round(statistics.median(estimator_disagreements),6)
+            if estimator_disagreements else None),
         "n_target_fits_with_two_centroid_models":sum(done(r) for r in tar_reports),
         "n_ref_fits_with_two_centroid_models":sum(done(r) for r in ref_reports),
         "n_references_with_provisionally_consistent_image_models":sum(
@@ -169,6 +181,9 @@ def write_outputs(report:dict, folder:Path):
         f"Original ZTF positional-query rows SHA-checked: **{report['original_official_irsa_raw_rows_sha_checked']}**.",
         f"Exact Gaia 5p solutions: **{report['gaia_dr3_exact_ids_with_5p_formal_covariance']}**.",
         f"Real FITS requests: **{report['n_real_fits_image_requests']}**.",
+        f"HTTP 503 archive failures: **{report['n_remote_http_503_failures']}** (transport only, not physical non-detections).",
+        f"Image pixel-screen inconclusive: **{report['n_incomplete_pixel_screens']}**.",
+        f"Median Gaussian vs aperture centroid difference among complete screens: **{report['median_two_model_centroid_disagreement_arcsec']} arcsec** (model sensitivity, NOT instrument accuracy).",
         f"Target FITS with two centroid estimates: **{report['n_target_fits_with_two_centroid_models']}**.",
         f"Gaia reference FITS with two estimates: **{report['n_ref_fits_with_two_centroid_models']}**.",
         f"Model-consistent reference *candidates*: **{report['n_references_with_provisionally_consistent_image_models']}**.",
