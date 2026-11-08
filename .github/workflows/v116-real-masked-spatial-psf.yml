@@ -1,10 +1,8 @@
-# First bounded original ZTF science/mask residual pilot on addition; manual only after review.
+# After successful original-data pilot, all external survey data access is manual-only.
+# Genuine raw original ZTF FITS, bitmasks, DAOPhot and Gaia catalog data stay ephemeral.
 name: v1.16 Real original ZTF masked PSF residuals and same-image pixel holdout (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v116-real-masked-spatial-psf.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
