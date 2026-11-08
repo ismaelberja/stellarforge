@@ -1,4 +1,4 @@
-# One observed-data pilot on first addition; manual-only after its verification.
+# Repeat the official-data pilot on finalized v1.12 science code; switch to manual-only afterward.
 name: v1.12 Real ZTF FITS multi-estimator centroid validation (NO RAW)
 
 on:
