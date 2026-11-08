@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellarforge-research"
-version = "1.13.0"
-description = "Multi-survey astronomy research platform: time-domain photometry, official ZTF raw intake, Gaia field-neighbour screens, real ZTF FITS multi-exposure screening, same-exposure Gaia DR3 reference candidates, WCS offset diagnostics, correlated formal Gaia astrometry, annual parallax, held-out Gaia reference image quality diagnostics, per-reference five-parameter formal Gaia parallax/covariance sensitivity, actual ZTF FITS Gaussian-versus-aperture pixel centroid screening, official original science bad-pixel mask flags, native field-center PSF FITS audits and conservative scientific evidence gates"
+version = "1.14.0"
+description = "Multi-survey astronomy research platform: time-domain photometry, official ZTF raw intake, Gaia field-neighbour screens, real ZTF FITS multi-exposure screening, same-exposure Gaia DR3 reference candidates, WCS offset diagnostics, correlated formal Gaia astrometry, annual parallax, held-out Gaia reference image quality diagnostics, per-reference five-parameter formal Gaia parallax/covariance sensitivity, actual ZTF FITS Gaussian-versus-aperture pixel centroid screening, official original science bad-pixel mask flags, native field-center PSF FITS audits, official original ZTF native PSF-fit catalogue Gaia source-candidate screening and spatial DAOPhot file provenance with conservative scientific evidence gates"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Ismael Berja Ruiz" }]

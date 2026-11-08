@@ -1,0 +1,80 @@
+# After successful original-source pilot, official IRSA full-catalog/DAOPhot retrieval is manual only.
+# Full ZTF native catalogues and DAOPhot bytes stay transient inside runner.
+name: v1.14 Original ZTF PSF catalog Gaia candidate screens (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Historical original IRSA raw photometry artifact run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-psfcat-screens:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install FITS source table, astrometric and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Validate offline full suite and synthetic official PSF source association safeguards
+        run: python -m pytest -q
+      - name: Download original SHA-controlled IRSA source files to ephemeral runner only
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_ACQUISITION_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v114_irsa_original"
+          gh run download "$ORIGINAL_ACQUISITION_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v114_irsa_original"
+      - name: Check exact source archive inventory and pack ephemeral source ZIP
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          src=Path(os.environ['RUNNER_TEMP'])/'v114_irsa_original'
+          files=sorted(p for p in src.iterdir() if p.is_file())
+          expected={'PILOT_STATUS.json','REPORT.md',
+                    '149623711269425408_IRSA_RAW.csv',
+                    '3419110734340795648_IRSA_RAW.csv'}
+          if {p.name for p in files}!=expected:
+              raise ValueError("Original ZTF position-cone source manifest mismatch")
+          with ZipFile(src.parent/'v114_irsa_original.zip','w',compression=ZIP_DEFLATED) as z:
+              for p in files:z.write(p,p.name)
+          PY
+      - name: Screen native full psfcat FITS and inspect original spatial DAOPhot files
+        run: |
+          python scripts/run_v114_native_psfcat_gaia.py \
+            "$RUNNER_TEMP/v114_irsa_original.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --archive-timeout 12 --gaia-timeout 25 \
+            --output reports/generated/v1.14_native_psfcat \
+            --require-some-native-products
+      - name: Show provisional native catalogue screening results and unresolved source-identification caveats
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.14_native_psfcat/V114_NATIVE_PSF_CATALOGUE_GAIA_SCREEN_NO_RAW.md ]; then
+            cat reports/generated/v1.14_native_psfcat/V114_NATIVE_PSF_CATALOGUE_GAIA_SCREEN_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload aggregate-only native PSF source screening and original source hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v114-ZTF-native-PSF-catalogue-and-DAOPhot-NO-RAW
+          path: |
+            reports/generated/v1.14_native_psfcat/V114_NATIVE_PSF_CATALOGUE_GAIA_SCREEN_NO_RAW.json
+            reports/generated/v1.14_native_psfcat/V114_NATIVE_PSF_CATALOGUE_GAIA_SCREEN_NO_RAW.md
+          if-no-files-found: warn
+          retention-days: 7

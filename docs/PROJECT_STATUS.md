@@ -1,11 +1,11 @@
 # StellarForge — Current project status
 
-**Version:** 1.13.0 · **Updated:** 2026-11-08 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
+**Version:** 1.14.0 · **Updated:** 2026-11-08 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
 
 ## Implemented
 
 - Full Python package, command-line utilities, tests, continuous integration and research documentation.
-- 533/533 automated tests passed in GitHub Actions in **both** bounded original-ZTF mask/center-PSF observational pilots (8 November 2026), executed on the same original science epochs (not independent exposures).
+- 564/564 automated tests passed in GitHub Actions during the v1.14 official four-ZTF-native-PSF-catalogue/DAOPhot-product real-data pilot (8 November 2026), reusing the same four historic original science epochs.
 - Pinned secondary Taurus catalog audit: 532 adopted members, 467 Gaia identifiers; 24-object technical seed.
 - Two official IRSA ZTF cone-query responses near FT Tau and CIDA 11 on 5 November 2026, totaling 2,212 rows across six distinct ZTF OIDs; integrity hashes and failures are logged.
 - Reproducible SHA-checked **provisional Gaia-to-ZTF per-epoch screen** for all six OID/passbands; median positional separations ~0.063–0.092 arcsec (not independently verified identities).
@@ -22,6 +22,7 @@
 - **v1.11 corrected reference-star Gaia model:** actual official Gaia DR3 five-parameter formal covariance and annual geometric parallax propagated for 8 candidate references plus 2 target source IDs at their actual ZTF exposure dates. Thirteen old real Gaussian image-model offsets re-evaluated without refitting FITS pixels. Strict LOO RMS changes are only −0.012 mas (FT Tau) and −0.075 mas (CIDA 11), with the same 2/4 exposure eligibility. These are **internal disagreement metrics, not calibrated instrument errors**.
 - **v1.12 real original science FITS remeasurement:** ran **two 20-request audits on the same four dated ZTF science frames**, with source-specific Gaia 5D formal covariance and geometric annual parallax. Initial run: 9 HTTP 503, 2 inconclusive screens, 9 complete two-estimator fits. **Final run:** 8 HTTP 503 and **12 complete two-centroid FITS models** (1 target + 11 references), 9 provisional model-consistent candidate references; **only one of four exposure groups** had >=3 controls. Final-run median inter-model separation 0.104720″ across 12 fits; CIDA 11 MJD58475 internal heldout disagreement 0.064675″ (Gaussian) versus 0.155762″ (aperture), **not instrumental WCS errors**. Four overlapping identical FITS byte hashes confirm data consistency where both runs obtained the cutouts. Masks/empirical PSFs still not used.
 - **v1.13 original ZTF instrument products verified:** 20 target/reference candidate locations screened for matching official `mskimg.fits` bad-pixel maps and same-dated original `sciimg.fits` pixel grids with 0.05-pixel WCS registration tolerance. **Four reference candidates** yielded valid, aligned science+mask products, with zero disqualifying 6141 bad-mask bits and zero saturation-bit flags in their 4.5-pixel nominal Gaia apertures; **all 4 target-mask checks and 12 other reference checks returned HTTP 503**. Two native 23×23 center PSFs parsed on initial run A; two **different, complementary** original 23×23 center-PSF products parsed on rerun B, providing **all four unique original center-PSF stamps across both runs**. Run B had HTTP 503 on **all 20** science/mask attempts; only the four first-run reference masks remain verifiably screened. Zero source-specific native PSFs, authenticated matches or calibrated WCS errors; source marker bits 1/11 are not bad pixels.
+- **v1.14 official native ZTF PSF source fit catalogues:** 4 actual original `psfcat.fits` BINTABLE catalogues parsed (3,970 + 5,569 + 5,313 + 12,355 = 27,207 per-exposure detections), 20 Gaia target/reference predicted source positions screened using original PSF `chi`/`sharp`/SNR/`flags` and ≤1″. **16/20** provisional unique nearby source fit candidates pass, three have `chi<0.5` and require quality review, one historical FT Tau reference has no catalog entry within local search; target passes 3/4 technical epochs, references 13/16. Four original spatial DAOPhot `sciimgdao.psf` files retrieved and source-hashed but **not decoded or evaluated at any source position**. No WCS-calibrated precision, authenticated source identity or discovery.
 - Scientific data integrity gates: distinct OIDs/bands, flag masking, hashes, time-scale handling, provisional astrometric checks and synthetic-only benchmarking.
 
 ## Not yet established
@@ -37,7 +38,7 @@ The repository may be viewed as *research software in development*. Do not inter
 
 ## Next scientific milestone
 
-**Next science gate:** retrieve matching official ZTF science `mskimg.fits` pixel masks and native empirical PSF products; verify contamination/saturation/time metadata and independently authenticate field stars before attempting WCS distortion, PSF photometry or realistic image-centroid error budgets. v1.12 Gaussian/aperture agreement measures model sensitivity, not calibrated telescope precision.
+**Next science gate:** decode and spatially evaluate the original `sciimgdao.psf` native lookup-table PSF at the ZTF `psfcat.fits` source's own native CCD `xpos/ypos`, then validate against same-exposure `sciimg.fits` and `mskimg.fits` original pixels with independently authenticated Gaia/ZTF sources and held-out detector WCS/PSF error budgets. A native PSF-fit catalogue match alone is not a verified physical association.
 
 Read the [observational transport report](../reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md) for precise counts and caveats.
 
@@ -62,3 +63,5 @@ Read the [v1.11 real Gaia reference parallax/formal covariance sensitivity resul
 [Real observed-data v1.12 aperture-versus-Gaussian reference model evidence](../reports/real_fits_v1.12/REAL_TWO_CENTROID_MODEL_QA.md) · [Scientific methods and limitations](PHASE112_PIXEL_CENTROID_AND_WCS_LIMITS.md).
 
 [Actual v1.13 original ZTF mask/center PSF evidence](../reports/original_masks_psf_v1.13/REAL_ZTF_MASK_AND_NATIVE_CENTER_PSF_EVIDENCE.md) · [Official instrument mask methods and scientific limits](PHASE113_OFFICIAL_ZTF_MASK_AND_NATIVE_CENTER_PSF.md). The 533 regression tests passed without advancing any physical discovery claim.
+
+[Detailed v1.14 real PSF catalogue candidate evidence](../reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md) · [source crossmatch and native DAOPhot spatial PSF methodological limits](PHASE114_NATIVE_PSF_CATALOGUE_AND_SPATIAL_MODEL_GATE.md).

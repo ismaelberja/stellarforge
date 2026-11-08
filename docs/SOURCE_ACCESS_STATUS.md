@@ -1,3 +1,18 @@
+# CURRENT OFFICIAL ZTF NATIVE PSF DATA ACCESS — StellarForge v1.14, 8 November 2026
+
+This section is the most recent verified source status. Historical sections remain below for audit.
+
+- **Actual original ZTF native PSF catalogues:** four full `psfcat.fits` FITS binary tables **successfully downloaded/parsed** from the official IRSA original science-exposure products (no HTTP 503 in this run): FT Tau MJD58388.389016 **3,970** entries; FT Tau MJD58491.184780 **5,569**; CIDA 11 MJD58475.113750 **5,313**; CIDA 11 MJD58849.135984 **12,355**. Total **27,207 per-exposure PSF-fit detection records**. These do not correspond to 27,207 astrophysically independently identified physical stars; they are pipeline detections in four CCD-quadrant products.
+- **Gaia–ZTF provisional candidate screen:** ten exact Gaia DR3 IDs with full formal five-parameter covariance/geometric annual parallax, evaluated on twenty target/reference × exposure date combinations. **16** native catalog candidate source profiles within ≤1″ passed conservative `chi/sharp/SNR/flags` screening, **three** require low-`chi` review, **one** lacked a nearby PSF catalog entry. Median positional catalogue-to-Gaia separation for the sixteen screened candidate profiles is **0.1258465″**, not WCS precision or confirmed source identity. Actual source matches, crowding/blending and target CIDA 11 high Gaia RUWE remain open.
+- **Four official spatial DAOPhot models:** all four native original `sciimgdao.psf` files were retrieved, **88,465 bytes per dated original file**; file hashes are recorded. These have **NOT** been decoded or evaluated at a star-specific native detector `xpos/ypos`. This is not a calibrated local instrumental PSF measurement. The v1.13 native center-of-science-image 23×23 FITS stamps are different products.
+- **Historic original ZTF acquisition:** SHA-checked 2,212 positional-cone source rows, original GitHub Actions acquisition run `41997079598`. This transient source artifact is scheduled to expire **12 November 2026**, and data use without it requires a new official IRSA source acquisition with newly tracked hashes/provenance. Archive transport failure is never an astrophysical nondetection.
+- **Official source definitions:** [NASA/IPAC IRSA ZTF science-product filenames](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_metadata.html) and [ZTF Science Data System explanatory supplement §10.6 — `psfcat.fits` source columns, `chi`, `sharp`, `flags`](https://irsa.ipac.caltech.edu/data/ZTF/docs/ztf_explanatory_supplement.pdf).
+- **Remaining gates:** actual source-specific DAOPhot spatial PSF decoding/evaluation, complete true `mskimg.fits` detector controls for each candidate, source identity/crowding/selection, instrumental WCS & PSF error budget with external holdouts and realistic errors; no new physical variability or companion claim. Original Gaia CSV, native ZTF FITS catalogue rows and DAOPhot bytes remain outside public Git and uploaded artifacts.
+
+[Real v1.14 source-candidate evidence](../reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md) · [Method and science limits](PHASE114_NATIVE_PSF_CATALOGUE_AND_SPATIAL_MODEL_GATE.md) · [Successful 564-test original-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42513198605).
+
+---
+
 # CURRENT OFFICIAL ZTF INSTRUMENT ACCESS — StellarForge v1.13, 8 November 2026
 
 This status supersedes older entries below, which remain for historical audit.
