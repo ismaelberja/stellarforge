@@ -12,7 +12,7 @@ from astropy.wcs import WCS
 from stellarforge.v119_empirical_source_psf import (
     extract_original_source_stamp,fetch_original_source_stamp,
     empirical_psf_leave_one_source_out,header_noise_metadata,
-    _fixed_shape_fit_rms,
+    evaluate_other_star_empirical_psf,_fixed_shape_fit_rms,
 )
 from stellarforge.v115_spatial_psf import evaluate_spatial_psf_shape
 
@@ -244,3 +244,72 @@ def test_original_fits_source_cutout_retained_date_and_path_for_both_products():
     assert out["original_source_detector_fits_verified"]
     assert len(seen)==2
     assert seen[0].split("_mskimg.fits")[0]==seen[1].split("_sciimg.fits")[0]
+
+
+
+def test_bright_old_reference_template_on_two_different_preselected_faint_gaia_stars():
+    training=[extracted(str(4000+i),seed=20+i,amplitude=19000)
+              for i in range(4)]
+    holds=[extracted(str(9000+i),seed=60+i,amplitude=1700)
+           for i in range(2)]
+    r=evaluate_other_star_empirical_psf(
+        training,holds,native_spatial_psf=fake_daophot())
+    assert r["status"]=="NEW_GAIA_SOURCE_DISJOINT_EMPIRICAL_PSF_TEST_COMPLETED"
+    assert r["n_bright_distinct_reference_training_stars"]==4
+    assert r["n_new_source_disjoint_heldout_stars"]==2
+    assert r["n_new_source_disjoint_heldout_models_evaluated"]==2
+    for q in r["evaluation_records"]:
+        assert q["new_heldout_gaia_candidate_id"] not in q[
+            "training_bright_prior_gaia_reference_ids"]
+        assert q["heldout_new_gaia_source_pixels_absent_from_template_training"]
+        assert q["empirical_psf_original_star_pixels_not_native_DAOPhot_coefficients"]
+    assert not r["original_ZTF_pipeline_DAOPhot_training_star_membership_known"]
+
+
+def test_wider_heldout_faint_source_tier_never_enters_bright_empirical_training():
+    s,m=original_stamp_image(amplitude=1700)
+    h=extract_original_source_stamp(
+        s,m,source_ra=RA,source_dec=DEC,native_x=1535.3,native_y=1539.4,
+        gaia_source_id="9990001",min_source_snr_proxy=2.5)
+    assert h["original_source_detector_fits_verified"]
+    assert h["source_snr_proxy"]>=2.5
+    assert h["source_snr_proxy"]<10
+    with pytest.raises(ValueError,match="Too-low-SNR"):
+        evaluate_other_star_empirical_psf(
+            [h,extracted("1001"),extracted("1002"),extracted("1003")],
+            [extracted("9001",amplitude=1800)],
+            native_spatial_psf=fake_daophot())
+
+
+def test_source_id_overlap_between_training_and_heldout_is_rejected_even_if_good_images():
+    src=extracted("1111")
+    with pytest.raises(ValueError,match="leaks"):
+        evaluate_other_star_empirical_psf(
+            [src,extracted("1112"),extracted("1113")],
+            [src],native_spatial_psf=fake_daophot())
+
+
+def test_two_bright_reference_stars_plus_faint_new_gaia_is_insufficient():
+    r=evaluate_other_star_empirical_psf(
+        [extracted("101"),extracted("102")],
+        [extracted("9001",amplitude=1700)],
+        native_spatial_psf=fake_daophot())
+    assert r["status"]=="INSUFFICIENT_REAL_BRIGHT_TRAINING_OR_NEW_HELDOUT_STARS"
+    assert r["n_new_source_disjoint_heldout_models_evaluated"]==0
+
+
+def test_faint_heldout_source_cannot_be_omitted_without_reporting_missing_evidence():
+    r=evaluate_other_star_empirical_psf(
+        [extracted("101"),extracted("102"),extracted("103")],
+        [{"gaia_source_id":"9001","status":"ORIGINAL_IMAGE_MASK_OR_EMPIRICAL_TRAINING_INELIGIBLE"}],
+        native_spatial_psf=fake_daophot())
+    assert r["status"]=="INSUFFICIENT_REAL_BRIGHT_TRAINING_OR_NEW_HELDOUT_STARS"
+    assert r["n_new_source_disjoint_heldout_models_evaluated"]==0
+
+
+def test_explicit_bright_training_threshold_is_not_silently_lowered():
+    s,m=original_stamp_image(amplitude=1700)
+    with pytest.raises(ValueError,match="TOO_WEAK"):
+        extract_original_source_stamp(
+            s,m,source_ra=RA,source_dec=DEC,native_x=1535.3,native_y=1539.4,
+            gaia_source_id="9990001")
