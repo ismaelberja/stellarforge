@@ -1,0 +1,81 @@
+# Official original Gaia/IRSA source downloads are manual-only after successful observed-data pilot.
+# Survey source FITS, Gaia TAP CSV, DAOPhot PSFs and raw IRSA rows never enter public Git or CI artifacts.
+name: v1.17 New Gaia-only disjoint source controls and shifted ZTF sky null (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Historical SHA-manifested IRSA/ZTF raw position-cone source acquisition"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-disjoint-gaia-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install official Gaia/ZTF source processing and synthetic regression tests
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Validate complete scientific regression suite, Gaia field preselection and 25arcsec null controls
+        run: python -m pytest -q
+      - name: Retrieve original historical IRSA acquisition only to ephemeral runner
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_SOURCE_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v117_original_irsa"
+          gh run download "$ORIGINAL_SOURCE_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v117_original_irsa"
+      - name: Require exact 2-target source archive inventory before any original PSF lookup
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          import os
+          folder=Path(os.environ["RUNNER_TEMP"])/"v117_original_irsa"
+          files=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={"PILOT_STATUS.json","REPORT.md",
+                    "149623711269425408_IRSA_RAW.csv",
+                    "3419110734340795648_IRSA_RAW.csv"}
+          if {p.name for p in files}!=expected:
+              raise ValueError("Original source archive manifest inventory does not match historical pilot")
+          with ZipFile(folder.parent/"v117_original_irsa.zip","w",ZIP_DEFLATED) as z:
+              for p in files:z.write(p,p.name)
+          PY
+      - name: Gaia-only select genuinely new source IDs then evaluate original masked ZTF PSF fit and shifted-position nulls
+        run: |
+          python scripts/run_v117_new_field_controls.py \
+            "$RUNNER_TEMP/v117_original_irsa.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --gaia-timeout 30 --archive-timeout 6 \
+            --max-new-controls-per-field 4 \
+            --output reports/generated/v1.17_disjoint_gaia \
+            --require-new-real-fits
+      - name: Summarize new distinct field stars and no-overclaim physical source limitations
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.17_disjoint_gaia/V117_NEW_GAIA_DISJOINT_SOURCE_CONTROLS_NO_RAW.md ]; then
+            cat reports/generated/v1.17_disjoint_gaia/V117_NEW_GAIA_DISJOINT_SOURCE_CONTROLS_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload aggregate-only source control diagnostics and source hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v117-new-Gaia-disjoint-field-controls-and-shifted-sky-null-NO-RAW
+          path: |
+            reports/generated/v1.17_disjoint_gaia/V117_NEW_GAIA_DISJOINT_SOURCE_CONTROLS_NO_RAW.json
+            reports/generated/v1.17_disjoint_gaia/V117_NEW_GAIA_DISJOINT_SOURCE_CONTROLS_NO_RAW.md
+          if-no-files-found: warn
+          retention-days: 7

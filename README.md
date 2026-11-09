@@ -10,13 +10,13 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 **Created and scientifically directed by Ismael Berja Ruiz**, with AI-assisted software development and human review of scientific methodology.
 
-> **Research status (v1.16, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+> **Research status (v1.17, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
 
 ## At a glance
 
 | Engineering result | Verified scope |
 |---|---|
-| **614 automated tests passed** | GitHub Actions v1.16 genuine ZTF original science/bitmask pixel spatial-PSF fitting and same-image held-out-pixel residual QA (8 November 2026) |
+| **636 automated tests passed** | GitHub Actions v1.17 newly disjoint Gaia-only source selection and original masked ZTF PSF pixels/25″ shifted sky catalogue-density pilot (9 November 2026) |
 | **2,212 real photometric rows retrieved** | Two official IRSA cone searches around published positions for FT Tau and CIDA 11, **not yet authenticated as those stars** |
 | **Six ZTF object identifiers** | Kept separate by source ID, filter and field rather than blended |
 | **Two independent Gaia DR3 15″ field audits** | No *additional catalogued Gaia* sources returned near either target; unresolved companions are not excluded |
@@ -31,10 +31,21 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 | **Native ZTF PSF-fit catalogue candidate cross-identification (v1.14)** | All four original full `psfcat.fits` tables read (27,207 per-exposure PSF-fit source records), 16/20 provisional Gaia-position PSF quality candidate screens; all four native spatial `sciimgdao.psf` files retrieved but **not** evaluated at source coordinates |
 | **DAOPhot spatial PSF model reconstruction (v1.15)** | All 4 original ASCII GAUSSIAN + 3 × 47 × 47 spatial lookup models decoded; **4/4** reconstructions match actual native center FITS stamps (cosine ≥0.999999); **16/16** provisional ZTF native candidate positions modeled as 23 × 23 PSF shapes. **No independent star-by-star PSF calibration or physical crossmatch** |
 | **Actual original masked science-pixel local PSF fits (v1.16)** | 16/16 candidate original dated science+`mskimg.fits` pairs WCS-aligned and fitted with fixed spatial DAOPhot PSF amplitude + local sky plane in DN. 13 provisional same-image checkerboard residual screens pass; 3 require review. **No independently authenticated Gaia/ZTF star IDs or calibrated WCS/PSF errors.** |
+| **New Gaia-source-disjoint real stellar field controls (v1.17)** | Four new Gaia-only selected CIDA 11 field source IDs **not in the original 10 source sample**; 6/8 actual original ZTF source×epoch masked PSF fits, all six pass provisional same-source pixel residual QA. **FT Tau had 0 eligible new controls.** 0 native source hits among 32 fixed ±25″ shifted-sky probes; **not a calibrated false-match rate or independent ZTF PSF training-star holdout.** |
 | **532 Taurus catalog members audited** | Pinned third-party Luhman (2023) Table 2 mirror; original publisher-file comparison pending |
 | **24-star technical pilot** | Real published coordinates, not a representative or disk-classified scientific population |
 
 The official requests and SHA-256 checksums are documented in the [v1.2 observational transport audit](reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md). The [v1.3 provisional astrometric report](reports/astrometry_v1.3/PROVISIONAL_POSITIONS_REPORT.md) finds median epoch-corrected Gaia/ZTF position separations of 0.063–0.092 arcsec across six curves, **without confirming any astrophysical source identity**. **Raw ZTF downloads and private research artifacts are not committed to Git.**
+
+## v1.17 — new Gaia-only selected field controls disjoint from earlier source samples
+
+The [real v1.17 observational evidence](reports/new_gaia_holdouts_v1.17/REAL_DISJOINT_GAIA_CONTROL_AND_SHIFTED_SKY_RESULTS.md) extends the original ZTF masked science-pixel PSF analysis to **new Gaia DR3 source IDs selected without viewing the ZTF fit results**. Two fresh independent Gaia wide-cone queries found 50 catalogued entries near FT Tau and 250 near CIDA 11. After excluding **all ten old target/reference Gaia IDs** and applying original quality/brightness/isolation rules, **FT Tau had zero eligible new stars**, whereas CIDA 11 had 20 eligible Gaia-only candidates before budget; four spatially distributed new Gaia sources were selected covering four sky quadrants.
+
+On the **same two original CIDA 11 science exposure dates**, the four new Gaia candidate IDs yielded **six of eight** original `sciimg.fits`+`mskimg.fits` source-pixel PSF model fits, all six passing the provisional same-source image checkerboard residual screen. The two unfit source×date combinations failed original ZTF PSFfit catalogue eligibility. The first date has four fitted distinct new sources (descriptive median RMS/annular sky MAD ≈0.981); the second has only two and is explicitly **insufficient for a per-exposure distinct-star comparison**.
+
+In addition, **32 fixed 25-arcsec shifted-sky positional probes** across those two dates matched **zero** native ZTF PSFcat detections within 1″. They sample local catalogue chance proximity, **not a calibrated source association probability**.
+
+**Critical scientific independence limitation:** these four Gaia IDs are absent from StellarForge's earlier selected sources but their **membership in ZTF's original DAOPhot PSF-model training set is unknown**. The new fits therefore are *previously unseen source tests*, **not independently calibrated instrumental PSFs, absolute WCS uncertainties or verified physical Gaia–ZTF crossmatches**. **636 automated tests pass.** [Methods and rigorous science caveats](docs/PHASE117_DISJOINT_GAIA_SOURCE_HOLDOUTS_AND_SHIFTED_SKY_NULLS.md).
 
 ## v1.16 — original ZTF science pixels with independently WCS-aligned detector bitmasks
 
@@ -210,6 +221,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 ## Project documentation
 
 - [Current status and next milestones](docs/PROJECT_STATUS.md)
+- [v1.17 new Gaia-disjoint source holdout and shifted-sky real ZTF results](reports/new_gaia_holdouts_v1.17/REAL_DISJOINT_GAIA_CONTROL_AND_SHIFTED_SKY_RESULTS.md)
 - [v1.16 actual ZTF original source masked PSF pixels and real residual quality results](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md)
 - [v1.15 original ZTF spatial DAOPhot PSF models and real official center checks](reports/spatial_daophot_v1.15/REAL_DAOPHOT_CENTER_AND_LOCAL_SHAPES.md)
 - [v1.14 original ZTF native PSF catalogue and Gaia candidate evidence](reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md)
@@ -229,6 +241,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 - [Validation plan](docs/VALIDATION.md)
 - [Spanish getting-started guide](EMPEZAR_AQUI.md)
 - [Engineering and scientific history](RESEARCH_HISTORY.md)
+- [v1.17 release notes](RELEASE_NOTES_v1.17.md)
 - [v1.16 release notes](RELEASE_NOTES_v1.16.md)
 - [v1.15 release notes](RELEASE_NOTES_v1.15.md)
 - [v1.14 release notes](RELEASE_NOTES_v1.14.md)
@@ -245,7 +258,7 @@ This performs two pre-registered requests to the official IRSA endpoint, saves r
 
 ## Roadmap
 
-1. **Next — independently authenticated holdout field-star calibration:** v1.16 now fits 16 preselected original native PSF sources using genuine masked ZTF science pixels and flags three profiles for review. The next genuine science gate is to validate source identities and PSF shapes on **additional independent source stars withheld from model/selection**, use realistic pixel covariance, compare alternative background/nebulosity/deblending explanations and test spatial WCS/PSF error models. Do not convert the same-image checkerboard diagnostic into formal absolute astrometric precision or an astrophysical discovery.
+1. **Next — externally validated PSF-training-star exclusion, broader star/sample coverage and realistic WCS/PSF errors:** v1.17 selected four new Gaia-only field sources outside the original ten but **cannot confirm they were absent from ZTF's original DAOPhot PSF-training stars**; no new FT Tau controls met preregistered strict quality cuts. Audit original PSF-construction training membership if accessible, widen realistic field-star sampling across detectors/dates/bands, verify Gaia–ZTF identity with independent metadata, fit physically motivated CCD noise and held-out WCS/PSF errors, and investigate three v1.16 residual-review cases without discovery claims.
 2. **Observational validation:** real-cadence injection/recovery, field-star controls, uncertainty budgets and documented false positives.
 3. **Scientific reporting:** independently reviewed candidate dossiers, reproducible figures and optional interactive tools.
 

@@ -1,3 +1,21 @@
+# MOST RECENT ZTF/Gaia SOURCE ACCESS — StellarForge v1.17, 9 November 2026
+
+[Original source-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42661663983) passed **636 automated tests**, with SHA-verified original IRSA 2,212-row photometric acquisition (not physically confirmed target light curves) and two **fresh independent Gaia DR3 210″ cone queries**:
+
+- **FT Tau independent Gaia wide cone:** 50 Gaia DR3 records. After excluding previously selected target/reference source IDs and applying fixed Gaia-only astrometric/photometric quality and ≥10″ all-Gaia-neighbor isolation, **zero previously unused field controls** eligible. The v1.17 run made no original native PSF/science-pixel requests for FT Tau new sources; this is a source-selection limitation, not proof of no physical FT Tau field stars.
+- **CIDA 11 independent Gaia wide cone:** 250 Gaia records, 20 eligible previously unused Gaia-only stars before four-source budget, with one Gaia source selected in each quadrant. These four are absent from v1.8–v1.16 ten-source technical target/reference IDs but **not proven excluded from original ZTF native DAOPhot spatial PSF training stars**.
+- **Original ZTF two CIDA 11 dated science frames:** original native `psfcat.fits` tables, spatial `sciimgdao.psf` source models and official original field-center `sciimgdaopsfcent.fits` consistency checks retrieved. Eight original source×date candidate tests were attempted; **six passed native catalogue QA and received original `sciimg.fits` + `mskimg.fits` matched pixel residual fits (six provisional same-image residual QA passes)**. Two ZTF source associations did not meet catalogue candidate/profile quality criteria, so no pixel fit was attempted.
+- **Shifted-sky local accidental-match-density probes:** **32** historical-exposure × 25″ east/west/north/south positions, zero native ZTF PSFcat source detections within 1″, but these are correlated and not a formal false-association probability, a contamination rate or physical source match.
+- **Full Gaia 5D formal astrometry:** all four new Gaia DR3 source IDs were queried with full exact correlated five-parameter solutions and geometric Earth-geocentric first-order annual parallax at the two original CCD science MJDs. Their source identities in ZTF remain provisional; full Palomar topocentric/mid-exposure/color effects are not yet modeled.
+- **Original historical archive expiry:** the original SHA-verified ZTF position-query acquisition run `41997079598` is a time-limited GitHub Actions artifact (historical expected expiry **12 November 2026**). Reruns after expiry must reacquire the official identical science selection with newly documented source hashes instead of relying on nonexistent/guessed raw data.
+- **Raw data privacy/provenance:** no original full Gaia TAP source CSV, ZTF PSFfit BINTABLE catalogue rows, original science+mask FITS pixel arrays, DAOPhot spatial coefficients or IRSA original photometric rows were committed to public Git or uploaded in aggregate-only artifacts.
+
+**Open science checks:** original ZTF DAOPhot PSF training membership and genuinely independent stellar holdouts, new control stars for FT Tau or alternative predeclared fields, realistic pixel/WCS errors, independent Gaia/ZTF physical source identity and multiple actual dates/bands. Elevated v1.16 source image residuals and CIDA 11 high RUWE are unresolved and not proof of astrophysical companions.
+
+[Real-data source-disjoint Gaia evidence](../reports/new_gaia_holdouts_v1.17/REAL_DISJOINT_GAIA_CONTROL_AND_SHIFTED_SKY_RESULTS.md) · [Methods and controlled sky-shift caveats](PHASE117_DISJOINT_GAIA_SOURCE_HOLDOUTS_AND_SHIFTED_SKY_NULLS.md).
+
+---
+
 # CURRENT OFFICIAL REAL ZTF SCIENCE/MASK + SPATIAL PSF DATA — StellarForge v1.16, 8 November 2026
 
 The latest [real ZTF original masked source-pixel PSF workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42518746629) succeeds with **614 automated tests**, original SHA-verified 2,212-row position-cone input and **four original dated single-exposure g-band science frames** for FT Tau/CIDA 11.
