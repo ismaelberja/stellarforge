@@ -1,6 +1,6 @@
 # StellarForge — Empezar aquí
 
-**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.16** · noviembre de 2026.
+**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.17** · noviembre de 2026.
 
 StellarForge está pensado para analizar variabilidad estelar con datos de distintos archivos astronómicos. Es un proyecto personal de investigación y software en desarrollo, útil también para demostrar capacidades de ingeniería de datos, análisis temporal y calidad del código.
 
@@ -8,7 +8,7 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 ## ¿Qué está realmente conseguido?
 
-- **614 pruebas automáticas superadas** en GitHub Actions.
+- **636 pruebas automáticas superadas** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.
@@ -37,6 +37,8 @@ StellarForge está pensado para analizar variabilidad estelar con datos de disti
 
 - **Ajustes PSF sobre píxeles científicos originales de ZTF (v1.16):** hemos pasado de reconstruir únicamente las PSF de ZTF a **ajustarlas directamente a las imágenes reales `sciimg.fits`, usando las máscaras de píxeles `mskimg.fits` correspondientes**. Se recuperaron los **16 pares originales de imagen y máscara**, se comprobó su geometría WCS y la fase subpíxel del detector, y se ajustó la amplitud de la PSF espacial con un plano de fondo en unidades DN. **Los 16 ajustes se completaron**; **13 superan una comprobación provisional de residuos** y **3 necesitan revisión** (un objetivo FT Tau, un objetivo CIDA 11 y una posible estrella de referencia). La comparación se realiza dejando fuera algunos píxeles de la **misma imagen**, no estrellas independientes. **No demuestra que las asociaciones Gaia–ZTF sean físicamente correctas, que las estrellas estén aisladas ni que los residuos indiquen un compañero o variabilidad.** Falta una calibración WCS/PSF con estrellas externas realmente independientes.
 
+- **Nuevas estrellas de control Gaia no utilizadas antes (v1.17):** consultamos de nuevo Gaia DR3 en los campos de FT Tau y CIDA 11 y excluimos expresamente los **10 identificadores de fuentes Gaia** que usábamos hasta la versión anterior. **FT Tau no ofreció ninguna nueva candidata** que superase simultáneamente los filtros estrictos de calidad, brillo y aislamiento, mientras que en **CIDA 11 seleccionamos cuatro fuentes nuevas**, distribuidas por cuatro zonas del campo, **sin mirar previamente sus residuos en ZTF**. En las dos exposiciones originales de CIDA 11, **seis de ocho combinaciones fuente/fecha se pudieron ajustar a imágenes y máscaras científicas reales**, y las seis superaron el control provisional de residuos dentro de la misma imagen; otras dos no superaron el filtro del catálogo ZTF y no se ajustaron. En **32 posiciones desplazadas artificialmente 25″** no apareció ninguna coincidencia en el catálogo PSF dentro del radio de 1″. **Esto no es una tasa de falsas asociaciones ni una calibración instrumental independiente:** no sabemos si estas cuatro estrellas formaban parte del entrenamiento de la PSF original de ZTF. Es una extensión verificable a fuentes diferentes de nuestra muestra inicial, con resultados limitados a CIDA 11.
+
 **No hay nuevas detecciones astrofísicas confirmadas.** Quedan pendientes la revisión de imágenes, las asociaciones Gaia–ZTF y la validación científica de cualquier episodio.
 
 ## Cómo comprobar que funciona
@@ -62,6 +64,7 @@ Los valores de la primera instrucción son coordenadas de demostración técnica
 ## Dónde encontrar los resultados
 
 - [README principal (inglés)](README.md): presentación resumida para empresas e investigadores.
+- [Nuevas referencias Gaia y controles de posiciones desplazadas v1.17](reports/new_gaia_holdouts_v1.17/REAL_DISJOINT_GAIA_CONTROL_AND_SHIFTED_SKY_RESULTS.md).
 - [Residuos reales sobre píxeles de ZTF con PSF espacial y máscaras v1.16](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md).
 - [Reconstrucción espacial DAOPhot y contraste real de PSF ZTF v1.15](reports/spatial_daophot_v1.15/REAL_DAOPHOT_CENTER_AND_LOCAL_SHAPES.md).
 - [Catálogos originales PSF y asociaciones candidatas Gaia–ZTF v1.14](reports/native_psfcat_v1.14/REAL_ZTF_GAIA_PSF_CATALOGUE_EVIDENCE.md).
@@ -85,4 +88,4 @@ Los datos originales descargados no se incluyen en este repositorio. La visibili
 
 ## Próximo objetivo
 
-El siguiente paso científico será **validar la PSF instrumental con estrellas distintas, seleccionadas y verificadas de manera independiente**, no solamente con píxeles diferentes de la misma imagen. Ya hemos ajustado los 16 pares originales de imagen y máscara, pero aún debemos ampliar los controles de campo, analizar contaminación y fondo nebular, modelar los errores del detector y estimar la incertidumbre WCS/PSF utilizando estrellas externas que no participen en el ajuste. Revisaremos también las tres fuentes con residuos elevados antes de plantear ninguna interpretación astrofísica. Los catálogos nativos ya están recuperados, pero todavía no demuestran identidad física, ausencia de mezclas ni errores astrométricos calibrados. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
+El siguiente paso científico será **averiguar si las nuevas estrellas de control fueron utilizadas en la construcción de la PSF original de ZTF**, ampliar el análisis a estrellas suficientes también en FT Tau y a más fechas/bandas, y establecer una calibración WCS/PSF real con controles externos y errores instrumentales modelados. Ya se han comprobado nuevas fuentes Gaia distintas de las diez originales, pero no está demostrada su independencia del entrenamiento instrumental original. Tendremos que estudiar también fondo nebular, mezclas y el posible origen instrumental de los tres casos con residuos altos. Revisaremos también las tres fuentes con residuos elevados antes de plantear ninguna interpretación astrofísica. Los catálogos nativos ya están recuperados, pero todavía no demuestran identidad física, ausencia de mezclas ni errores astrométricos calibrados. Después habrá que validar la identidad de las fuentes y estudiar el elevado RUWE de CIDA 11. El proyecto puede seguir evolucionando aunque el código esté disponible públicamente.
