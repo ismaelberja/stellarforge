@@ -1,7 +1,8 @@
-# Revised original-data pilot: old Gaia reference source IDs (bright) train a NEW
-# empirical PSF from genuine separate star pixels; NEW Gaia-only source IDs are held out
-# and may be faint. No ZTF native DAOPhot correction coefficients enter new PSF training.
-# Original Gaia/IRSA bytes remain transient; stop automatic remote traffic after review.
+# Final source-disjoint original-data pilot after 689/689 green PR tests:
+# use >=3 distinct bright old Gaia reference stars (SNR>=10) to build a fresh PSF,
+# then test it on separate new Gaia-only field sources (evaluation SNR>=2.5).
+# No native DAOPhot coefficients in the empirical template, no raw data upload.
+# Official Gaia/ZTF archive download trigger will become manual after validation.
 name: v1.19 Real new Gaia holdout PSFs from other bright original reference stars (NO RAW)
 
 on:
