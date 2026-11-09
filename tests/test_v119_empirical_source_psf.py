@@ -76,13 +76,14 @@ def original_stamp_image(gaia_id="10001",*,seed=18,phase_x=.3,phase_y=.4,
     )
 
 
-def extracted(gaia_id="10001",*,seed=18,**opts):
+def extracted(gaia_id="10001",*,seed=18,min_source_snr_proxy=10.,**opts):
     s,m=original_stamp_image(gaia_id,seed=seed,**opts)
     return extract_original_source_stamp(
         s,m,source_ra=RA,source_dec=DEC,
         native_x=opts.get("native_x",1535.3),
         native_y=opts.get("native_y",1539.4),
         gaia_source_id=gaia_id,
+        min_source_snr_proxy=min_source_snr_proxy,
     )
 
 
@@ -250,7 +251,8 @@ def test_original_fits_source_cutout_retained_date_and_path_for_both_products():
 def test_bright_old_reference_template_on_two_different_preselected_faint_gaia_stars():
     training=[extracted(str(4000+i),seed=20+i,amplitude=19000)
               for i in range(4)]
-    holds=[extracted(str(9000+i),seed=60+i,amplitude=1700,extra_noise=20)
+    holds=[extracted(str(9000+i),seed=60+i,amplitude=1700,extra_noise=20,
+                     min_source_snr_proxy=2.5)
            for i in range(2)]
     r=evaluate_other_star_empirical_psf(
         training,holds,native_spatial_psf=fake_daophot())
@@ -277,7 +279,8 @@ def test_wider_heldout_faint_source_tier_never_enters_bright_empirical_training(
     with pytest.raises(ValueError,match="Too-low-SNR"):
         evaluate_other_star_empirical_psf(
             [h,extracted("1001"),extracted("1002"),extracted("1003")],
-            [extracted("9001",amplitude=1800,extra_noise=20)],
+            [extracted("9001",amplitude=1800,extra_noise=20,
+                       min_source_snr_proxy=2.5)],
             native_spatial_psf=fake_daophot())
 
 
