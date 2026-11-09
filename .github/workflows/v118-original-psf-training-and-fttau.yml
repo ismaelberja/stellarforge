@@ -1,0 +1,79 @@
+# After successful real-data validation, original NASA/IPAC IRSA + Gaia downloads are manual-only.
+# Original source logs, Gaia TAP tables, DAOPhot, science and bitmask FITS remain ephemeral.
+name: v1.18 Original ZTF PSF training logs and FT Tau exploratory Gaia controls (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Historic original SHA-checked ZTF IRSA photometry source acquisition run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-training-log-ft-tau:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install scientific original-data and synthetic FITS/mock logging tests
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run all regression tests, including reject forged logs and predeclared FT Tau source design
+        run: python -m pytest -q
+      - name: Retrieve historic IRSA original source manifest only to ephemeral runner
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_ACQUISITION_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v118_original_irsa"
+          gh run download "$ORIGINAL_ACQUISITION_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v118_original_irsa"
+      - name: Verify exact original 2-target source ZIP inventory and construct ephemeral ZIP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          import os
+          folder=Path(os.environ["RUNNER_TEMP"])/"v118_original_irsa"
+          sourcefiles=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={"PILOT_STATUS.json","REPORT.md",
+                    "149623711269425408_IRSA_RAW.csv",
+                    "3419110734340795648_IRSA_RAW.csv"}
+          if {p.name for p in sourcefiles}!=expected:
+              raise ValueError("Original NASA IRSA ZTF pilot source manifest changed")
+          with ZipFile(folder.parent/"v118_original_irsa.zip","w",compression=ZIP_DEFLATED) as z:
+              for p in sourcefiles:z.write(p,p.name)
+          PY
+      - name: Real original ZTF per-exposure PSF training logs and exploratory Gaia-only FT Tau source masked pixel tests
+        run: |
+          python scripts/run_v118_original_ztf_psf_training_audit.py \
+            "$RUNNER_TEMP/v118_original_irsa.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --gaia-timeout 30 --archive-timeout 6 \
+            --output reports/generated/v1.18_original_psf_training
+      - name: Publish only instrument-training uncertainty and FT Tau quality-tier summaries
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.18_original_psf_training/V118_ZTF_LOG_TRAINING_AUDIT_AND_FT_TAU_EXPLORATORY_NO_RAW.md ]; then
+            cat reports/generated/v1.18_original_psf_training/V118_ZTF_LOG_TRAINING_AUDIT_AND_FT_TAU_EXPLORATORY_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload derived no-original-PSF-training-star-roster aggregates ONLY
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v118-ZTF-original-PSF-training-log-FT-Tau-exploratory-NO-RAW
+          path: |
+            reports/generated/v1.18_original_psf_training/V118_ZTF_LOG_TRAINING_AUDIT_AND_FT_TAU_EXPLORATORY_NO_RAW.json
+            reports/generated/v1.18_original_psf_training/V118_ZTF_LOG_TRAINING_AUDIT_AND_FT_TAU_EXPLORATORY_NO_RAW.md
+          if-no-files-found: warn
+          retention-days: 7

@@ -1,3 +1,18 @@
+# MOST RECENT OFFICIAL ZTF ORIGINAL PSF PROCESSING-LOG STATUS — StellarForge v1.18, 9 November 2026
+
+[Verified real original ZTF/Gaia workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42665465964) completed **661 regression tests**, four immutable historic single-science FT Tau/CIDA 11 dates, original SHA-audited 2,212-row IRSA positional-query transport and exact v1.8 exposure ledger.
+
+- **Original authentic reduction logs available:** **8 of 8** `sciimlog.txt` and `log.txt` files returned from official IRSA dated product paths for FT Tau MJD 58388.389016 / 58491.184780 and CIDA 11 MJD 58475.113750 / 58849.135984. Original instrumental processing logs contained **115, 115, 116, 116** lines respectively referring to PSF/DAOPhot terminology; their accompanying overall `log.txt` files contained 1 such line each. SHA-256 hashes/provenance documented in aggregate output; **raw log text never committed/published**.
+- **Native PSF-training-star identity remains UNKNOWN:** **zero validated full DAOPhot PSF model-training source-ID rosters** were recovered from those original processing logs. A ZTF `psfcat.fits` list of post-fit source detections is not an instrumental model-training source roster; no new Gaia object was proved absent from original training.
+- **Fresh FT Tau Gaia-only wide cone:** 50 Gaia DR3 records; unchanged prior strict quality/isolation rules still yield **0** new references. The **predeclared, separately labeled EXPLORATORY** broader G/RUWE/source-isolation/radius tier yielded **four** new Gaia DR3 candidate IDs (not previously used by StellarForge).
+- **Genuine FT Tau original masked science pixels:** only **one of those four newly selected Gaia source IDs** (`149623298952568064`) passed native catalogue eligibility on both historic FT Tau g-band exposures, yielding **two** genuine original `sciimg.fits`+`mskimg.fits` masked source-PSF fits, both passing internal same-source pixel residual QC with RMS/annular sky MAD proxies **0.920302**, **0.955383**. Other **six source×epoch** original catalog candidate checks did not pass and were **not** pixel-fitted; not physical stellar nondetections.
+- **Original shifted source-catalogue probes:** 32 deterministic ±25″ positions, 0 matching native PSFfit catalogue entries within 1″; these are not a calibrated chance association probability.
+- **Scientific limitations:** exploratory Gaia limits are less stringent than v1.17 strict, each fit is a *same-star* different-epoch observation rather than an independent source holdout, and potential membership in the original ZTF PSF training sample is unknown. No authenticated physical Gaia–ZTF IDs, true isolated PSF calibration, absolute detector WCS error or companion/variability claims. CIDA 11 target Gaia DR3 RUWE remains high.
+
+[Full v1.18 original survey pipeline log and FT Tau source evidence](../reports/psf_training_ft_tau_v1.18/REAL_ZTF_LOG_AUDIT_AND_EXPLORATORY_FT_TAU.md) · [Methodological PSF-training caveats and preregistered Gaia source tiers](PHASE118_PSF_TRAINING_LOGS_AND_EXPLORATORY_FTTAU.md) · [Original ZTF official ancillary processing-log definitions](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_metadata.html).
+
+---
+
 # MOST RECENT ZTF/Gaia SOURCE ACCESS — StellarForge v1.17, 9 November 2026
 
 [Original source-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/42661663983) passed **636 automated tests**, with SHA-verified original IRSA 2,212-row photometric acquisition (not physically confirmed target light curves) and two **fresh independent Gaia DR3 210″ cone queries**:
