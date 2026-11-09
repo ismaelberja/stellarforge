@@ -1,0 +1,82 @@
+# One original source pilot when first added; manual-only remote Gaia/IRSA downloads thereafter.
+name: v1.19 Real distinct-star empirical ZTF PSF LOOCV vs native model (NO RAW)
+
+on:
+  push:
+    paths:
+      - '.github/workflows/v119-real-disjoint-source-empirical-psf.yml'
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Original SHA-verified ZTF IRSA positional-query acquisition run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  real-source-disjoint-empirical-psf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install original FITS/Gaia science and source-empirical PSF test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Validate all regression tests including synthetic distinct-source PSF leave-one-out
+        run: python -m pytest -q
+      - name: Retrieve original ZTF positional-query acquisition only into ephemeral runner
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_ACQUISITION_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v119_irsa_original"
+          gh run download "$ORIGINAL_ACQUISITION_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v119_irsa_original"
+      - name: Verify SHA-managed historic source manifest inventory
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile,ZIP_DEFLATED
+          import os
+          folder=Path(os.environ["RUNNER_TEMP"])/"v119_irsa_original"
+          files=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={"PILOT_STATUS.json","REPORT.md",
+                    "149623711269425408_IRSA_RAW.csv",
+                    "3419110734340795648_IRSA_RAW.csv"}
+          if {p.name for p in files}!=expected:
+              raise ValueError("Unexpected historical SHA-verified NASA ZTF positional-query source inventory")
+          with ZipFile(folder.parent/"v119_irsa_original.zip","w",ZIP_DEFLATED) as z:
+              for p in files:z.write(p,p.name)
+          PY
+      - name: Build separate genuine other-star empirical PSF from real original ZTF images, validate held-out Gaia candidate star
+        run: |
+          python scripts/run_v119_real_empirical_source_psf.py \
+            "$RUNNER_TEMP/v119_irsa_original.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --gaia-timeout 30 --archive-timeout 6 \
+            --output reports/generated/v1.19_empirical_psf \
+            --require-one-source-disjoint-fold
+      - name: Publish scientifically cautious metrics, only source and image hashes, not original pixels
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.19_empirical_psf/V119_ORIGINAL_DISJOINT_EMPIRICAL_PSF_LOOCV_NO_RAW.md ]; then
+            cat reports/generated/v1.19_empirical_psf/V119_ORIGINAL_DISJOINT_EMPIRICAL_PSF_LOOCV_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload derived original PSF shape holdout residuals only (NO RAW FITS/PSF)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v119-actual-ZTF-distinct-source-empirical-PSF-LOOCV-NO-RAW
+          path: |
+            reports/generated/v1.19_empirical_psf/V119_ORIGINAL_DISJOINT_EMPIRICAL_PSF_LOOCV_NO_RAW.json
+            reports/generated/v1.19_empirical_psf/V119_ORIGINAL_DISJOINT_EMPIRICAL_PSF_LOOCV_NO_RAW.md
+          retention-days: 7
+          if-no-files-found: warn
