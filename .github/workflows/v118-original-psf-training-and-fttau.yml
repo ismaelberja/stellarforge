@@ -1,11 +1,8 @@
-# First original ZTF per-exposure PSF construction log / new FT Tau exploratory run.
-# Once the real pilot is verified switch this external source workflow to manual only.
+# After successful real-data validation, original NASA/IPAC IRSA + Gaia downloads are manual-only.
+# Original source logs, Gaia TAP tables, DAOPhot, science and bitmask FITS remain ephemeral.
 name: v1.18 Original ZTF PSF training logs and FT Tau exploratory Gaia controls (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v118-original-psf-training-and-fttau.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
