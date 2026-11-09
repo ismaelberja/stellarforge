@@ -250,7 +250,7 @@ def test_original_fits_source_cutout_retained_date_and_path_for_both_products():
 def test_bright_old_reference_template_on_two_different_preselected_faint_gaia_stars():
     training=[extracted(str(4000+i),seed=20+i,amplitude=19000)
               for i in range(4)]
-    holds=[extracted(str(9000+i),seed=60+i,amplitude=1700)
+    holds=[extracted(str(9000+i),seed=60+i,amplitude=1700,extra_noise=20)
            for i in range(2)]
     r=evaluate_other_star_empirical_psf(
         training,holds,native_spatial_psf=fake_daophot())
@@ -267,7 +267,7 @@ def test_bright_old_reference_template_on_two_different_preselected_faint_gaia_s
 
 
 def test_wider_heldout_faint_source_tier_never_enters_bright_empirical_training():
-    s,m=original_stamp_image(amplitude=1700)
+    s,m=original_stamp_image(amplitude=1700,extra_noise=20)
     h=extract_original_source_stamp(
         s,m,source_ra=RA,source_dec=DEC,native_x=1535.3,native_y=1539.4,
         gaia_source_id="9990001",min_source_snr_proxy=2.5)
@@ -277,7 +277,7 @@ def test_wider_heldout_faint_source_tier_never_enters_bright_empirical_training(
     with pytest.raises(ValueError,match="Too-low-SNR"):
         evaluate_other_star_empirical_psf(
             [h,extracted("1001"),extracted("1002"),extracted("1003")],
-            [extracted("9001",amplitude=1800)],
+            [extracted("9001",amplitude=1800,extra_noise=20)],
             native_spatial_psf=fake_daophot())
 
 
@@ -308,7 +308,7 @@ def test_faint_heldout_source_cannot_be_omitted_without_reporting_missing_eviden
 
 
 def test_explicit_bright_training_threshold_is_not_silently_lowered():
-    s,m=original_stamp_image(amplitude=1700)
+    s,m=original_stamp_image(amplitude=1700,extra_noise=20)
     with pytest.raises(ValueError,match="TOO_WEAK"):
         extract_original_source_stamp(
             s,m,source_ra=RA,source_dec=DEC,native_x=1535.3,native_y=1539.4,
