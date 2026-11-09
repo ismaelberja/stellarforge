@@ -1,11 +1,8 @@
-# One bounded original-data pilot at workflow creation; manual-only once scientifically reviewed.
-# Source FITS, Gaia TAP CSV, DAOPhot PSFs and raw IRSA rows never enter Git/artifacts.
+# Official original Gaia/IRSA source downloads are manual-only after successful observed-data pilot.
+# Survey source FITS, Gaia TAP CSV, DAOPhot PSFs and raw IRSA rows never enter public Git or CI artifacts.
 name: v1.17 New Gaia-only disjoint source controls and shifted ZTF sky null (NO RAW)
 
 on:
-  push:
-    paths:
-      - '.github/workflows/v117-new-gaia-holdouts.yml'
   workflow_dispatch:
     inputs:
       acquisition_run_id:
