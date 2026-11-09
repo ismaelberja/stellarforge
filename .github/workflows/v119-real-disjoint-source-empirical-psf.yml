@@ -1,5 +1,7 @@
-# One original source pilot when first added; manual-only remote Gaia/IRSA downloads thereafter.
-name: v1.19 Real distinct-star empirical ZTF PSF LOOCV vs native model (NO RAW)
+# Re-run with separate original bright Gaia reference training stamps and never-trained
+# new Gaia heldout field stars; a faint heldout star is not a high-SNR training source.
+# Original Gaia/IRSA source ingestion remains bounded; switch manual-only after validation.
+name: v1.19 Real new Gaia holdout PSFs from other bright original reference stars (NO RAW)
 
 on:
   push:
@@ -55,7 +57,7 @@ jobs:
           with ZipFile(folder.parent/"v119_irsa_original.zip","w",ZIP_DEFLATED) as z:
               for p in files:z.write(p,p.name)
           PY
-      - name: Build separate genuine other-star empirical PSF from real original ZTF images, validate held-out Gaia candidate star
+      - name: Train empirical PSF with PRIOR bright Gaia reference images and test on OTHER NEW faint Gaia source images
         run: |
           python scripts/run_v119_real_empirical_source_psf.py \
             "$RUNNER_TEMP/v119_irsa_original.zip" \
