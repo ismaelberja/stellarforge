@@ -125,7 +125,7 @@ def _clip_sky_plane(data:np.ndarray,mask:np.ndarray,xx:np.ndarray,yy:np.ndarray,
 def extract_original_source_stamp(
     raw_science:bytes,raw_mask:bytes, *,
     source_ra:float,source_dec:float,native_x:float,native_y:float,
-    gaia_source_id:str)->dict:
+    gaia_source_id:str,min_source_snr_proxy:float=MIN_EMPIRICAL_SOURCE_SNR_PROXY)->dict:
     """Read/mask source image; estimate sky from non-source pixels only.
 
     Align source by WCS native subpixel phase; sample a 23x23 stamp. For the
@@ -136,6 +136,9 @@ def extract_original_source_stamp(
     if not str(gaia_source_id).isdigit():
         raise ValueError("Invalid preregistered Gaia candidate ID")
     validate_icrs(source_ra,source_dec)
+    if not (math.isfinite(min_source_snr_proxy)
+            and 2<=min_source_snr_proxy<=MIN_EMPIRICAL_SOURCE_SNR_PROXY):
+        raise ValueError("Unsupported preregistered source SNR tier")
     if not (isinstance(raw_science,bytes) and isinstance(raw_mask,bytes)):
         raise ValueError("Actual original source science/mask FITS required")
     data,hdr,wcs=_one_image(raw_science)
@@ -192,7 +195,7 @@ def extract_original_source_stamp(
     # Aperture-sum SNR is a *proxy*, not a true inverse variance flux error.
     amplitude=float(np.sum(source[support]))
     proxy=amplitude/(sky_sigma*math.sqrt(int(support.sum())))
-    if not (math.isfinite(proxy) and proxy>=MIN_EMPIRICAL_SOURCE_SNR_PROXY
+    if not (math.isfinite(proxy) and proxy>=min_source_snr_proxy
             and amplitude>0):
         raise ValueError("SOURCE_TOO_WEAK_FOR_EMPIRICAL_PSF_TEMPLATE")
     # Shift original image sampling so source centroid lies at 11,11.
@@ -221,6 +224,7 @@ def extract_original_source_stamp(
         "sky_sigma_mad_proxy_dn":sky_sigma,
         "n_original_sky_pixels":n_sky,
         "source_snr_proxy":proxy,
+        "minimum_source_snr_proxy_tier":min_source_snr_proxy,
         "model_noise_metadata":header_noise_metadata(hdr,sky_mad_dn=sky_sigma),
         "n_unmasked_fit_pixels":int(support.sum()),
         "original_source_n_native_mask_bad_core_pixels":0,
@@ -233,6 +237,7 @@ def fetch_original_source_stamp(
     science_url:str, *,
     source_ra:float,source_dec:float,native_x:float,native_y:float,
     gaia_source_id:str,timeout:float=6,
+    min_source_snr_proxy:float=MIN_EMPIRICAL_SOURCE_SNR_PROXY,
     fetch_mask=fetch_ancillary_fits,
     fetch_science=fetch_fits_cutout)->dict:
     """One exact-date science/mask pair, never model/source pixels in output."""
@@ -245,7 +250,8 @@ def fetch_original_source_stamp(
         return extract_original_source_stamp(
             raw_s,raw_m,source_ra=source_ra,source_dec=source_dec,
             native_x=native_x,native_y=native_y,
-            gaia_source_id=gaia_source_id)
+            gaia_source_id=gaia_source_id,
+            min_source_snr_proxy=min_source_snr_proxy)
     except (HTTPError,URLError,TimeoutError,OSError,ValueError) as exc:
         d={"status":"ORIGINAL_IMAGE_MASK_OR_EMPIRICAL_TRAINING_INELIGIBLE",
            "gaia_source_id":str(gaia_source_id),
@@ -406,4 +412,95 @@ def empirical_psf_leave_one_source_out(
         "real_original_distinct_star_pixel_template_trained_without_holdout":True,
         "calibrated_instrument_astrometric_PSF_noise_error_model_completed":False,
         "new_physical_gaia_ztf_companion_or_variability_confirmed":False,
+    }
+
+
+def evaluate_other_star_empirical_psf(
+    training_stamps:list[dict],heldout_stamps:list[dict], *,
+    native_spatial_psf:dict,
+    min_training_source_ids:int=MIN_DISTINCT_TRAINING_STARS)->dict:
+    """Train once on bright prior reference stars, test NEW Gaia source IDs.
+
+    Quality tiers are *distinct*: training requires SNR proxy >=10 and all
+    source stamps mask/WCS clean; heldout previously unseen source IDs may
+    have SNR proxy >=2.5 (they are NOT included in constructing the template).
+    The originally preselected Gaia holdouts stay distinct, and source
+    training/heldout IDs must not overlap. No DAOPhot coefficients contribute
+    to empirically learned shape.
+    """
+    if not 3<=min_training_source_ids<=5:
+        raise ValueError("Invalid number of disjoint training references")
+    if len(training_stamps)>8 or len(heldout_stamps)>8:
+        raise ValueError("Unbounded original star-sample pairing")
+    tr=[x for x in training_stamps if x.get("original_source_detector_fits_verified")]
+    te=[x for x in heldout_stamps if x.get("original_source_detector_fits_verified")]
+    ids=[str(x["gaia_source_id"]) for x in tr]
+    withheld=[str(x["gaia_source_id"]) for x in te]
+    if len(set(ids))!=len(ids) or len(set(withheld))!=len(withheld):
+        raise ValueError("Duplicate Gaia ID used across exposure source stamps")
+    if set(ids)&set(withheld):
+        raise ValueError("Heldout Gaia source ID leaks into training stars")
+    if any(x["source_snr_proxy"]<MIN_EMPIRICAL_SOURCE_SNR_PROXY for x in tr):
+        raise ValueError("Too-low-SNR reference star incorrectly entered training set")
+    if len(tr)<min_training_source_ids or not te:
+        return {
+            "status":"INSUFFICIENT_REAL_BRIGHT_TRAINING_OR_NEW_HELDOUT_STARS",
+            "n_bright_distinct_reference_training_stars":len(tr),
+            "n_new_source_disjoint_heldout_stars":len(te),
+            "n_new_source_disjoint_heldout_models_evaluated":0,
+            "new_gaia_source_holdout_science_identity_verified":False,
+            "original_psf_training_star_membership_authenticated":False,
+            "evaluation_records":[],
+        }
+    tr=sorted(tr,key=lambda x:str(x["gaia_source_id"]))[:5]
+    te=sorted(te,key=lambda x:str(x["gaia_source_id"]))
+    psf=np.median(np.stack([x["aligned_empirical_shape"] for x in tr]),axis=0)
+    psf=np.clip(psf,0,None)
+    if not np.isfinite(psf).all() or psf.sum()<=0:
+        raise ValueError("Training reference empirical PSF invalid")
+    psf/=psf.sum()
+    folds=[]
+    for h in te:
+        # Source phase is from original per-exposure ZTF source catalogue.
+        empirical=shift(psf,shift=(
+            float(h["source_pixel_frac_y"]),float(h["source_pixel_frac_x"])),
+            order=3,mode="constant",cval=0,prefilter=True)
+        empirical=np.clip(empirical,0,None)
+        if not 0<empirical.sum():
+            raise ValueError("Empirical PSF shifted off heldout pixel footprint")
+        empirical/=empirical.sum()
+        a=_fixed_shape_fit_rms(h,empirical)
+        native=evaluate_spatial_psf_shape(
+            native_spatial_psf,x=h["detector_native_x"],
+            y=h["detector_native_y"],
+            frac_x=h["source_pixel_frac_x"],
+            frac_y=h["source_pixel_frac_y"])
+        b=_fixed_shape_fit_rms(h,native)
+        denom=b["same_heldout_source_image_rms_over_annulus_mad"]
+        folds.append({
+            "new_heldout_gaia_candidate_id":h["gaia_source_id"],
+            "training_bright_prior_gaia_reference_ids":[s["gaia_source_id"] for s in tr],
+            "n_bright_distinct_training_reference_stars":len(tr),
+            "heldout_new_gaia_source_pixels_absent_from_template_training":True,
+            "empirical_psf_original_star_pixels_not_native_DAOPhot_coefficients":True,
+            "heldout_gaia_source_snr_proxy":round(float(h["source_snr_proxy"]),5),
+            "empirical_heldout_source_metrics":a,
+            "native_DAOPhot_heldout_source_metrics":b,
+            "empirical_to_native_heldout_rms_ratio":round(
+                a["same_heldout_source_image_rms_over_annulus_mad"]/denom,6),
+            "physical_gaia_ztf_source_identity_confirmed":False,
+        })
+    ratios=[r["empirical_to_native_heldout_rms_ratio"] for r in folds]
+    return {
+        "status":"NEW_GAIA_SOURCE_DISJOINT_EMPIRICAL_PSF_TEST_COMPLETED",
+        "n_bright_distinct_reference_training_stars":len(tr),
+        "n_new_source_disjoint_heldout_stars":len(te),
+        "n_new_source_disjoint_heldout_models_evaluated":len(folds),
+        "median_empirical_to_native_heldout_rms_ratio":
+            round(float(np.median(ratios)),6),
+        "n_new_star_holdouts_better_empirical_than_native":sum(v<1 for v in ratios),
+        "evaluation_records":folds,
+        "separate_Gaia_source_IDs_used_for_training_vs_test":True,
+        "original_ZTF_pipeline_DAOPhot_training_star_membership_known":False,
+        "independent_physical_source_identity_WCS_PSF_calibration_completed":False,
     }
