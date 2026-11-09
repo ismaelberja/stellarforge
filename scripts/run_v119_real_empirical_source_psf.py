@@ -53,6 +53,7 @@ from stellarforge.v118_original_training_log_fttau import (
 )
 from stellarforge.v119_empirical_source_psf import (
     empirical_psf_leave_one_source_out,fetch_original_source_stamp,
+    evaluate_other_star_empirical_psf,
 )
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -116,6 +117,16 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
     if len(all_new)>8 or len(all_new)!=sum(
             len(x["new_gaia_source_ids"]) for x in selections.values()):
         raise ValueError("New Gaia source IDs unexpectedly overlap field selection")
+    # Existing v1.8 preregistered sources are a SEPARATE BRIGHT
+    # PSF-template TRAINING group; only the new v1.17/v1.18 IDs are
+    # EVALUATION holdouts. Both groups are fixed before any native ZTF
+    # source image pixels are inspected in this execution.
+    prior_reference_ids=tuple(sorted(used_ids))
+    raw_prior_gaia=fetch_gaia_astrometry(
+        prior_reference_ids,timeout_sec=gaia_timeout)
+    prior_gaia=parse_gaia_astrometry(
+        raw_prior_gaia,expected_ids=prior_reference_ids)
+    prior_gaia_sha=hashlib.sha256(raw_prior_gaia).hexdigest()
     new_gaia={}
     gaia_sha=None
     if all_new:
@@ -158,6 +169,14 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
                     "native_original_daophot":{"status":"NOT_ACCESSED"},
                     "native_center_psf_model_consistency":{"status":"NOT_ACCESSED"},
                     "original_new_star_source_fits":[],
+                    "original_bright_prior_reference_training_stamps":[],
+                    "native_old_reference_catalogue_screen":{
+                        "status":"NOT_ACCESSED",
+                    },
+                    "empirical_bright_training_to_new_heldout_star_result":{
+                        "status":"NOT_ATTEMPTED",
+                        "n_new_source_disjoint_heldout_models_evaluated":0,
+                    },
                     "empirical_star_disjoint_psf_loocv":{
                         "status":"NOT_ATTEMPTED_INSUFFICIENT_SOURCE_ELIGIBILITY",
                         "n_source_disjoint_psf_validation_folds":0,
@@ -195,17 +214,50 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
                         exc,"ORIGINAL_PSF_SOURCE_CATALOGUE_UNAVAILABLE")
                     frames.append(frame);continue
                 eligible=[c for c in screen["screens"] if c["status"]==ELIGIBLE]
+                # Prior Gaia reference IDs (excluding target) are a distinctly
+                # preregistered TRAINING group. No new Gaia holdout is allowed
+                # into this reference source set, even if faint holdouts
+                # had high native source SNR. Exact original ZTF exposure only.
+                original_prior_ids=[str(r["id"]) for r in date["refs"]]
+                if not 1<=len(original_prior_ids)<=5 or not set(original_prior_ids)<=used_ids:
+                    raise ValueError("Original training reference ledger changed")
+                if set(original_prior_ids)&set(ids):
+                    raise ValueError("Leakage of new Gaia holdout into old training stars")
+                prior_predictions=[]
+                for sid in original_prior_ids:
+                    old_ast=propagate_gaia_5p_formal(
+                        prior_gaia[sid],mjd_utc=float(date["mjd"]))
+                    prior_predictions.append({
+                        "source_id":sid,
+                        "geocentric_parallax_adjusted_ra_deg":
+                            old_ast["geocentric_parallax_adjusted_ra_deg"],
+                        "geocentric_parallax_adjusted_dec_deg":
+                            old_ast["geocentric_parallax_adjusted_dec_deg"],
+                    })
+                prior_screen=screen_psf_catalogue_targets(
+                    cat,prior_predictions)
+                original_training_eligible=[
+                    c for c in prior_screen["screens"] if c["status"]==ELIGIBLE]
+                frame["native_old_reference_catalogue_screen"]={
+                    "status":"ORIGINAL_PRIOR_REFERENCE_GAIA_TRAINING_CATALOGUE_SCREENED",
+                    "n_original_reference_gaia_predictions":len(original_prior_ids),
+                    "n_prior_reference_native_source_candidates_eligible":
+                        len(original_training_eligible),
+                    "training_candidate_ids_not_new_gaia_holdout":True,
+                    "original_ZTF_DAOPhot_training_roster_membership_unknown":True,
+                }
                 frame["original_new_star_source_fits"]=[
                     {"gaia_source_id":c["gaia_source_id"],
                      "status":c["status"],"fit_completed":False,
                      "physical_source_identity_confirmed":False}
                     for c in screen["screens"] if c["status"]!=ELIGIBLE]
-                if len(eligible)<4:
-                    frame["empirical_star_disjoint_psf_loocv"]={
-                        "status":"INSUFFICIENT_ELIGIBLE_DISTINCT_GAIA_SOURCES_BEFORE_PIXEL_DOWNLOAD",
-                        "n_catalogue_eligible_gaia_source_ids":len(eligible),
-                        "n_source_disjoint_psf_validation_folds":0,
-                        "original_native_psf_training_membership_known":False,
+                if not eligible or len(original_training_eligible)<3:
+                    frame["empirical_bright_training_to_new_heldout_star_result"]={
+                        "status":"INSUFFICIENT_ORIGINAL_NATIVE_REF_CATALOGUE_TRAINING_OR_NEW_TEST_STARS",
+                        "n_native_eligible_training_gaia_ids":len(original_training_eligible),
+                        "n_native_eligible_new_heldout_gaia_ids":len(eligible),
+                        "n_new_source_disjoint_heldout_models_evaluated":0,
+                        "original_DAOPhot_training_roster_membership_known":False,
                     }
                     frames.append(frame);continue
                 try:
@@ -232,6 +284,39 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
                         "status":"NATIVE_CENTER_CHECK_FAILED_OR_REVIEW_REQUIRED",
                         "n_source_disjoint_psf_validation_folds":0}
                     frames.append(frame);continue
+                training_stamps=[]
+                for c in original_training_eligible:
+                    native_id=int(c["ztf_native_per_exposure_sourceid"])
+                    ii=np.flatnonzero(
+                        np.asarray(cat["rows"]["sourceid"],dtype=int)==native_id)
+                    if len(ii)!=1:
+                        raise ValueError("Nonunique old-reference native PSF sourceid")
+                    i=int(ii[0])
+                    a=fetch_original_source_stamp(
+                        science_url,
+                        source_ra=float(cat["rows"]["ra"][i]),
+                        source_dec=float(cat["rows"]["dec"][i]),
+                        native_x=float(cat["rows"]["xpos"][i]),
+                        native_y=float(cat["rows"]["ypos"][i]),
+                        gaia_source_id=c["gaia_source_id"],
+                        timeout=archive_timeout)
+                    if a.get("original_source_detector_fits_verified"):
+                        training_stamps.append(a)
+                    frame["original_bright_prior_reference_training_stamps"].append({
+                        "prior_training_reference_gaia_id":c["gaia_source_id"],
+                        "status":("ORIGINAL_BRIGHT_GAIA_REFERENCE_PSF_TRAINING_READY"
+                                  if a.get("original_source_detector_fits_verified") else a["status"]),
+                        "valid_source_template":bool(
+                            a.get("original_source_detector_fits_verified")),
+                        "source_snr_proxy":round(a["source_snr_proxy"],4)
+                            if a.get("original_source_detector_fits_verified") else None,
+                        "original_science_sha256":a.get("science_fits_sha256"),
+                        "original_mask_sha256":a.get("mask_fits_sha256"),
+                        "source_error_type":a.get("error_type"),
+                        "source_error_code":a.get("error_code"),
+                        "source_http_status":a.get("http_status"),
+                        "source_is_physical_single_star_authenticated":False,
+                    })
                 stamps=[]
                 for c in eligible:
                     native_id=int(c["ztf_native_per_exposure_sourceid"])
@@ -247,7 +332,8 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
                         native_x=float(cat["rows"]["xpos"][i]),
                         native_y=float(cat["rows"]["ypos"][i]),
                         gaia_source_id=c["gaia_source_id"],
-                        timeout=archive_timeout)
+                        timeout=archive_timeout,
+                        min_source_snr_proxy=2.5)
                     if s.get("original_source_detector_fits_verified"):
                         stamps.append(s)
                     # Publish only original ZTF image SHA hashes + scalar QA,
@@ -266,6 +352,9 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
                             round(s["sky_sigma_mad_proxy_dn"],6)
                             if s.get("original_source_detector_fits_verified") else None,
                         "original_sky_annulus_n_pixels":s.get("n_original_sky_pixels"),
+                        "heldout_faint_source_snr_proxy":round(s["source_snr_proxy"],5)
+                            if s.get("original_source_detector_fits_verified") else None,
+                        "heldout_source_not_in_empirical_training_template":True,
                         "original_detector_gain_metadata_available":
                             s.get("model_noise_metadata",{}).get(
                                 "gain_read_directly_from_original_fits_header",False),
@@ -277,10 +366,25 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
                         "http_status":s.get("http_status"),
                         "physical_gaia_ztf_identity_confirmed":False,
                     })
+                # Key v1.19 predeclared source-independent NEW shape
+                # from PRIOR bright references, evaluated on NEW faint Gaia
+                # sources. Neither model shape nor sky learning ever sees
+                # pixels of the heldout Gaia evaluation IDs.
+                frame["empirical_bright_training_to_new_heldout_star_result"]=(
+                    evaluate_other_star_empirical_psf(
+                        training_stamps,stamps,native_spatial_psf=native))
+                # Optional additional strict LOOCV within new Gaia holdouts
+                # only when >=4 of those heldouts independently meet the
+                # original brighter SNR>=10 template criterion. Faint
+                # evaluation stars are not a bright training set.
+                bright_new=[v for v in stamps if v["source_snr_proxy"]>=10.]
                 frame["empirical_star_disjoint_psf_loocv"]=(
                     empirical_psf_leave_one_source_out(
-                        stamps,native_spatial_psf=native))
+                        bright_new,native_spatial_psf=native))
                 frames.append(frame)
+    independently_tested=[x for f in frames
+                          for x in f["empirical_bright_training_to_new_heldout_star_result"].get(
+                              "evaluation_records",[])]
     folds=[x for f in frames for x in f["empirical_star_disjoint_psf_loocv"].get(
         "heldout_source_folds",[])]
     eligible_all=[x for f in frames for x in f["original_new_star_source_fits"]]
@@ -295,6 +399,23 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
             s["gaia_source_id"] for s in eligible_all if s["fit_completed"]}),
         "n_original_source_science_mask_pairs_retrieved":sum(
             bool(x["fit_completed"]) for x in eligible_all),
+        "n_prior_bright_reference_training_source_images_retrieved":sum(
+            bool(x["valid_source_template"]) for f in frames for x in
+            f["original_bright_prior_reference_training_stamps"]),
+        "n_new_heldout_source_profiles_scored_with_old_bright_reference_empirical_PSF":
+            len(independently_tested),
+        "n_new_holdout_empirical_profiles_lower_rms_than_original_native_PSF":sum(
+            x["empirical_to_native_heldout_rms_ratio"]<1
+            for x in independently_tested),
+        "median_new_heldout_empirical_to_native_rms_ratio":(
+            round(float(np.median([
+                x["empirical_to_native_heldout_rms_ratio"]
+                for x in independently_tested])),6)
+            if independently_tested else None),
+        "n_original_FITS_heldout_folds_with_gain_header":sum(
+            x["empirical_heldout_source_metrics"][
+                "header_gain_applied_to_optional_source_shot_noise"]
+            for x in independently_tested),
         "n_distinct_source_empirical_psf_loocv_folds_completed":len(folds),
         "n_distinct_source_empirical_psf_models_trained":len(folds),
         "n_source_folds_where_empirical_psf_has_lower_same_source_pixel_residual_than_native":sum(
@@ -311,6 +432,8 @@ def run(original_zip:Path,seed_path:Path=SEED,ledger_path:Path=LEDGER,*,
         "n_new_confirmed_stellar_binary_companions_or_physical_variability":0,
         "gaia_field_cone_original_csv_sha256":selection_source_sha,
         "new_gaia_full_formal_5d_tap_csv_sha256":gaia_sha,
+        "original_old_training_reference_formal_5d_gaia_csv_sha256":
+            prior_gaia_sha,
         "gaia_only_selection_before_ZTF_native_psf_data":selections,
         "original_science_exposures":frames,
         "source_stamp_status_counts":dict(sorted(
@@ -390,6 +513,12 @@ def main():
     files=write_outputs(result,a.output)
     print(json.dumps({
         "n_actual_masked_source_stamps":result["n_original_source_science_mask_pairs_retrieved"],
+        "n_bright_training_old_reference_image_stamps":
+            result["n_prior_bright_reference_training_source_images_retrieved"],
+        "n_new_Gaia_holdout_stars_evaluated":
+            result["n_new_heldout_source_profiles_scored_with_old_bright_reference_empirical_PSF"],
+        "median_new_heldout_empirical_to_native_rms":
+            result["median_new_heldout_empirical_to_native_rms_ratio"],
         "n_source_disjoint_empirical_holdout_folds":result["n_distinct_source_empirical_psf_loocv_folds_completed"],
         "n_empirical_lower_residual_than_native":result["n_source_folds_where_empirical_psf_has_lower_same_source_pixel_residual_than_native"],
         "median_empirical_to_native_holdout_rms":result["empirical_to_native_holdout_rms_ratio_median"],
@@ -398,8 +527,10 @@ def main():
         "new_stellar_companions_confirmed":0,
         "reports":[str(x) for x in files],
     },indent=2))
-    if a.require_one_source_disjoint_fold and not result["n_distinct_source_empirical_psf_loocv_folds_completed"]:
-        p.exit(2,"No original exposure had four distinct usable original masked source stamps for a source-disjoint empirical PSF test; this is insufficient instrument evidence, not an astrophysical nondetection.\n")
+    if (a.require_one_source_disjoint_fold
+        and not (result["n_distinct_source_empirical_psf_loocv_folds_completed"]
+                 or result["n_new_heldout_source_profiles_scored_with_old_bright_reference_empirical_PSF"])):
+        p.exit(2,"No original exposure had enough distinct bright prior Gaia source references and new Gaia heldout masked science pixels for a separately trained empirical PSF validation; no instrument calibration or astrophysical nondetection can be inferred.\n")
 
 
 if __name__=="__main__":
