@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="585" viewBox="0 0 1000 585" role="img" aria-labelledby="title desc">
+<title id="title">Real original ZTF image pixel-fit quality screens by historical exposure</title>
+<desc id="desc">Four original historical ZTF science exposures: FT Tau at MJD 58388.389016 had 2 provisional quality passes and 0 reviews; FT Tau MJD 58491.184780 had 3 passes and 1 review; CIDA 11 MJD 58475.113750 had 5 passes and 0 reviews; CIDA 11 MJD 58849.135984 had 3 passes and 2 reviews. Total 16 source pixel fits, 13 provisional passes and 3 flagged for review. No astrophysical source identification is confirmed.</desc>
+<rect width="1000" height="585" rx="18" fill="#f8fafc"/>
+<rect x="2" y="2" width="996" height="581" rx="17" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+<text x="45" y="54" fill="#0f172a" font-size="27" font-weight="700" font-family="Arial, sans-serif">Original ZTF masked-image PSF fits</text>
+<text x="45" y="85" fill="#475569" font-size="16" font-family="Arial, sans-serif">Four historical g-band exposures · 16 genuine science + mask source-pixel fits</text>
+<rect x="45" y="106" width="18" height="18" rx="4" fill="#0d9488"/>
+<text x="76" y="122" fill="#334155" font-size="16" font-family="Arial, sans-serif">Provisional same-image residual screen passed (13)</text>
+<rect x="506" y="106" width="18" height="18" rx="4" fill="#f59e0b"/>
+<text x="537" y="122" fill="#334155" font-size="16" font-family="Arial, sans-serif">Profile review needed (3)</text>
+<text x="345" y="151" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Number of fitted source profiles per exposure</text>
+<text x="45" y="191" fill="#0f172a" font-size="21" font-weight="700" font-family="Arial, sans-serif">FT Tau</text>
+<text x="155" y="191" fill="#64748b" font-size="17" font-family="Arial, sans-serif">MJD 58388.389016</text>
+<rect x="345" y="167" width="470" height="34" rx="6" fill="#e2e8f0"/>
+<rect x="345" y="167" width="188" height="34" fill="#0d9488"/>
+
+<text x="838" y="191" fill="#0f172a" font-size="20" font-weight="700" font-family="Arial, sans-serif">2 fits</text>
+<text x="45" y="268" fill="#0f172a" font-size="21" font-weight="700" font-family="Arial, sans-serif">FT Tau</text>
+<text x="155" y="268" fill="#64748b" font-size="17" font-family="Arial, sans-serif">MJD 58491.184780</text>
+<rect x="345" y="244" width="470" height="34" rx="6" fill="#e2e8f0"/>
+<rect x="345" y="244" width="282" height="34" fill="#0d9488"/>
+<rect x="627" y="244" width="94" height="34" fill="#f59e0b"/>
+<text x="838" y="268" fill="#0f172a" font-size="20" font-weight="700" font-family="Arial, sans-serif">4 fits</text>
+<text x="45" y="345" fill="#0f172a" font-size="21" font-weight="700" font-family="Arial, sans-serif">CIDA 11</text>
+<text x="155" y="345" fill="#64748b" font-size="17" font-family="Arial, sans-serif">MJD 58475.113750</text>
+<rect x="345" y="321" width="470" height="34" rx="6" fill="#e2e8f0"/>
+<rect x="345" y="321" width="470" height="34" fill="#0d9488"/>
+
+<text x="838" y="345" fill="#0f172a" font-size="20" font-weight="700" font-family="Arial, sans-serif">5 fits</text>
+<text x="45" y="422" fill="#0f172a" font-size="21" font-weight="700" font-family="Arial, sans-serif">CIDA 11</text>
+<text x="155" y="422" fill="#64748b" font-size="17" font-family="Arial, sans-serif">MJD 58849.135984</text>
+<rect x="345" y="398" width="470" height="34" rx="6" fill="#e2e8f0"/>
+<rect x="345" y="398" width="282" height="34" fill="#0d9488"/>
+<rect x="627" y="398" width="188" height="34" fill="#f59e0b"/>
+<text x="838" y="422" fill="#0f172a" font-size="20" font-weight="700" font-family="Arial, sans-serif">5 fits</text>
+
+<line x1="45" y1="470" x2="955" y2="470" stroke="#cbd5e1"/>
+<text x="45" y="501" fill="#0f172a" font-size="19" font-weight="700" font-family="Arial, sans-serif">13 / 16 provisional quality passes · 3 require further review</text>
+<text x="45" y="529" fill="#9a3412" font-size="15" font-family="Arial, sans-serif">These screens reuse pixels from the same star; they are NOT independent held-out stars.</text>
+<text x="45" y="552" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Source: reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md</text>
+<text x="45" y="571" fill="#64748b" font-size="13" font-family="Arial, sans-serif">No confirmed Gaia–ZTF identity, companion or astrophysical variability is inferred.</text>
+</svg>

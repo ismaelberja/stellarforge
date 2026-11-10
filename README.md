@@ -12,6 +12,34 @@
 
 > **Scientific boundary:** The software is tested and has processed real historical Gaia/ZTF survey products, but **physical Gaia–ZTF stellar identifications, independent instrument PSF/WCS calibration, and new astrophysical variability/companion discoveries are not confirmed**. The newer *different-whole-star empirical PSF* pipeline is tested synthetically; its strict original CIDA 11 live pilot is **not yet run**. A green CI badge is not proof of an astronomical discovery.
 
+## See the work at a glance
+
+These are **visual summaries of documented measurements**, not simulated sky photographs or claimed new discoveries.
+
+```mermaid
+flowchart LR
+    A["Taurus catalogue mirror"] --> B["Gaia DR3 quality and<br/>astrometric candidates"]
+    B --> C["IRSA/ZTF positional<br/>data retrieval"]
+    C --> D["Source, epoch and<br/>quality controls"]
+    D --> E["Original ZTF FITS<br/>mask, WCS and PSF fits"]
+    E --> F["Provisional residual<br/>quality review"]
+    F -. "Not yet independently validated" .-> G["Physical Gaia-ZTF identity<br/>and instrument calibration"]
+```
+
+**1. Catalogue audit — how much of the Taurus mirror has a Gaia DR3 identifier?**
+
+![Bar chart of 532 Taurus members: 467 with Gaia DR3 source IDs and 65 without; no physical Gaia-ZTF source identification implied](docs/figures/taurus-gaia-coverage.svg)
+
+*Real catalogue-mirror counts from [the v1.1 selection-bias audit](reports/selection_bias_v1.1/REPORT.md). The mirror has not been checked byte-for-byte against the publisher's original table.*
+
+**2. Real original ZTF images — how many source-profile fits passed preliminary checks?**
+
+![Stacked horizontal bars for four historical ZTF science exposures, showing 13 provisional same-image PSF residual-screen passes and 3 profiles requiring review among 16 genuine original masked-image fits](docs/figures/ztf-original-psf-quality.svg)
+
+*This chart comes from [the real v1.16 science-pixel report](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md). These are original image fits and **same-star pixel-holdout screens**, not independent new-star empirical PSF validation; the three reviews are not companion detections.*
+
+[Visual data provenance and limits](docs/V2_VISUAL_EVIDENCE.md)
+
 ## What the software does
 
 - **Catalogues and source provenance:** audits an externally supplied 532-member Taurus catalogue mirror, keeps its 467 Gaia DR3 identifiers traceable, and builds a deliberately **nonrepresentative 24-source technical seed** without assigning unverifiable disc classes.

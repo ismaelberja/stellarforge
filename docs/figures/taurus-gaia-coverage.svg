@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="370" viewBox="0 0 1000 370" role="img" aria-labelledby="title desc">
+<title id="title">Taurus catalogue mirror: Gaia DR3 identifier coverage</title>
+<desc id="desc">Of 532 Taurus members in the secondary Luhman 2023 catalogue mirror, 467 have Gaia DR3 identifiers and 65 do not. These are catalog membership counts, not physical Gaia-ZTF source matches.</desc>
+<rect width="1000" height="370" rx="18" fill="#f8fafc"/>
+<rect x="2" y="2" width="996" height="366" rx="17" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+<text x="45" y="54" fill="#0f172a" font-size="29" font-weight="700" font-family="Arial, sans-serif">Taurus catalogue — Gaia DR3 coverage</text>
+<text x="45" y="85" fill="#475569" font-size="16" font-family="Arial, sans-serif">Secondary mirror of Luhman (2023), Table 2 · descriptive sample audit</text>
+<text x="45" y="137" fill="#0f172a" font-size="57" font-weight="750" font-family="Arial, sans-serif">532</text>
+<text x="163" y="135" fill="#475569" font-size="19" font-family="Arial, sans-serif">adopted Taurus members</text>
+<text x="955" y="139" text-anchor="end" fill="#047857" font-size="28" font-weight="700" font-family="Arial, sans-serif">87.8% with Gaia ID</text>
+<rect x="45" y="176" width="910" height="49" rx="9" fill="#e2e8f0"/>
+<path d="M54 176 H844.7 V225 H54 Q45 225 45 216 V185 Q45 176 54 176 Z" fill="#0d9488"/>
+<path d="M844.7 176 H946 Q955 176 955 185 V216 Q955 225 946 225 H844.7 Z" fill="#f59e0b"/>
+<rect x="45" y="255" width="19" height="19" rx="4" fill="#0d9488"/>
+<text x="76" y="271" fill="#0f172a" font-size="20" font-weight="700" font-family="Arial, sans-serif">467</text>
+<text x="126" y="271" fill="#334155" font-size="17" font-family="Arial, sans-serif">Gaia DR3 identifiers</text>
+<rect x="442" y="255" width="19" height="19" rx="4" fill="#f59e0b"/>
+<text x="473" y="271" fill="#0f172a" font-size="20" font-weight="700" font-family="Arial, sans-serif">65</text>
+<text x="508" y="271" fill="#334155" font-size="17" font-family="Arial, sans-serif">without Gaia ID</text>
+<line x1="45" y1="300" x2="955" y2="300" stroke="#cbd5e1"/>
+<text x="45" y="326" fill="#64748b" font-size="14" font-family="Arial, sans-serif">Source: reports/selection_bias_v1.1/REPORT.md · publisher-original file comparison pending.</text>
+<text x="45" y="349" fill="#9a3412" font-size="14" font-family="Arial, sans-serif">Not a verified Gaia–ZTF physical crossmatch or an unbiased variability sample.</text>
+</svg>
