@@ -10,13 +10,16 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 **Created and scientifically directed by Ismael Berja Ruiz**, with AI-assisted software development and human review of scientific methodology.
 
-> **Research status (v1.18, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+> **Research status (v1.19, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+
+The **v1.19** research-software phase implements a fresh empirical PSF with whole-star train/validation splits and diagonal/correlated sky-noise diagnostic gates. It passed **686 synthetic and regression tests**; **the new method has not been applied to additional real ZTF frames** and does not establish an independently calibrated original ZTF PSF. [Full scope](docs/PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md) · [Spanish guide](docs/PHASE119_GUIA_ES.md) · [Release notes](RELEASE_NOTES_v1.19.md).
 
 ## At a glance
 
 | Engineering result | Verified scope |
 |---|---|
-| **661 automated tests passed** | GitHub Actions v1.18 official original 8/8 ZTF PSF-processing logs, strict/exploratory FT Tau Gaia sampling and two same-new-source original masked science-pixel PSF fits (9 November 2026) |
+| **686 automated tests passed (v1.19)** | New source-disjoint synthetic empirical PSF holdout, valid ZTF mask/registration gates and detector-noise estimators. **Synthetic-only: no new real-image validation.** |
+| **661 automated tests passed (v1.18)** | GitHub Actions v1.18 official original 8/8 ZTF PSF-processing logs, strict/exploratory FT Tau Gaia sampling and two same-new-source original masked science-pixel PSF fits (9 November 2026) |
 | **2,212 real photometric rows retrieved** | Two official IRSA cone searches around published positions for FT Tau and CIDA 11, **not yet authenticated as those stars** |
 | **Six ZTF object identifiers** | Kept separate by source ID, filter and field rather than blended |
 | **Two independent Gaia DR3 15″ field audits** | No *additional catalogued Gaia* sources returned near either target; unresolved companions are not excluded |
