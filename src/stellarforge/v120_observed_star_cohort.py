@@ -240,9 +240,16 @@ def public_v120_summary(*, cohort: dict, frame_summaries: list[dict],
     if any(len(s) != 64 or any(ch not in "0123456789abcdef" for ch in s)
            for s in (widecone_sha256, formal_gaia_sha256)):
         raise ValueError("Invalid source provenance digest")
+    completed = sum(
+        x.get("empirical_psf_status") ==
+        "INTERNAL_DISTINCT_STAR_PSF_HOLDOUT_COMPLETED"
+        for x in frame_summaries
+    )
     return {
         "schema": "stellarforge-v1.20-real-original-disjoint-star-readiness",
-        "status": "OBSERVATIONAL_ELIGIBILITY_AUDIT_ONLY",
+        "status": ("REAL_IMAGE_INTERNAL_STAR_HOLDOUT_SCREEN_NOT_CALIBRATION"
+                   if completed else "OBSERVATIONAL_ELIGIBILITY_AUDIT_ONLY"),
+        "n_original_exposures_with_empirical_whole_star_holdout_completed": completed,
         "n_preregistered_gaia_only_strict_sources":
             cohort["n_preselected_strict_sources"],
         "n_predeclared_training_sources": cohort["n_expected_training_sources"],
