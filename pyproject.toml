@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellarforge-research"
-version = "1.22.0"
-description = "Multi-survey astronomy research platform: time-domain photometry, official ZTF raw intake, Gaia field-neighbour screens, real ZTF FITS multi-exposure screening, same-exposure Gaia DR3 reference candidates, WCS offset diagnostics, correlated formal Gaia astrometry, annual parallax, held-out Gaia reference image quality diagnostics, per-reference five-parameter formal Gaia parallax/covariance sensitivity, actual ZTF FITS Gaussian-versus-aperture pixel centroid screening, official original science bad-pixel mask flags, native field-center PSF FITS audits, official original ZTF native PSF-fit catalogue Gaia source-candidate screening, actual native spatial DAOPhot lookup-table PSF reconstruction, archived center-FITS checks, original science-image/bitmask WCS-aligned PSF amplitude and sky fitting, Gaia-only preselected previously unused field-star candidate screens, fixed shifted-sky ZTF catalog source-density null probes and conservative observational evidence gates; official original ZTF pipeline PSF training log audit and predeclared FT Tau Gaia exploratory masked source comparison; synthetic internally disjoint whole-star empirical PSF modeling and bounded detector-noise estimators; manual-only original ZTF strict 4/3 Gaia source cohort registration and independent-star empirical source-pixel QA pilot (real validation pending); synthetic Gaia/ZTF source-provenance expiration and falsification checks; pinned historic original IRSA ZIP transport integrity and full synthetic mocked Gaia-ZTF original image pilot control-flow testing for independent empirical stellar PSF models"
+version = "2.0.0"
+description = "Reproducible Gaia DR3/ZTF scientific Python data pipelines, original FITS/WCS/PSF QA, data provenance and clearly distinguished observed/synthetic evidence; astrophysical source identity and instrument calibration unconfirmed"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Ismael Berja Ruiz" }]
