@@ -1,6 +1,6 @@
-"""StellarForge: reproducible research infrastructure for stellar variability.
+"""StellarForge: reproducible research software for stellar variability.
 
-Version 0.1 is a research-planning and source-connector prototype only.
-It does not classify stars, produce astronomical discoveries, or run ML yet.
+v1.19 includes synthetic independent-star empirical PSF/noise validation
+gates; it does not independently calibrate real ZTF PSF/WCS or discover stars.
 """
-__version__ = "0.1.0"
+__version__ = "1.19.0"
