@@ -1,3 +1,9 @@
+# StellarForge v1.20 status update — 10 November 2026
+
+**Software IMPLEMENTED; synthetic/offline CI passed (708 checks).** Strict CIDA 11 Gaia field star-cohort 4+3 preregistration, original masked ZTF source stamp co-registration, native source quality gates and a **manual-only** real original-data pilot are now available. **The manual workflow has NOT yet run**, so there are no newly validated real empirical PSF holdout results. Original DAOPhot source-level PSF training roster, physical Gaia/ZTF identities and CCD/WCS calibration remain unknown. [v1.20 method](PHASE120_ORIGINAL_REGISTERED_STAR_COHORT.md).
+
+---
+
 # StellarForge v1.19 status update — 10 November 2026
 
 **Implemented and CI-verified, SYNTHETIC-ONLY:** a fresh empirical PSF model with distinct whole-star train/test source-ID split, conservative registered original mask input contracts and CCD noise/correlated aperture diagnostics. **686/686** automation cases passed; [CI](https://github.com/ismaelberja/stellarforge/actions/runs/42799842210). Original ZTF PSF star-training membership remains unknown; no actual new real-data instrumental/astrophysical validation is claimed. See [v1.19 methods](PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md).
