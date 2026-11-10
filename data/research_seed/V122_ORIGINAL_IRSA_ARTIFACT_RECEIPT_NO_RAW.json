@@ -1,0 +1,19 @@
+{
+  "schema_version": "stellarforge-v1.22-archived-original-irsa-source-receipt-no-raw",
+  "original_source": "GitHub Actions artifact: historical two-target IRSA positional query",
+  "source_workflow_run_id": 41997079598,
+  "source_artifact_id": 13401380025,
+  "source_artifact_name": "taurus-two-target-raw-UNVERIFIED",
+  "recovered_at_date_utc": "2026-11-10",
+  "reported_original_artifact_expiry_utc": "2026-11-12T08:47:05Z",
+  "recovered_archive_size_bytes": 181170,
+  "recovered_original_zip_sha256": "d54246e00d4cf343b0b062b9eb92034e51c735067274a8109e9b2c2c2a2d5167",
+  "n_original_archive_files": 4,
+  "n_raw_irsa_positional_query_csv_responses": 2,
+  "raw_source_data_committed_to_git": false,
+  "archive_transport_integrity_verified": true,
+  "original_source_query_physical_identity_verified": false,
+  "original_ztf_psf_training_star_membership_verified": false,
+  "new_real_original_science_image_psf_holdout_completed": false,
+  "note": "Original CSVs remain privately downloaded. This is exact source artifact byte integrity, not independent astronomical verification."
+}
