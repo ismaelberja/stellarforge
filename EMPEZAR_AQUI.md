@@ -39,25 +39,25 @@ Requiere Python 3.10 o posterior (se recomienda Python 3.11).
 
 En Linux o macOS:
 
-\`\`\`bash
+```bash
 git clone https://github.com/ismaelberja/stellarforge.git
 cd stellarforge
 python -m pip install -e ".[test,analysis,images]"
 python -m pytest -q
 python scripts/audit_v2_release_manifest.py
 stellarforge --help
-\`\`\`
+```
 
 En Windows (PowerShell):
 
-\`\`\`powershell
+```powershell
 git clone https://github.com/ismaelberja/stellarforge.git
 cd stellarforge
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[test,analysis,images]"
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe scripts/audit_v2_release_manifest.py
-\`\`\`
+```
 
 La suite automática es local y **no realiza consultas externas**.
 Puedes ver su estado actualizado en [GitHub Actions](https://github.com/ismaelberja/stellarforge/actions/workflows/tests.yml).
