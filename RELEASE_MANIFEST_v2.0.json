@@ -1,0 +1,60 @@
+{
+  "schema_version": "stellarforge-v2.0-software-evidence-manifest-v1",
+  "software_version": "2.0.0",
+  "release_date_utc": "2026-11-10",
+  "release_scope": "ENGINEERING_PORTFOLIO_RELEASE_WITH_UNCONFIRMED_ASTRONOMICAL_SOURCE_IDENTITIES",
+  "evidence_type": "SEPARATE_REAL_HISTORICAL_DATA_FROM_SYNTHETIC_TESTS",
+  "historical_real_evidence": {
+    "catalogue_mirror_rows": 532,
+    "catalogue_gaia_id_rows": 467,
+    "original_irsa_positional_query_rows": 2212,
+    "original_ztf_science_exposures": 4,
+    "original_daophot_center_psf_model_checks": 4,
+    "original_masked_psf_source_pixel_fits": 16,
+    "provisional_source_pixel_residual_quality_passes": 13,
+    "source_pixel_residual_review_required": 3,
+    "independently_confirmed_gaia_ztf_physical_source_matches": 0,
+    "scientifically_confirmed_variable_stars": 0,
+    "scientifically_confirmed_new_companions": 0
+  },
+  "raw_original_input_recovery": {
+    "source_artifact_workflow_run_id": 41997079598,
+    "source_artifact_id": 13401380025,
+    "original_zip_sha256": "d54246e00d4cf343b0b062b9eb92034e51c735067274a8109e9b2c2c2a2d5167",
+    "recovered_raw_archive_committed_to_git": false,
+    "archived_bytes_integrity_matched_original_actions_metadata": true,
+    "physical_target_identity_confirmed_by_archive_integrity": false
+  },
+  "software_validation": {
+    "last_published_baseline_github_actions_run_id": 42809011151,
+    "last_published_baseline_test_passes": 752,
+    "baseline_tests_includes_synthetic_simulated_scientific_cases": true,
+    "original_masked_ztf_science_pixel_fits_recorded_in_older_versions": true,
+    "v120_new_empirical_whole_star_real_pilot_executed": false,
+    "v120_new_empirical_whole_star_pilot_synthetic_end_to_end_test_passed": true,
+    "all_released_source_code_ci_gate": "CI must pass on final main merge commit"
+  },
+  "external_calibration": {
+    "original_ztf_daophot_training_source_roster_verified": false,
+    "independent_ztf_psf_wcs_error_calibration_completed": false,
+    "true_correlated_ccd_instrument_noise_model_calibrated": false,
+    "source_aware_scientific_variability_confirmed": false,
+    "native_gaia_ztf_physical_identification_authenticated": false
+  },
+  "release_evidence_paths": [
+    "reports/selection_bias_v1.1/REPORT.md",
+    "reports/observational_intake_v1.2/RAW_TRANSPORT_AUDIT.md",
+    "reports/spatial_daophot_v1.15/REAL_DAOPHOT_CENTER_AND_LOCAL_SHAPES.md",
+    "reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md",
+    "reports/new_gaia_holdouts_v1.17/REAL_DISJOINT_GAIA_CONTROL_AND_SHIFTED_SKY_RESULTS.md",
+    "reports/recovered_archive_v1.22/ARCHIVE_INTEGRITY_AND_MOCKED_PILOT_AUDIT.md",
+    "data/research_seed/V122_ORIGINAL_IRSA_ARTIFACT_RECEIPT_NO_RAW.json"
+  ],
+  "unresolved_scientific_work": [
+    "Run the manual v1.20 original CIDA 11 strict-source empirical PSF whole-star pilot and review its anonymous original-data aggregate",
+    "Independently establish Gaia/ZTF physical source identification and original DAOPhot PSF-training roster exclusions",
+    "Verify detector gain/read noise, full spatially correlated CCD residual uncertainties and independent astrometric accuracy",
+    "Separately investigate the three historical v1.16 high positive-residual profiles across different original epochs/bands"
+  ],
+  "transparent_software_assistance": "Project conceived and scientifically directed by the author; AI-assisted implementation reviewed via regression tests and documented scientific acceptance criteria."
+}
