@@ -1,3 +1,9 @@
+# StellarForge v1.19 status update — 10 November 2026
+
+**Implemented and CI-verified, SYNTHETIC-ONLY:** a fresh empirical PSF model with distinct whole-star train/test source-ID split, conservative registered original mask input contracts and CCD noise/correlated aperture diagnostics. **686/686** automation cases passed; [CI](https://github.com/ismaelberja/stellarforge/actions/runs/42799842210). Original ZTF PSF star-training membership remains unknown; no actual new real-data instrumental/astrophysical validation is claimed. See [v1.19 methods](PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md).
+
+---
+
 # StellarForge — Current project status
 
 **Version:** 1.18.0 · **Updated:** 2026-11-09 · **Engineering status:** active, tested · **Scientific status:** unverified Gaia–ZTF source associations.
