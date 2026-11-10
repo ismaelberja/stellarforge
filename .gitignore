@@ -13,6 +13,12 @@ results/irsa_pilot/
 *.db
 *.sqlite
 
+# Recovered original IRSA photometry/source archives (private local-only)
+ztf-historic-source-run.zip
+taurus-two-target-raw-UNVERIFIED*.zip
+v1*_original_irsa.zip
+*_IRSA_RAW.csv
+
 # Python and development artifacts
 __pycache__/
 .pytest_cache/
