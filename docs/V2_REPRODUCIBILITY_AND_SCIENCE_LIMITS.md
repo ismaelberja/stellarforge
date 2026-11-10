@@ -20,7 +20,7 @@ claiming a newly discovered object.
 
 Install with Python 3.11 (3.10+ package requirement):
 
-\`\`\`sh
+```sh
 git clone https://github.com/ismaelberja/stellarforge.git
 cd stellarforge
 python -m pip install -e ".[test,analysis,images]"
@@ -28,7 +28,7 @@ python -m pytest -q
 python scripts/audit_v2_release_manifest.py
 stellarforge --help
 stellarforge plan-ztf --ra 70 --dec 20 --radius-arcsec 2
-\`\`\`
+```
 
 The planner prints only a URL. It does **not** download ZTF products.
 No original FITS or Gaia/IRSA files are required for the standard
@@ -49,17 +49,17 @@ The original historical 2-target IRSA positional-query ZIP was
 downloaded from GitHub Actions run **41997079598**, artifact
 **13401380025** and matched SHA-256:
 
-\`\`\`text
+```text
 d54246e00d4cf343b0b062b9eb92034e51c735067274a8109e9b2c2c2a2d5167
-\`\`\`
+```
 
 The ZIP has four original files (two source CSV responses, original
 PILOT_STATUS.json and REPORT.md) and was not committed. Verify your
 private copy:
 
-\`\`\`sh
+```sh
 python scripts/check_v122_historic_source_zip.py /private/path/ztf-historic-source-run.zip
-\`\`\`
+```
 
 Archive bytes matching the old GitHub artifact establish **byte
 integrity of a historical data acquisition**, not survey source
@@ -98,9 +98,9 @@ PSF catalogue, science FITS and bitmasks from IRSA.
 With a locally recovered private ZIP and archive network access,
 the same runner may be invoked:
 
-\`\`\`sh
+```sh
 python scripts/run_v120_original_empirical_psf_pilot.py /private/path/ztf-historic-source-run.zip --output reports/generated/v120_local_real_pilot
-\`\`\`
+```
 
 Output is designed to contain aggregate counts/statuses rather
 than original source IDs/pixels. The workflow has its own
