@@ -1,7 +1,7 @@
 """StellarForge: reproducible research software for stellar variability.
 
-v1.21 adds original-artifact expiry/evidence auditing, whole-star empirical
-PSF stability and synthetic blend-profile falsification. The v1.20 real
-ZTF manual pilot remains unrun; no calibrated instrument result/discovery.
+v1.22 recovers and authenticates original transport archive bytes using a
+pinned artifact SHA-256, and verifies the complete observational runner
+with mocked images. The real CIDA 11 manual PSF science pilot remains unrun.
 """
-__version__ = "1.21.0"
+__version__ = "1.22.0"
