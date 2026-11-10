@@ -1,3 +1,9 @@
+# StellarForge v1.22 status update — 10 November 2026
+
+**Archive provenance recovered:** exact original private 181,170-byte IRSA photometry source ZIP from GitHub Actions run 41997079598, byte SHA matches Actions metadata, original source files **not committed**. **752/752 synthetic/offline automated tests passed** at code/test milestone, adding exact ZIP digest/manifest checks and two complete mocked 4+3 runner pathways (successful synthetic whole-star PSF and failure due to too few masked held-out stars). **The manual v1.20 real ZTF source-pixel run has NOT been executed.** No physical Gaia–ZTF source identification or independently calibrated survey PSF/WCS/noise, new companions or variability claimed. [Audit](PHASE122_HISTORIC_SOURCE_RECOVERY_AND_REAL_PILOT_GATES.md).
+
+---
+
 # StellarForge v1.21 — scientific QA update (10 November 2026)
 
 **743/743 synthetic/offline CI tests passed.** The added scientific audit checks time-sensitive original IRSA artifact metadata, guards against impossible 3+2 original-data model success claims, and stress-tests the empirical PSF with left-out training stars and artificially injected source blends. The original data artifact expires **12 November 2026 08:47:05 UTC**. The manual v1.20 original-data workflow remains **unrun** and no real independent instrument calibration, new astronomical detection or companion has been verified. [Methodology](PHASE121_FALSIFICATION_PROVENANCE_AND_RELEASE_GATES.md).

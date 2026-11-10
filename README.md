@@ -10,7 +10,7 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 **Created and scientifically directed by Ismael Berja Ruiz**, with AI-assisted software development and human review of scientific methodology.
 
-> **Research status (v1.21, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+> **Research status (v1.22, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
 
 The **v1.19** research-software phase implements a fresh empirical PSF with whole-star train/validation splits and diagonal/correlated sky-noise diagnostic gates. It passed **686 synthetic and regression tests**; **the new method has not been applied to additional real ZTF frames** and does not establish an independently calibrated original ZTF PSF. [Full scope](docs/PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md) · [Spanish guide](docs/PHASE119_GUIA_ES.md) · [Release notes](RELEASE_NOTES_v1.19.md).
 
@@ -18,10 +18,13 @@ The **v1.19** research-software phase implements a fresh empirical PSF with whol
 
 **v1.21 scientific QA:** artifact expiry/provenance checks; anti-overclaim gates for incomplete original 3+2 whole-star observational profiles; training-star leave-one-out sensitivity; synthetic known secondary-source profile falsification. **743/743 offline tests passed**, with NO new real original ZTF star holdout data. The historic original acquisition artifact expires **12 November 2026 08:47:05 UTC**. Its original ZTF real-data validation workflow remains **manual and unrun**. [Scientific audit](docs/PHASE121_FALSIFICATION_PROVENANCE_AND_RELEASE_GATES.md) · [Guía en español](docs/PHASE121_GUIA_ES.md).
 
+**v1.22 archive & reproducibility milestone:** recovered the exact original 181,170-byte v1.2 IRSA positional acquisition ZIP privately before GitHub artifact expiry, matching the original SHA-256 in GitHub Actions metadata. The ZIP remains **outside Git**. A pinned SHA + inner-manifest validator and complete **synthetic, offline** v1.20 two-exposure pipeline success/rejected-heldout tests now pass. **752/752** automated tests passed before final docs packaging; **the real manual CIDA 11 original-image empirical PSF workflow has NOT run**. [Science method](docs/PHASE122_HISTORIC_SOURCE_RECOVERY_AND_REAL_PILOT_GATES.md) · [Guía en español](docs/PHASE122_GUIA_ES.md) · [No-raw receipt](data/research_seed/V122_ORIGINAL_IRSA_ARTIFACT_RECEIPT_NO_RAW.json).
+
 ## At a glance
 
 | Engineering result | Verified scope |
 |---|---|
+| **752 automated tests passed (v1.22)** | Verified exact historic GitHub Actions original ZIP digest, synthetic ZIP manifest failure tests, and complete offline mocked original-data pipeline success/reject controls. **No new real PSF science result.** |
 | **743 automated tests passed (v1.21)** | Added synthetic science-falsification, archive expiry and evidence-quality tests. **No new real ZTF stellar PSF calibration.** |
 | **708 automated tests passed (v1.20 early CI)** | Expanded 4+3 fixed strict Gaia-only original CIDA 11 source-cohort and original-format FITS/WCS/mask synthetic registration and no-network runner gates. **No v1.20 live archive run yet.** |
 | **686 automated tests passed (v1.19)** | New source-disjoint synthetic empirical PSF holdout, valid ZTF mask/registration gates and detector-noise estimators. **Synthetic-only: no new real-image validation.** |
