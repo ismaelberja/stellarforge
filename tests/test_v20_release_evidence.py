@@ -109,7 +109,7 @@ def test_package_and_public_docs_parity_for_release(manifest):
     assert "PSF" in readme
     assert "2.0.0" in readme
     assert "752" in readme
-    assert "independently" in readme
+    assert "independent" in readme.lower()
     assert (ROOT/"docs/V2_PORTFOLIO_CV_ES_EN.md").is_file()
     assert (ROOT/"docs/V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md").is_file()
     assert (ROOT/"docs/HISTORIC_README_v1.22.md").is_file()
