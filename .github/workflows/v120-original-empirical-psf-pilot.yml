@@ -1,0 +1,81 @@
+# Strict scientific separation: manual ONLY original Gaia/IRSA queries.
+# No raw FITS/PSF/Gaia catalogue text or source-ID candidate lists are uploaded.
+name: v1.20 Real CIDA 11 strict 4+3 empirical PSF original ZTF pilot (NO RAW)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acquisition_run_id:
+        description: "Historic original SHA-checked ZTF two-target IRSA source run"
+        required: true
+        type: string
+        default: "41997079598"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  original-ztf-strict-star-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install research analysis and synthetic tests
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Verify all offline regressions before accessing external archives
+        run: python -m pytest -q
+      - name: Retrieve original historic IRSA source artifact to ephemeral runner only
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ORIGINAL_ACQUISITION_RUN: "${{ inputs.acquisition_run_id || '41997079598' }}"
+        run: |
+          mkdir -p "$RUNNER_TEMP/v120_original_irsa"
+          gh run download "$ORIGINAL_ACQUISITION_RUN" --repo "$GITHUB_REPOSITORY" \
+            --name taurus-two-target-raw-UNVERIFIED \
+            --dir "$RUNNER_TEMP/v120_original_irsa"
+      - name: Audit exact original 4-file ZIP manifest; never upload it
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from zipfile import ZIP_DEFLATED,ZipFile
+          folder=Path(os.environ["RUNNER_TEMP"])/"v120_original_irsa"
+          files=sorted(p for p in folder.iterdir() if p.is_file())
+          expected={"PILOT_STATUS.json","REPORT.md",
+                    "149623711269425408_IRSA_RAW.csv",
+                    "3419110734340795648_IRSA_RAW.csv"}
+          if {p.name for p in files}!=expected:
+              raise ValueError("Original IRSA source manifest changed or unavailable")
+          with ZipFile(folder.parent/"v120_original_irsa.zip","w",ZIP_DEFLATED) as z:
+              for p in files:z.write(p,p.name)
+          PY
+      - name: Original CIDA 11 same-exposure fixed Gaia 4+3 strict source real-image pilot
+        run: |
+          python scripts/run_v120_original_empirical_psf_pilot.py \
+            "$RUNNER_TEMP/v120_original_irsa.zip" \
+            --seed data/research_seed/TAURUS_24_PROVISIONAL_GAIA_POSITIONS.csv \
+            --ledger data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW.json \
+            --gaia-timeout 30 --archive-timeout 8 \
+            --output reports/generated/v1.20_original_cohort
+      - name: Publish no-raw scientific audit summary
+        if: always()
+        run: |
+          if [ -f reports/generated/v1.20_original_cohort/V120_REAL_ORIGINAL_STRICT_COHORT_NO_RAW.md ]; then
+            cat reports/generated/v1.20_original_cohort/V120_REAL_ORIGINAL_STRICT_COHORT_NO_RAW.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload ONLY derived aggregate, without raw survey science products
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v120-original-CIDA11-strict-empirical-PSF-NO-RAW
+          path: |
+            reports/generated/v1.20_original_cohort/V120_REAL_ORIGINAL_STRICT_COHORT_NO_RAW.json
+            reports/generated/v1.20_original_cohort/V120_REAL_ORIGINAL_STRICT_COHORT_NO_RAW.md
+          if-no-files-found: warn
+          retention-days: 7
