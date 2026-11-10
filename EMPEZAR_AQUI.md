@@ -1,10 +1,14 @@
 # StellarForge — Empezar aquí
 
-**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.19** · noviembre de 2026.
+**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.20** · noviembre de 2026.
 
 StellarForge está pensado para analizar variabilidad estelar con datos de distintos archivos astronómicos. Es un proyecto personal de investigación y software en desarrollo, útil también para demostrar capacidades de ingeniería de datos, análisis temporal y calidad del código.
 
 **Autor y dirección científica:** Ismael Berja Ruiz. El desarrollo incluye apoyo de herramientas de IA; los resultados científicos requieren validación humana.
+
+## Novedad v1.20: flujo de imágenes originales, pendiente de ejecutar
+
+Ya está desarrollado un flujo **manual** que selecciona de forma estricta siete candidatas de Gaia de CIDA 11 (4 de entrenamiento, 3 de validación), comprueba su correspondencia instrumental provisional y prepara las imágenes/máscaras ZTF reales para la PSF propia. **La ejecución real todavía no se ha hecho**; las pruebas automáticas son sintéticas y no permiten anunciar una calibración nueva. [Guía](docs/PHASE120_GUIA_ES.md) · [Metodología](docs/PHASE120_ORIGINAL_REGISTERED_STAR_COHORT.md).
 
 ## Novedad v1.19 (solo ensayos sintéticos)
 
@@ -12,7 +16,7 @@ La herramienta ahora puede construir una **PSF empírica propia** a partir de al
 
 ## ¿Qué está realmente conseguido?
 
-- **686 pruebas automáticas superadas** en GitHub Actions.
+- **708 pruebas automáticas superadas (v1.20, ejecución inicial)** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.

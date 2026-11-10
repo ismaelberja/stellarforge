@@ -1,3 +1,15 @@
+# CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.20, 10 November 2026
+
+**Engineering milestone, NOT a real observational result:** a predeclared **four training / three distinct holdout** strict Gaia DR3 CIDA 11 sample, exact original ZTF science+mask FITS WCS/phase/defect registration, native PSF catalogue source-quality gates, and a manual-only original-data runner are now implemented. The automatic suite has passed **708 synthetic/offline tests**. [Method](PHASE120_ORIGINAL_REGISTERED_STAR_COHORT.md) · [Spanish](PHASE120_GUIA_ES.md).
+
+**Unfinished v1.20 real-data validation:** the original-image manual GitHub workflow has NOT been dispatched in this phase. No original CIDA 11 new 3+2 whole-star PSF holdout result is established yet. Existing v1.15–v1.18 real ZTF evidence remains valid but does not provide original DAOPhot training-star membership. The native PSFcat selection is not independent of ZTF's pipeline, and bilinear recentering correlates CCD pixels.
+
+**Next checkpoint:** trigger the bounded manual original-data workflow, inspect the anonymous aggregate original-source eligibility report, and determine whether >=3/4 training plus >=2/3 held-out sources pass per real exposure. If not, report the blocker rather than relax criteria. Independently verify detector gain/read noise/covariance and physically ambiguous Gaia-ZTF identity before claiming WCS/PSF uncertainties. The three v1.16 high-residual profiles remain separate unresolved cases.
+
+**Engineering closeout estimate:** approximately 1–2 remaining versioned review milestones to a defensible v2.0 software portfolio, contingent on a reviewed final audit. Astrophysical confirmation may require much more time or remain inconclusive.
+
+---
+
 # CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.19, 10 November 2026
 
 **Synthetic engineering milestone:** [v1.19 empirical star-disjoint PSF and CCD-noise gate](PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md) passed **686/686 automated synthetic and regression tests** ([CI](https://github.com/ismaelberja/stellarforge/actions/runs/42799842210)). A separate empirical PSF fit from >=3 selected training stars, evaluated against >=2 different whole held-out stars from the same exposure, is now implemented. The program includes conservative original ZTF mask, common-grid registration prerequisites and separate diagonal CCD variance/blank-sky correlation diagnostics.

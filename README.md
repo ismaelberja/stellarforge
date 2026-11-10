@@ -10,14 +10,17 @@ StellarForge is an evolving scientific-software project for **processing multi-s
 
 **Created and scientifically directed by Ismael Berja Ruiz**, with AI-assisted software development and human review of scientific methodology.
 
-> **Research status (v1.19, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
+> **Research status (v1.20, November 2026):** Working code, official ZTF *position-query responses* and reproducible Gaia/ZTF positional and independent Gaia-field screening are available. The Gaia–ZTF astrophysical identities and any physical variability events **have not been independently confirmed**. This is a software/research portfolio project, **not an announcement of an astronomical discovery**.
 
 The **v1.19** research-software phase implements a fresh empirical PSF with whole-star train/validation splits and diagonal/correlated sky-noise diagnostic gates. It passed **686 synthetic and regression tests**; **the new method has not been applied to additional real ZTF frames** and does not establish an independently calibrated original ZTF PSF. [Full scope](docs/PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md) · [Spanish guide](docs/PHASE119_GUIA_ES.md) · [Release notes](RELEASE_NOTES_v1.19.md).
+
+**v1.20 (10 November 2026):** a preregistered strict CIDA 11 4-training/3-held-out Gaia field-source cohort, genuine ZTF science/mask/WCS registration gates and a **manual-only original-image pilot workflow** have been implemented. Automated verification remains **synthetic/offline**. The manual v1.20 original-data workflow has **not yet been run** and no real independent PSF calibration or new astrophysical result is claimed. [Scientific protocol](docs/PHASE120_ORIGINAL_REGISTERED_STAR_COHORT.md) · [Spanish guide](docs/PHASE120_GUIA_ES.md) · [Notes](RELEASE_NOTES_v1.20.md).
 
 ## At a glance
 
 | Engineering result | Verified scope |
 |---|---|
+| **708 automated tests passed (v1.20 early CI)** | Expanded 4+3 fixed strict Gaia-only original CIDA 11 source-cohort and original-format FITS/WCS/mask synthetic registration and no-network runner gates. **No v1.20 live archive run yet.** |
 | **686 automated tests passed (v1.19)** | New source-disjoint synthetic empirical PSF holdout, valid ZTF mask/registration gates and detector-noise estimators. **Synthetic-only: no new real-image validation.** |
 | **661 automated tests passed (v1.18)** | GitHub Actions v1.18 official original 8/8 ZTF PSF-processing logs, strict/exploratory FT Tau Gaia sampling and two same-new-source original masked science-pixel PSF fits (9 November 2026) |
 | **2,212 real photometric rows retrieved** | Two official IRSA cone searches around published positions for FT Tau and CIDA 11, **not yet authenticated as those stars** |
