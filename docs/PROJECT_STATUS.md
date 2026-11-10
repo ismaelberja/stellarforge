@@ -1,3 +1,9 @@
+# StellarForge v1.21 — scientific QA update (10 November 2026)
+
+**743/743 synthetic/offline CI tests passed.** The added scientific audit checks time-sensitive original IRSA artifact metadata, guards against impossible 3+2 original-data model success claims, and stress-tests the empirical PSF with left-out training stars and artificially injected source blends. The original data artifact expires **12 November 2026 08:47:05 UTC**. The manual v1.20 original-data workflow remains **unrun** and no real independent instrument calibration, new astronomical detection or companion has been verified. [Methodology](PHASE121_FALSIFICATION_PROVENANCE_AND_RELEASE_GATES.md).
+
+---
+
 # StellarForge v1.20 status update — 10 November 2026
 
 **Software IMPLEMENTED; synthetic/offline CI passed (708 checks).** Strict CIDA 11 Gaia field star-cohort 4+3 preregistration, original masked ZTF source stamp co-registration, native source quality gates and a **manual-only** real original-data pilot are now available. **The manual workflow has NOT yet run**, so there are no newly validated real empirical PSF holdout results. Original DAOPhot source-level PSF training roster, physical Gaia/ZTF identities and CCD/WCS calibration remain unknown. [v1.20 method](PHASE120_ORIGINAL_REGISTERED_STAR_COHORT.md).
