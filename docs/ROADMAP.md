@@ -1,3 +1,15 @@
+# CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.19, 10 November 2026
+
+**Synthetic engineering milestone:** [v1.19 empirical star-disjoint PSF and CCD-noise gate](PHASE119_EMPIRICAL_STAR_PSF_AND_CCD_NOISE.md) passed **686/686 automated synthetic and regression tests** ([CI](https://github.com/ismaelberja/stellarforge/actions/runs/42799842210)). A separate empirical PSF fit from >=3 selected training stars, evaluated against >=2 different whole held-out stars from the same exposure, is now implemented. The program includes conservative original ZTF mask, common-grid registration prerequisites and separate diagonal CCD variance/blank-sky correlation diagnostics.
+
+**Critical limitations:** The new v1.19 code has **not yet been run on original real ZTF pixels**. We still have no authenticated per-exposure ZTF DAOPhot PSF training-star roster, no additional validated same-frame 3+2 distinct-source sample, no surveyed gain/read-noise metadata and no independent real PSF/WCS calibration. All real observational conclusions remain those of v1.18 and earlier. Do not call a source independent of original DAOPhot training merely because its Gaia ID differs from previous project inputs.
+
+**Next real-data checkpoint (v1.20):** preregister and expand one original same-exposure FT Tau/CIDA 11 field-star cohort to >=3+2 mutually distinct, well isolated candidates; verify source identity, masks, shared registration, frame metadata and per-exposure gain/read-noise before running the new PSF comparison. Keep the three anomalous v1.16 residual fits in a separate review track and preserve synthetic/real distinction in publication. If this isn't achievable, preserve a transparent v2.0 software-only closeout without implying a calibration or a discovery.
+
+**Estimated remaining:** 1–3 engineering phases to a defensible portfolio v2.0, conditional on tests and docs; science-grade original star-based instrumental verification remains open-ended.
+
+---
+
 # CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.18, 9 November 2026
 
 **New real-data milestone:** the [v1.18 authentic archived ZTF PSF processing-log and FT Tau exploratory-control evidence](../reports/psf_training_ft_tau_v1.18/REAL_ZTF_LOG_AUDIT_AND_EXPLORATORY_FT_TAU.md) passed **661 automated tests** in [GitHub Actions](https://github.com/ismaelberja/stellarforge/actions/runs/42665465964). The original four dated FT Tau/CIDA 11 science frames supplied **8 of 8** original public `sciimlog.txt`+`log.txt` reduction files, with 115–116 PSF/DAOPhot-referencing lines per science-processing log, **but zero authenticated original source-specific DAOPhot PSF training-star rosters**. Fitted native `psfcat.fits` source rows are not a list of model-construction training stars.
