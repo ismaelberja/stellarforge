@@ -1,3 +1,15 @@
+# CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.22, 10 November 2026
+
+**Recovered exact original transport artifact** (privately): GitHub Actions original v1.2 IRSA positional-query ZIP, 181,170 bytes, SHA-256 d54246e00d4cf343b0b062b9eb92034e51c735067274a8109e9b2c2c2a2d5167, matching original Actions metadata. The original CSV bytes remain OUTSIDE Git; [no-raw public receipt](../data/research_seed/V122_ORIGINAL_IRSA_ARTIFACT_RECEIPT_NO_RAW.json). This preserves the original survey position-query source input independently of GitHub artifact expiry, but does not authenticate physical Gaia–ZTF matches or the later original science FITS.
+
+**New software checks:** pinned original ZIP/manifest SHA validation and full offline mocked 4-training/3-held-out original v1.20 runner success and fail-closed incomplete-holdout paths. **752/752 automated tests** passed at code/test milestone; no original image PSF calibration completed in v1.22. [Methods](PHASE122_HISTORIC_SOURCE_RECOVERY_AND_REAL_PILOT_GATES.md) · [Spanish guide](PHASE122_GUIA_ES.md).
+
+**Next mandatory science task:** run the existing manual v1.20 real CIDA 11 original science+mask FITS pilot through GitHub Actions before artifact expiry (12 November 2026 08:47:05 UTC), or execute the same original runner locally using the privately recovered ZIP afterward. Verify genuine 3+2 original-star mask/WCS/quality eligibility per exact exposure; record success or precise blocker; don't invent discoveries.
+
+**Remaining engineering iterations:** one v2.0 release audit if the science limitation is recorded clearly and CI remains green; two if a genuine implementation issue needs repairing. A research-grade PSF/WCS calibration and source identity are not guaranteed at any finite version number.
+
+---
+
 # CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.21, 10 November 2026
 
 **Verified synthetic scientific falsification:** **743/743** tests passed in [v1.21 branch CI](https://github.com/ismaelberja/stellarforge/actions/runs/42806553882). New archive metadata expiration checks, anti-overclaim original v1.20 real report count/MJD gates, empirical PSF leave-one-training-source-out stability and injected artificial held-out secondary-profile sensitivity. **NO new original survey data were collected in v1.21.** Original v1.16 three real high-residual source cases remain unresolved. [Full audit](PHASE121_FALSIFICATION_PROVENANCE_AND_RELEASE_GATES.md).
