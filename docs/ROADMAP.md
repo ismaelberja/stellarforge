@@ -1,3 +1,13 @@
+# StellarForge v2.0 — Engineering release completed (10 November 2026)
+
+**Software portfolio milestone:** v2.0.0 packages the documented Gaia/ZTF research pipeline, executable command-line tooling, versioned original-survey evidence reports, a science/synthetic claims manifest, clear ES/EN CV summaries and an auditable no-network GitHub regression suite. The **v1.22 baseline passed 752/752 tests** (GitHub Actions run 42809011151); the new v2.0 checks include release-claim and documentation consistency and must pass CI on the final merge commit.
+
+**Software scope is complete for v2.0.** That does NOT mean astrophysical validation has been completed. The v1.20 4-training/3-holdout **real original ZTF image** pilot has not been manually executed; its code has only been tested with simulated inputs. Independent original survey PSF-building training-star membership, physical Gaia/ZTF source identities, instrument WCS/CCD correlated noise calibration and three v1.16 high residual profiles remain open. See [scientific limitations and reproduction](V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md) and [evidence manifest](../RELEASE_MANIFEST_v2.0.json).
+
+**Next OPTIONAL research milestone:** run the gated original-data CIDA 11 manual pilot and review scientific failures/success in context. It belongs to a separate research continuation, NOT a prerequisite to describing StellarForge as a reproducible software portfolio. Any astrophysical discovery or peer-review-quality calibration has no fixed remaining iteration count.
+
+---
+
 # CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.22, 10 November 2026
 
 **Recovered exact original transport artifact** (privately): GitHub Actions original v1.2 IRSA positional-query ZIP, 181,170 bytes, SHA-256 d54246e00d4cf343b0b062b9eb92034e51c735067274a8109e9b2c2c2a2d5167, matching original Actions metadata. The original CSV bytes remain OUTSIDE Git; [no-raw public receipt](../data/research_seed/V122_ORIGINAL_IRSA_ARTIFACT_RECEIPT_NO_RAW.json). This preserves the original survey position-query source input independently of GitHub artifact expiry, but does not authenticate physical Gaia–ZTF matches or the later original science FITS.
