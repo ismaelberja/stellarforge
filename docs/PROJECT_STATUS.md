@@ -1,3 +1,11 @@
+# StellarForge v2.0.0 — Software engineering release status (10 November 2026)
+
+**ENGINEERING PORTFOLIO RELEASE: complete following green main-branch CI.** Historical real-data evidence: 532-member Taurus catalogue mirror, 2,212 IRSA positional query records, four historical original g-band ZTF science exposures, four original DAOPhot center PSF checks, 16 original masked source PSF fits, 13 provisional same-image residual passes and 3 unresolved profiles. Original source ZIP recovered privately with pinned SHA; no source survey bytes committed. **v1.22 baseline: 752 CI tests passed**; v2.0 adds manifest and package/CLI checks. The manual v1.20 genuine same-exposure 3+2 **different-star PSF** pilot remains **unrun**. No independent ZTF WCS/PSF/CCD calibration, confirmed source identification, stellar variability or companion discovery. See [evidence manifest](../RELEASE_MANIFEST_v2.0.json), [reproducibility](V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md), and [portfolio text](V2_PORTFOLIO_CV_ES_EN.md).
+
+The entries below are dated **historical development reports**, not newer science results than this release.
+
+---
+
 # StellarForge v1.22 status update — 10 November 2026
 
 **Archive provenance recovered:** exact original private 181,170-byte IRSA photometry source ZIP from GitHub Actions run 41997079598, byte SHA matches Actions metadata, original source files **not committed**. **752/752 synthetic/offline automated tests passed** at code/test milestone, adding exact ZIP digest/manifest checks and two complete mocked 4+3 runner pathways (successful synthetic whole-star PSF and failure due to too few masked held-out stars). **The manual v1.20 real ZTF source-pixel run has NOT been executed.** No physical Gaia–ZTF source identification or independently calibrated survey PSF/WCS/noise, new companions or variability claimed. [Audit](PHASE122_HISTORIC_SOURCE_RECOVERY_AND_REAL_PILOT_GATES.md).

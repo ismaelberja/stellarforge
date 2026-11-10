@@ -1,6 +1,7 @@
-"""Small, offline-first command-line interface for first research phase."""
+"""StellarForge offline-first scientific data planning and audit CLI."""
 import argparse
 from pathlib import Path
+from . import __version__
 from .gaia import gaia_cone_adql, gaia_datalink_instructions
 from .catalog import read_membership, write_audit
 from .pilot import propose_pilot, write_pilot
@@ -14,7 +15,8 @@ from .luhman2023 import download_pinned_mirror, validate_technical_seed, parse_m
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="StellarForge — Taurus / ZTF research pipeline (v0.9)")
+    parser = argparse.ArgumentParser(description="StellarForge — Gaia/ZTF scientific data-quality software (v2.0)")
+    parser.add_argument("--version", action="version", version=f"StellarForge {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
     gaia = sub.add_parser("plan-gaia", help="Print ADQL technical query, no remote access")
     gaia.add_argument("--ra", type=float, required=True)

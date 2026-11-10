@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use StellarForge research software or workflows, cite the repository and version; scientific outputs must be independently verified."
+type: software
+title: "StellarForge: Reproducible Gaia/ZTF Data Quality and Scientific Python Software"
+authors:
+  - family-names: "Berja Ruiz"
+    given-names: "Ismael"
+repository-code: "https://github.com/ismaelberja/stellarforge"
+url: "https://github.com/ismaelberja/stellarforge"
+version: "2.0.0"
+date-released: "2026-11-10"
+abstract: "Research software for traceable astronomical catalogue and time-series data processing, original ZTF FITS/WCS/PSF quality checks, and clearly distinguished historical observations and synthetic model validation. No new astrophysical detection or independent instrument calibration is claimed."

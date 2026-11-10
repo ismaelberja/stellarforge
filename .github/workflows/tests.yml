@@ -23,3 +23,11 @@ jobs:
         run: python -m pip install -e '.[test,analysis,images]'
       - name: Run all registered research tests (no live network required)
         run: python -m pytest -q
+      - name: Check v2.0 offline scientific evidence and release version
+        run: python scripts/audit_v2_release_manifest.py --manifest RELEASE_MANIFEST_v2.0.json --root .
+      - name: Validate installed package and no-network CLI
+        run: |
+          python -m pip check
+          stellarforge --version
+          stellarforge --help
+          stellarforge plan-gaia --ra 70 --dec 20 --radius-deg 0.1 --max-rows 10
