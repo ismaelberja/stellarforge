@@ -1,3 +1,13 @@
+# CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.21, 10 November 2026
+
+**Verified synthetic scientific falsification:** **743/743** tests passed in [v1.21 branch CI](https://github.com/ismaelberja/stellarforge/actions/runs/42806553882). New archive metadata expiration checks, anti-overclaim original v1.20 real report count/MJD gates, empirical PSF leave-one-training-source-out stability and injected artificial held-out secondary-profile sensitivity. **NO new original survey data were collected in v1.21.** Original v1.16 three real high-residual source cases remain unresolved. [Full audit](PHASE121_FALSIFICATION_PROVENANCE_AND_RELEASE_GATES.md).
+
+**Urgent real-data dependency:** historic original IRSA GitHub Actions artifact 13401380025, run 41997079598, was unexpired when checked on 10 November 2026, expiry **12 November 2026 08:47:05 UTC**. The v1.20 original CIDA 11 strict 4/3 star split workflow **has NOT run**. Dispatch manually before expiration from [Actions](https://github.com/ismaelberja/stellarforge/actions/workflows/v120-original-empirical-psf-pilot.yml). Document the actual 3+2 original same-exposure star result or unavailability blocker.
+
+**Software v2.0 checkpoint:** once manual evidence is reviewed, close a high-quality software portfolio with full CI, user-facing documentation, known limitations and reproducibility. Independent original ZTF instrumental PSF/WCS/CCD covariance and Gaia/ZTF astrophysical source identity require further external evidence and cannot be inferred from synthetic tests or an internal empirical PSF success.
+
+---
+
 # CURRENT SCIENTIFIC/ENGINEERING ROADMAP — StellarForge v1.20, 10 November 2026
 
 **Engineering milestone, NOT a real observational result:** a predeclared **four training / three distinct holdout** strict Gaia DR3 CIDA 11 sample, exact original ZTF science+mask FITS WCS/phase/defect registration, native PSF catalogue source-quality gates, and a manual-only original-data runner are now implemented. The automatic suite has passed **708 synthetic/offline tests**. [Method](PHASE120_ORIGINAL_REGISTERED_STAR_COHORT.md) · [Spanish](PHASE120_GUIA_ES.md).
