@@ -1,10 +1,14 @@
 # StellarForge — Empezar aquí
 
-**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.20** · noviembre de 2026.
+**Proyecto científico y de ingeniería de datos en Python** · versión de desarrollo **v1.21** · noviembre de 2026.
 
 StellarForge está pensado para analizar variabilidad estelar con datos de distintos archivos astronómicos. Es un proyecto personal de investigación y software en desarrollo, útil también para demostrar capacidades de ingeniería de datos, análisis temporal y calidad del código.
 
 **Autor y dirección científica:** Ismael Berja Ruiz. El desarrollo incluye apoyo de herramientas de IA; los resultados científicos requieren validación humana.
+
+## Novedad v1.21 — Auditoría científica (pruebas sintéticas)
+
+La nueva fase añade comprobaciones de estabilidad al retirar estrellas del entrenamiento, una fuente artificial conocida para intentar falsar el ajuste de PSF y reglas de consistencia para no afirmar una calibración independiente con datos reales insuficientes. **743 pruebas automáticas superadas**, pero el flujo manual de imágenes originales de la v1.20 todavía no se ha ejecutado. Es prioritario utilizarlo antes del **12/11/2026 a las 09:47 CET**, cuando caduca el artefacto original: [instrucciones](docs/PHASE121_GUIA_ES.md). Los tres perfiles astronómicos anómalos de la v1.16 siguen sin resolver.
 
 ## Novedad v1.20: flujo de imágenes originales, pendiente de ejecutar
 
@@ -16,7 +20,7 @@ La herramienta ahora puede construir una **PSF empírica propia** a partir de al
 
 ## ¿Qué está realmente conseguido?
 
-- **708 pruebas automáticas superadas (v1.20, ejecución inicial)** en GitHub Actions.
+- **743 pruebas automáticas superadas (v1.21, verificaciones sintéticas)** en GitHub Actions.
 - Análisis del catálogo de Taurus: **532 miembros** en una copia pública de la tabla de Luhman (2023), de los que **467 tienen identificador Gaia DR3**. Falta cotejar el archivo con el original del editor.
 - Muestra técnica de **24 estrellas** seleccionadas por propiedades del catálogo, **no representativa estadísticamente**.
 - Descarga de **2.212 registros fotométricos reales** mediante dos consultas oficiales de IRSA/ZTF cerca de FT Tau y CIDA 11. Son resultados de una búsqueda posicional, **no curvas atribuidas definitivamente a estas estrellas**.
