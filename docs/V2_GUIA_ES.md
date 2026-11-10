@@ -32,7 +32,7 @@ nuevas utilizan datos simulados.
 
 Con Python 3.11 y Git instalados:
 
-\`\`\`powershell
+```powershell
 git clone https://github.com/ismaelberja/stellarforge.git
 cd stellarforge
 py -3.11 -m venv .venv
@@ -40,7 +40,7 @@ py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe scripts/audit_v2_release_manifest.py
 .\.venv\Scripts\stellarforge.exe --help
-\`\`\`
+```
 
 También puedes abrir la página **Actions** de GitHub para
 consultar las pruebas automáticas de la versión.
@@ -48,9 +48,9 @@ consultar las pruebas automáticas de la versión.
 Para comprobar que no se ha modificado el ZIP privado original
 de ZTF recuperado en la v1.22:
 
-\`\`\`powershell
+```powershell
 .\.venv\Scripts\python.exe scripts/check_v122_historic_source_zip.py "C:\RUTA\ztf-historic-source-run.zip"
-\`\`\`
+```
 
 El ZIP recuperado **no se sube al repositorio público**.
 Hay que sustituir C:\RUTA por la carpeta donde se guardó.
