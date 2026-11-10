@@ -1,7 +1,8 @@
-"""StellarForge: reproducible research software for stellar variability.
+"""StellarForge: reproducible Python research and astronomical data QA.
 
-v1.22 recovers and authenticates original transport archive bytes using a
-pinned artifact SHA-256, and verifies the complete observational runner
-with mocked images. The real CIDA 11 manual PSF science pilot remains unrun.
+v2.0 is a software engineering portfolio release, with historical real
+Gaia/ZTF survey analysis and offline scientific regression testing.
+No independently confirmed astrophysical detection, source identity,
+original ZTF PSF/WCS instrumental calibration or physical variability.
 """
-__version__ = "1.22.0"
+__version__ = "2.0.0"
