@@ -94,6 +94,27 @@ PS1 source-row calibrations. **Zero** physical Gaia–ZTF
 counterparts or confirmed intrinsic FT Tau variations;
 **no crossfield OID lightcurves merged**.
 
+**New R2 independently retrieved original MAST PS1 DR2
+reference-star pilot (11 November 2026):**
+[Actual external source-level colour-reference result](R2_REAL_FTTAU_EXTERNAL_MAST_PS1_DR2_SOURCE_COLOR_RESULTS.md)
+retrieved **1,780 PS1 DR2 mean-source rows** from the
+independent original MAST survey catalogue (405 met the
+fixed quality/crowding/color controls). All four original
+ZTF-native source FITS catalogues were SHA-reverified.
+**82 unique matched PS1/ZTF/ZTF reference triplets in g**
+and **180 in r** passed positional/quality criteria.
+Source-ID-determined training/holdout empirical
+`PS1 mean − native ZTF instrumental magnitude` fits
+with PS1 `g-r` colours passed in all four original fields:
+held-out scatters ~0.024–0.036 mag. This confirms a useful
+**technical cross-survey matched-reference pilot**, not
+fully calibrated astrophysical photometry or an
+independently authenticated physical Gaia–ZTF FT Tau
+target. PS1 supplied standards to the original ZTF
+processing, so external source-row retrieval does not
+imply statistical independence from its historical
+pipeline calibration. No source OIDs were merged.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus
