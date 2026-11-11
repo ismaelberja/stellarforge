@@ -1,0 +1,38 @@
+{
+  "schema_version": "stellarforge-taurus-r2-irsa-diagnostic-input-v1",
+  "source_run_id": 43031689454,
+  "source_artifact_id": 13861901170,
+  "source_artifact_zip_sha256": "8a3028ebfc9575f1599074ae9addbfc118e19dea836e915af58a1cbbe23bc3f8",
+  "source_json_sha256": "fea7630bee5971629d57b127d0776d756b8237cfbc088fd3f5e63d4571d99500",
+  "r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "n_frozen_targets": 24,
+  "unresolved_gaia_ids": [
+    "164800235906366976",
+    "152362491654557696",
+    "150908490604475520",
+    "150073682105601408",
+    "162259951730099968",
+    "163178387536338944",
+    "156732977357829888",
+    "156577881796362496",
+    "151125919028356352",
+    "152280165721635968",
+    "149623711269425408",
+    "146764465639042176",
+    "148289831863907840",
+    "145886539965771648",
+    "145125987155266048",
+    "3419110734340795648",
+    "3418414193726125184",
+    "3314244366165299584",
+    "3314299238667410176",
+    "3406270362673330944",
+    "3406269778557780224",
+    "48193213849576320"
+  ],
+  "previously_parsed_gaia_ids": [
+    "164513602672978304",
+    "148116246465275520"
+  ],
+  "interpretation": "Archived original R2 statuses only. The 22 failures were not negative stellar observations. R2 physical Gaia-ZTF source identity remains unconfirmed for all 24."
+}
