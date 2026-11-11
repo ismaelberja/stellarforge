@@ -159,6 +159,22 @@ CIDA 11 Gaia RUWE is approximately 8.57 and needs special review.
 [Authentic original-data run](https://github.com/ismaelberja/stellarforge/actions/runs/43059114825) ·
 [Permanent derived-only original-source ledger](reports/taurus_variability_r2/FOUR_ORIGINAL_FITS_MASK_NATIVE_PSF_SOURCE_QA_NO_RAW.json)
 
+**New R2 original Gaia reference-control results (11 November 2026):**
+A further real-data audit used **five fixed Gaia-only reference stars**
+(four strict controls for CIDA 11, one exploratory for FT Tau)
+on those same **four historical ZTF exposures**. CIDA 11 had
+**four** acceptable strict controls on its first date but **only two**
+on its second; its science target fails the combined source-quality
+and high-RUWE gate. FT Tau has **only one exploratory control** on
+either date. Therefore **0/4 target offsets qualify for a defensible
+differential field correction**, and there is still **no
+independently verified Gaia–ZTF source identity**. This is a
+scientific quality-control *no-go*, not an astrophysical non-detection.
+
+[Actual Gaia/native-source control outcome](research/taurus_variability/R2_REAL_GAIA_ONLY_CONTROL_OFFSET_NO_GO.md) ·
+[Real-data source-control workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43063054380) ·
+[Immutable no-raw 7-source, 4-exposure ledger](reports/taurus_variability_r2/GAIA_ONLY_CONTROLS_ORIGINAL_PSF_OFFSETS_NO_RAW.json)
+
 Source-by-source independent astrometry, unresolved-blend analysis
 and original publisher Taurus catalogue membership checks
 **remain open** before any scientific variability classification.
