@@ -25,7 +25,7 @@ LEDGER=json.loads((ROOT/"data/research_seed/V18_DERIVED_REFERENCE_OFFSETS_NO_RAW
 
 
 def fake_metadata(row,*,duplicate=False):
-    header=["oid","mjd","filefracday","field","filtercode","ccdid","qid","catflags"]
+    header=["oid","mjd","filefracday","field","filtercode","ccdid","qid","catflags","mag"]
     buf=io.StringIO()
     out=csv.DictWriter(buf,fieldnames=header,lineterminator="\n")
     out.writeheader()
@@ -36,7 +36,7 @@ def fake_metadata(row,*,duplicate=False):
 
 def fixture_original_row(oid="1605115300003377",mjd="58388.389016"):
     return {"oid":oid,"mjd":mjd,"filefracday":"20180927389016",
-            "field":"1605","filtercode":"zg","ccdid":"0x1","qid":"0x1","catflags":"0"}
+            "field":"1605","filtercode":"zg","ccdid":"0x1","qid":"0x1","catflags":"0","mag":"14.0"}
 
 
 def fake_native(ra,dec,offset_arcsec=(.4,)):
