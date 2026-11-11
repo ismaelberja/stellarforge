@@ -74,6 +74,26 @@ is fitted and no cross-field ZTF ObjectIDs are merged.
 The ZTF PSFcat magnitudes are *instrumental detector
 magnitudes*, not external AB/PS1 calibration.
 
+**Newest R2 predeclared 720″ native reference / PS1-anchored original ZTF-header experiment:**
+[Original-data 84 g / 186 r matched reference pair study](R2_REAL_FTTAU_720_ORIGINAL_INSTRUMENTAL_ENSEMBLE_PS1_HEADER_RESULTS.md)
+reused the **four exact original historical image products**,
+verifying their native PSFcat SHA-256s, and used a newly
+predeclared **720″ radius** rather than changing the prior
+360″ **NO-GO** after observing its 10/19 reference samples.
+**84 g** and **186 r** source pairs passed the unchanged
+20-pair threshold; independently split within-sample
+training/holdout *instrumental-magnitude* and coarse
+spatial-screen criteria passed in both bands. Original ZTF
+FITS photometric header metadata fitted using PS1 calibrator
+stars was also checked for 4/4 fixed science exposures.
+The median ZTF instrumental shifts (field 609–1605) are
+**+0.118 mag in g** and **−0.004 mag in r**, not color-corrected
+AB magnitudes. ZTF PS1-anchored image header solutions
+are *same-pipeline* outputs, not independently retrieved
+PS1 source-row calibrations. **Zero** physical Gaia–ZTF
+counterparts or confirmed intrinsic FT Tau variations;
+**no crossfield OID lightcurves merged**.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus
