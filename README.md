@@ -6,6 +6,10 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](pyproject.toml)
 [![Scope](https://img.shields.io/badge/release-software%20portfolio%20v2.0-blue)](RELEASE_MANIFEST_v2.0.json)
 
+![StellarForge astronomy-inspired AI-generated cover illustration; conceptual art, not a telescope image or original Gaia/ZTF survey data](docs/figures/stellarforge-conceptual-hero.webp)
+
+*Conceptual project artwork created with generative AI. **Not a photograph of Taurus or any Gaia/ZTF survey frame**; decorative grid coordinates are not measured astrometry.*
+
 **Engineering release 2.0.0, 10 November 2026.** StellarForge is an open-to-inspection scientific-software portfolio project for quality-controlled astronomical data workflows around the Taurus young-star region. It combines traceable catalogue ingestion, Gaia DR3 astrometric checks, ZTF/IRSA light-curve analysis, original FITS science/mask inspection, and PSF reconstruction and testing.
 
 **Author and scientific direction:** Ismael Berja Ruiz. Development includes AI-assisted implementation with regression testing, explicit observational provenance and human scientific review requirements.
@@ -14,7 +18,7 @@
 
 ## See the work at a glance
 
-These are **visual summaries of documented measurements**, not simulated sky photographs or claimed new discoveries.
+**Evidence and illustration are different:** the flowchart and numbered charts below summarize documented research; the astronomy-inspired images are **AI-generated illustrations, not actual telescope photographs, measured PSF curves or source detections**.
 
 ```mermaid
 flowchart LR
@@ -39,6 +43,12 @@ flowchart LR
 *This chart comes from [the real v1.16 science-pixel report](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md). These are original image fits and **same-star pixel-holdout screens**, not independent new-star empirical PSF validation; the three reviews are not companion detections.*
 
 [Visual data provenance and limits](docs/V2_VISUAL_EVIDENCE.md)
+
+### Visual concept — astronomy and PSF analysis
+
+![StellarForge AI-generated conceptual astronomy collage illustrating catalogue context, a stylized star field and PSF-style plot; not actual survey FITS, telescope measurements or an observed PSF profile](docs/figures/stellarforge-conceptual-atlas.webp)
+
+*AI-generated illustrative composite only. **The stars, coordinate grid, radial-profile curve, colour map and scale bar are fictional graphics, not authentic measurements.** For genuine observational measurements use the original ZTF [v1.16 report](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md) and the two audited charts above.*
 
 ## What the software does
 

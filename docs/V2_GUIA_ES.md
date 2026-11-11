@@ -28,6 +28,22 @@ otras estrellas distintas. La prueba completa con los FITS
 originales de CIDA 11 **sigue sin ejecutarse**; las pruebas
 nuevas utilizan datos simulados.
 
+## Imágenes en GitHub
+
+La portada del README contiene dos ilustraciones astronómicas
+generadas con IA para facilitar la presentación del proyecto.
+**No son fotografías de observaciones reales ni perfiles PSF
+medidos.** En particular, las estrellas, coordenadas y curvas de
+la segunda ilustración son decorativas.
+
+Los **gráficos científicos auténticos**, con cifras trazables a
+los informes originales, aparecen por separado en el README:
+532 miembros de Taurus (467 con identificador Gaia DR3),
+y 16 ajustes de PSF a imágenes ZTF originales (13 controles
+provisionales superados, 3 pendientes de revisión).
+
+[Ver las imágenes y sus fuentes](V2_VISUAL_EVIDENCE.md).
+
 ## Cómo comprobar el proyecto
 
 Con Python 3.11 y Git instalados:

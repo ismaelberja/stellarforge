@@ -1,10 +1,41 @@
 # StellarForge — Visual evidence and data provenance (v2.0)
 
-This portfolio uses **real documented counts**, not fabricated astronomical
-photographs, simulated telescope exposures or unreviewed source detections.
-The diagrams are summaries of previously released reports. The original ZTF
+The two numerical charts below use **real documented aggregate counts**;
+no invented images or astrophysical discovery claims enter those charts.
+The separate AI-generated conceptual astronomy illustrations are explicitly
+labelled non-observational decorative artwork. The diagram and charts are
+summaries of previously released reports. The original ZTF
 science FITS, CCD masks and private IRSA source CSV payloads are **not
 committed** just to make the repository visually attractive.
+
+## Generated astronomy artwork (illustrative, NOT survey photographs)
+
+The repository now contains two original **AI-generated conceptual illustrations**
+created for the GitHub visual presentation on 11 November 2026.
+They are optimized WebP copies (1672 × 941) of the two images
+shown in the project's ChatGPT design conversation.
+
+**These are not data or sources of scientific evidence.** They do NOT
+represent actual Taurus/ZTF observations or Gaia sky positions.
+Their apparent stars, nebulae, coordinate labels, telescope field,
+PSF-like radial profile and colour maps are **illustrative and
+not measured quantities**. In particular, do not interpret the PSF
+plot in the second illustration as a fit to any real original FITS
+exposure. The synthetic illustrations are intentionally separate
+from the exact quantitative charts below.
+
+![AI-generated conceptual StellarForge astronomy cover](figures/stellarforge-conceptual-hero.webp)
+
+*AI-generated project branding; not a real telescope image.*
+
+![AI-generated conceptual stellar field and PSF-style illustration](figures/stellarforge-conceptual-atlas.webp)
+
+*AI-generated explanatory artwork; not genuine survey image pixels,
+a calibrated radial profile or measured astrophysical source.*
+
+Authentic observational data remain in the linked reports and auditable
+aggregate figures. Both generated illustrations are stored **inside
+this GitHub repository**, with no external hotlinks or temporary hosting.
 
 ## Diagram: audit workflow
 
