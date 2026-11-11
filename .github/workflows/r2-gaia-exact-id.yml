@@ -6,6 +6,8 @@ on:
       - research/taurus-variability-r2-exact-gaia
     paths:
       - .github/workflows/r2-gaia-exact-id.yml
+      - scripts/run_taurus_variability_r2_exact_gaia.py
+      - src/stellarforge/r2_gaia_identity.py
   workflow_dispatch:
 
 permissions:
@@ -26,7 +28,7 @@ jobs:
         run: python -m pip install -e .
       - name: Query real Gaia DR3 exact source IDs (2 bounded TAP batches, no raw persistence)
         run: |
-          python scripts/run_taurus_variability_r2_exact_gaia.py --output reports/generated/r2_gaia_exact_id_no_raw.json
+          python -m scripts.run_taurus_variability_r2_exact_gaia --output reports/generated/r2_gaia_exact_id_no_raw.json
       - name: Upload only derived Gaia status ledger, not original TAP CSV
         uses: actions/upload-artifact@v4
         with:
