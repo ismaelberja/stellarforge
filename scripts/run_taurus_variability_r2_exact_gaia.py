@@ -24,7 +24,7 @@ def run(seed_bytes: bytes, *, fetcher=fetch_exact_gaia_ids) -> dict:
     prereg = prepare_technical_cohort(seed_bytes)
     if prereg["n_preexisting_technical_candidates"] != 24:
         raise ValueError("R1 cohort was not frozen")
-    reader = csv.DictReader(io.StringIO(seed_bytes.decode("utf8-sig")))
+    reader = csv.DictReader(io.StringIO(seed_bytes.decode("utf-8-sig")))
     rows = list(reader)
     ids = [str(r["gaia"]).strip() for r in rows]
     original = [fetcher(tuple(ids[i:i+BATCH]))
