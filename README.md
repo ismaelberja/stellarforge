@@ -122,6 +122,21 @@ Read the [Spanish practical guide](docs/V2_GUIA_ES.md) or [complete reproducibil
 
 For a concise explanation suitable for recruiting and interviews, see [StellarForge on a CV — English/Spanish](docs/V2_PORTFOLIO_CV_ES_EN.md). The [research status](docs/PROJECT_STATUS.md), [roadmap](docs/ROADMAP.md) and [release notes](RELEASE_NOTES_v2.0.md) remain available for deeper technical review.
 
+## Optional independent astronomy research continuation — Taurus R1
+
+**The v2.0 engineering portfolio remains complete.** A **separate R1 feasibility
+study** now pre-registers a research question about optical variability
+of the 24 **nonrepresentative** pre-existing Taurus technical candidates.
+It has **not validated any physical Gaia-to-ZTF associations or confirmed
+new stellar variability**. No additional live survey observations have been
+acquired in R1. A six-stage, risk-gated plan is available:
+
+- [R1 science protocol and source-identity gates](research/taurus_variability/R1_PREREGISTERED_SCIENCE_PROTOCOL.md)
+- [R1–R6 research roadmap and completion criteria](research/taurus_variability/R1_TO_R6_RESEARCH_PLAN.md)
+
+You may already share the v2.0 **software** project professionally;
+the independent **scientific study** is explicitly a new work in progress.
+
 ## Status after v2.0
 
 **Portfolio software: complete for this version. Scientific validation: ongoing and inconclusive.**
