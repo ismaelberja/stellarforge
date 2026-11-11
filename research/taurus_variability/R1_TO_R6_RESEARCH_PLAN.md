@@ -1,5 +1,9 @@
 # R1–R6 practical research milestones
 
+**R2 live Gaia-only subset completed 11 November 2026:** [24/24 exact Gaia DR3 records returned, 17 preliminary Gaia-only quality screens passed, 7 RUWE ≥ 1.4](R2_REAL_GAIA_24_EXACT_ID_SCREEN.md). **R2 remains incomplete** until independent original Gaia-to-ZTF counterpart identity and crowding checks are performed. This is not 24 verified light curves.
+
+# R1–R6 practical research milestones
+
 There are **six planned increments in total** for a modest, bounded
 **independent Taurus optical-variability feasibility study**. This is
 a planning estimate, not a promise of a new detection, independent
