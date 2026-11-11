@@ -1,0 +1,257 @@
+{
+  "R2_physical_source_identity_completed": false,
+  "bands": [
+    {
+      "ZTF_own_PS1_anchored_FITS_header_comparison": {
+        "color_corrected_AB_flux_calibration_performed": false,
+        "direct_external_ps1_catalogue_crossmatch_performed": false,
+        "instrumental_mags_and_pipeline_zeropoints_not_independent": true,
+        "missing_PS1_color_terms_and_calibration_covariance": true,
+        "nominal_delta_inst_plus_pipeline_header_delta_zp": 0.030192,
+        "original_zTF_ps1_pipeline_header_delta_MAGZP_field609_minus_1605": -0.087808,
+        "physical_gaia_ztf_source_match_verified": false,
+        "status": "DESCRIPTIVE_ZTF_OWN_PS1_ANCHORED_PIPELINE_HEADER_COMPARISON"
+      },
+      "band": "g",
+      "external_independent_PS1_catalogue_matches_verified": 0,
+      "inner_vs_outer_spatial_trend": {
+        "field_wide_spatially_uniform_photometry_established": false,
+        "n_min_each_spatial_stratum": 6,
+        "n_new_outer_360_to_720arcsec_reference_pairs": 74,
+        "n_old_inner_360arcsec_reference_pairs": 10,
+        "not_independent_instrument_photometric_calibration": true,
+        "spatial_median_delta_inst_mags_inner_minus_outer": 0.0055,
+        "status": "SPATIAL_PROFILE_DESCRIPTIVELY_WITHIN_0P10_MAG"
+      },
+      "internally_consistent_and_no_detected_large_spatial_gradient": true,
+      "native_reference_ensemble_internal_only": {
+        "all_photometric_series_remain_unmerged": true,
+        "ensemble_median_native_mag_difference_b_minus_a": 0.118,
+        "heldout_median_relative_offset_mag": -0.014,
+        "heldout_robust_scatter_mag": 0.01927,
+        "independent_absolute_photometric_calibration": false,
+        "instrumental_offset_internally_consistent": true,
+        "n_reciprocal_crowding_screened_geometric_pairs": 84,
+        "n_training_after_fixed_robust_outlier_screen": 51,
+        "n_training_outliers_rejected": 0,
+        "n_training_references": 51,
+        "n_validation_references": 33,
+        "native_photometry_units": "instrumental magnitude = -2.5 log10(flux in DN)",
+        "nominal_median_pair_photometric_sigma_mag": 0.04428,
+        "original_ztf_flux_reference_stability_independently_verified": false,
+        "status": "INTERNAL_ENSEMBLE_CONSISTENCY_PASS_NOT_EXTERNAL_CALIBRATION",
+        "target_itself_excluded_from_reference_ensemble": true,
+        "train_robust_scatter_mag": 0.02669,
+        "validated_gaia_ztf_physical_source_identity": false
+      },
+      "original_FT_TAU_two_fixed_fields": [
+        {
+          "full_native_psfcat_original_hash_verified": true,
+          "n_clean_uncrowded_sources_selected_before_crossfield_matching": 106,
+          "n_original_catalogue_rows": 5757,
+          "n_original_within_15arcsec_fttau_target_exclusion": 2,
+          "n_within_fixed_720arcsec": 578,
+          "original_field": "1605",
+          "original_fixed_ztf_oid": "1605115300003377",
+          "original_gaia_target_in_reference_ensemble": false,
+          "original_mjd": 58806.385197,
+          "original_native_full_psfcat_sha256": "f83a7e5685af6902fa99b7f423f6a1620a3d70f3c230879bb63243076d69fbe4",
+          "original_science_header": {
+            "external_PS1_source_rows_queried": false,
+            "full_ZTF_exposure_quality_certified": false,
+            "independent_absolute_zeropoint_calibration_performed": false,
+            "original_info_bits": 0,
+            "original_ps1_pipeline_header_NMATCHES": 1223,
+            "original_science_filename": "ztf_20191119385185_001605_zg_c15_o_q3_sciimg.fits",
+            "per_exposure_zTF_pipeline_header_values": {
+              "CLRCOEFF": -0.036286,
+              "CLRCOUNC": 2.83e-05,
+              "MAGZP": 26.215597,
+              "MAGZPRMS": 0.038748,
+              "MAGZPUNC": 2.68e-05
+            },
+            "public_ZTF_partial_ps1_match_and_zp_rms_screen_pass": true,
+            "source_cutout_fits_sha256": "2ea589d2fc95a9bab5a482d45d59d032c97bf235f904957a411d38c0ddb49659",
+            "source_cutout_sha_may_differ_from_prior_different_center": true,
+            "status": "PS1_ANCHORED_ZTF_PIPELINE_HEADER_PARSED",
+            "stellar_source_astrophysical_identity_verified": false
+          }
+        },
+        {
+          "full_native_psfcat_original_hash_verified": true,
+          "n_clean_uncrowded_sources_selected_before_crossfield_matching": 116,
+          "n_original_catalogue_rows": 4956,
+          "n_original_within_15arcsec_fttau_target_exclusion": 1,
+          "n_within_fixed_720arcsec": 578,
+          "original_field": "609",
+          "original_fixed_ztf_oid": "609108400001155",
+          "original_gaia_target_in_reference_ensemble": false,
+          "original_mjd": 58806.385648,
+          "original_native_full_psfcat_sha256": "7f880ed401a96de302627bf9e9f67fdac25208860feb8be9cffb12758e535744",
+          "original_science_header": {
+            "external_PS1_source_rows_queried": false,
+            "full_ZTF_exposure_quality_certified": false,
+            "independent_absolute_zeropoint_calibration_performed": false,
+            "original_info_bits": 0,
+            "original_ps1_pipeline_header_NMATCHES": 1092,
+            "original_science_filename": "ztf_20191119385648_000609_zg_c08_o_q4_sciimg.fits",
+            "per_exposure_zTF_pipeline_header_values": {
+              "CLRCOEFF": -0.060615,
+              "CLRCOUNC": 2.93e-05,
+              "MAGZP": 26.127789,
+              "MAGZPRMS": 0.037959,
+              "MAGZPUNC": 2.81e-05
+            },
+            "public_ZTF_partial_ps1_match_and_zp_rms_screen_pass": true,
+            "source_cutout_fits_sha256": "39f74d53c417736656feeb26bb6399d0d0f3313256e7c0455a4e16689526dc4e",
+            "source_cutout_sha_may_differ_from_prior_different_center": true,
+            "status": "PS1_ANCHORED_ZTF_PIPELINE_HEADER_PARSED",
+            "stellar_source_astrophysical_identity_verified": false
+          }
+        }
+      ],
+      "original_ztf_lightcurves_merged": false,
+      "physically_verified_ft_tau_gaia_ztf_source": false,
+      "same_filter_preaudited_original_39_second_pair": true
+    },
+    {
+      "ZTF_own_PS1_anchored_FITS_header_comparison": {
+        "color_corrected_AB_flux_calibration_performed": false,
+        "direct_external_ps1_catalogue_crossmatch_performed": false,
+        "instrumental_mags_and_pipeline_zeropoints_not_independent": true,
+        "missing_PS1_color_terms_and_calibration_covariance": true,
+        "nominal_delta_inst_plus_pipeline_header_delta_zp": -0.004961,
+        "original_zTF_ps1_pipeline_header_delta_MAGZP_field609_minus_1605": -0.000961,
+        "physical_gaia_ztf_source_match_verified": false,
+        "status": "DESCRIPTIVE_ZTF_OWN_PS1_ANCHORED_PIPELINE_HEADER_COMPARISON"
+      },
+      "band": "r",
+      "external_independent_PS1_catalogue_matches_verified": 0,
+      "inner_vs_outer_spatial_trend": {
+        "field_wide_spatially_uniform_photometry_established": false,
+        "n_min_each_spatial_stratum": 6,
+        "n_new_outer_360_to_720arcsec_reference_pairs": 167,
+        "n_old_inner_360arcsec_reference_pairs": 19,
+        "not_independent_instrument_photometric_calibration": true,
+        "spatial_median_delta_inst_mags_inner_minus_outer": -0.001,
+        "status": "SPATIAL_PROFILE_DESCRIPTIVELY_WITHIN_0P10_MAG"
+      },
+      "internally_consistent_and_no_detected_large_spatial_gradient": true,
+      "native_reference_ensemble_internal_only": {
+        "all_photometric_series_remain_unmerged": true,
+        "ensemble_median_native_mag_difference_b_minus_a": -0.004,
+        "heldout_median_relative_offset_mag": 0.006,
+        "heldout_robust_scatter_mag": 0.01927,
+        "independent_absolute_photometric_calibration": false,
+        "instrumental_offset_internally_consistent": true,
+        "n_reciprocal_crowding_screened_geometric_pairs": 186,
+        "n_training_after_fixed_robust_outlier_screen": 94,
+        "n_training_outliers_rejected": 2,
+        "n_training_references": 96,
+        "n_validation_references": 90,
+        "native_photometry_units": "instrumental magnitude = -2.5 log10(flux in DN)",
+        "nominal_median_pair_photometric_sigma_mag": 0.03543,
+        "original_ztf_flux_reference_stability_independently_verified": false,
+        "status": "INTERNAL_ENSEMBLE_CONSISTENCY_PASS_NOT_EXTERNAL_CALIBRATION",
+        "target_itself_excluded_from_reference_ensemble": true,
+        "train_robust_scatter_mag": 0.01705,
+        "validated_gaia_ztf_physical_source_identity": false
+      },
+      "original_FT_TAU_two_fixed_fields": [
+        {
+          "full_native_psfcat_original_hash_verified": true,
+          "n_clean_uncrowded_sources_selected_before_crossfield_matching": 244,
+          "n_original_catalogue_rows": 8425,
+          "n_original_within_15arcsec_fttau_target_exclusion": 1,
+          "n_within_fixed_720arcsec": 917,
+          "original_field": "1605",
+          "original_fixed_ztf_oid": "1605215300005161",
+          "original_gaia_target_in_reference_ensemble": false,
+          "original_mjd": 58425.306065,
+          "original_native_full_psfcat_sha256": "f25dc162b87c84426e3bc467a3f21da802e2dbba0885be93314001fb1840fe5b",
+          "original_science_header": {
+            "external_PS1_source_rows_queried": false,
+            "full_ZTF_exposure_quality_certified": false,
+            "independent_absolute_zeropoint_calibration_performed": false,
+            "original_info_bits": 0,
+            "original_ps1_pipeline_header_NMATCHES": 1300,
+            "original_science_filename": "ztf_20181103306065_001605_zr_c15_o_q3_sciimg.fits",
+            "per_exposure_zTF_pipeline_header_values": {
+              "CLRCOEFF": 0.06389,
+              "CLRCOUNC": 7.2e-06,
+              "MAGZP": 26.099472,
+              "MAGZPRMS": 0.022096,
+              "MAGZPUNC": 7.1e-06
+            },
+            "public_ZTF_partial_ps1_match_and_zp_rms_screen_pass": true,
+            "source_cutout_fits_sha256": "de30f53651f3b85a9bc233fed8d8183d743cf3ecc5a72ef68cae53cc028b5ece",
+            "source_cutout_sha_may_differ_from_prior_different_center": true,
+            "status": "PS1_ANCHORED_ZTF_PIPELINE_HEADER_PARSED",
+            "stellar_source_astrophysical_identity_verified": false
+          }
+        },
+        {
+          "full_native_psfcat_original_hash_verified": true,
+          "n_clean_uncrowded_sources_selected_before_crossfield_matching": 222,
+          "n_original_catalogue_rows": 8375,
+          "n_original_within_15arcsec_fttau_target_exclusion": 2,
+          "n_within_fixed_720arcsec": 947,
+          "original_field": "609",
+          "original_fixed_ztf_oid": "609208400001969",
+          "original_gaia_target_in_reference_ensemble": false,
+          "original_mjd": 58425.306516,
+          "original_native_full_psfcat_sha256": "b9c50a4e8258989cd64c33e6230513be20ecca0ce3d3e0bc0388e459fdcc8c17",
+          "original_science_header": {
+            "external_PS1_source_rows_queried": false,
+            "full_ZTF_exposure_quality_certified": false,
+            "independent_absolute_zeropoint_calibration_performed": false,
+            "original_info_bits": 0,
+            "original_ps1_pipeline_header_NMATCHES": 1176,
+            "original_science_filename": "ztf_20181103306516_000609_zr_c08_o_q4_sciimg.fits",
+            "per_exposure_zTF_pipeline_header_values": {
+              "CLRCOEFF": 0.068839,
+              "CLRCOUNC": 7.7e-06,
+              "MAGZP": 26.098511,
+              "MAGZPRMS": 0.022618,
+              "MAGZPUNC": 7.9e-06
+            },
+            "public_ZTF_partial_ps1_match_and_zp_rms_screen_pass": true,
+            "source_cutout_fits_sha256": "f0da2d9c15e67b007d44dd4a09e4e1e52560c99d5ddccfd55aa47dd26f80d729",
+            "source_cutout_sha_may_differ_from_prior_different_center": true,
+            "status": "PS1_ANCHORED_ZTF_PIPELINE_HEADER_PARSED",
+            "stellar_source_astrophysical_identity_verified": false
+          }
+        }
+      ],
+      "original_ztf_lightcurves_merged": false,
+      "physically_verified_ft_tau_gaia_ztf_source": false,
+      "same_filter_preaudited_original_39_second_pair": true
+    }
+  ],
+  "four_original_FITS_source_evidence_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "ft_tau_original_ztf_oid_exposure_count": 4,
+  "immutable_360arcsec_underpowered_previous_evidence_sha256": "97bb5c77b9b290bf5238ca125e2c7e205606e6417ebe2b0bc23954541e6dee51",
+  "limitations": [
+    "This is an independently pre-registered 720-arcsec enlargement, not reanalysis of the previous 360-arcsec preregistered underpowered no-go.",
+    "Even if at least 20 same-filter ZTF native references survive, split heldout QA and inner/outer spatial checks are not an independent calibration against Pan-STARRS1 source rows.",
+    "ZTF science-header MAGZP and NMATCHES originate from the same ZTF PS1-anchored reduction, not an independently fitted external PS1 catalogue crossmatch.",
+    "No per-reference original PS1 g/r colors, color-corrected AB flux uncertainty, Gaia source-level physical match, repeat-night stability or uniform detector calibration.",
+    "No original ZTF OID lightcurve can be merged and no new FT Tau intrinsic variability, companion or Taurus membership claim follows."
+  ],
+  "n_ZTF_OID_lightcurves_merged": 0,
+  "n_bands_internal_qc_and_descriptive_spatial_screen_pass": 2,
+  "n_bands_internally_consistent_magnitude_offset": 2,
+  "n_directly_crossmatched_independent_PS1_reference_sources": 0,
+  "n_independently_certified_absolute_photometric_zeropoints": 0,
+  "n_independently_confirmed_physical_Gaia_ZTF_matches": 0,
+  "n_intrinsic_FT_TAU_variability_or_companion_detections": 0,
+  "n_original_full_native_ZTF_psfcat_SHA_matched": 4,
+  "n_original_science_FITS_header_PS1_pipeline_metadata_parsed": 4,
+  "new_original_telescope_observation_epochs_selected": 0,
+  "new_sky_radius_arcsec": 720.0,
+  "original_R1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "phase": "R2_FTTAU_NEW_720_ARCSEC_ORIGINAL_NATIVE_ENSEMBLE_AND_ZTF_OWN_PS1_HEADER_PILOT",
+  "predefined_study_technical_taurus_cohort_size": 24,
+  "prior_failed_sky_radius_arcsec": 360,
+  "prior_fixed_360arcsec_results_untouched": true
+}

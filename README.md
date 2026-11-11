@@ -228,11 +228,32 @@ variability or OID-curve merging was inferred.
 [Original four-PSFcat survey-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43072549599) ·
 [Permanent no-raw instrumental reference evidence](reports/taurus_variability_r2/FTTAU_REAL_ORIGINAL_NATIVE_TWO_FIELD_INSTRUMENTAL_ENSEMBLE_NO_RAW.json)
 
-Source-by-source independent source calibration, larger
-field-reference populations, cross-field deblending,
-true photometric zeropoints with systematic errors and
-original publisher Taurus catalogue membership checks
-**remain open** before astrophysical variability classification.
+**New independent 720″ reference-field experiment (11 November 2026):**
+Retained the preceding **360″/10 g/19 r NO-GO** as-is and
+predeclared a new **720″ radius**, leaving the original 20-star
+threshold, fit/quality/holdout rules and four original image epochs
+unchanged. Authentic original SHA-reverified full ZTF source
+catalogues then yielded **84 reciprocal g-band** and
+**186 reciprocal r-band** reference pairs. Both passed the
+predeclared train/heldout *instrumental* offset and coarse
+inner-vs-outer spatial screens; raw instrumental difference
+(field 609 minus field 1605) is **+0.118 mag (g)** and
+**−0.004 mag (r)**. All four original science FITS headers
+contained usable ZTF-pipeline **PS1-anchored** photometric
+solutions and original calibrator counts. No independent
+source-by-source PS1 DR2 catalogue was queried, color terms
+were not applied, and this is **not AB-calibrated physical
+FT Tau photometry or an independently validated WCS**.
+
+[Actual 720″ ZTF ensemble and PS1-header study](research/taurus_variability/R2_REAL_FTTAU_720_ORIGINAL_INSTRUMENTAL_ENSEMBLE_PS1_HEADER_RESULTS.md) ·
+[Original four-source real-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43091456449) ·
+[Permanent original-data no-raw evidence](reports/taurus_variability_r2/FTTAU_720_REAL_NATIVE_ENSEMBLE_ZTF_PS1_PIPELINE_HEADER_NO_RAW.json)
+
+Independent true PS1 source matching, full color/field
+systematic error calibration, Gaia–ZTF physical source
+identification, cross-field deblending, original publisher
+Taurus membership and source variability inference
+**remain open**. No ZTF source ObjectID lightcurves were merged.
 
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·

@@ -134,7 +134,8 @@ def _xy_positions(ra_deg,dec_deg,ra0_deg,dec0_deg):
                             (dec-dec0_deg)*3600.))
 
 
-def qualifying_original_native_sources(cat:dict,*,ra0:float,dec0:float)->dict:
+def qualifying_original_native_sources(cat:dict,*,ra0:float,dec0:float,
+                                       max_radius_arcsec:float=MAX_CENTER_DISTANCE_ARCSEC)->dict:
     """Apply FIXED flag, PSF-fit profile and local geometric cuts.
 
     Never choose control candidates based on their cross-field magnitude
@@ -144,13 +145,15 @@ def qualifying_original_native_sources(cat:dict,*,ra0:float,dec0:float)->dict:
     from scipy.spatial import cKDTree
     if cat.get("status")!="ORIGINAL_ZTF_PSF_CATALOGUE_PARSED_UNVERIFIED":
         raise ValueError("Must be original parsed native ZTF full source catalogue")
+    if max_radius_arcsec not in (360.,720.):
+        raise ValueError("Only preregistered original 360 and new 720 arcsec radius supported")
     rows=cat["rows"]
     n=len(rows["ra"])
     if n==0 or n>MAX_SOURCE_ROWS_INSPECTED:
         raise ValueError("Empty/oversized original ZTF PSFcat")
     xy=_xy_positions(rows["ra"],rows["dec"],ra0,dec0)
     radius=np.linalg.norm(xy,axis=1)
-    infield=np.isfinite(radius)&(radius<=MAX_CENTER_DISTANCE_ARCSEC)
+    infield=np.isfinite(radius)&(radius<=max_radius_arcsec)
     excluded=np.isfinite(radius)&(radius<TARGET_EXCLUSION_ARCSEC)
     with np.errstate(divide="ignore",invalid="ignore",over="ignore"):
         flags=np.asarray(rows["flags"],dtype=float)
