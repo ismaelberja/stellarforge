@@ -191,9 +191,28 @@ evidence**. No OIDs are concatenated and no new variability is claimed.
 [Two-source original IRSA run](https://github.com/ismaelberja/stellarforge/actions/runs/43066226324) ·
 [Derived six-OID source ledger](reports/taurus_variability_r2/REAL_TWO_FIELDS_ORIGINAL_IRSA_ALTERNATE_OBJECTIDS_NO_RAW.json)
 
-Source-by-source independent astrometry, cross-field deblending
-and original publisher Taurus catalogue membership checks
-**remain open** before any scientific variability classification.
+**New authentic FT Tau two-field g/r original science-image checks (11 November 2026):**
+Four **predeclared exact ZTF ObjectIDs** yielded usable archival
+science FITS cutouts, corresponding original detector masks and
+same-exposure native PSFcat source catalogues. **All 4/4 images
+passed the predefined provisional source/PSF/bitmask QA**.
+Within both g and r, the closest two-field original exposure
+pair is just **0.000451 day (~39 seconds) apart**. Their native
+catalogue source-position differences across fields are
+**13.568 mas (g)** and **79.473 mas (r)**, *descriptive only*;
+the g images were from **2019** and the r images from **2018**.
+These numbers are NOT independently calibrated field WCS errors,
+physical source motion or evidence of a Gaia–ZTF unique match.
+**No FT Tau OID curves were merged.**
+
+[Actual four-image science results](research/taurus_variability/R2_REAL_FT_TAU_TWO_FIELD_GR_FITS_MASK_PSF_RESULTS.md) ·
+[Authentic original FITS/mask/PSFcat run](https://github.com/ismaelberja/stellarforge/actions/runs/43069170818) ·
+[Permanent no-raw evidence ledger](reports/taurus_variability_r2/FT_TAU_TWO_ORIGINAL_ZTF_FIELDS_GR_FITS_MASK_PSF_DERIVED_NO_RAW.json)
+
+Source-by-source independent calibration, cross-field deblending,
+calibrated photometric zeropoints and original publisher Taurus
+catalogue membership checks **remain open** before any
+astrophysical variability classification.
 
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·

@@ -1,0 +1,80 @@
+{
+  "schema_version": "stellarforge-taurus-r2-original-fttau-crossfield-gr-four-fits-receipt-v1",
+  "date_utc": "2026-11-11",
+  "original_live_workflow_run_id": 43069170818,
+  "original_live_run_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43069170818",
+  "source_artifact_id": 13875884723,
+  "source_artifact_zip_sha256": "494b754ea9bf77e7467144c4291f8a7842075c6bdcf238d45ceb4a7e306390e6",
+  "original_derived_json_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "original_gaia_tap_response_sha256": "399b5498d8d8a8a646073dfc029895ed64902940896d1789c63833a18074b642",
+  "frozen_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "ft_tau_gaia_dr3_id": "149623711269425408",
+  "fixed_ztf_oid_count": 4,
+  "original_ztf_oid_all_rows": 1442,
+  "original_ztf_oid_technically_eligible_exposure_rows": 1199,
+  "n_selected_same_filter_two_field_pairs": 2,
+  "n_original_ztf_single_exposures_selected": 4,
+  "n_original_sciimg_fits_and_same_exposure_masks_checked": 4,
+  "n_original_native_psfcat_fits_catalogues_checked": 4,
+  "n_original_exposures_all_three_instrument_gates_passed": 4,
+  "n_same_filter_two_field_comparisons_both_gates_passed": 2,
+  "g_pair": {
+    "mjds": [
+      58806.385197,
+      58806.385648
+    ],
+    "time_difference_days": 0.000451,
+    "original_utc_date": "2019-11-19",
+    "ztf_oids": [
+      "1605115300003377",
+      "609108400001155"
+    ],
+    "field_ccd_quadrant": [
+      [
+        1605,
+        15,
+        3
+      ],
+      [
+        609,
+        8,
+        4
+      ]
+    ],
+    "native_to_gaia_difference_between_fields_mas": 13.568,
+    "calibrated_independent_wcs_or_source_identity": false
+  },
+  "r_pair": {
+    "mjds": [
+      58425.306065,
+      58425.306516
+    ],
+    "time_difference_days": 0.000451,
+    "original_utc_date": "2018-11-03",
+    "ztf_oids": [
+      "1605215300005161",
+      "609208400001969"
+    ],
+    "field_ccd_quadrant": [
+      [
+        1605,
+        15,
+        3
+      ],
+      [
+        609,
+        8,
+        4
+      ]
+    ],
+    "native_to_gaia_difference_between_fields_mas": 79.473,
+    "calibrated_independent_wcs_or_source_identity": false
+  },
+  "cross_filter_g_and_r_contemporaneous": false,
+  "n_physical_gaia_ztf_matches_independently_authenticated": 0,
+  "n_ztf_oid_lightcurves_merged": 0,
+  "n_new_variable_stars_or_companions_confirmed": 0,
+  "r2_science_source_identity_completed": false,
+  "original_survey_fits_pixels_persisted_in_repository": false,
+  "interpretation": "Four original ZTF g/r FT Tau field/CCD cutouts plus same-date masks and native PSFcat pass bounded source-level instrumental QA. Same-band two-field image dates are each about 39 seconds apart; g and r are separated by a year. No independent ZTF WCS/crowding source attribution, physical Gaia-ZTF crossmatch or variability inference has been made."
+}

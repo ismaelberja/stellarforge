@@ -1,0 +1,371 @@
+{
+  "crossfield_same_filter_pairs": [
+    {
+      "band": "g",
+      "crossfield_instrument_summary": {
+        "both_original_science_mask_native_products_available": true,
+        "crossfield_lightcurves_merged": false,
+        "crossfield_oid_physical_identity_authenticated": false,
+        "differential_astrometry_independently_calibrated": false,
+        "instrumental_gates_both_passed": true,
+        "native_catalogue_field_to_field_offset_difference_mas": {
+          "angular_proxy_mas": 13.568,
+          "cannot_establish_gaia_ztf_counterpart": true,
+          "east_mas": 9.467,
+          "is_measurement_of_independent_field_calibration": false,
+          "north_mas": 9.72,
+          "source": "same-pipeline native ZTF positions vs externally modelled Gaia"
+        },
+        "same_night_within_one_day": true,
+        "time_gap_days": 0.000451
+      },
+      "quality_or_brightness_was_not_used_to_select_survey_images": true,
+      "selected_original_exposures": [
+        {
+          "band": "g",
+          "original_field_ccd_quadrant": [
+            1605,
+            15,
+            3
+          ],
+          "original_filefracday": "20191119385185",
+          "original_mjd": 58806.385197,
+          "ztf_oid": "1605115300003377"
+        },
+        {
+          "band": "g",
+          "original_field_ccd_quadrant": [
+            609,
+            8,
+            4
+          ],
+          "original_filefracday": "20191119385648",
+          "original_mjd": 58806.385648,
+          "ztf_oid": "609108400001155"
+        }
+      ],
+      "selected_within_1day": true,
+      "selection_mjd_gap_days": 0.000451,
+      "selection_status": "SELECTED_WITHIN_ONE_DAY_DIFFERENT_FIELD"
+    },
+    {
+      "band": "r",
+      "crossfield_instrument_summary": {
+        "both_original_science_mask_native_products_available": true,
+        "crossfield_lightcurves_merged": false,
+        "crossfield_oid_physical_identity_authenticated": false,
+        "differential_astrometry_independently_calibrated": false,
+        "instrumental_gates_both_passed": true,
+        "native_catalogue_field_to_field_offset_difference_mas": {
+          "angular_proxy_mas": 79.473,
+          "cannot_establish_gaia_ztf_counterpart": true,
+          "east_mas": 76.06,
+          "is_measurement_of_independent_field_calibration": false,
+          "north_mas": 23.04,
+          "source": "same-pipeline native ZTF positions vs externally modelled Gaia"
+        },
+        "same_night_within_one_day": true,
+        "time_gap_days": 0.000451
+      },
+      "quality_or_brightness_was_not_used_to_select_survey_images": true,
+      "selected_original_exposures": [
+        {
+          "band": "r",
+          "original_field_ccd_quadrant": [
+            1605,
+            15,
+            3
+          ],
+          "original_filefracday": "20181103306065",
+          "original_mjd": 58425.306065,
+          "ztf_oid": "1605215300005161"
+        },
+        {
+          "band": "r",
+          "original_field_ccd_quadrant": [
+            609,
+            8,
+            4
+          ],
+          "original_filefracday": "20181103306516",
+          "original_mjd": 58425.306516,
+          "ztf_oid": "609208400001969"
+        }
+      ],
+      "selected_within_1day": true,
+      "selection_mjd_gap_days": 0.000451,
+      "selection_status": "SELECTED_WITHIN_ONE_DAY_DIFFERENT_FIELD"
+    }
+  ],
+  "fixed_original_r1_nonrepresentative_gaia_target_count": 24,
+  "fixed_original_ztf_distinct_oids": 4,
+  "limitations": [
+    "One exposure per pre-registered original ZTF OID, selected solely by min inter-field MJD gap; if gap >1d these are not same-night observations.",
+    "Nearest survey PSF source, raw science peak and clean mask cannot prove physical Gaia/ZTF identity or exclude fainter/blended sources.",
+    "Native ZTF PSF catalogue coordinates and FITS WCS share instrument astrometry; cross-field differences are descriptive with uncalibrated errors.",
+    "No direct astrophysical variability or colour result can be calculated by comparing non-simultaneous g/r exposures or multiple unmerged ZTF ObjectIDs.",
+    "The four older historical FT Tau/CIDA FITS image controls remain; these are selected original survey exposures, not newly observed telescope nights.",
+    "Original Luhman Taurus source membership and independent image deblending still pending."
+  ],
+  "n_confirmed_new_astro_variables_or_companions": 0,
+  "n_independently_verified_ft_gaia_ztf_physical_crossmatches": 0,
+  "n_mjd_closest_same_band_crossfield_pairs_selected": 2,
+  "n_original_direct_oid_csv_tables_valid": 4,
+  "n_original_direct_oid_metadata_requests": 4,
+  "n_original_image_mask_pairs_checked": 4,
+  "n_original_native_psfcats_parsed": 4,
+  "n_pairs_with_instrumental_gates_both_passed": 2,
+  "n_reconciled_or_combined_ztf_lightcurves": 0,
+  "n_selected_original_images_with_all_instrument_checks_passed": 4,
+  "n_selected_original_single_science_exposures": 4,
+  "original_24_source_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "original_fits_mask_native_psf_exposure_results": [
+    {
+      "all_three_instrument_source_checks_pass": true,
+      "external_astrometry_calibration_complete": false,
+      "gaia_quality_warning": false,
+      "gaia_ruwe": 1.3265878,
+      "mask_annulus_bad_pixel_fraction": 0.0,
+      "mask_core_bad_pixels": 0,
+      "mask_core_saturated_pixels": 0,
+      "mask_image_wcs_aligned": true,
+      "mask_sha256": "d0ba6fc25c9f3a734c61b228f4fdcf88a5c096651b91261e4032f52bc1556123",
+      "native_full_catalogue_sha256": "f83a7e5685af6902fa99b7f423f6a1620a3d70f3c230879bb63243076d69fbe4",
+      "native_nearest_gaia_offset_arcsec": 0.056791,
+      "native_psf_status": "PROVISIONAL_CATALOGUE_NEAREST_AND_PROFILE_SCREEN_PASSED",
+      "native_second_source_within_5arcsec_offset": null,
+      "native_secondary_sources_within_3arcsec": 0,
+      "native_source_catalogue_n_rows": 5757,
+      "native_source_quality_passed": true,
+      "new_source_variability_confirmed": false,
+      "original_cutout_query_sha256": "b3e4ac864558fbac694def58ec111e8fc4dc1a789f5e915247a036e35c552f90",
+      "original_image_is_not_a_new_survey_epoch": true,
+      "original_native_source_position_offset_mas": {
+        "external_gaia_formal_errors_are_not_full_instrument_errors": true,
+        "native_minus_gaia_east_mas": 15.37,
+        "native_minus_gaia_north_mas": 54.671,
+        "native_offset_angular_proxy_mas": 56.791,
+        "original_zTF_wcs_zeropoint_independently_measured": false
+      },
+      "original_science_product_identifier": "ztf_20191119385185_001605_zg_c15_o_q3_sciimg.fits",
+      "original_ztf_source_identity_verified": false,
+      "science_additional_bright_peaks_within_12arcsec": 0,
+      "science_central_peak_found": true,
+      "science_central_peak_offset_arcsec": 0.25131,
+      "science_mask_status": "MASK_CORE_NO_DISQUALIFYING_BITS_PROVISIONAL_ONLY",
+      "science_pixel_status": "PIXEL_WCS_PROVISIONAL_SCREEN_COMPLETED",
+      "science_sha256": "2ea589d2fc95a9bab5a482d45d59d032c97bf235f904957a411d38c0ddb49659",
+      "selection": {
+        "band": "g",
+        "original_field_ccd_quadrant": [
+          1605,
+          15,
+          3
+        ],
+        "original_filefracday": "20191119385185",
+        "original_mjd": 58806.385197,
+        "ztf_oid": "1605115300003377"
+      },
+      "source_blend_excluded": false
+    },
+    {
+      "all_three_instrument_source_checks_pass": true,
+      "external_astrometry_calibration_complete": false,
+      "gaia_quality_warning": false,
+      "gaia_ruwe": 1.3265878,
+      "mask_annulus_bad_pixel_fraction": 0.0,
+      "mask_core_bad_pixels": 0,
+      "mask_core_saturated_pixels": 0,
+      "mask_image_wcs_aligned": true,
+      "mask_sha256": "f0cac334a62ccf1a4f63c2da1dcf80db63644c79976bf655cc196346ede4e429",
+      "native_full_catalogue_sha256": "7f880ed401a96de302627bf9e9f67fdac25208860feb8be9cffb12758e535744",
+      "native_nearest_gaia_offset_arcsec": 0.069015,
+      "native_psf_status": "PROVISIONAL_CATALOGUE_NEAREST_AND_PROFILE_SCREEN_PASSED",
+      "native_second_source_within_5arcsec_offset": null,
+      "native_secondary_sources_within_3arcsec": 0,
+      "native_source_catalogue_n_rows": 4956,
+      "native_source_quality_passed": true,
+      "new_source_variability_confirmed": false,
+      "original_cutout_query_sha256": "1e1913db28d6b4aebfacb84068dd9d3da23c672b290e8e0fa5a1411cd38430e2",
+      "original_image_is_not_a_new_survey_epoch": true,
+      "original_native_source_position_offset_mas": {
+        "external_gaia_formal_errors_are_not_full_instrument_errors": true,
+        "native_minus_gaia_east_mas": 24.837,
+        "native_minus_gaia_north_mas": 64.391,
+        "native_offset_angular_proxy_mas": 69.015,
+        "original_zTF_wcs_zeropoint_independently_measured": false
+      },
+      "original_science_product_identifier": "ztf_20191119385648_000609_zg_c08_o_q4_sciimg.fits",
+      "original_ztf_source_identity_verified": false,
+      "science_additional_bright_peaks_within_12arcsec": 0,
+      "science_central_peak_found": true,
+      "science_central_peak_offset_arcsec": 0.38518,
+      "science_mask_status": "MASK_CORE_NO_DISQUALIFYING_BITS_PROVISIONAL_ONLY",
+      "science_pixel_status": "PIXEL_WCS_PROVISIONAL_SCREEN_COMPLETED",
+      "science_sha256": "e9790e6ad10e8a1a952c1841cb9da9cd151200e32e02f4a06703f692942f9010",
+      "selection": {
+        "band": "g",
+        "original_field_ccd_quadrant": [
+          609,
+          8,
+          4
+        ],
+        "original_filefracday": "20191119385648",
+        "original_mjd": 58806.385648,
+        "ztf_oid": "609108400001155"
+      },
+      "source_blend_excluded": false
+    },
+    {
+      "all_three_instrument_source_checks_pass": true,
+      "external_astrometry_calibration_complete": false,
+      "gaia_quality_warning": false,
+      "gaia_ruwe": 1.3265878,
+      "mask_annulus_bad_pixel_fraction": 0.0,
+      "mask_core_bad_pixels": 0,
+      "mask_core_saturated_pixels": 0,
+      "mask_image_wcs_aligned": true,
+      "mask_sha256": "ed374a4664a950ec30929db89fe7ac2a10db075bac7e34a8c45eedc787434cfa",
+      "native_full_catalogue_sha256": "f25dc162b87c84426e3bc467a3f21da802e2dbba0885be93314001fb1840fe5b",
+      "native_nearest_gaia_offset_arcsec": 0.035434,
+      "native_psf_status": "PROVISIONAL_CATALOGUE_NEAREST_AND_PROFILE_SCREEN_PASSED",
+      "native_second_source_within_5arcsec_offset": null,
+      "native_secondary_sources_within_3arcsec": 0,
+      "native_source_catalogue_n_rows": 8425,
+      "native_source_quality_passed": true,
+      "new_source_variability_confirmed": false,
+      "original_cutout_query_sha256": "397dc936c37c60014d1f7e4374f923884131481967945d25a50324ab0b1c2445",
+      "original_image_is_not_a_new_survey_epoch": true,
+      "original_native_source_position_offset_mas": {
+        "external_gaia_formal_errors_are_not_full_instrument_errors": true,
+        "native_minus_gaia_east_mas": -29.449,
+        "native_minus_gaia_north_mas": 19.706,
+        "native_offset_angular_proxy_mas": 35.434,
+        "original_zTF_wcs_zeropoint_independently_measured": false
+      },
+      "original_science_product_identifier": "ztf_20181103306065_001605_zr_c15_o_q3_sciimg.fits",
+      "original_ztf_source_identity_verified": false,
+      "science_additional_bright_peaks_within_12arcsec": 0,
+      "science_central_peak_found": true,
+      "science_central_peak_offset_arcsec": 0.41884,
+      "science_mask_status": "MASK_CORE_NO_DISQUALIFYING_BITS_PROVISIONAL_ONLY",
+      "science_pixel_status": "PIXEL_WCS_PROVISIONAL_SCREEN_COMPLETED",
+      "science_sha256": "262dab94b2d0e1ce0b3e22d30993a82abf91f9bc69516a8c61b650134229aec6",
+      "selection": {
+        "band": "r",
+        "original_field_ccd_quadrant": [
+          1605,
+          15,
+          3
+        ],
+        "original_filefracday": "20181103306065",
+        "original_mjd": 58425.306065,
+        "ztf_oid": "1605215300005161"
+      },
+      "source_blend_excluded": false
+    },
+    {
+      "all_three_instrument_source_checks_pass": true,
+      "external_astrometry_calibration_complete": false,
+      "gaia_quality_warning": false,
+      "gaia_ruwe": 1.3265878,
+      "mask_annulus_bad_pixel_fraction": 0.0,
+      "mask_core_bad_pixels": 0,
+      "mask_core_saturated_pixels": 0,
+      "mask_image_wcs_aligned": true,
+      "mask_sha256": "578fa0893e2b9c74070766d69b59823aa38505cc98512ffef1150fe90ff74330",
+      "native_full_catalogue_sha256": "b9c50a4e8258989cd64c33e6230513be20ecca0ce3d3e0bc0388e459fdcc8c17",
+      "native_nearest_gaia_offset_arcsec": 0.063244,
+      "native_psf_status": "PROVISIONAL_CATALOGUE_NEAREST_AND_PROFILE_SCREEN_PASSED",
+      "native_second_source_within_5arcsec_offset": null,
+      "native_secondary_sources_within_3arcsec": 0,
+      "native_source_catalogue_n_rows": 8375,
+      "native_source_quality_passed": true,
+      "new_source_variability_confirmed": false,
+      "original_cutout_query_sha256": "525e8266fd5caae46dc698e852d1f4130f49203f7baaf3505a5c4f8d624b3ad0",
+      "original_image_is_not_a_new_survey_epoch": true,
+      "original_native_source_position_offset_mas": {
+        "external_gaia_formal_errors_are_not_full_instrument_errors": true,
+        "native_minus_gaia_east_mas": 46.611,
+        "native_minus_gaia_north_mas": 42.746,
+        "native_offset_angular_proxy_mas": 63.244,
+        "original_zTF_wcs_zeropoint_independently_measured": false
+      },
+      "original_science_product_identifier": "ztf_20181103306516_000609_zr_c08_o_q4_sciimg.fits",
+      "original_ztf_source_identity_verified": false,
+      "science_additional_bright_peaks_within_12arcsec": 0,
+      "science_central_peak_found": true,
+      "science_central_peak_offset_arcsec": 0.37733,
+      "science_mask_status": "MASK_CORE_NO_DISQUALIFYING_BITS_PROVISIONAL_ONLY",
+      "science_pixel_status": "PIXEL_WCS_PROVISIONAL_SCREEN_COMPLETED",
+      "science_sha256": "f0da2d9c15e67b007d44dd4a09e4e1e52560c99d5ddccfd55aa47dd26f80d729",
+      "selection": {
+        "band": "r",
+        "original_field_ccd_quadrant": [
+          609,
+          8,
+          4
+        ],
+        "original_filefracday": "20181103306516",
+        "original_mjd": 58425.306516,
+        "ztf_oid": "609208400001969"
+      },
+      "source_blend_excluded": false
+    }
+  ],
+  "original_gaia_source_response_sha256": "399b5498d8d8a8a646073dfc029895ed64902940896d1789c63833a18074b642",
+  "phase": "TAURUS_R2_FTTAU_TWO_ORIGINAL_FIELDS_TWO_BANDS_FITS_MASK_PSF_QA_NOT_PHYSICAL_CROSSMATCH",
+  "r2_physical_source_identity_science_complete": false,
+  "selected_gaia_dr3_exact_source_id": "149623711269425408",
+  "selected_physical_target_name": "FT Tau",
+  "source_oid_metadata": [
+    {
+      "band": "g",
+      "n_eligible_distinct_original_science_exposures": 70,
+      "n_original_rows": 79,
+      "native_field": "1605",
+      "original_oid": "1605115300003377",
+      "original_raw_csv_sha256": "64916a8825f14f1f39dbf16aaf3e404d04cab5c0ab5a258b7d53973f0cf0af87",
+      "original_response_status": "ORIGINAL_DIRECT_OID_METADATA_VALID",
+      "rejected_original_rows": {
+        "masked_catflags": 9
+      }
+    },
+    {
+      "band": "g",
+      "n_eligible_distinct_original_science_exposures": 404,
+      "n_original_rows": 468,
+      "native_field": "609",
+      "original_oid": "609108400001155",
+      "original_raw_csv_sha256": "391b35a3232341f0c1f9701522cb52aced730d4a9098da9d3ae6c40f2d6d8004",
+      "original_response_status": "ORIGINAL_DIRECT_OID_METADATA_VALID",
+      "rejected_original_rows": {
+        "masked_catflags": 64
+      }
+    },
+    {
+      "band": "r",
+      "n_eligible_distinct_original_science_exposures": 117,
+      "n_original_rows": 137,
+      "native_field": "1605",
+      "original_oid": "1605215300005161",
+      "original_raw_csv_sha256": "617c76349d0ed00c34e0cbcbcae92a51916970a114725d2e36413a94eefcefbf",
+      "original_response_status": "ORIGINAL_DIRECT_OID_METADATA_VALID",
+      "rejected_original_rows": {
+        "masked_catflags": 20
+      }
+    },
+    {
+      "band": "r",
+      "n_eligible_distinct_original_science_exposures": 608,
+      "n_original_rows": 758,
+      "native_field": "609",
+      "original_oid": "609208400001969",
+      "original_raw_csv_sha256": "8f2398fe162be8a395a4baf495665fa5a7f9916251c6af31ea10a9f04bd98537",
+      "original_response_status": "ORIGINAL_DIRECT_OID_METADATA_VALID",
+      "rejected_original_rows": {
+        "masked_catflags": 150
+      }
+    }
+  ]
+}
