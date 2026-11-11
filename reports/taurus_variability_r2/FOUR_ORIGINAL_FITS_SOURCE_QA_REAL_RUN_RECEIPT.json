@@ -1,0 +1,32 @@
+{
+  "schema_version": "stellarforge-r2-four-original-ztf-fits-native-psfcat-qa-receipt-v1",
+  "date_of_qa_utc": "2026-11-11",
+  "actual_live_original_data_workflow_id": 43059114825,
+  "original_data_workflow_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43059114825",
+  "gh_original_derived_only_artifact_id": 13873466036,
+  "gh_zip_sha256": "b782de857569a3e76df19e1d3940bf0a79f204eba2b40b33de82ee121b2b9b29",
+  "original_derived_json_sha256": "5d10a39bbce8c9c23183ea251bd52b254a2e347955bf0fc3f04f227c1774ba61",
+  "original_gaia_tap_response_sha256": "31ec0a7b19e424f06ea1d9d26ac930a1e633418e6285efe469d41c58c457cd99",
+  "original_r1_frozen_24_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "n_historic_original_exposures": 4,
+  "n_technical_targets_examined": 2,
+  "target_labels": [
+    "FT Tau",
+    "CIDA 11"
+  ],
+  "n_fixed_original_oid_mjd_metadata_records": 4,
+  "n_original_native_psfcat_catalogues_evaluated": 4,
+  "n_original_science_fits_and_mask_pairs_evaluated": 4,
+  "n_native_psfcat_with_one_close_gaia_positional_candidate_within_1arcsec": 4,
+  "n_frames_with_other_native_psfcat_source_within_3arcsec": 0,
+  "n_frames_with_additional_bright_image_local_maxima_within_12arcsec": 0,
+  "n_bad_or_saturated_image_mask_cores": 0,
+  "n_confirmed_physical_gaia_ztf_associations": 0,
+  "n_confirmed_new_variable_stars": 0,
+  "n_confirmed_new_companions": 0,
+  "original_gaia_ztf_source_identity_independently_established": false,
+  "complete_r2_scientific_identity_verification": false,
+  "number_original_observation_epochs_added_to_prior_stellarforge_research": 0,
+  "raw_fits_published": false,
+  "caveat": "Four original exposures had nominal Gaia/native-PSFcat and original image-mask positional consistency. All data are from the same ZTF survey pipeline; zero neighbours in native catalogue and pixels does not disprove faint/unresolved blending, nor prove Gaia–ZTF physical identity."
+}
