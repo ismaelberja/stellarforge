@@ -125,25 +125,30 @@ For a concise explanation suitable for recruiting and interviews, see [StellarFo
 ## Independent Taurus variability research — R1 and ongoing R2
 
 StellarForge v2.0 remains a **finished software-engineering portfolio**.
-The separate observational study is ongoing and uses a fixed,
-**nonrepresentative 24-source technical Taurus seed**; there is
-**no independently confirmed Gaia–ZTF physical source match**.
+The independent observational Taurus study continues with **24 fixed,
+nonrepresentative technical Gaia DR3 candidate IDs**.
 
-**New R2 real-data recovery (11 November 2026):** the original Gaia
-survey returned all 24 exact identifiers; 17 met preliminary
-Gaia-only quality flags. Initial IRSA access returned just 2/24
-parsable positional source tables. A later bounded, documented
-requery recovered **13 additional original-format ZTF responses**,
-bringing the **cumulative accessible fields to 15/24** across
-separate runs. Eight further original requests timed out, one
-returned a zero-row table under its filter, and the attempted
-alternate NUM_OBS=1 parameter returned HTTP 400 for these nine.
-**These are archive/query statuses, not stellar nondetections.**
+**Latest genuine ZTF archive access result (11 November 2026):**
+the original Gaia exact-ID query found 24/24 source IDs (17 passing
+preliminary Gaia-only astrometric quality gates). ZTF/IRSA access
+progressed from 2/24 to 15/24 after a first diagnostic, and the latest
+controlled original-data run retrieved **7 more** sky-position tables.
+Thus **22 of 24 original positions now have parsed ZTF positional
+source data** across three documented runs. One of the remaining
+positions yielded a **zero-row table under a five-visit filter**;
+the other returned **HTTP 400** under a reduced-count request.
 
-[Original HTTP recovery report](research/taurus_variability/R2_REAL_IRSA_22_FAILURE_DIAGNOSIS_RESULTS.md) ·
-[Derived no-raw per-source ledger](reports/taurus_variability_r2/IRSA_22_ORIGINAL_DERIVED_DIAGNOSTIC_LEDGER.json) ·
-[Research R1–R6 roadmap](research/taurus_variability/R1_TO_R6_RESEARCH_PLAN.md) ·
-[Original live archive run](https://github.com/ismaelberja/stellarforge/actions/runs/43037800319)
+**Crucially, zero physical Gaia–ZTF counterpart identities and zero
+new stellar variability results have been scientifically confirmed.**
+Catalog positional matches are not proof of source identity, and
+missing/empty archive responses are **not astrophysical nondetections**.
+Original survey FITS/mask/PSF, independent crowding and membership
+checks remain open before any science classification.
+
+[Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
+[Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
+[No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·
+[R1–R6 research roadmap](research/taurus_variability/R1_TO_R6_RESEARCH_PLAN.md)
 
 ## Status after v2.0
 

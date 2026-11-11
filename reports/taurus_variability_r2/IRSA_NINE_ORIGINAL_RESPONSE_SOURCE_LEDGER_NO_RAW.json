@@ -1,0 +1,192 @@
+{
+  "frozen_r1_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "limitations": [
+    "The original 15 previously parseable source positions are historical, not newly downloaded here.",
+    "Nine Gaia-seed-centred ZTF sky queries cannot establish physical Gaia/ZTF source identities.",
+    "Unreturned/empty tables are not nonvariable stars or proof of an empty sky.",
+    "ZTF object IDs may be multiple per band, and original FITS image/mask/PSF evidence remains unreviewed.",
+    "This technical Taurus subset is nonrepresentative of the Taurus stellar population."
+  ],
+  "n_actual_original_irsa_requests": 9,
+  "n_cumulative_positions_with_historically_parsed_ztf_rows": 22,
+  "n_genuine_astrophysical_variability_results_confirmed": 0,
+  "n_new_positions_with_parsed_positional_ztf_rows": 7,
+  "n_original_science_image_psf_mask_vetted": 0,
+  "n_still_without_any_parsed_original_ztf_response": 2,
+  "n_ztf_physical_counterparts_independently_verified": 0,
+  "per_request_status_counts": {
+    "HTTP_CLIENT_ERROR": 1,
+    "PARSED_TABLE_WITH_ROWS": 7,
+    "PARSED_TABLE_ZERO_ROWS": 1
+  },
+  "per_source": [
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "01adb2b6fb8730f5ab1d1070c1561784a3544c95dd5eebc7cec59bb44070e786",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "6f4c157049aeb74c6f35d7fc853b85288349b4c4784caebe863a80f8ae65011b",
+        "response_bytes": 461752,
+        "response_content_type_group": "CSV",
+        "returned_rows": 1795,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "162259951730099968",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "b8c326e9018d35d83ca1a4deecda10b975a1eeff08f8284cf326a3a754cea679",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "f565fbdcda065f32c8435f331cc71b3080b5c3369ade628ccdde09e4c29516ea",
+        "response_bytes": 762980,
+        "response_content_type_group": "CSV",
+        "returned_rows": 2962,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "156732977357829888",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "fcece59c5286723da193a4e8cc7c1f52fd47890e5e6cc3c73769ddf23436c731",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "de232b51175eb8f2b734d8f305a3094842ed899cf36d41a6c18ff49826ce33f0",
+        "response_bytes": 255860,
+        "response_content_type_group": "CSV",
+        "returned_rows": 992,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "156577881796362496",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "6c3f98e71a43db75ca9bde12dbbd30583b65310432bef2960e7e935e0d0b0a51",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "58ba5e04563558d322af647899beafd5c8fd41f26d27f58f2293898789a1a1eb",
+        "response_bytes": 372395,
+        "response_content_type_group": "CSV",
+        "returned_rows": 1442,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "149623711269425408",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "3530dc8d6a1d4ffbf6cb0a9bbdc62bc4a57429abc45c8da29d130560f4f36724",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "3c02f7c547cf6320e18bfc72d005adddb3628cd86caefe85b92a0fbb09f34b89",
+        "response_bytes": 354461,
+        "response_content_type_group": "CSV",
+        "returned_rows": 1376,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "146764465639042176",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "5fe15c8ffb30dbae420cb9414f5b29231b9693fbb155cbf4640e38a09e98bb31",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "6f9e0a2bd4a198e603215f7041511b64887b559a919085d2221af346fb6b5540",
+        "response_bytes": 364470,
+        "response_content_type_group": "CSV",
+        "returned_rows": 1412,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "3418414193726125184",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "d35b7925f47f608072ad81c389b36e208216ae1a595ed8ba811c945cf77d7a34",
+        "outcome": "PARSED_TABLE_ZERO_ROWS",
+        "query_sha256": "eee80342399ebc4bfff69efa9be077ba0dd893c2c6d5e397241f7ded0a57235b",
+        "response_bytes": 162,
+        "response_content_type_group": "CSV",
+        "returned_rows": 0,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "3314244366165299584",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": false,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 200,
+        "original_response_sha256": "1e87368a269d731332e5f8f8b6359f612be2c4da7720d6dda4bba120cab67396",
+        "outcome": "PARSED_TABLE_WITH_ROWS",
+        "query_sha256": "44e1ef5ab29ef2d99b636f616d505b902a3e24655c3104be88adb12c193a97f2",
+        "response_bytes": 277427,
+        "response_content_type_group": "CSV",
+        "returned_rows": 1079,
+        "source_table_format": "csv",
+        "variant": "NOBS_MIN_5"
+      },
+      "gaia_dr3_source_id": "3314299238667410176",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": true,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "NETWORK_TIMEOUT"
+    },
+    {
+      "current_original_provider_response": {
+        "http_status": 400,
+        "original_response_sha256": null,
+        "outcome": "HTTP_CLIENT_ERROR",
+        "query_sha256": "35fad381e667486699bb1cc221f37ea6d1b481254f15f3ec2f459de7cc16ae01",
+        "response_bytes": null,
+        "response_content_type_group": "UNKNOWN",
+        "returned_rows": null,
+        "variant": "NOBS_MIN_1"
+      },
+      "gaia_dr3_source_id": "3406270362673330944",
+      "observed_stellar_variability_confirmed": false,
+      "parsed_positional_table_with_rows": false,
+      "physical_gaia_ztf_source_identity_authenticated": false,
+      "previous_status": "PARSED_TABLE_ZERO_ROWS"
+    }
+  ],
+  "phase": "TAURUS_R2_NINE_ORIGINAL_IRSA_REQUESTS_NOT_PHYSICAL_CROSSMATCH",
+  "preceding_original_irsa_diagnostic_run": 43037800319,
+  "preexisting_parsed_ztf_sky_positions": 15,
+  "previously_unresolved_ztf_positions": 9,
+  "public_source_derived_statuses_only": true,
+  "scientific_r2_complete": false,
+  "source_gaia_dr3_ids_frozen": 24
+}
