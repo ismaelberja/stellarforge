@@ -122,6 +122,10 @@ Read the [Spanish practical guide](docs/V2_GUIA_ES.md) or [complete reproducibil
 
 For a concise explanation suitable for recruiting and interviews, see [StellarForge on a CV — English/Spanish](docs/V2_PORTFOLIO_CV_ES_EN.md). The [research status](docs/PROJECT_STATUS.md), [roadmap](docs/ROADMAP.md) and [release notes](RELEASE_NOTES_v2.0.md) remain available for deeper technical review.
 
+## Optional independent astronomy research continuation — Taurus R1–R2
+
+**New genuine Gaia DR3 R2 catalogue check (11 November 2026):** all 24 frozen technical Taurus Gaia IDs were found in two real exact-ID queries; 17 met preliminary Gaia-only astrometric quality gates, 7 have RUWE ≥ 1.4. **Zero Gaia–ZTF physical source identities were independently confirmed**, and source/crowding validation is still outstanding. [Actual original-data R2 report](research/taurus_variability/R2_REAL_GAIA_24_EXACT_ID_SCREEN.md) · [GitHub Actions original run](https://github.com/ismaelberja/stellarforge/actions/runs/43029175432).
+
 ## Optional independent astronomy research continuation — Taurus R1
 
 **The v2.0 engineering portfolio remains complete.** A **separate R1 feasibility
