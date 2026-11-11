@@ -177,7 +177,7 @@ def diagnose_frozen_24(seed: bytes, plan: dict, *,
             ra, dec = float(original["ra"]), float(original["dec"])
             original_attempt = request_fn(ra, dec, "NOBS_MIN_5")
             attempts = [original_attempt]
-            if original_attempt["outcome"] not in VALID and original_attempt["outcome"] not in (
+            if original_attempt["outcome"] != "PARSED_TABLE_WITH_ROWS" and original_attempt["outcome"] not in (
                     "HTTP_RATE_LIMIT", "HTTP_SERVER_ERROR", "RESPONSE_TOO_LARGE_TO_VALIDATE"):
                 attempts.append(request_fn(ra, dec, "NUM_OBS_1"))
             row["diagnostic_attempts"] = attempts
