@@ -1,0 +1,68 @@
+{
+  "schema_version": "stellarforge-r2-genuine-external-PS1DR2-mean-source-color-pilot-receipt-v1",
+  "utc_date": "2026-11-11",
+  "authentic_original_survey_workflow_run": 43102892830,
+  "original_data_workflow_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43102892830",
+  "original_derived_artifact_id": 13892248204,
+  "source_zip_sha256": "914bfa3061867451c15d9a0fdb712f958f61f38cac9b21e7d116dd14282ea12d",
+  "source_uncompressed_derived_json_sha256": "d9ceae81d56ccdebd7dea1cc10b15c66aab4b118d4b726dc8b7e07b98f8de17f",
+  "original_independent_mast_PS1_DR2_raw_csv_sha256": "3038bd93cd21820dbc584e7d4081f7c279109ca36a0988fc55d279a94d29ca95",
+  "unchanged_prior_720_original_internal_ensemble_json_sha256": "b0186cd85d47c32cca7e87ce8a98d8a8b27448c391822ef2bed55bf0256c2558",
+  "unchanged_prior_four_image_original_json_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "unchanged_original_r1_technical_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "frozen_taurus_technical_population_n": 24,
+  "fixed_original_ft_tau_ztf_OID_count": 4,
+  "n_new_ztf_observing_epochs_selected": 0,
+  "n_original_MAST_PS1_DR2_mean_catalogue_rows": 1780,
+  "n_PS1_DR2_source_rows_passing_predeclared_all_screen": 405,
+  "n_original_ZTF_native_PSFCAT_sha_reverified": 4,
+  "n_confirmed_physical_gaia_ztf_FT_TAU_target_counterparts": 0,
+  "g": {
+    "n_unique_source_triples_ZTF1605_ZTF609_independentPS1": 82,
+    "n_train": 42,
+    "n_holdout": 40,
+    "field_1605": {
+      "ps1_minus_native_instrumental_intercept_mag": 26.19613,
+      "PS1_color_slope": -0.03648,
+      "holdout_median_residual_mag": -0.00946,
+      "holdout_robust_residual_scatter_mag": 0.0359
+    },
+    "field_609": {
+      "ps1_minus_native_instrumental_intercept_mag": 26.08484,
+      "PS1_color_slope": -0.05456,
+      "holdout_median_residual_mag": 0.00127,
+      "holdout_robust_residual_scatter_mag": 0.02735
+    },
+    "descriptive_delta_PS1_reference_intercept_field609_minus1605": -0.11129,
+    "previous_ZTF_same_pipeline_header_delta_MAGZP": -0.087808,
+    "pilot_both_field_color_heldout_qc_pass": true
+  },
+  "r": {
+    "n_unique_source_triples_ZTF1605_ZTF609_independentPS1": 180,
+    "n_train": 94,
+    "n_holdout": 86,
+    "field_1605": {
+      "ps1_minus_native_instrumental_intercept_mag": 26.14535,
+      "PS1_color_slope": 0.10425,
+      "holdout_median_residual_mag": 0.00318,
+      "holdout_robust_residual_scatter_mag": 0.02444
+    },
+    "field_609": {
+      "ps1_minus_native_instrumental_intercept_mag": 26.14388,
+      "PS1_color_slope": 0.11878,
+      "holdout_median_residual_mag": -0.00014,
+      "holdout_robust_residual_scatter_mag": 0.02454
+    },
+    "descriptive_delta_PS1_reference_intercept_field609_minus1605": -0.00147,
+    "previous_ZTF_same_pipeline_header_delta_MAGZP": -0.000961,
+    "pilot_both_field_color_heldout_qc_pass": true
+  },
+  "n_bands_with_internal_external_catalogue_source_reference_holdout_pass": 2,
+  "n_independently_certified_absolute_photometric_calibrations": 0,
+  "n_independently_authenticated_Gaia_ZTF_physical_matches": 0,
+  "n_merged_ZTF_ObjectID_lightcurves": 0,
+  "n_confirmed_new_FT_TAU_variables_or_companions": 0,
+  "r2_physical_source_identity_science_complete": false,
+  "external_PanSTARRS_source_rows_and_individual_identifiers_committed": false,
+  "interpretation": "Authentic external MAST PS1 DR2 mean source rows independently queried and reference-matched 82 g / 180 r clean ZTF two-field source triples. Both g/r empirical color-vs-native-instrumental source-reference fits pass original PS1-source-ID heldout QC in the fixed four ZTF exposures. ZTF pipeline itself used PS1 calibration stars, so this is not statistically independent of original ZTF data processing, full photometric calibration, a confirmed physical Gaia-ZTF FT Tau target source, nor astrophysical variability."
+}
