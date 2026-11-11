@@ -93,7 +93,7 @@ def parse_ps1_original_mean(raw:bytes,*,ra0:float,dec0:float)->dict:
     if not isinstance(raw,bytes) or not raw or len(raw)>PS1_MAX_BYTES:
         raise ValueError("No bounded original PS1 DR2 catalogue")
     try:
-        decoded=raw.decode("utf8")
+        decoded=raw.decode("utf-8-sig")  # Valid MAST CSV may contain a UTF-8 BOM
     except UnicodeDecodeError as exc:
         raise ValueError("Not UTF8 MAST CSV") from exc
     rows=list(csv.DictReader(io.StringIO(decoded)))
