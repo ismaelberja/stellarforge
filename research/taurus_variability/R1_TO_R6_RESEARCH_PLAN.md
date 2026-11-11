@@ -1,19 +1,20 @@
 # R1–R6 practical research milestones
 
-**Latest R2 status (11 November 2026):**
-[Original IRSA query diagnosis](R2_REAL_IRSA_22_FAILURE_DIAGNOSIS_RESULTS.md)
-recovered **13 of 22** previously unavailable positional response
-tables using the *unchanged* original IRSA query shape, for **15
-of 24** cumulatively accessible technical sky positions across
-the earlier and current runs. **Nine** remain unresolved (eight
-timeouts, one valid zero-row response to a restricted query);
-the alternate NUM_OBS=1 requests all returned HTTP 400.
-The [24 exact Gaia ID query](R2_REAL_GAIA_24_EXACT_ID_SCREEN.md)
-returned 24/24 sources, 17 passing provisional Gaia-only
-astrometric flags. **R2 is not complete** because independently
-verified Gaia-to-ZTF physical source identities, original image
-crowding and publisher literature membership still remain open.
-None of the access failures are astrophysical nondetections.
+**Latest observational R2 progress (11 November 2026):**
+[the original IRSA nine-position follow-up](R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md)
+recovered **seven** additional previously inaccessible ZTF positional
+response tables. Across documented runs, the archive has returned
+parseable positional data for **22 of 24** fixed technical Taurus sky
+positions. The other two remain unresolved: one zero-row response
+under NOBS_MIN=5, and one HTTP 400 when trying NOBS_MIN=1.
+The Gaia DR3 original exact-ID query returned 24/24 Gaia source IDs;
+17 passed preliminary Gaia-only astrometric flags.
+
+**R2 is NOT complete:** genuine physical Gaia–ZTF association,
+independent original FITS/mask/PSF crowding evidence and original
+publisher Taurus catalogue membership review remain unverified.
+Neither missing IRSA responses nor provisional positional matches
+establish astronomical nonvariability or real detections.
 
 There are **six planned increments in total** for a modest, bounded
 **independent Taurus optical-variability feasibility study**. This is
