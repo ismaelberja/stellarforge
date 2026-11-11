@@ -178,7 +178,7 @@ def test_genuine_external_PS1_access_failure_does_not_generate_false_gaia_ztf_ma
 def test_old_720_results_cannot_be_mutated_to_fake_independent_ps1_crossmatch():
     changed=json.loads(json.dumps(PREVIOUS))
     changed["n_directly_crossmatched_independent_PS1_reference_sources"]=1
-    with pytest.raises(ValueError,match="previously frozen"):
+    with pytest.raises(ValueError,match="Previously frozen"):
         original_external_ps1_ft_tau_study(
             SEED,HIST,OID,IMAGES,changed,
             external_fetch=lambda *a,**k:b"fake",ztf_fetch=lambda *a,**k:b"fake")
