@@ -1,3 +1,5 @@
+**R2 observational positional follow-up (11 November 2026):** [24/24 real Gaia neighbours audited, 2/24 IRSA ZTF positional responses parsed, 22/24 unavailable/unparseable; both ZTF-positive fields have multiple OIDs in the same band](R2_REAL_GAIA_NEIGHBOURS_ZTF_POSITIONS.md). **This does not complete R2:** original science FITS image/mask PSF and independent counterpart identity remain pending. Unavailable IRSA responses are not non-variable targets.
+
 # R1–R6 practical research milestones
 
 **R2 live Gaia-only subset completed 11 November 2026:** [24/24 exact Gaia DR3 records returned, 17 preliminary Gaia-only quality screens passed, 7 RUWE ≥ 1.4](R2_REAL_GAIA_24_EXACT_ID_SCREEN.md). **R2 remains incomplete** until independent original Gaia-to-ZTF counterpart identity and crowding checks are performed. This is not 24 verified light curves.
