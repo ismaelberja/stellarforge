@@ -1,0 +1,218 @@
+{
+  "fields": [
+    {
+      "gaia_dr3_id": "149623711269425408",
+      "gaia_original_source_available": true,
+      "historic_oid_direct_screen": {
+        "historical_oid_bands": [
+          "g"
+        ],
+        "historical_oid_is_physical_gaia_counterpart_verified": false,
+        "historical_original_ztf_oid": "1605115300003377",
+        "n_historic_oid_bands": 1,
+        "n_original_oid_rows": 79,
+        "original_historic_direct_raw_sha256_no_rows_committed": "64916a8825f14f1f39dbf16aaf3e404d04cab5c0ab5a258b7d53973f0cf0af87",
+        "status": "ORIGINAL_HISTORIC_OID_DIRECT_IRSA_QUERY_PARSED"
+      },
+      "historic_oid_present_in_2arcsec_positional_query": true,
+      "historic_original_image_mjds": [
+        58388.389016,
+        58491.18478
+      ],
+      "historic_original_ztf_oid": "1605115300003377",
+      "original_gaia_ztf_physical_identity_confirmed": false,
+      "positional_oid_screen": {
+        "all_oid_curves_kept_separate": true,
+        "all_source_identities_physical_unconfirmed": true,
+        "n_original_distinct_ztf_oids": 4,
+        "n_original_oid_band_groups": 4,
+        "n_original_oid_pairs_in_same_band": 2,
+        "n_original_positional_table_rows": 1442,
+        "n_quality_accepted_photometric_rows": 1199,
+        "n_same_band_oid_pairs_sharing_exact_original_exposure_metadata": 0,
+        "n_ztf_oid_bands_with_missing_exposure_metadata": 0,
+        "original_irsa_raw_sha256_not_saved": "6c3f98e71a43db75ca9bde12dbbd30583b65310432bef2960e7e935e0d0b0a51",
+        "original_ztf_oid_band_groups": [
+          {
+            "band": "g",
+            "gaia_ztf_physical_identity_confirmed": false,
+            "median_original_survey_pos_vs_approx_Gaia_arcsec": 0.08542,
+            "n_distinct_metadata_identified_survey_exposures": 79,
+            "n_original_raw_table_rows": 79,
+            "n_original_rows_with_incomplete_exposure_metadata": 0,
+            "n_quality_accepted_epoch_rows": 70,
+            "n_unique_original_field_ccd_quadrant_combinations": 1,
+            "original_field_ccd_quadrant_labels": [
+              "1605/0xf/0x3"
+            ],
+            "positional_proximity_screen": "AMBIGUOUS_MULTIPLE_ZTF_OIDS_SAME_BAND",
+            "ztf_oid": "1605115300003377"
+          },
+          {
+            "band": "r",
+            "gaia_ztf_physical_identity_confirmed": false,
+            "median_original_survey_pos_vs_approx_Gaia_arcsec": 0.0902,
+            "n_distinct_metadata_identified_survey_exposures": 137,
+            "n_original_raw_table_rows": 137,
+            "n_original_rows_with_incomplete_exposure_metadata": 0,
+            "n_quality_accepted_epoch_rows": 117,
+            "n_unique_original_field_ccd_quadrant_combinations": 1,
+            "original_field_ccd_quadrant_labels": [
+              "1605/0xf/0x3"
+            ],
+            "positional_proximity_screen": "AMBIGUOUS_MULTIPLE_ZTF_OIDS_SAME_BAND",
+            "ztf_oid": "1605215300005161"
+          },
+          {
+            "band": "g",
+            "gaia_ztf_physical_identity_confirmed": false,
+            "median_original_survey_pos_vs_approx_Gaia_arcsec": 0.09337,
+            "n_distinct_metadata_identified_survey_exposures": 468,
+            "n_original_raw_table_rows": 468,
+            "n_original_rows_with_incomplete_exposure_metadata": 0,
+            "n_quality_accepted_epoch_rows": 404,
+            "n_unique_original_field_ccd_quadrant_combinations": 1,
+            "original_field_ccd_quadrant_labels": [
+              "609/0x8/0x4"
+            ],
+            "positional_proximity_screen": "AMBIGUOUS_MULTIPLE_ZTF_OIDS_SAME_BAND",
+            "ztf_oid": "609108400001155"
+          },
+          {
+            "band": "r",
+            "gaia_ztf_physical_identity_confirmed": false,
+            "median_original_survey_pos_vs_approx_Gaia_arcsec": 0.08613,
+            "n_distinct_metadata_identified_survey_exposures": 758,
+            "n_original_raw_table_rows": 758,
+            "n_original_rows_with_incomplete_exposure_metadata": 0,
+            "n_quality_accepted_epoch_rows": 608,
+            "n_unique_original_field_ccd_quadrant_combinations": 1,
+            "original_field_ccd_quadrant_labels": [
+              "609/0x8/0x4"
+            ],
+            "positional_proximity_screen": "AMBIGUOUS_MULTIPLE_ZTF_OIDS_SAME_BAND",
+            "ztf_oid": "609208400001969"
+          }
+        ],
+        "raw_photometric_rows_persisted": false,
+        "same_band_multiple_oid_review_pairs": [
+          {
+            "band": "g",
+            "both_oids_same_band": "AMBIGUOUS_SOURCE_ASSOCIATION_NOT_MERGEABLE",
+            "different_physical_stars_established": false,
+            "first_ztf_oid": "1605115300003377",
+            "n_shared_identical_original_exposure_metadata_keys": 0,
+            "same_physical_star_established": false,
+            "second_ztf_oid": "609108400001155"
+          },
+          {
+            "band": "r",
+            "both_oids_same_band": "AMBIGUOUS_SOURCE_ASSOCIATION_NOT_MERGEABLE",
+            "different_physical_stars_established": false,
+            "first_ztf_oid": "1605215300005161",
+            "n_shared_identical_original_exposure_metadata_keys": 0,
+            "same_physical_star_established": false,
+            "second_ztf_oid": "609208400001969"
+          }
+        ],
+        "status": "ORIGINAL_ZTF_2ARCSEC_OID_FIELD_METADATA_PARSED"
+      },
+      "scientific_variability_confirmed": false,
+      "target": "FT Tau"
+    },
+    {
+      "gaia_dr3_id": "3419110734340795648",
+      "gaia_original_source_available": true,
+      "historic_oid_direct_screen": {
+        "historical_oid_bands": [
+          "g"
+        ],
+        "historical_oid_is_physical_gaia_counterpart_verified": false,
+        "historical_original_ztf_oid": "610106300008010",
+        "n_historic_oid_bands": 1,
+        "n_original_oid_rows": 469,
+        "original_historic_direct_raw_sha256_no_rows_committed": "80a3069cc7f5ec6d22686fc6fbd613e57cbee65709c222b0cd497aef6a03fd80",
+        "status": "ORIGINAL_HISTORIC_OID_DIRECT_IRSA_QUERY_PARSED"
+      },
+      "historic_oid_present_in_2arcsec_positional_query": true,
+      "historic_original_image_mjds": [
+        58475.11375,
+        58849.135984
+      ],
+      "historic_original_ztf_oid": "610106300008010",
+      "original_gaia_ztf_physical_identity_confirmed": false,
+      "positional_oid_screen": {
+        "all_oid_curves_kept_separate": true,
+        "all_source_identities_physical_unconfirmed": true,
+        "n_original_distinct_ztf_oids": 2,
+        "n_original_oid_band_groups": 2,
+        "n_original_oid_pairs_in_same_band": 0,
+        "n_original_positional_table_rows": 1206,
+        "n_quality_accepted_photometric_rows": 1013,
+        "n_same_band_oid_pairs_sharing_exact_original_exposure_metadata": 0,
+        "n_ztf_oid_bands_with_missing_exposure_metadata": 0,
+        "original_irsa_raw_sha256_not_saved": "a0248b6704b734a5bbb5629bfb0b1ec78776bd295ce187ddf7eb46dc27537b9a",
+        "original_ztf_oid_band_groups": [
+          {
+            "band": "g",
+            "gaia_ztf_physical_identity_confirmed": false,
+            "median_original_survey_pos_vs_approx_Gaia_arcsec": 0.08578,
+            "n_distinct_metadata_identified_survey_exposures": 469,
+            "n_original_raw_table_rows": 469,
+            "n_original_rows_with_incomplete_exposure_metadata": 0,
+            "n_quality_accepted_epoch_rows": 397,
+            "n_unique_original_field_ccd_quadrant_combinations": 1,
+            "original_field_ccd_quadrant_labels": [
+              "610/0x6/0x3"
+            ],
+            "positional_proximity_screen": "WITHIN_PROVISIONAL_2_ARCSEC_RADIUS",
+            "ztf_oid": "610106300008010"
+          },
+          {
+            "band": "r",
+            "gaia_ztf_physical_identity_confirmed": false,
+            "median_original_survey_pos_vs_approx_Gaia_arcsec": 0.06198,
+            "n_distinct_metadata_identified_survey_exposures": 737,
+            "n_original_raw_table_rows": 737,
+            "n_original_rows_with_incomplete_exposure_metadata": 0,
+            "n_quality_accepted_epoch_rows": 616,
+            "n_unique_original_field_ccd_quadrant_combinations": 1,
+            "original_field_ccd_quadrant_labels": [
+              "610/0x6/0x3"
+            ],
+            "positional_proximity_screen": "WITHIN_PROVISIONAL_2_ARCSEC_RADIUS",
+            "ztf_oid": "610206300011997"
+          }
+        ],
+        "raw_photometric_rows_persisted": false,
+        "same_band_multiple_oid_review_pairs": [],
+        "status": "ORIGINAL_ZTF_2ARCSEC_OID_FIELD_METADATA_PARSED"
+      },
+      "scientific_variability_confirmed": false,
+      "target": "CIDA 11"
+    }
+  ],
+  "limitations": [
+    "A 2-arcsec sky query is not a unique physical counterpart crossmatch.",
+    "Distinct OIDs even within one band can be different pipeline field/CCD/quadrant labels, blended stars or artifacts. Never merge their curves by proximity alone.",
+    "Original survey catalogue sky positions are based on ZTF's own WCS. Gaia approximate proper-motion screen omits full parallax and instrument covariance; not independent physical identity proof.",
+    "No original ZTF pixel deblending or external imaging/catalogue crossmatch is performed in this source-label exercise.",
+    "Original four FT Tau/CIDA 11 FITS+mask epochs were audited previously; no new astronomical science epochs are added.",
+    "No original literature Taurus memberships or new intrinsic stellar variability discovered."
+  ],
+  "n_confirmed_new_ztf_stellar_variables_or_companions": 0,
+  "n_direct_original_historic_oid_queries_parsed": 2,
+  "n_fields_with_historic_oid_in_positional_response": 2,
+  "n_fields_with_multiple_original_ztf_oids_same_band": 1,
+  "n_fixed_historic_target_fields": 2,
+  "n_frozen_nonrepresentative_taurus_gaia_sources": 24,
+  "n_historic_ztf_science_epochs_added": 0,
+  "n_new_original_ztf_science_fits_or_mask_products_fetched": 0,
+  "n_original_ztf_oid_groups_reviewed": 6,
+  "n_physical_gaia_to_ztf_object_identifications_confirmed": 0,
+  "n_positional_irsa_2arcsec_queries_parsed": 2,
+  "original_gaia_dr3_exact_two_id_response_sha256": "31ec0a7b19e424f06ea1d9d26ac930a1e633418e6285efe469d41c58c457cd99",
+  "original_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "phase": "TAURUS_R2_REAL_ZTF_ALTERNATE_OBJECTID_FILTER_FIELD_SCREEN_NOT_PHYSICAL_IDENTITY",
+  "source_identity_science_R2_completed": false
+}
