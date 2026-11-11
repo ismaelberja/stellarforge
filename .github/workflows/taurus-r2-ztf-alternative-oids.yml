@@ -1,0 +1,42 @@
+name: Taurus R2 — original FT Tau/CIDA 11 alternative ZTF ObjectID and field audit
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-ztf-alternative-objectids
+    paths:
+      - .github/workflows/taurus-r2-ztf-alternative-oids.yml
+      - src/stellarforge/r2_ztf_oid_multiplicity.py
+      - scripts/run_taurus_r2_ztf_alternative_oids.py
+      - tests/test_research_taurus_r2_alternative_ztf_oids.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-two-field-original-objectid-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - name: Checkout exact historic Gaia/ZTF source cohort and scientific preregistration
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible science package
+        run: python -m pip install -e '.[test,analysis]'
+      - name: Check original FT Tau/CIDA11 historical OID and ambiguity contracts
+        run: python -m pytest -q tests/test_research_taurus_r2_alternative_ztf_oids.py
+      - name: Query official IRSA original positional and exact OID data separately for both predeclared sources
+        run: |
+          python -m scripts.run_taurus_r2_ztf_alternative_oids --output reports/generated/taurus_r2_original_ztf_alternate_oids_derived_only.json
+      - name: Upload only no-raw ObjectID/filter/field and original metadata ambiguity receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-two-fields-original-ZTF-OID-filter-field-derived-NO-PHYSICAL-MATCH
+          path: reports/generated/taurus_r2_original_ztf_alternate_oids_derived_only.json
+          retention-days: 30
+          if-no-files-found: warn
