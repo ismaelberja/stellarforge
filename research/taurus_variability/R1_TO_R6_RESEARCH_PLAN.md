@@ -44,6 +44,21 @@ queries and by the 2-arcsec positional queries. This is **catalogue
 access and provenance**, **not** proof of one physical Gaia/ZTF
 source, scientific variability, companions or source deblending.
 
+**Latest FT Tau original g/r two-field FITS/mask/PSFcat research pilot:**
+[Four authentic selected original-source images, two same-filter
+cross-field near-simultaneous pairs](R2_REAL_FT_TAU_TWO_FIELD_GR_FITS_MASK_PSF_RESULTS.md)
+were selected strictly from the four previously identified OIDs,
+based on minimum cross-field MJD gap, before image inspection.
+**4/4** true original science FITS, detector masks and native PSF
+catalogues passed the predeclared provisional source-level
+instrumental QA. Each g and r pair is separated by **~39 s**
+across the two detector fields, but the g and r bands were observed
+in **different years**. Native source offset differences
+(**13.568/79.473 mas for g/r**) are *not independently calibrated
+field errors or physical source offsets*.
+**Zero** authentic physical Gaia–ZTF FT Tau associations
+or cross-field merged source lightcurves are claimed.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus
