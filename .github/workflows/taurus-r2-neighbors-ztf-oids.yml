@@ -1,0 +1,38 @@
+name: Taurus R2 — real Gaia neighbours + ZTF positional OID screening
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-gaia-neighbors-ztf-oid-screen
+    paths:
+      - .github/workflows/taurus-r2-neighbors-ztf-oids.yml
+      - src/stellarforge/r2_counterpart_screen.py
+      - scripts/run_taurus_r2_counterpart_screen.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  r2-original-archive-positional-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout frozen 24 technical Taurus sources
+        uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local source code
+        run: python -m pip install -e .
+      - name: Query 24 bounded Gaia 15-arcsec fields and 24 bounded IRSA 2-arcsec positions
+        run: |
+          python -m scripts.run_taurus_r2_counterpart_screen --output reports/generated/taurus_r2_neighbours_ztf_original_derived_only.json
+      - name: Save no-raw, no-FITS, no-lightcurve source/OID status ledger only
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-gaia-ztf-positional-derived-NOT-physical-identity
+          path: reports/generated/taurus_r2_neighbours_ztf_original_derived_only.json
+          retention-days: 30
+          if-no-files-found: error

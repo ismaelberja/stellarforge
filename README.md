@@ -122,6 +122,10 @@ Read the [Spanish practical guide](docs/V2_GUIA_ES.md) or [complete reproducibil
 
 For a concise explanation suitable for recruiting and interviews, see [StellarForge on a CV — English/Spanish](docs/V2_PORTFOLIO_CV_ES_EN.md). The [research status](docs/PROJECT_STATUS.md), [roadmap](docs/ROADMAP.md) and [release notes](RELEASE_NOTES_v2.0.md) remain available for deeper technical review.
 
+## Original-data R2 positional follow-up — 11 November 2026
+
+**New observational source-screen result:** 24/24 genuine Gaia DR3 neighbour cones were parsed, with no *catalogued Gaia* neighbours within 2 arcsec and four targets with neighbours within 5 arcsec. Only **2/24** bounded IRSA ZTF positional responses were usable: V892 Tau and LkHa 332/G2 A+B; both returned multiple ZTF OIDs in at least one band. The other **22/24 IRSA responses remain unavailable or unparseable** and are **not astrophysical nondetections**. **Zero independently authenticated Gaia–ZTF identities, stellar variability results or companions.** [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43031689454) · [R2 limitations and results](research/taurus_variability/R2_REAL_GAIA_NEIGHBOURS_ZTF_POSITIONS.md).
+
 ## Optional independent astronomy research continuation — Taurus R1–R2
 
 **New genuine Gaia DR3 R2 catalogue check (11 November 2026):** all 24 frozen technical Taurus Gaia IDs were found in two real exact-ID queries; 17 met preliminary Gaia-only astrometric quality gates, 7 have RUWE ≥ 1.4. **Zero Gaia–ZTF physical source identities were independently confirmed**, and source/crowding validation is still outstanding. [Actual original-data R2 report](research/taurus_variability/R2_REAL_GAIA_24_EXACT_ID_SCREEN.md) · [GitHub Actions original run](https://github.com/ismaelberja/stellarforge/actions/runs/43029175432).

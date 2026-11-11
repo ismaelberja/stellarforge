@@ -1,0 +1,57 @@
+{
+  "schema_version": "stellarforge-taurus-r2-real-gaia-neighbours-and-ztf-oids-derived-receipt-v1",
+  "observed_utc": "2026-11-11",
+  "original_research_workflow_run_id": 43031689454,
+  "original_research_workflow_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43031689454",
+  "source_artifact_id": 13861901170,
+  "source_artifact_name": "taurus-r2-gaia-ztf-positional-derived-NOT-physical-identity",
+  "source_artifact_zip_sha256": "8a3028ebfc9575f1599074ae9addbfc118e19dea836e915af58a1cbbe23bc3f8",
+  "original_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "frozen_n_technical_gaia_candidates": 24,
+  "n_original_gaia_15arcsec_neighbour_cones_parsed": 24,
+  "n_original_gaia_cones_failed_or_truncated": 0,
+  "n_targets_with_catalogued_gaia_neighbour_within_2arcsec": 0,
+  "n_targets_with_catalogued_gaia_neighbour_within_5arcsec": 4,
+  "n_original_ztf_2arcsec_positional_queries_parsed": 2,
+  "n_ztf_queries_unavailable_or_unparseable": 22,
+  "n_targets_with_multiple_ztf_oids_in_same_band": 2,
+  "n_targets_with_provisional_ztf_oid_groups": 2,
+  "original_ztf_parsed_cases": [
+    {
+      "technical_name": "V892 Tau",
+      "gaia_dr3_source_id": "164513602672978304",
+      "n_original_ztf_raw_rows": 3044,
+      "n_distinct_ztf_oid_band_time_groups": 6,
+      "ambiguous_bands": [
+        "g",
+        "r"
+      ],
+      "gaia_ruwe_approx": 3.5506,
+      "physical_counterpart_verified": false
+    },
+    {
+      "technical_name": "LkHa 332/G2 A+B",
+      "gaia_dr3_source_id": "148116246465275520",
+      "n_original_ztf_raw_rows": 842,
+      "n_distinct_ztf_oid_band_time_groups": 2,
+      "ambiguous_bands": [
+        "r"
+      ],
+      "gaia_ruwe_approx": 16.30135,
+      "physical_counterpart_verified": false
+    }
+  ],
+  "n_independently_validated_gaia_to_ztf_physical_source_matches": 0,
+  "n_confirmed_new_variable_stars": 0,
+  "n_original_ztf_images_or_masks_validated_in_this_run": 0,
+  "complete_R2_source_identity_study": false,
+  "original_raw_gaia_or_ztf_csv_files_uploaded": false,
+  "failure_cause_for_22_unparseable_ztf_queries_diagnosed": false,
+  "caveats": [
+    "22 IRSA errors/unparseable responses may be data format, archive availability or size/time constraints. None establishes absence of an object or optical variability.",
+    "Gaia DR3 completeness does not exclude unresolved/non-Gaia blends. No Gaia neighbours within 2 arcsec is NOT a proof of isolation.",
+    "Multiple OIDs in a band may arise from field/exposure pipeline differences or blends and must not be merged automatically.",
+    "The two IRSA-positive technical seed targets have high Gaia RUWE and therefore cannot be taken as clean astrometric source matches.",
+    "No independent original ZTF science FITS WCS, mask, source-PSF or publisher-original catalogue verification was conducted in this run."
+  ]
+}
