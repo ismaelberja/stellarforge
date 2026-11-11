@@ -91,4 +91,4 @@ def test_no_original_ztf_csv_data_leaked_and_statuses_visible_in_report():
     assert '"flux":' not in j
     assert '"raw_csv":' not in j
     assert '"mjd":' not in d
-    assert '"new_variable_stars_confirmed": 0' in d
+    assert '"n_new_variable_stars_confirmed": 0' in d
