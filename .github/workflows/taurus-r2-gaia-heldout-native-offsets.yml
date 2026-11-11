@@ -1,0 +1,42 @@
+name: Taurus R2 — original Gaia-selected holdout controls vs ZTF native catalogue
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-gaia-heldout-control-offsets
+    paths:
+      - .github/workflows/taurus-r2-gaia-heldout-native-offsets.yml
+      - src/stellarforge/r2_gaia_heldout_native_offsets.py
+      - scripts/run_taurus_r2_gaia_heldout_offsets.py
+      - tests/test_research_taurus_r2_gaia_heldout_native_offsets.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  r2-original-gaia-source-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Check out four historic exposures and predeclared Gaia-only controls
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible science test requirements
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Verify synthetic controls and strict no-claim conditions
+        run: python -m pytest -q tests/test_research_taurus_r2_gaia_heldout_native_offsets.py
+      - name: Query original 7 Gaia source IDs and 4 dated native ZTF PSF source catalogues
+        run: |
+          python -m scripts.run_taurus_r2_gaia_heldout_offsets --output reports/generated/taurus_r2_real_gaia_only_control_offsets_no_raw.json
+      - name: Preserve derived-only original Gaia-native source offsets and source status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-Gaia-only-disjoint-controls-original-ZTF-native-PSFcat-NO-RAW
+          path: reports/generated/taurus_r2_real_gaia_only_control_offsets_no_raw.json
+          if-no-files-found: warn
+          retention-days: 30
