@@ -1,0 +1,42 @@
+name: Taurus R2 — FT Tau original g/r two-field native reference ensemble
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-relative-photometry-two-field
+    paths:
+      - .github/workflows/taurus-r2-fttau-crossfield-ensemble.yml
+      - src/stellarforge/r2_fttau_crossfield_instrumental_ensemble.py
+      - scripts/run_taurus_r2_fttau_crossfield_ensemble.py
+      - tests/test_research_r2_fttau_crossfield_instrumental_ensemble.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-fttau-instrumental-reference-ensemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - name: Check out previously verified four original ZTF PSFcat SHA fingerprints
+        uses: actions/checkout@v4
+      - name: Use scientific Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible science and FITS dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Verify frozen original source data, crossmatch uniqueness and instrumental-only scientific scope
+        run: python -m pytest -q tests/test_research_r2_fttau_crossfield_instrumental_ensemble.py
+      - name: Compare four authentic original source catalogues across predeclared FT Tau g and r same-night field pairs
+        run: |
+          python -m scripts.run_taurus_r2_fttau_crossfield_ensemble --output reports/generated/fttau_r2_real_original_native_ensemble_no_raw.json
+      - name: Save source-bounded derived-only internal reference photometry QA not raw source data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-FTTau-g-r-original-instrumental-reference-ensemble-NO-RAW
+          path: reports/generated/fttau_r2_real_original_native_ensemble_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn

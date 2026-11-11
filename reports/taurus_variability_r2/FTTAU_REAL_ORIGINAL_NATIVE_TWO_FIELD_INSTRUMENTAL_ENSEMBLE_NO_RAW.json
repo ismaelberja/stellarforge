@@ -1,0 +1,121 @@
+{
+  "bands": [
+    {
+      "band": "g",
+      "ft_tau_ztf_original_lightcurves_combined": false,
+      "native_psfcat_original_data_records": [
+        {
+          "n_excluded_ft_tau_core": 2,
+          "n_in_fixed_360arcsec_sky_radius": 97,
+          "n_original_native_source_rows": 5757,
+          "n_preselected_clean_uncrowded_native_candidates": 12,
+          "original_mjd": 58806.385197,
+          "original_native_catalogue_sha256": "f83a7e5685af6902fa99b7f423f6a1620a3d70f3c230879bb63243076d69fbe4",
+          "original_source_field": "1605",
+          "original_ztf_oid": "1605115300003377"
+        },
+        {
+          "n_excluded_ft_tau_core": 1,
+          "n_in_fixed_360arcsec_sky_radius": 94,
+          "n_original_native_source_rows": 4956,
+          "n_preselected_clean_uncrowded_native_candidates": 12,
+          "original_mjd": 58806.385648,
+          "original_native_catalogue_sha256": "7f880ed401a96de302627bf9e9f67fdac25208860feb8be9cffb12758e535744",
+          "original_source_field": "609",
+          "original_ztf_oid": "609108400001155"
+        }
+      ],
+      "native_source_crossfield_ensemble": {
+        "all_photometric_series_remain_unmerged": true,
+        "ensemble_median_native_mag_difference_b_minus_a": null,
+        "heldout_median_relative_offset_mag": null,
+        "heldout_robust_scatter_mag": null,
+        "independent_absolute_photometric_calibration": false,
+        "instrumental_offset_internally_consistent": false,
+        "n_reciprocal_crowding_screened_geometric_pairs": 10,
+        "n_training_references": 0,
+        "n_validation_references": 0,
+        "native_photometry_units": "instrumental magnitude = -2.5 log10(flux in DN)",
+        "original_ztf_flux_reference_stability_independently_verified": false,
+        "status": "NO_GO_UNDERPOWERED_OR_INCONSISTENT_NATIVE_ENSEMBLE",
+        "target_itself_excluded_from_reference_ensemble": true,
+        "validated_gaia_ztf_physical_source_identity": false
+      },
+      "not_a_crossfilter_photometric_calibration": true,
+      "original_field_1605_and_609_exposure_mjd_gap_days": 0.000451,
+      "physical_ft_tau_gaia_ztf_crossmatch_authenticated": false,
+      "ref_photometric_stability_not_externally_certified": true,
+      "status": "NO_GO_UNDERPOWERED_OR_INCONSISTENT_NATIVE_ENSEMBLE"
+    },
+    {
+      "band": "r",
+      "ft_tau_ztf_original_lightcurves_combined": false,
+      "native_psfcat_original_data_records": [
+        {
+          "n_excluded_ft_tau_core": 1,
+          "n_in_fixed_360arcsec_sky_radius": 153,
+          "n_original_native_source_rows": 8425,
+          "n_preselected_clean_uncrowded_native_candidates": 28,
+          "original_mjd": 58425.306065,
+          "original_native_catalogue_sha256": "f25dc162b87c84426e3bc467a3f21da802e2dbba0885be93314001fb1840fe5b",
+          "original_source_field": "1605",
+          "original_ztf_oid": "1605215300005161"
+        },
+        {
+          "n_excluded_ft_tau_core": 2,
+          "n_in_fixed_360arcsec_sky_radius": 177,
+          "n_original_native_source_rows": 8375,
+          "n_preselected_clean_uncrowded_native_candidates": 27,
+          "original_mjd": 58425.306516,
+          "original_native_catalogue_sha256": "b9c50a4e8258989cd64c33e6230513be20ecca0ce3d3e0bc0388e459fdcc8c17",
+          "original_source_field": "609",
+          "original_ztf_oid": "609208400001969"
+        }
+      ],
+      "native_source_crossfield_ensemble": {
+        "all_photometric_series_remain_unmerged": true,
+        "ensemble_median_native_mag_difference_b_minus_a": null,
+        "heldout_median_relative_offset_mag": null,
+        "heldout_robust_scatter_mag": null,
+        "independent_absolute_photometric_calibration": false,
+        "instrumental_offset_internally_consistent": false,
+        "n_reciprocal_crowding_screened_geometric_pairs": 19,
+        "n_training_references": 0,
+        "n_validation_references": 0,
+        "native_photometry_units": "instrumental magnitude = -2.5 log10(flux in DN)",
+        "original_ztf_flux_reference_stability_independently_verified": false,
+        "status": "NO_GO_UNDERPOWERED_OR_INCONSISTENT_NATIVE_ENSEMBLE",
+        "target_itself_excluded_from_reference_ensemble": true,
+        "validated_gaia_ztf_physical_source_identity": false
+      },
+      "not_a_crossfilter_photometric_calibration": true,
+      "original_field_1605_and_609_exposure_mjd_gap_days": 0.000451,
+      "physical_ft_tau_gaia_ztf_crossmatch_authenticated": false,
+      "ref_photometric_stability_not_externally_certified": true,
+      "status": "NO_GO_UNDERPOWERED_OR_INCONSISTENT_NATIVE_ENSEMBLE"
+    }
+  ],
+  "limitations": [
+    "Original ZTF native PSFcat mag is instrumental -2.5log10(DN flux), not PS1/AB calibrated; median difference is not a physical magnitude calibration.",
+    "Cross-field source matching uses same ZTF pipeline WCS rather than independently authenticated Gaia/PS1 standards; false matches are possible.",
+    "Field ensemble only has one 39-second original exposure per detector field per band; no multi-night stable-star reference validation.",
+    "Outlier clipping does not prove all surviving reference stars have fixed intrinsic flux, consistent color or lack of blended neighbours.",
+    "External photometric zero-point, colour terms and propagation of systematic uncertainties, cross-field detector dependence and astrophysical source attribution remain unverified.",
+    "Even when internally consistent, NEVER automatically merge the four historical ZTF OID lightcurves or claim FT Tau variability."
+  ],
+  "n_confirmed_new_intrinsic_ft_tau_variability_or_companions": 0,
+  "n_fixed_ft_tau_ztf_oids": 4,
+  "n_native_original_psf_catalogues_exactly_sha_verified": 4,
+  "n_new_original_science_exposures_selected": 0,
+  "n_original_ztf_historical_science_exposures": 4,
+  "n_original_ztf_oid_lightcurves_merged": 0,
+  "n_physical_gaia_ztf_source_identities_confirmed": 0,
+  "n_same_band_ensemble_internal_qc_passes": 0,
+  "n_same_band_ensembles_evaluated": 2,
+  "n_verified_external_photometric_standard_zeropoints": 0,
+  "original_nonrepresentative_taurus_gaia_seed_count": 24,
+  "original_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "phase": "TAURUS_R2_FTTAU_ORIGINAL_SAME_FILTER_TWO_FIELD_NATIVE_INSTRUMENTAL_ENSEMBLE",
+  "prior_original_fits_evidence_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "scientific_r2_complete": false
+}

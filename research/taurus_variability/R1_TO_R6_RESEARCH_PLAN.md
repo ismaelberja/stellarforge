@@ -59,6 +59,21 @@ field errors or physical source offsets*.
 **Zero** authentic physical Gaia–ZTF FT Tau associations
 or cross-field merged source lightcurves are claimed.
 
+**Latest authentic FT Tau same-band reference-star ensemble:**
+[Four real original g/r ZTF native PSF catalogues and underpowered
+cross-field photometric comparison](R2_REAL_FTTAU_ORIGINAL_CROSSFIELD_INSTRUMENTAL_ENSEMBLE_NO_GO.md)
+reverified exact original archival file hashes and compared
+reciprocal-position matched, isolated native reference sources
+within a fixed 360″ radius, excluding FT Tau itself.
+Only **10 matched g-band reference pairs** and
+**19 r-band pairs** survived original instrumental
+PSF/flag/isolation QC, below the preregistered **20-source**
+minimum for train+holdout validation. Therefore both bands
+are explicit **NO-GO**; no instrumental magnitude offset
+is fitted and no cross-field ZTF ObjectIDs are merged.
+The ZTF PSFcat magnitudes are *instrumental detector
+magnitudes*, not external AB/PS1 calibration.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus
