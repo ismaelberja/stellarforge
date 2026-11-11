@@ -1,0 +1,39 @@
+name: Taurus R2 — nine original unresolved IRSA positions
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-nine-source-recovery
+    paths:
+      - .github/workflows/taurus-r2-nine-recovery.yml
+      - src/stellarforge/r2_nine_source_recovery.py
+      - src/stellarforge/r2_irsa_failure_diagnosis.py
+      - scripts/run_taurus_r2_nine_source_recovery.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-irsa-nine-source-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout frozen previous original-data ledger
+        uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible local package
+        run: python -m pip install -e .
+      - name: Retrieve exactly nine original 2-arcsec ZTF source positions without physical crossmatch claims
+        run: |
+          python -m scripts.run_taurus_r2_nine_source_recovery --output reports/generated/r2_nine_original_irsa_derived_access.json
+      - name: Save derived 9-source provider statuses only (no original raw CSV)
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-nine-original-irsa-access-NOT-physical-crossmatch
+          path: reports/generated/r2_nine_original_irsa_derived_access.json
+          retention-days: 30
+          if-no-files-found: error
