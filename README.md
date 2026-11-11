@@ -209,10 +209,30 @@ physical source motion or evidence of a Gaia–ZTF unique match.
 [Authentic original FITS/mask/PSFcat run](https://github.com/ismaelberja/stellarforge/actions/runs/43069170818) ·
 [Permanent no-raw evidence ledger](reports/taurus_variability_r2/FT_TAU_TWO_ORIGINAL_ZTF_FIELDS_GR_FITS_MASK_PSF_DERIVED_NO_RAW.json)
 
-Source-by-source independent calibration, cross-field deblending,
-calibrated photometric zeropoints and original publisher Taurus
-catalogue membership checks **remain open** before any
-astrophysical variability classification.
+**New authentic FT Tau cross-field instrumental reference ensemble (11 November 2026):**
+Reused **the same four original ZTF `psfcat.fits` files**,
+each reverified against its previous original SHA-256.
+A predeclared 360″ sky circle, 15″ FT Tau exclusion, native
+PSF/flag/isolated-source QC and reciprocal 0.75″ matching
+yielded **10 g-band** and **19 r-band** reasonably clean
+matched native reference pairs. Both fall below the
+**20 predeclared minimum** needed for split-fit/heldout
+ensemble validation, so the scientifically correct result
+is **NO-GO / underpowered in both bands**. The native ZTF
+`mag` column is *instrumental* (−2.5 log10 detector DN flux),
+**not absolute calibrated stellar brightness**.
+No magnitude shift, physical Gaia–ZTF source ID, new
+variability or OID-curve merging was inferred.
+
+[Actual original 10-g/19-r source-control NO-GO](research/taurus_variability/R2_REAL_FTTAU_ORIGINAL_CROSSFIELD_INSTRUMENTAL_ENSEMBLE_NO_GO.md) ·
+[Original four-PSFcat survey-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43072549599) ·
+[Permanent no-raw instrumental reference evidence](reports/taurus_variability_r2/FTTAU_REAL_ORIGINAL_NATIVE_TWO_FIELD_INSTRUMENTAL_ENSEMBLE_NO_RAW.json)
+
+Source-by-source independent source calibration, larger
+field-reference populations, cross-field deblending,
+true photometric zeropoints with systematic errors and
+original publisher Taurus catalogue membership checks
+**remain open** before astrophysical variability classification.
 
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
