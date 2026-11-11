@@ -1,0 +1,177 @@
+{
+  "bands": [
+    {
+      "ZTF_Gaia_target_physical_identity_confirmed": false,
+      "band": "g",
+      "independent_external_PS1_source_level_color_test": {
+        "both_fields_ps1_mean_color_holdout_qc_pass": true,
+        "external_PanSTARRS_photometric_source_identification_for_FT_TAU": false,
+        "full_absolute_photometric_calibration_certified": false,
+        "independent_PS1_source_rows_retrieved": true,
+        "n_heldout": 40,
+        "n_independently_queried_PS1_unique_reference_triplets": 82,
+        "n_train": 42,
+        "original_ZTF_lightcurves_merged": false,
+        "per_original_ZTF_field_fits": [
+          {
+            "PS1_gr_color_center": 0.8,
+            "PS1_gr_empirical_slope_mag_per_mag": -0.03648,
+            "PS1_minus_native_instrumental_intercept_mag": 26.19613,
+            "field": "1605",
+            "formal_color_transformation_calibrated": false,
+            "full_absolute_calibration_uncertainty_certified": false,
+            "heldout_median_residual_mag": -0.00946,
+            "heldout_robust_residual_scatter_mag": 0.0359,
+            "independent_ps1_source_level_reference_fitted": true,
+            "median_nominal_ps1_plus_ztf_measurement_error_mag": 0.03229,
+            "n_holdout": 40,
+            "n_train": 42,
+            "n_train_after_clipping": 41,
+            "physical_gaia_ZTF_FT_Tau_match_confirmed": false,
+            "reference_band": "g",
+            "status": "PS1_SOURCE_LEVEL_INTERNAL_HELDOUT_PILOT_PASS"
+          },
+          {
+            "PS1_gr_color_center": 0.8,
+            "PS1_gr_empirical_slope_mag_per_mag": -0.05456,
+            "PS1_minus_native_instrumental_intercept_mag": 26.08484,
+            "field": "609",
+            "formal_color_transformation_calibrated": false,
+            "full_absolute_calibration_uncertainty_certified": false,
+            "heldout_median_residual_mag": 0.00127,
+            "heldout_robust_residual_scatter_mag": 0.02735,
+            "independent_ps1_source_level_reference_fitted": true,
+            "median_nominal_ps1_plus_ztf_measurement_error_mag": 0.0334,
+            "n_holdout": 40,
+            "n_train": 42,
+            "n_train_after_clipping": 41,
+            "physical_gaia_ZTF_FT_Tau_match_confirmed": false,
+            "reference_band": "g",
+            "status": "PS1_SOURCE_LEVEL_INTERNAL_HELDOUT_PILOT_PASS"
+          }
+        ],
+        "status": "PS1_EXTERNAL_SOURCE_LEVEL_PILOT_INTERNAL_HOLDOUT_PASS"
+      },
+      "original_native_source_inputs": [
+        {
+          "field": "1605",
+          "n_clean_native_sources_within_720arcsec": 106,
+          "original_full_native_psfcat_sha256": "f83a7e5685af6902fa99b7f423f6a1620a3d70f3c230879bb63243076d69fbe4",
+          "original_full_native_psfcat_sha_match": true,
+          "original_oid": "1605115300003377"
+        },
+        {
+          "field": "609",
+          "n_clean_native_sources_within_720arcsec": 116,
+          "original_full_native_psfcat_sha256": "7f880ed401a96de302627bf9e9f67fdac25208860feb8be9cffb12758e535744",
+          "original_full_native_psfcat_sha_match": true,
+          "original_oid": "609108400001155"
+        }
+      ],
+      "original_ztf_oid_curves_joined": false
+    },
+    {
+      "ZTF_Gaia_target_physical_identity_confirmed": false,
+      "band": "r",
+      "independent_external_PS1_source_level_color_test": {
+        "both_fields_ps1_mean_color_holdout_qc_pass": true,
+        "external_PanSTARRS_photometric_source_identification_for_FT_TAU": false,
+        "full_absolute_photometric_calibration_certified": false,
+        "independent_PS1_source_rows_retrieved": true,
+        "n_heldout": 86,
+        "n_independently_queried_PS1_unique_reference_triplets": 180,
+        "n_train": 94,
+        "original_ZTF_lightcurves_merged": false,
+        "per_original_ZTF_field_fits": [
+          {
+            "PS1_gr_color_center": 0.8,
+            "PS1_gr_empirical_slope_mag_per_mag": 0.10425,
+            "PS1_minus_native_instrumental_intercept_mag": 26.14535,
+            "field": "1605",
+            "formal_color_transformation_calibrated": false,
+            "full_absolute_calibration_uncertainty_certified": false,
+            "heldout_median_residual_mag": 0.00318,
+            "heldout_robust_residual_scatter_mag": 0.02444,
+            "independent_ps1_source_level_reference_fitted": true,
+            "median_nominal_ps1_plus_ztf_measurement_error_mag": 0.02784,
+            "n_holdout": 86,
+            "n_train": 94,
+            "n_train_after_clipping": 93,
+            "physical_gaia_ZTF_FT_Tau_match_confirmed": false,
+            "reference_band": "r",
+            "status": "PS1_SOURCE_LEVEL_INTERNAL_HELDOUT_PILOT_PASS"
+          },
+          {
+            "PS1_gr_color_center": 0.8,
+            "PS1_gr_empirical_slope_mag_per_mag": 0.11878,
+            "PS1_minus_native_instrumental_intercept_mag": 26.14388,
+            "field": "609",
+            "formal_color_transformation_calibrated": false,
+            "full_absolute_calibration_uncertainty_certified": false,
+            "heldout_median_residual_mag": -0.00014,
+            "heldout_robust_residual_scatter_mag": 0.02454,
+            "independent_ps1_source_level_reference_fitted": true,
+            "median_nominal_ps1_plus_ztf_measurement_error_mag": 0.02357,
+            "n_holdout": 86,
+            "n_train": 94,
+            "n_train_after_clipping": 92,
+            "physical_gaia_ZTF_FT_Tau_match_confirmed": false,
+            "reference_band": "r",
+            "status": "PS1_SOURCE_LEVEL_INTERNAL_HELDOUT_PILOT_PASS"
+          }
+        ],
+        "status": "PS1_EXTERNAL_SOURCE_LEVEL_PILOT_INTERNAL_HOLDOUT_PASS"
+      },
+      "original_native_source_inputs": [
+        {
+          "field": "1605",
+          "n_clean_native_sources_within_720arcsec": 244,
+          "original_full_native_psfcat_sha256": "f25dc162b87c84426e3bc467a3f21da802e2dbba0885be93314001fb1840fe5b",
+          "original_full_native_psfcat_sha_match": true,
+          "original_oid": "1605215300005161"
+        },
+        {
+          "field": "609",
+          "n_clean_native_sources_within_720arcsec": 222,
+          "original_full_native_psfcat_sha256": "b9c50a4e8258989cd64c33e6230513be20ecca0ce3d3e0bc0388e459fdcc8c17",
+          "original_full_native_psfcat_sha_match": true,
+          "original_oid": "609208400001969"
+        }
+      ],
+      "original_ztf_oid_curves_joined": false
+    }
+  ],
+  "external_PS1_DR2_original_source_query": {
+    "n_ps1_good_color_crowding_sources": 405,
+    "n_ps1_original_rows": 1780,
+    "original_ps1_dr2_response_sha256": "3038bd93cd21820dbc584e7d4081f7c279109ca36a0988fc55d279a94d29ca95",
+    "ps1_failed_source_quality_categories": {
+      "ps1_native_neighbour_blend_screen": 6,
+      "ps1_off_cone_or_ft_target_core": 1,
+      "ps1_quality_color_magnitude": 1368
+    },
+    "status": "MAST_ORIGINAL_PS1_DR2_MEAN_SOURCE_CATALOGUE_VALID"
+  },
+  "fixed_original_ft_tau_ztf_oid_count": 4,
+  "frozen_nonrepresentative_taurus_gaia_seed_count": 24,
+  "immutable_previous_720_reference_evidence_sha256": "b0186cd85d47c32cca7e87ce8a98d8a8b27448c391822ef2bed55bf0256c2558",
+  "immutable_previous_four_original_images_evidence_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "limitations": [
+    "Direct independent PS1 DR2 source rows and colors may support preliminary cross-survey reference matching, but do not prove stable/nonblended standards or FT Tau physical Gaia-ZTF identity.",
+    "PS1 and ZTF mean/native magnitudes have different survey filter responses and epochs; fitted gr slopes are empirical, not a calibrated photometric passband transformation or complete error model.",
+    "Cross-survey astrometric matching at fixed 0.6arcsec omits epoch-dependent source proper motion, PSF blend errors and full match probability; matches are provisional.",
+    "MAST cone search 5000-source cap is fail-closed; access error/empty dataset is not evidence of physical absence or stable photometry.",
+    "No original source rows, sky coordinates, PS1 source IDs, raw photometry or FITS pixels are committed; only derived QC and SHA fingerprints.",
+    "The four FT Tau ZTF OIDs remain unmerged; no physical variability or newly discovered astrophysical companion claim."
+  ],
+  "n_confirmed_new_FT_TAU_variables_or_companions": 0,
+  "n_independently_authenticated_gaia_ztf_FT_TAU_physical_counterparts": 0,
+  "n_merged_ztf_object_id_lightcurves": 0,
+  "n_new_original_ZTF_science_observation_epochs_selected": 0,
+  "n_original_ZTF_full_native_psfcats_reverified": 4,
+  "n_same_band_PanSTARRS_source_level_internal_pilot_passes": 2,
+  "n_scientifically_certified_absolute_ZTF_PanSTARRS_calibrations": 0,
+  "original_r1_gaia_technical_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "phase": "TAURUS_R2_EXTERNAL_MAST_PANSTARRS1_DR2_MEAN_SOURCE_COLOR_REFERENCE_PILOT",
+  "research_R2_full_physical_source_identity_complete": false
+}
