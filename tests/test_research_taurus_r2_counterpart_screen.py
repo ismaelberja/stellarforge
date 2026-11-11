@@ -173,7 +173,7 @@ def test_positional_query_url_official_bounded_not_direct_object_id_lookup():
 
 
 def test_irsa_html_or_oversize_cannot_be_promoted_to_source():
-    for bad in (b"<html>500</html>", b"", b"{" + b"error": + b"}"):
+    for bad in (b"<html>500</html>", b"", b'{"error":"bad"}'):
         def bogus(*a,**kw):
             return bad
         row = assess_r2_target(ROWS[0],
