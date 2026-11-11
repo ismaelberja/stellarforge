@@ -1,0 +1,42 @@
+name: Taurus R2 — external original MAST Pan-STARRS1 DR2 source-level FT Tau photometric reference audit
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-external-ps1-dr2-source-crossmatch
+    paths:
+      - .github/workflows/taurus-r2-fttau-external-ps1.yml
+      - src/stellarforge/r2_fttau_external_ps1.py
+      - scripts/run_taurus_r2_fttau_external_ps1.py
+      - tests/test_research_r2_fttau_external_ps1_dr2_sources.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independently-query-PS1-DR2-and-reverify-exact-ZTF-catalogues:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - name: Checkout predeclared original MAST Pan-STARRS1 source-validation study
+        uses: actions/checkout@v4
+      - name: Use scientific Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install scientific analysis and original FITS dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Falsify source crossmatches and scientific overclaims before live archive
+        run: python -m pytest -q tests/test_research_r2_fttau_external_ps1_dr2_sources.py
+      - name: Query actual external individual PS1 DR2 source rows and verify four original ZTF PSF catalogues
+        run: |
+          python -m scripts.run_taurus_r2_fttau_external_ps1 --output reports/generated/taurus_r2_fttau_independent_PS1_DR2_mean_color_source_pilot_derived_no_raw.json
+      - name: Preserve only derived PS1 and original ZTF reference/color test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-R2-FTTau-original-MAST-PS1-DR2-external-source-color-NO-RAW
+          path: reports/generated/taurus_r2_fttau_independent_PS1_DR2_mean_color_source_pilot_derived_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn

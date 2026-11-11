@@ -249,11 +249,31 @@ FT Tau photometry or an independently validated WCS**.
 [Original four-source real-data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43091456449) ·
 [Permanent original-data no-raw evidence](reports/taurus_variability_r2/FTTAU_720_REAL_NATIVE_ENSEMBLE_ZTF_PS1_PIPELINE_HEADER_NO_RAW.json)
 
-Independent true PS1 source matching, full color/field
-systematic error calibration, Gaia–ZTF physical source
-identification, cross-field deblending, original publisher
-Taurus membership and source variability inference
-**remain open**. No ZTF source ObjectID lightcurves were merged.
+**New original MAST Pan-STARRS1 DR2 source-level calibration pilot
+(11 November 2026):** A separately preregistered **720″
+external source query returned 1,780 authentic PS1 DR2 mean
+source rows**, of which **405** passed basic colour, detection,
+error, neighbour and FT Tau-exclusion screening. Four original ZTF
+PSF catalogues were again SHA-verified. Independent catalogue
+positions provided **82 unique ZTF/ZTF/PS1 matched reference
+triplets in g** and **180 in r**, with PS1 `g-r` colour terms
+fit independently per ZTF field. Both bands' two-field fits
+passed the preregistered PS1-source-ID held-out pilot tests;
+held-out scatter ranges from **~0.024 to 0.036 mag**.
+
+[Actual independently queried PS1 source-level pilot](research/taurus_variability/R2_REAL_FTTAU_EXTERNAL_MAST_PS1_DR2_SOURCE_COLOR_RESULTS.md) ·
+[Original authentic MAST/ZTF archive workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43102892830) ·
+[Permanent external-source derived-only evidence](reports/taurus_variability_r2/FTTAU_REAL_ORIGINAL_MAST_PS1_DR2_EXTERNAL_SOURCE_COLOR_PILOT_NO_RAW.json)
+
+**Scope:** the new PS1 source catalogue is genuinely queried
+independently from ZTF, but **the original ZTF reduction also
+uses PS1 references**. This is provisional catalogue-star
+photometric/reference consistency, **not independent absolute
+calibration**, nor a physical Gaia–ZTF match for FT Tau.
+Full colour/field/epoch systematic calibration, physical
+Gaia–ZTF source identity, cross-field deblending, original
+publisher Taurus membership and astrophysical variability
+inference **remain open**. No ZTF ObjectID lightcurves were merged.
 
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
