@@ -121,7 +121,7 @@ def test_no_ztf_raw_fits_magnitudes_or_source_timeseries_leak_to_public_original
                     '"magerr":','"flux":','"science_pixel_values":'):
         assert invalid not in s
     for excerpt in ("0.000451","13.568","79.473","g","r",
-                    "not independently", "not", "24-object"):
+                    "not independent instrumental", "not", "24-object"):
         assert excerpt.lower() in report.lower()
     assert '"n_physical_gaia_ztf_matches_independently_authenticated": 0' in r
     assert '"n_ztf_oid_lightcurves_merged": 0' in r
