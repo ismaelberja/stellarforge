@@ -90,6 +90,16 @@ def test_external_original_ps1_rows_are_unique_crowding_and_quality_screened():
     assert len(set(ps1["id"]))==58
 
 
+def test_external_ps1_mean_catalogue_accepts_valid_utf8_bom_without_faking_rows():
+    raw=original_ps1_synthetic_csv(60)
+    original=parse_ps1_original_mean(raw,ra0=RA0,dec0=DEC0)
+    with_bom=parse_ps1_original_mean(b"\xef\xbb\xbf"+raw,ra0=RA0,dec0=DEC0)
+    assert with_bom["n_original_ps1_dr2_mean_source_rows"]==60
+    assert (with_bom["n_PS1_dr2_mean_rows_passing_mag_color_crowding_and_target_exclusion"]
+            ==original["n_PS1_dr2_mean_rows_passing_mag_color_crowding_and_target_exclusion"])
+    assert with_bom["original_response_SHA256"]!=original["original_response_SHA256"]
+
+
 def test_external_ps1_source_geometry_recovers_distinct_original_triplets_without_photometric_selection():
     p=parse_ps1_original_mean(original_ps1_synthetic_csv(60),ra0=RA0,dec0=DEC0)
     q=same_band_original_ztf_ps1_triplets(
