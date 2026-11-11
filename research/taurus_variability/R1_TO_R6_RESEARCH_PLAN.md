@@ -10,9 +10,20 @@ under NOBS_MIN=5, and one HTTP 400 when trying NOBS_MIN=1.
 The Gaia DR3 original exact-ID query returned 24/24 Gaia source IDs;
 17 passed preliminary Gaia-only astrometric flags.
 
-**R2 is NOT complete:** genuine physical Gaia–ZTF association,
-independent original FITS/mask/PSF crowding evidence and original
-publisher Taurus catalogue membership review remain unverified.
+**New same-date original image-level source screening:**
+[FT Tau and CIDA 11 authentic science+mask FITS and native PSFcat
+analysis](R2_REAL_FT_TAU_CIDA_11_FITS_SOURCE_GATES.md)
+successfully checked **4/4** fixed historic ZTF exposures for
+instrumental mask/WCS consistency and nearest native PSF source
+neighbourhood. The four images are not new astronomy epochs.
+Zero additional native catalogue sources within 3″ and zero flagged
+central core mask pixels are **not proof of an isolated, physical
+Gaia/ZTF source**.
+
+**R2 is NOT complete:** Gaia–ZTF source physical identity,
+independent externally calibrated astrometry/deblending (including
+the remaining 22 technical targets) and original publisher Taurus
+membership remain unverified.
 Neither missing IRSA responses nor provisional positional matches
 establish astronomical nonvariability or real detections.
 

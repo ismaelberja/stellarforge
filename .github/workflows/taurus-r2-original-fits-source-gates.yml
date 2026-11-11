@@ -1,0 +1,42 @@
+name: Taurus R2 — four authentic dated original ZTF FITS, masks and PSFcat checks
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-original-fits-source-gates
+    paths:
+      - .github/workflows/taurus-r2-original-fits-source-gates.yml
+      - src/stellarforge/r2_original_fits_gates.py
+      - scripts/run_taurus_r2_original_fits_gates.py
+      - tests/test_research_taurus_r2_original_fits_gates.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  four-historical-original-image-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout exact historic StellarForge source provenance
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original FITS/PSF plus scientific software
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Verify offline original source-ID, image metadata and science anticlaim tests
+        run: python -m pytest -q tests/test_research_taurus_r2_original_fits_gates.py
+      - name: Audit four exact original ZTF single-exposure science FITS, mask and native PSFcat neighbour evidence
+        run: |
+          python -m scripts.run_taurus_r2_original_fits_gates --output reports/generated/r2_four_original_science_mask_psfcat_no_raw.json
+      - name: Upload only derived exposure QC, never survey FITS or raw source CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-four-original-fits-mask-psfcat-QA-NO-PHYSICAL-MATCH
+          path: reports/generated/r2_four_original_science_mask_psfcat_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn

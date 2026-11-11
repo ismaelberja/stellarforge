@@ -142,8 +142,26 @@ the other returned **HTTP 400** under a reduced-count request.
 new stellar variability results have been scientifically confirmed.**
 Catalog positional matches are not proof of source identity, and
 missing/empty archive responses are **not astrophysical nondetections**.
-Original survey FITS/mask/PSF, independent crowding and membership
-checks remain open before any science classification.
+**New R2 original-image consistency evidence (11 November 2026):**
+the *four already-studied historical single-exposure ZTF images* from
+FT Tau and CIDA 11 were re-queried using their exact OID and dates.
+**4/4** original science FITS cutouts and matching detector masks
+were aligned and inspected, and **4/4** original native
+`psfcat.fits` catalogues were parsed. Each had one catalogued
+source within 1″ of the Gaia-predicted position, **no second native
+catalogue source within 3″**, no additional bright-image peak
+within 12″ under this particular heuristic, and no core detector
+bad/saturation bits. These are same-instrument checks, **NOT**
+independent physical counterpart matches or proof against blends.
+CIDA 11 Gaia RUWE is approximately 8.57 and needs special review.
+
+[Original-image results and limitations](research/taurus_variability/R2_REAL_FT_TAU_CIDA_11_FITS_SOURCE_GATES.md) ·
+[Authentic original-data run](https://github.com/ismaelberja/stellarforge/actions/runs/43059114825) ·
+[Permanent derived-only original-source ledger](reports/taurus_variability_r2/FOUR_ORIGINAL_FITS_MASK_NATIVE_PSF_SOURCE_QA_NO_RAW.json)
+
+Source-by-source independent astrometry, unresolved-blend analysis
+and original publisher Taurus catalogue membership checks
+**remain open** before any scientific variability classification.
 
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
