@@ -103,6 +103,6 @@ def test_no_raw_fits_or_new_companion_claim_sneaks_into_public_receipt():
     assert '"raw_fits_data":' not in raw
     assert '"n_confirmed_physical_gaia_ztf_associations": 0' in receipt
     assert '"n_confirmed_new_companions": 0' in receipt
-    assert "not proof" in report.lower()
+    assert "not a successful scientific" in report.lower()
     assert "0/4" in report
     assert "original" in report.lower()
