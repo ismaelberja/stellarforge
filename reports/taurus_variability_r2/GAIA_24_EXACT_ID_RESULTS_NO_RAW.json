@@ -1,0 +1,35 @@
+{
+  "schema_version": "stellarforge-taurus-r2-gaia-exact-source-summary-no-raw-v1",
+  "study_id": "stellarforge-taurus-variability-r1",
+  "observation_date_utc": "2026-11-11",
+  "source": "Gaia DR3 gaiadr3.gaia_source / Gaia@ARI TAP exact-ID POST",
+  "original_github_actions_run_id": 43029175432,
+  "original_github_actions_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43029175432",
+  "original_derived_only_artifact_id": 13858887859,
+  "original_derived_only_artifact_zip_sha256": "cebb49029dd33fc6a369db2af0e8c5324af32895355748c8bb998b7bc2325a82",
+  "frozen_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "number_of_bounded_exact_id_batches": 2,
+  "number_of_predeclared_technical_candidates": 24,
+  "number_exact_gaia_dr3_source_ids_returned": 24,
+  "number_not_returned_by_gaia": 0,
+  "number_gaia_preliminary_astrometric_quality_flags_passed": 17,
+  "number_gaia_ruwe_greater_equal_1p4": 7,
+  "thresholds": {
+    "ruwe_less_than": 1.4,
+    "non_duplicated_source": true,
+    "astrometric_params_solved": [
+      31,
+      95
+    ],
+    "per_source_catalog_position_difference_less_than_arcsec": 1,
+    "proper_motion_components_required": true
+  },
+  "independently_confirmed_physical_gaia_ztf_associations": 0,
+  "individually_vetted_literature_taurus_memberships": 0,
+  "original_ztf_science_image_neighbour_and_crowding_reviews_in_this_run": 0,
+  "confirmed_new_astrophysical_variable_stars": 0,
+  "scope": "GAIA_EXACT_CATALOGUE_ID_SCREEN_ONLY_NOT_FULL_R2",
+  "r2_full_identity_completed": false,
+  "original_gaia_tap_csv_committed": false,
+  "interpretation": "A Gaia DR3 exact-source return validates the Gaia catalogue ID only. Neither the screen nor the RUWE threshold verifies the real ZTF ObjectID, blending, youth membership or physical variability. This summary is derived from the successful original-data GitHub Actions log; individual source-level derived ledger is available in the run artifact for seven days."
+}
