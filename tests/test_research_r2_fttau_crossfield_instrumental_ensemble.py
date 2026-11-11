@@ -34,7 +34,7 @@ def fake_native_catalogue(x,y,*,shift_mag=0.,offset_ra=0.,bad_index=None):
     flux=10**(-mag/2.5)
     flags=np.zeros(n,dtype=np.int32)
     if bad_index is not None:
-        flags[bad_index]=32768
+        flags[bad_index]=1  # ZTF BAD_MASK_BITS includes bit 0; bit 15 is not in this QA veto
     return {
         "status":"ORIGINAL_ZTF_PSF_CATALOGUE_PARSED_UNVERIFIED",
         "sha256":"a"*64,
