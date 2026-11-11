@@ -1,0 +1,30 @@
+{
+  "schema_version": "stellarforge-r2-2026-11-11-original-irsa-diagnosis-v1",
+  "original_live_actions_run": 43037800319,
+  "original_live_actions_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43037800319",
+  "github_artifact_id": 13864870251,
+  "github_artifact_zip_sha256": "ba4464e422d21836d6d8a1a8421edbcd98574ed381b0e7a6ead9720dcad21081",
+  "full_24_row_original_derived_json_sha256": "d9fba22670cabd014a8ce1cf3ad050f075c5133035b5fa6d9e208d9b9fef2f6f",
+  "original_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "n_frozen_technical_gaia_sources": 24,
+  "n_prior_original_ztf_queries_parsed": 2,
+  "n_prior_unresolved_ztf_queries": 22,
+  "n_new_original_positional_ztf_responses_with_rows": 13,
+  "n_remaining_unresolved_positional_ztf_queries": 9,
+  "n_total_ztf_sky_fields_with_parsed_data_across_separate_runs": 15,
+  "n_new_original_ztf_positional_table_rows_across_13_queries": 14803,
+  "n_actual_http_requests": 31,
+  "request_outcomes": {
+    "HTTP_CLIENT_ERROR": 9,
+    "NETWORK_TIMEOUT": 8,
+    "PARSED_TABLE_WITH_ROWS": 13,
+    "PARSED_TABLE_ZERO_ROWS": 1
+  },
+  "n_original_query_shape_recoveries": 13,
+  "n_alt_num_obs_1_http400": 9,
+  "n_source_identities_gaia_to_ztf_independently_confirmed": 0,
+  "n_new_variable_stars_confirmed": 0,
+  "r2_complete": false,
+  "original_ztf_raw_photometry_saved_to_repository": false,
+  "interpretation": "The repeated original NOBS_MIN=5 query recovered 13 previously unavailable positions. The NUM_OBS=1 alternate returned HTTP 400 nine times; eight original requests timed out, one returned a valid zero-row table. None is an astrophysical nondetection; no crossmatch or original-image validation established."
+}
