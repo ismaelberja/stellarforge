@@ -1,0 +1,590 @@
+{
+  "all_gaia_ztf_physical_identities_confirmed": false,
+  "n_confirmed_new_variable_stars": 0,
+  "n_diagnostic_http_requests": 31,
+  "n_new_original_science_fits_image_reviews": 0,
+  "n_previously_unresolved_still_without_parsed_rows": 9,
+  "n_prior_ztf_parsed_targets_not_requeried": 2,
+  "n_prior_ztf_unresolved_targets": 22,
+  "n_technical_targets_frozen": 24,
+  "n_unresolved_targets_with_any_parsed_response_rows": 13,
+  "notes": [
+    "Previous 22 service/query failures were NOT astrophysical nondetections.",
+    "A valid returned positional ZTF CSV is NOT a confirmed Gaia-to-ZTF physical source.",
+    "Zero-row CSV means zero rows under that query/threshold, NOT an empty sky or nonvariable star.",
+    "HTTP errors, XML/HTML/JSON, size limits and timeouts are classified separately without leaking provider response bodies.",
+    "No original lightcurve rows, FITS pixels or Gaia raw TAP CSV were persisted."
+  ],
+  "original_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "phase": "R2_IRSA_FAILURE_DIAGNOSIS_ONLY_NOT_PHYSICAL_MATCH",
+  "prior_original_ztf_run": 43031689454,
+  "rows": [
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "cf9be6ac5d6c46607d44f309327cca58d1a0842affaa859e6b0a0d1b7c4f474a",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "5fe78ad67feff75d91dff93fcf65b3db565280d982cb8e89b31ad0d977a5cbef",
+          "response_bytes": 463836,
+          "response_content_type_group": "CSV",
+          "returned_rows": 1802,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "164800235906366976",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "7de412e598680d59cda0434c9166a2023e5d46eda7d5a9961e5a066c2d718408",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "e4bc8bd0b134706fd73b7a3afc682dde98fb232815c6172a3f5c3dfb78734cce",
+          "response_bytes": 792097,
+          "response_content_type_group": "CSV",
+          "returned_rows": 3045,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "152362491654557696",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "dcdf355b2700298c70fd14ee3d561ad2f14f79513717bbc650b98807164d424a",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "972a4f877aa9bfd0089d967d5f5129c53b74189c3eb54e07b0e9928a2a8f4618",
+          "response_bytes": 366075,
+          "response_content_type_group": "CSV",
+          "returned_rows": 1420,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "150908490604475520",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "1531ee48d38c0f8f9fcb71893692543f8ef54235ac80308aed75cf17c4d8e2c6",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "c1ff486d5f6ad7d7060e6d9fbe4cd5e03410cdfaa52a0238e910ea8cd98bd613",
+          "response_bytes": 60457,
+          "response_content_type_group": "CSV",
+          "returned_rows": 233,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "150073682105601408",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "6f4c157049aeb74c6f35d7fc853b85288349b4c4784caebe863a80f8ae65011b",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "2caeb6897e987ffe520390532690f841893891f48e77f1fe6c1191deafcb883e",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "162259951730099968",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [],
+      "gaia_dr3_source_id": "164513602672978304",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "PREVIOUSLY_PARSED_MULTIPLE_OIDS_NOT_IDENTITY_VERIFIED",
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "505dcd331e160784ca53d133a24569156d3ea12d011fae7880219299ebe144fe",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "067c61f4f828da609e9346f4fb19cce38044ac7f5208e0c33b1e6821be4f94d9",
+          "response_bytes": 42750,
+          "response_content_type_group": "CSV",
+          "returned_rows": 166,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "163178387536338944",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "f565fbdcda065f32c8435f331cc71b3080b5c3369ade628ccdde09e4c29516ea",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "c64cd0f109c6cb3451381773e8a6a77c97c78b75246b751a778af83df056181c",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "156732977357829888",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "de232b51175eb8f2b734d8f305a3094842ed899cf36d41a6c18ff49826ce33f0",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "bb87ae247ebc9c5597ca709fafc5a4a3e987baf64d29d75df0d638d5f3292e1c",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "156577881796362496",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "68ebc8d39facc0c98946881adbc46de86ccd09121e56180be7129e1b94969b19",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "fe449656c9948fe8cea5a51cb9e290a4f0423ef5ab11551838817c850eedde15",
+          "response_bytes": 116952,
+          "response_content_type_group": "CSV",
+          "returned_rows": 450,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "151125919028356352",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "baadb68fb1b764f459f40678cf8207abf3c645ccaab40b12cc90c30a2b0e1231",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "7011988343c7fc1a1f322116b2795f26d7aaf95389a5991b2910e9ae144876f7",
+          "response_bytes": 376460,
+          "response_content_type_group": "CSV",
+          "returned_rows": 1459,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "152280165721635968",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "58ba5e04563558d322af647899beafd5c8fd41f26d27f58f2293898789a1a1eb",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "1aa05266870d78d7afa591b6c745c28e6a197ffb35e4c7c0513b2217d204e8cd",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "149623711269425408",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "3c02f7c547cf6320e18bfc72d005adddb3628cd86caefe85b92a0fbb09f34b89",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "9dc6e0f4161444f0e8feba268417c23e4865f44645fe843602879fd4ee9605f3",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "146764465639042176",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [],
+      "gaia_dr3_source_id": "148116246465275520",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "PREVIOUSLY_PARSED_MULTIPLE_OIDS_NOT_IDENTITY_VERIFIED",
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "763096849c4de64942e4e8dcedb2dc670ef0a172bc5e7fed9eebb460d97b43b8",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "def3eec8918a24951c8389999203fe60ce85ceb094f5d856c55d9c8d56662314",
+          "response_bytes": 215695,
+          "response_content_type_group": "CSV",
+          "returned_rows": 844,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "148289831863907840",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "5505374d32088e830fd7bacd67c059a9467936415951ffd334c4a3e31131d030",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "2adc10c3d3ded0d5ea3b238426308d42f2f8da6c42218cc2cf841508793d0417",
+          "response_bytes": 643219,
+          "response_content_type_group": "CSV",
+          "returned_rows": 2495,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "145886539965771648",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "1501b0ede84f16b49a1436906aaf17a28ab6d6efbf45208e8589a113145d9e78",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "5517acaef98fe60eb2aa5226a98cdf688ba9b523b7a5fb716c9684572997a1f1",
+          "response_bytes": 34651,
+          "response_content_type_group": "CSV",
+          "returned_rows": 133,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "145125987155266048",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "a0248b6704b734a5bbb5629bfb0b1ec78776bd295ce187ddf7eb46dc27537b9a",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "91ea11e5731541aaadfb056211493fbe1497644ab0009cfe5c36d2ccd25130a0",
+          "response_bytes": 311144,
+          "response_content_type_group": "CSV",
+          "returned_rows": 1206,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "3419110734340795648",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "6f9e0a2bd4a198e603215f7041511b64887b559a919085d2221af346fb6b5540",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "2568cc7853ff96b5456d68ebd9ffb4af0097c075079248537cf05252144c081f",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "3418414193726125184",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "eee80342399ebc4bfff69efa9be077ba0dd893c2c6d5e397241f7ded0a57235b",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "812f68229921a1fc0dab6fabb16b32688e45ff231eb4dcc470094878e612fad9",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "3314244366165299584",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": null,
+          "original_response_sha256": null,
+          "outcome": "NETWORK_TIMEOUT",
+          "query_sha256": "44e1ef5ab29ef2d99b636f616d505b902a3e24655c3104be88adb12c193a97f2",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "6c8adf3c1dd1ce90087fe85a9a2708e820a243cf662bb0ceb295aff618a1f43d",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "3314299238667410176",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "d35b7925f47f608072ad81c389b36e208216ae1a595ed8ba811c945cf77d7a34",
+          "outcome": "PARSED_TABLE_ZERO_ROWS",
+          "query_sha256": "07467f5ba2eda1b05d6a9c2bc7e895c6641c405d442a05d249cf46beda5ffdbe",
+          "response_bytes": 162,
+          "response_content_type_group": "CSV",
+          "returned_rows": 0,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        },
+        {
+          "http_status": 400,
+          "original_response_sha256": null,
+          "outcome": "HTTP_CLIENT_ERROR",
+          "query_sha256": "9ed5d79e1dda821158197cac89caefb919698943f21ef37b183614f1b0058578",
+          "response_bytes": null,
+          "response_content_type_group": "UNKNOWN",
+          "returned_rows": null,
+          "variant": "NUM_OBS_1"
+        }
+      ],
+      "gaia_dr3_source_id": "3406270362673330944",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": false
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "68e1d0321df5464ddad3288eeb7752a8dcccccd711c5582f686200b71b876b5f",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "2527ae355a71cc20a9942571b2509d237c9f9978895779c72bc0f41fa296fc15",
+          "response_bytes": 54647,
+          "response_content_type_group": "CSV",
+          "returned_rows": 210,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "3406269778557780224",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    },
+    {
+      "diagnostic_attempts": [
+        {
+          "http_status": 200,
+          "original_response_sha256": "44900104ec63dfa29ccf246b0770f147cc4619abdc785a81ad4c34d5fd596dc0",
+          "outcome": "PARSED_TABLE_WITH_ROWS",
+          "query_sha256": "7dd95b07997cb62b8475ec4ba52f4984b187ec47b44b0f40f0d1b838a6485649",
+          "response_bytes": 345722,
+          "response_content_type_group": "CSV",
+          "returned_rows": 1340,
+          "source_table_format": "csv",
+          "variant": "NOBS_MIN_5"
+        }
+      ],
+      "gaia_dr3_source_id": "48193213849576320",
+      "new_variable_star_confirmed": false,
+      "physical_gaia_ztf_counterpart_verified": false,
+      "prior_r2_ztf_status": "UNAVAILABLE_OR_UNPARSEABLE",
+      "query_result_is_physical_source_identification": false,
+      "recovered_original_positional_rows": true
+    }
+  ],
+  "scientific_R2_complete": false,
+  "status_counts_per_attempt": {
+    "HTTP_CLIENT_ERROR": 9,
+    "NETWORK_TIMEOUT": 8,
+    "PARSED_TABLE_WITH_ROWS": 13,
+    "PARSED_TABLE_ZERO_ROWS": 1
+  }
+}

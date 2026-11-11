@@ -1,10 +1,19 @@
-**R2 observational positional follow-up (11 November 2026):** [24/24 real Gaia neighbours audited, 2/24 IRSA ZTF positional responses parsed, 22/24 unavailable/unparseable; both ZTF-positive fields have multiple OIDs in the same band](R2_REAL_GAIA_NEIGHBOURS_ZTF_POSITIONS.md). **This does not complete R2:** original science FITS image/mask PSF and independent counterpart identity remain pending. Unavailable IRSA responses are not non-variable targets.
-
 # R1–R6 practical research milestones
 
-**R2 live Gaia-only subset completed 11 November 2026:** [24/24 exact Gaia DR3 records returned, 17 preliminary Gaia-only quality screens passed, 7 RUWE ≥ 1.4](R2_REAL_GAIA_24_EXACT_ID_SCREEN.md). **R2 remains incomplete** until independent original Gaia-to-ZTF counterpart identity and crowding checks are performed. This is not 24 verified light curves.
-
-# R1–R6 practical research milestones
+**Latest R2 status (11 November 2026):**
+[Original IRSA query diagnosis](R2_REAL_IRSA_22_FAILURE_DIAGNOSIS_RESULTS.md)
+recovered **13 of 22** previously unavailable positional response
+tables using the *unchanged* original IRSA query shape, for **15
+of 24** cumulatively accessible technical sky positions across
+the earlier and current runs. **Nine** remain unresolved (eight
+timeouts, one valid zero-row response to a restricted query);
+the alternate NUM_OBS=1 requests all returned HTTP 400.
+The [24 exact Gaia ID query](R2_REAL_GAIA_24_EXACT_ID_SCREEN.md)
+returned 24/24 sources, 17 passing provisional Gaia-only
+astrometric flags. **R2 is not complete** because independently
+verified Gaia-to-ZTF physical source identities, original image
+crowding and publisher literature membership still remain open.
+None of the access failures are astrophysical nondetections.
 
 There are **six planned increments in total** for a modest, bounded
 **independent Taurus optical-variability feasibility study**. This is

@@ -122,28 +122,28 @@ Read the [Spanish practical guide](docs/V2_GUIA_ES.md) or [complete reproducibil
 
 For a concise explanation suitable for recruiting and interviews, see [StellarForge on a CV — English/Spanish](docs/V2_PORTFOLIO_CV_ES_EN.md). The [research status](docs/PROJECT_STATUS.md), [roadmap](docs/ROADMAP.md) and [release notes](RELEASE_NOTES_v2.0.md) remain available for deeper technical review.
 
-## Original-data R2 positional follow-up — 11 November 2026
+## Independent Taurus variability research — R1 and ongoing R2
 
-**New observational source-screen result:** 24/24 genuine Gaia DR3 neighbour cones were parsed, with no *catalogued Gaia* neighbours within 2 arcsec and four targets with neighbours within 5 arcsec. Only **2/24** bounded IRSA ZTF positional responses were usable: V892 Tau and LkHa 332/G2 A+B; both returned multiple ZTF OIDs in at least one band. The other **22/24 IRSA responses remain unavailable or unparseable** and are **not astrophysical nondetections**. **Zero independently authenticated Gaia–ZTF identities, stellar variability results or companions.** [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43031689454) · [R2 limitations and results](research/taurus_variability/R2_REAL_GAIA_NEIGHBOURS_ZTF_POSITIONS.md).
+StellarForge v2.0 remains a **finished software-engineering portfolio**.
+The separate observational study is ongoing and uses a fixed,
+**nonrepresentative 24-source technical Taurus seed**; there is
+**no independently confirmed Gaia–ZTF physical source match**.
 
-## Optional independent astronomy research continuation — Taurus R1–R2
+**New R2 real-data recovery (11 November 2026):** the original Gaia
+survey returned all 24 exact identifiers; 17 met preliminary
+Gaia-only quality flags. Initial IRSA access returned just 2/24
+parsable positional source tables. A later bounded, documented
+requery recovered **13 additional original-format ZTF responses**,
+bringing the **cumulative accessible fields to 15/24** across
+separate runs. Eight further original requests timed out, one
+returned a zero-row table under its filter, and the attempted
+alternate NUM_OBS=1 parameter returned HTTP 400 for these nine.
+**These are archive/query statuses, not stellar nondetections.**
 
-**New genuine Gaia DR3 R2 catalogue check (11 November 2026):** all 24 frozen technical Taurus Gaia IDs were found in two real exact-ID queries; 17 met preliminary Gaia-only astrometric quality gates, 7 have RUWE ≥ 1.4. **Zero Gaia–ZTF physical source identities were independently confirmed**, and source/crowding validation is still outstanding. [Actual original-data R2 report](research/taurus_variability/R2_REAL_GAIA_24_EXACT_ID_SCREEN.md) · [GitHub Actions original run](https://github.com/ismaelberja/stellarforge/actions/runs/43029175432).
-
-## Optional independent astronomy research continuation — Taurus R1
-
-**The v2.0 engineering portfolio remains complete.** A **separate R1 feasibility
-study** now pre-registers a research question about optical variability
-of the 24 **nonrepresentative** pre-existing Taurus technical candidates.
-It has **not validated any physical Gaia-to-ZTF associations or confirmed
-new stellar variability**. No additional live survey observations have been
-acquired in R1. A six-stage, risk-gated plan is available:
-
-- [R1 science protocol and source-identity gates](research/taurus_variability/R1_PREREGISTERED_SCIENCE_PROTOCOL.md)
-- [R1–R6 research roadmap and completion criteria](research/taurus_variability/R1_TO_R6_RESEARCH_PLAN.md)
-
-You may already share the v2.0 **software** project professionally;
-the independent **scientific study** is explicitly a new work in progress.
+[Original HTTP recovery report](research/taurus_variability/R2_REAL_IRSA_22_FAILURE_DIAGNOSIS_RESULTS.md) ·
+[Derived no-raw per-source ledger](reports/taurus_variability_r2/IRSA_22_ORIGINAL_DERIVED_DIAGNOSTIC_LEDGER.json) ·
+[Research R1–R6 roadmap](research/taurus_variability/R1_TO_R6_RESEARCH_PLAN.md) ·
+[Original live archive run](https://github.com/ismaelberja/stellarforge/actions/runs/43037800319)
 
 ## Status after v2.0
 

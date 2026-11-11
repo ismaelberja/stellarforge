@@ -1,0 +1,40 @@
+name: Taurus R2 — diagnose 22 original IRSA requests (real, no raw)
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-irsa-failure-diagnosis
+    paths:
+      - .github/workflows/taurus-r2-irsa-diagnosis.yml
+      - src/stellarforge/r2_irsa_failure_diagnosis.py
+      - scripts/run_taurus_r2_irsa_failure_diagnosis.py
+      - research/taurus_variability/R2_IRSA_DIAGNOSTIC_INPUT_NO_RAW.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose-irsa-responses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout frozen R1 and prior original-data receipt
+        uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Diagnose exactly 22 unresolved IRSA source queries with bounded variants
+        run: |
+          python -m scripts.run_taurus_r2_irsa_failure_diagnosis --output reports/generated/taurus_r2_irsa_22_diagnostic_derived_only.json
+      - name: Save only bounded, no-raw HTTP schema and source-retrieval metadata
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r2-irsa-22-http-diagnostic-NOT-stellar-variability
+          path: reports/generated/taurus_r2_irsa_22_diagnostic_derived_only.json
+          if-no-files-found: error
+          retention-days: 30
