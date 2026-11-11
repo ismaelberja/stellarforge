@@ -27,7 +27,7 @@ from .ztf_photometry import parse_ztf_table
 ENDPOINT = "https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves"
 MAX_BYTES = 2_000_000
 MAX_TARGETS = 24
-QUERY_VARIANTS = ("NOBS_MIN_5", "NUM_OBS_1")
+QUERY_VARIANTS = ("NOBS_MIN_5", "NOBS_MIN_1", "NUM_OBS_1")
 VALID = ("PARSED_TABLE_WITH_ROWS", "PARSED_TABLE_ZERO_ROWS")
 
 
@@ -58,10 +58,10 @@ def irsa_diagnostic_url(ra: float, dec: float, variant: str) -> str:
     # documented count-constraint spellings/thresholds.
     kw = {"POS": f"CIRCLE {ra:.9f} {dec:.9f} {2/3600:.10f}",
           "FORMAT": "csv"}
-    if variant == "NOBS_MIN_5":
-        kw["NOBS_MIN"] = "5"       # previous query shape
+    if variant in ("NOBS_MIN_5", "NOBS_MIN_1"):
+        kw["NOBS_MIN"] = "5" if variant == "NOBS_MIN_5" else "1"
     else:
-        kw["NUM_OBS"] = "1"         # permissive diagnostic of object-table filter
+        kw["NUM_OBS"] = "1"         # historical unsuccessful diagnostic variant
     return ENDPOINT + "?" + urlencode(kw)
 
 
