@@ -2,6 +2,15 @@
 
 **11 November 2026. Actual live survey catalogue requests, not independent astronomical crossmatches.**
 
+**Historical snapshot:** the 2/24 IRSA result below is
+the **earlier** original-data run, not the latest source-access
+coverage. A [later controlled requery](R2_REAL_IRSA_22_FAILURE_DIAGNOSIS_RESULTS.md)
+recovered 13 additional previously unresolved original-format
+tables (15/24 cumulatively accessible; 9 still unresolved) without
+confirming any Gaia–ZTF physical source identity.
+
+
+
 - [Original completed Gaia+ZTF archive run](https://github.com/ismaelberja/stellarforge/actions/runs/43031689454)
 - [Original 30-day derived-only 24-source artifact](https://github.com/ismaelberja/stellarforge/actions/runs/43031689454/artifacts/13861901170)
 - [Pinned summary receipt, no raw survey data](../../reports/taurus_variability_r2/GAIA_NEIGHBOUR_ZTF_POSITIONAL_ORIGINAL_RESULTS_NO_RAW.json)
