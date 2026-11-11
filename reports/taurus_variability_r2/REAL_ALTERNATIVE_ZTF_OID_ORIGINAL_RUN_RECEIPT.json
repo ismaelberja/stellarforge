@@ -1,0 +1,71 @@
+{
+  "schema_version": "stellarforge-r2-genuine-original-ztf-oid-field-review-receipt-v1",
+  "observation_date_utc": "2026-11-11",
+  "live_original_survey_run_id": 43066226324,
+  "original_survey_run_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43066226324",
+  "original_derived_artifact_id": 13875728278,
+  "original_artifact_zip_sha256": "e607eaf67de0d4915ff56e46300b99cc66d10dde6b37ad1b8580a32c6e236612",
+  "original_json_sha256": "b526e4471cec595d91cb456b5ba3a4daa9608fc81e98c811cd37944537bef1d4",
+  "gaia_dr3_original_source_response_sha256": "31ec0a7b19e424f06ea1d9d26ac930a1e633418e6285efe469d41c58c457cd99",
+  "original_r1_fixed_24_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "frozen_technical_taurus_gaia_source_count": 24,
+  "n_historic_target_fields": 2,
+  "n_gaia_original_source_ids_returned": 2,
+  "n_irsa_positional_query_tables_parsed": 2,
+  "n_irsa_historical_exact_oid_tables_parsed": 2,
+  "n_original_positional_catalogue_rows_both_fields": 2648,
+  "n_original_technical_quality_accepted_rows_both_fields": 2212,
+  "n_original_ztf_oids_both_fields": 6,
+  "n_original_ztf_oid_band_groups": 6,
+  "n_fields_with_same_band_multiple_ztf_oids": 1,
+  "n_same_band_oid_pairs_same_exposure_metadata": 0,
+  "ft_tau": {
+    "gaia_dr3_source_id": "149623711269425408",
+    "historical_oid": "1605115300003377",
+    "n_ztf_original_survey_oids": 4,
+    "n_original_rows": 1442,
+    "n_quality_accepted_rows": 1199,
+    "n_same_band_oid_review_pairs": 2,
+    "original_survey_fields": [
+      "1605/0xf/0x3",
+      "609/0x8/0x4"
+    ],
+    "g_ztf_oids": [
+      "1605115300003377",
+      "609108400001155"
+    ],
+    "r_ztf_oids": [
+      "1605215300005161",
+      "609208400001969"
+    ],
+    "n_original_historical_oid_direct_rows": 79,
+    "independent_physical_counterpart_identification": false
+  },
+  "cida11": {
+    "gaia_dr3_source_id": "3419110734340795648",
+    "historical_oid": "610106300008010",
+    "n_ztf_original_survey_oids": 2,
+    "n_original_rows": 1206,
+    "n_quality_accepted_rows": 1013,
+    "n_same_band_oid_review_pairs": 0,
+    "original_survey_fields": [
+      "610/0x6/0x3"
+    ],
+    "g_ztf_oids": [
+      "610106300008010"
+    ],
+    "r_ztf_oids": [
+      "610206300011997"
+    ],
+    "n_original_historical_oid_direct_rows": 469,
+    "independent_physical_counterpart_identification": false,
+    "gaia_dr3_high_ruwe_warning": true
+  },
+  "new_original_fits_science_epochs": 0,
+  "n_independently_validated_gaia_ztf_physical_sources": 0,
+  "n_new_confirmed_variable_stars": 0,
+  "n_new_confirmed_companions": 0,
+  "r2_scientific_physical_source_identification_completed": false,
+  "raw_ztf_photometry_or_gaia_table_saved": false,
+  "interpretation": "Original ZTF object and detector metadata reveal FT Tau two same-band ObjectID pairs across independent detector-field combinations; CIDA11 a g/r pair in one detector-field combination. No independent proof of same or different physical stars, nor WCS calibration or science-quality variability, is obtained."
+}

@@ -32,6 +32,18 @@ FT Tau insufficient strict references). **R2 target correction NO-GO**
 is an original-data conclusion, **not** a confirmed physical
 Gaia–ZTF match, variable star, WCS calibration or non-detection.
 
+**Latest FT Tau / CIDA 11 original ZTF ObjectID follow-up:**
+[Two-field, six-OID genuine original catalogue results](R2_REAL_FT_TAU_CIDA_ZTF_ALTERNATIVE_OID_RESULTS.md)
+found **four OIDs around FT Tau** (two g and two r, across
+**two original field/CCD/quadrant combinations**) and **two around
+CIDA 11** (one g, one r in the same field).
+Two separate same-band FT Tau OID pairs require original-image
+cross-field verification before curves can be combined.
+Both historical g-band source OIDs were returned by original direct-ID
+queries and by the 2-arcsec positional queries. This is **catalogue
+access and provenance**, **not** proof of one physical Gaia/ZTF
+source, scientific variability, companions or source deblending.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus

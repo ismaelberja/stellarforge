@@ -175,7 +175,23 @@ scientific quality-control *no-go*, not an astrophysical non-detection.
 [Real-data source-control workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43063054380) ·
 [Immutable no-raw 7-source, 4-exposure ledger](reports/taurus_variability_r2/GAIA_ONLY_CONTROLS_ORIGINAL_PSF_OFFSETS_NO_RAW.json)
 
-Source-by-source independent astrometry, unresolved-blend analysis
+**New original ZTF ObjectID / filter / field review (11 November 2026):**
+an exact **two-field** follow-up identified **four** separate ZTF
+ObjectIDs for FT Tau (**two g, two r**, from **two different
+field/CCD/quadrant combinations**), and **two** for CIDA 11
+(**one g, one r**, same detector field). Both previously
+documented historical g-band ObjectIDs appear in the original
+2-arcsec positional tables and were also recovered by direct ID.
+The two FT Tau same-band OID pairs do **not** share the same
+original exposure metadata, but their similar catalogue sky
+positions are **NOT independent physical Gaia/ZTF association
+evidence**. No OIDs are concatenated and no new variability is claimed.
+
+[Actual original ZTF ObjectID/field analysis](research/taurus_variability/R2_REAL_FT_TAU_CIDA_ZTF_ALTERNATIVE_OID_RESULTS.md) ·
+[Two-source original IRSA run](https://github.com/ismaelberja/stellarforge/actions/runs/43066226324) ·
+[Derived six-OID source ledger](reports/taurus_variability_r2/REAL_TWO_FIELDS_ORIGINAL_IRSA_ALTERNATE_OBJECTIDS_NO_RAW.json)
+
+Source-by-source independent astrometry, cross-field deblending
 and original publisher Taurus catalogue membership checks
 **remain open** before any scientific variability classification.
 
