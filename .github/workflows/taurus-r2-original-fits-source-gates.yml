@@ -8,6 +8,7 @@ on:
       - .github/workflows/taurus-r2-original-fits-source-gates.yml
       - src/stellarforge/r2_original_fits_gates.py
       - scripts/run_taurus_r2_original_fits_gates.py
+      - tests/test_research_taurus_r2_original_fits_gates.py
   workflow_dispatch:
 
 permissions:
