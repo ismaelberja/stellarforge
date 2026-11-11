@@ -20,6 +20,18 @@ Zero additional native catalogue sources within 3″ and zero flagged
 central core mask pixels are **not proof of an isolated, physical
 Gaia/ZTF source**.
 
+**Latest R2 original Gaia-only reference validation:**
+[Real Gaia DR3/reference source vs original ZTF PSFcat offset study](R2_REAL_GAIA_ONLY_CONTROL_OFFSET_NO_GO.md)
+reused the **four previously fixed historical ZTF image dates**
+and **five Gaia-only source-disjoint field controls**. On the two
+CIDA 11 dates, respectively four and two strict controls passed;
+on FT Tau, only one exploratory control passed per date.
+**No** target+field pair passed all combined predeclared gates
+for differential astrometry (CIDA target high RUWE/PSF quality,
+FT Tau insufficient strict references). **R2 target correction NO-GO**
+is an original-data conclusion, **not** a confirmed physical
+Gaia–ZTF match, variable star, WCS calibration or non-detection.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus
