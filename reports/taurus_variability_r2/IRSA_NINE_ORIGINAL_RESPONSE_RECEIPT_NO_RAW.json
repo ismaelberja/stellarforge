@@ -1,0 +1,30 @@
+{
+  "schema_version": "taurus-r2-irsa-nine-original-recovery-receipt-v1",
+  "observation_date_utc": "2026-11-11",
+  "original_run_id": 43042786341,
+  "original_run_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43042786341",
+  "original_github_actions_artifact_id": 13866785881,
+  "original_zip_sha256": "34890a91f9f86004967726e61c6f69cc7443a9d45828f07387fe51b22feb4674",
+  "original_source_json_sha256": "16c087b98fd1ecf0aa6c075cfc6483decc24859fe61cc4d1083138eb42688fad",
+  "frozen_r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "n_original_technical_gaia_sources": 24,
+  "n_ztf_positions_with_parsed_rows_before_latest_run": 15,
+  "n_requested_in_latest_run": 9,
+  "n_new_parsable_original_ztf_positional_responses": 7,
+  "n_ztf_positions_with_original_parsable_tables_across_runs": 22,
+  "n_remaining_unresolved": 2,
+  "n_actual_original_ztf_rows_across_7_newly_parsed_positions": 11058,
+  "result_categories": {
+    "PARSED_TABLE_WITH_ROWS": 7,
+    "PARSED_TABLE_ZERO_ROWS": 1,
+    "HTTP_CLIENT_ERROR": 1
+  },
+  "zero_row_gaia_dr3_source_id": "3314244366165299584",
+  "http400_gaia_dr3_source_id": "3406270362673330944",
+  "fully_authenticated_gaia_ztf_physical_counterparts": 0,
+  "original_ztf_images_psf_masks_independently_vetted_in_run": 0,
+  "new_astrophysical_variability_discoveries": 0,
+  "R2_science_complete": false,
+  "raw_ztf_csv_committed": false,
+  "interpretation": "Seven IRSA positional-query response tables were successfully parsed; cumulative original ZTF access is 22 of 24 technical Gaia seed positions. These are not cross-survey physical IDs. A zero-row result under NOBS_MIN=5 and HTTP400 under NOBS_MIN=1 are query statuses, not astrophysical nondetections."
+}
