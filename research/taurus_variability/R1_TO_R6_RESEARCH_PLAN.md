@@ -115,6 +115,26 @@ processing, so external source-row retrieval does not
 imply statistical independence from its historical
 pipeline calibration. No source OIDs were merged.
 
+**New R2 original FT Tau source-target astrometry and ambiguity control
+(12 November 2026):**
+[Exact Gaia J2016 5p covariance/proper-motion to four original
+ZTF observations, with independent external PS1 source references](R2_REAL_FTTAU_GAIA_PS1_ZTF_TARGET_ASTROMETRY_RESULTS.md)
+obtained **4/4** real same-exposure ZTF native PSF source
+candidates each **0.035–0.069″** from Gaia's
+epoch-propagated geocentric-parallax and proper-motion
+prediction. A complete 1,780-source PS1 DR2 mean
+catalogue (raw response SHA changed vs previous pilot,
+explicitly documented) contains **one** mean catalogue source
+within 1″ of the original Gaia J2016 reference
+position. With the previously fixed **82 g/180 r**
+ZTF/ZTF/PS1 source-disjoint reference triples, both
+same-filter fields pass predeclared held-out *positional*
+consistency controls. These are **catalogue source-screening
+indicators**, NOT independently calibrated epoch-corrected
+ZTF WCS/source deblending, valid physical association,
+proper-motion measurement, or new variable star. Source
+OIDs remain unmerged.
+
 **R2 is NOT complete:** Gaia–ZTF source physical identity,
 independent externally calibrated astrometry/deblending (including
 the remaining 22 technical targets) and original publisher Taurus
