@@ -1,5 +1,9 @@
 # R1–R6 practical research milestones
 
+**12 November 2026 CDS SIMBAD external exact FT Tau alias result:** [Live original two exact-name TAP lookups](R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md) on the official CDS Harvard mirror returned one identical unique SIMBAD object for the historical name FT Tau and frozen Gaia DR3 **149623711269425408** (SIMBAD main identifier V* FT Tau, type Or*). This resolves the **curated alias** for the original R1 Gaia seed; SIMBAD Gaia aliases are ultimately from other catalogue sources, and this is **not** a measurement or authentication of physical Gaia–ZTF per-epoch source matches. All 5/8 PASS and 3/8 FAIL source decisions and only 1/4 valid two-night candidate pairs stay frozen. R2 physical ZTF identity still OPEN.
+
+
+
 **12 November 2026 original ZTF native spatial DAOPhot result:** [Six original full native source models and same-source heldout fits](R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md), compared against six original date-locked source/model/science/mask hashes and field-center reference stamps. 6/6 source-specific native spatial model numeric fits, 4/6 provisional same-image residual screens passed, 2/6 r609 need review. This improves original PSF model coverage after an oversimplified Gaussian pilot, **not independent external stellar PSF/WCS validation**. Frozen low-chi original source rejections remain, R2 physical identity OPEN.
 
 
