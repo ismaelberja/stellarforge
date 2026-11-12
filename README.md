@@ -320,6 +320,10 @@ All **3/3 exact earlier original native PSF catalogues** were byte-SHA-verified 
 
 [Real original DAOPhot spatial PSF report](research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md) · [Live original-source execution](https://github.com/ismaelberja/stellarforge/actions/runs/43310945601) · [Permanent no-raw original data evidence](reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_DAOPHOT_PSF_NO_RAW.json)
 
+**Verified external FT Tau name ↔ Gaia DR3 alias (12 November 2026):** Two strictly precommitted **CDS SIMBAD exact identifier lookups** returned the **same unique external object**, main ID **V* FT Tau**, for the historical FT Tau name and Gaia DR3 **149623711269425408**. One original row per query; original TAP responses SHA-256 verified from the official Harvard mirror. The SIMBAD vs Gaia catalogue coordinate difference is 0.36934″ without epoch correction, **not** a physical astrometric error estimate. This is **confirmed external catalogue alias correspondence**, not independent proof that the **four ZTF ObjectIDs** or six original PSF source detections are physically the same Gaia star. No earlier native χ threshold or provisional source status changed; physical source association and new variability claims remain scientifically OPEN.
+
+[Authentic SIMBAD/Gaia identity audit](research/taurus_variability/R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md) · [Live official CDS mirror run](https://github.com/ismaelberja/stellarforge/actions/runs/43314507016) · [Permanent original no-raw source evidence](reports/taurus_variability_r2/FTTAU_SIMBAD_EXACT_GAIA_NAME_ALIAS_NO_RAW.json)
+
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·

@@ -1,0 +1,40 @@
+name: Taurus R2 — genuine CDS SIMBAD FT Tau vs exact Gaia DR3 external name identity audit
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-external-simbad-identity
+    paths:
+      - .github/workflows/taurus-r2-fttau-simbad-external-alias.yml
+      - src/stellarforge/r2_fttau_external_simbad_alias.py
+      - scripts/run_taurus_r2_fttau_external_simbad_alias.py
+      - tests/test_research_r2_fttau_external_simbad_alias.py
+      - research/taurus_variability/R2_FTTAU_SIMBAD_EXACT_GAIA_NAME_ALIAS_PREREGISTRATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-external-simbad-two-exact-identifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original Gaia-SIMBAD cross-identification dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run identity-ambiguity, mirror-outage and scientific nonclaim tests
+        run: python -m pytest -q tests/test_research_r2_fttau_external_simbad_alias.py
+      - name: Fetch exact Gaia and dual original CDS SIMBAD TAP name alias queries, fail closed
+        run: python -m scripts.run_taurus_r2_fttau_external_simbad_alias --output reports/generated/r2_fttau_original_simbad_gaia_alias_no_raw.json
+      - name: Archive only original response hashes and derived Gaia-to-FT name outcomes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-R2-FTTau-original-CDS-SIMBAD-two-exact-name-Gaia-aliases-NO-ZTF-PHYSICAL-ID
+          path: reports/generated/r2_fttau_original_simbad_gaia_alias_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn
