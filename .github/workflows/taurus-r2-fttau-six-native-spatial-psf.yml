@@ -1,0 +1,40 @@
+name: Taurus R2 — six original FT Tau ZTF native spatial DAOPhot PSF same-image pixel holdouts
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-six-original-native-spatial-psf
+    paths:
+      - .github/workflows/taurus-r2-fttau-six-native-spatial-psf.yml
+      - src/stellarforge/r2_fttau_six_original_native_spatial_psf.py
+      - scripts/run_taurus_r2_fttau_six_original_native_spatial_psf.py
+      - tests/test_research_r2_fttau_six_original_native_spatial_psf.py
+      - research/taurus_variability/R2_FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_PSF_PREREGISTRATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-native-ztf-six-exposures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original ZTF pixel spatial DAOPhot PSF and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Check source provenance, data-sanitization, scientific no-claim invariants
+        run: python -m pytest -q tests/test_research_r2_fttau_six_original_native_spatial_psf.py
+      - name: Fetch original ZTF 6 PSFcat, science, mask, native spatial DAO PSF and center stamps; derived QA only
+        run: python -m scripts.run_taurus_r2_fttau_six_original_native_spatial_psf --output reports/generated/r2_fttau_six_original_native_spatial_psf_pixel_holdout_no_raw.json
+      - name: Upload original-only derived evidence without source files or photometry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-R2-FTTau-six-original-native-spatial-DAOPHOT-PSF-source-pixel-QA-NO-ID
+          path: reports/generated/r2_fttau_six_original_native_spatial_psf_pixel_holdout_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn
