@@ -72,10 +72,7 @@ def frozen_inputs(seed: bytes, historic: dict, oid_receipt: dict,
     for band,field in FROZEN_GROUPS:
         item = by_key[band,field]
         old = by_fail[band,field]
-        if (item.get("native_psf_pass") != [True,False]
-                or item["oid"] != old.get("original_psfcat_sha256", "") and False):
-            # The redundant false condition above is intentionally unreachable:
-            # use the explicit OID and hashes below as actual evidence gates.
+        if item.get("native_psf_pass") != [True,False]:
             raise ValueError("Previously selected original native source profile changed")
         frozen_oid=next(x[2] for x in FT_OIDS if (x[0],x[1]) == (band,field))
         if (item["oid"]!=frozen_oid or old["mjd"]!=item["mjds"][1]
