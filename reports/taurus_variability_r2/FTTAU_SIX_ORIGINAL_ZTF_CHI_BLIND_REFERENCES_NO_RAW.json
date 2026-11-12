@@ -1,0 +1,134 @@
+{
+  "schema_version": "stellarforge-r2-fttau-six-original-chi-blind-controls-summary-v1",
+  "date_utc": "2026-11-12",
+  "original_data_run_id": 43275404347,
+  "artifact_id": 13970027074,
+  "artifact_zip_sha256": "2c8b2b01dc4ad5ee5e9536fcfa4d1b7d94c2a187c40c8ad9f66f102d8c9dbc09",
+  "derived_only_original_json_sha256": "ade85d70b57e007fe71d83ec7ecffc6f35aff3357468751abd83e403267beb98",
+  "original_gaia_response_sha256": "399b5498d8d8a8a646073dfc029895ed64902940896d1789c63833a18074b642",
+  "previous_original_multinight_run": 43270659201,
+  "previous_original_bad_psf_run": 43273246447,
+  "n_original_byte_sha_verified_ztf_full_psfcats": 6,
+  "n_per_image_controls_adequate_20_or_more": 6,
+  "n_per_image_snr_matched_controls_adequate_20_or_more": 6,
+  "sum_control_source_records_across_six_images": 1095,
+  "sum_controls_chi_below_0p5": 240,
+  "prospective_original_target_quality_gate_unchanged": true,
+  "original_previous_5_of_8_quality_passes_unchanged": true,
+  "original_valid_two_night_pairs_1_of_4_unchanged": true,
+  "control_selection_excludes_chi_threshold": true,
+  "original_exact_3_ztf_oid_early_late_pairs": [
+    {
+      "band": "g",
+      "field": 1605,
+      "oid": "1605115300003377",
+      "meta": "64916a8825f14f1f39dbf16aaf3e404d04cab5c0ab5a258b7d53973f0cf0af87",
+      "epochs": [
+        {
+          "mjd": 58362.516713,
+          "day": "20180901516678",
+          "sha": "c30c7d38a1e8d04ed33603e8a86567fd2ff24f5e26386f3065c535d58a58b81b",
+          "chi": 0.804,
+          "snr": 43.6,
+          "n": 108,
+          "below": 38,
+          "matched_n": 98,
+          "matched_below": 34,
+          "median": 0.6205,
+          "percentile": 73.1481
+        },
+        {
+          "mjd": 60233.393611,
+          "day": "20231016393588",
+          "sha": "e989ec78cdef805cf8adecfb37d1f0cb1b2b3894a1892d0eb36374ccf4ca505b",
+          "chi": 0.456,
+          "snr": 49.8,
+          "n": 160,
+          "below": 38,
+          "matched_n": 133,
+          "matched_below": 35,
+          "median": 0.631,
+          "percentile": 16.25
+        }
+      ]
+    },
+    {
+      "band": "g",
+      "field": 609,
+      "oid": "609108400001155",
+      "meta": "391b35a3232341f0c1f9701522cb52aced730d4a9098da9d3ae6c40f2d6d8004",
+      "epochs": [
+        {
+          "mjd": 58330.48912,
+          "day": "20180731489120",
+          "sha": "b43af89f927b74f4e3ba90c3b4ef0c20ebfa7cc454b5b9b5542e2e82879ad781",
+          "chi": 0.552,
+          "snr": 55.68,
+          "n": 94,
+          "below": 25,
+          "matched_n": 63,
+          "matched_below": 18,
+          "median": 0.6335,
+          "percentile": 32.9787
+        },
+        {
+          "mjd": 60948.441412,
+          "day": "20250930441343",
+          "sha": "785a472396fa369080e84589bc282122e7f2f44d37059fb52efe769c8cae2ca8",
+          "chi": 0.424,
+          "snr": 65.01,
+          "n": 196,
+          "below": 23,
+          "matched_n": 131,
+          "matched_below": 15,
+          "median": 0.807,
+          "percentile": 8.1633
+        }
+      ]
+    },
+    {
+      "band": "r",
+      "field": 609,
+      "oid": "609208400001969",
+      "meta": "8f2398fe162be8a395a4baf495665fa5a7f9916251c6af31ea10a9f04bd98537",
+      "epochs": [
+        {
+          "mjd": 58321.487465,
+          "day": "20180722487407",
+          "sha": "dff00d40f0f384a2441d293ac871b119caff0cefd1e365610b15dbbce3ecf94a",
+          "chi": 1.438,
+          "snr": 48.91,
+          "n": 239,
+          "below": 20,
+          "matched_n": 196,
+          "matched_below": 16,
+          "median": 0.972,
+          "percentile": 84.1004
+        },
+        {
+          "mjd": 60935.414502,
+          "day": "20250917414479",
+          "sha": "f1127a1eaf84a507b910952f5e1d35f43a55e4be0c6f9a09b272507dd8f7f043",
+          "chi": 0.383,
+          "snr": 43.43,
+          "n": 298,
+          "below": 96,
+          "matched_n": 269,
+          "matched_below": 94,
+          "median": 0.6205,
+          "percentile": 13.0872
+        }
+      ]
+    }
+  ],
+  "n_physical_gaia_ztf_identities_confirmed": 0,
+  "n_new_variable_or_companion_stars": 0,
+  "n_original_ztf_oid_lightcurves_merged": 0,
+  "scientific_R2_complete": false,
+  "limitations": [
+    "Same-ZTF-pipeline reference catalogue sources are not independently identified physical stars.",
+    "The six-source-cohort combined counts are per-image records, not unique source identities or a representative Taurus population.",
+    "No calibrated PSF/WCS source covariance, high-resolution deblending, independent motion or astrophysical variability measurement.",
+    "The original 0.5-to-1.5 chi source gate and all prior original selection statuses are not altered."
+  ]
+}

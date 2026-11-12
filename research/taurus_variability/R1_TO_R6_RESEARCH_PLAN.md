@@ -1,5 +1,9 @@
 # R1–R6 practical research milestones
 
+**12 November 2026 real original FT Tau chi-blind sensitivity control:** [Six original ZTF native full PSFcat images, 1,095 original source control records](R2_REAL_FTTAU_SIX_ORIGINAL_CHI_REFERENCE_RESULTS.md), 240 below chi 0.5. This diagnoses potential selection sensitivity of the frozen chi lower cutoff, not a legitimate retrospective correction or independent source-match proof. R2 physical identity OPEN and R3 still blocked.
+
+
+
 **New 12 November 2026 original FT Tau frozen-failure source diagnostics:**
 [Three original late-night failed PSF catalogues, exact image masks and original source fits](R2_REAL_FTTAU_THREE_BAD_PSF_MASK_RESULTS.md).
 Each of the three previous fixed late-night source candidates fails *only*
