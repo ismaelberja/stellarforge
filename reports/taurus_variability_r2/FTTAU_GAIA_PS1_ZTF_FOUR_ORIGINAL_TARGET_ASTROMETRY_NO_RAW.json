@@ -1,0 +1,298 @@
+{
+  "fixed_original_ztf_exposures": 4,
+  "frozen_nonrepresentative_taurus_technical_seed_size": 24,
+  "gaia_ft_tau_original_source_id": "149623711269425408",
+  "limitations": [
+    "Gaia DR3 J2016.0 formal covariance and mean motion include modelled geocentric parallax; original ZTF per-frame instrument WCS source errors, PS1 mean epoch/PM, topocentric offsets and unknown systematics are not included.",
+    "PS1/ZTF reference source overlap is a source-level independent-catalogue positional screen; its holdout medians do not constitute a calibrated epoch-corrected external WCS or independent target physical identity.",
+    "The target PS1 neighbour search uses only PS1 DR2 mean source catalogue entries with at least five detections and lacks PS1 source-specific epoch-corrected positions or proof of unique target PS1 counterpart.",
+    "Gaia target nearest-original-native-PSF positions across g/r can be provisional despite unresolved/background stellar structure, unknown centroid errors, different epochs and filter effects.",
+    "No source OID lightcurves were merged and no astrophysical variability, companion or Taurus population discovery is inferred."
+  ],
+  "n_bands_reference_astrometry_holdout_internal_passes": 2,
+  "n_confirmed_physical_gaia_to_ztf_ft_tau_source_identities": 0,
+  "n_new_confirmed_variable_or_companion_stars": 0,
+  "n_original_PS1_mean_rows_valid": 1780,
+  "n_original_gaia_5p_records_verified": 1,
+  "n_original_native_ztf_PSFcat_SHA_verified": 4,
+  "n_original_target_exposures_with_provisional_native_source_candidate": 4,
+  "n_same_band_target_pair_descriptive_external_relative_offsets_available": 2,
+  "n_same_filter_pairs_with_two_provisional_target_candidates": 2,
+  "n_zTF_ft_tau_OID_lightcurves_merged": 0,
+  "original_MAST_PS1_target_source_ambiguity": {
+    "independent_catalogue_source_ambiguity_excluded": false,
+    "n_all_original_ps1_mean_source_positions_reviewed": 1780,
+    "original_target_neighborhood": {
+      "g_original_ztf_epoch_gaia_propagated": {
+        "gaia_to_ztf_ps1_physical_target_source_id_confirmed": false,
+        "may_omit_PS1_sources_with_lt5_mean_detections": true,
+        "n_original_ps1_sources_within_1arcsec": 1,
+        "n_original_ps1_sources_within_3arcsec": 1,
+        "nearest_original_ps1_mean_position_offset_arcsec": 0.142935,
+        "ps1_astrometric_epoch_and_source_pm_unknown": true,
+        "second_original_ps1_mean_position_offset_arcsec": 16.696838
+      },
+      "gaia_J2016_reference_epoch": {
+        "gaia_to_ztf_ps1_physical_target_source_id_confirmed": false,
+        "may_omit_PS1_sources_with_lt5_mean_detections": true,
+        "n_original_ps1_sources_within_1arcsec": 1,
+        "n_original_ps1_sources_within_3arcsec": 1,
+        "nearest_original_ps1_mean_position_offset_arcsec": 0.05612,
+        "ps1_astrometric_epoch_and_source_pm_unknown": true,
+        "second_original_ps1_mean_position_offset_arcsec": 16.653737
+      },
+      "r_original_ztf_epoch_gaia_propagated": {
+        "gaia_to_ztf_ps1_physical_target_source_id_confirmed": false,
+        "may_omit_PS1_sources_with_lt5_mean_detections": true,
+        "n_original_ps1_sources_within_1arcsec": 1,
+        "n_original_ps1_sources_within_3arcsec": 1,
+        "nearest_original_ps1_mean_position_offset_arcsec": 0.119173,
+        "ps1_astrometric_epoch_and_source_pm_unknown": true,
+        "second_original_ps1_mean_position_offset_arcsec": 16.687487
+      }
+    },
+    "ps1_mean_epoch_or_proper_motion_propagated": false
+  },
+  "original_external_PS1_MAST_response_sha256": "d50248c88891095e33b0e8d6b30596d027bda244e1c4e4785b594c67f4bd1b74",
+  "original_external_PS1_access_or_parse_error_class": null,
+  "original_external_PS1_previous_snapshot_sha256": "3038bd93cd21820dbc584e7d4081f7c279109ca36a0988fc55d279a94d29ca95",
+  "original_external_PS1_response_status": "COMPLETE_ORIGINAL_MAST_PS1_RESPONSE_SHA_CHANGED_REVIEW",
+  "original_external_PS1_sha_equal_previous_snapshot": false,
+  "original_four_exposure_target_candidate_details": [
+    {
+      "band": "g",
+      "descriptive_PS1_reference_adjusted_target": {
+        "external_reference_adjusted_target_east_arcsec": -0.035503,
+        "external_reference_adjusted_target_north_arcsec": 0.006418,
+        "independent_instrument_wcs_solution": false,
+        "source_physical_gaia_ztf_identity_confirmed": false,
+        "status": "DESCRIPTIVE_PS1_REFERENCE_RELATIVE_TARGET_OFFSET_NOT_PHYSICAL_IDENTITY"
+      },
+      "field": "1605",
+      "gaia_astrometric_quality_warning": false,
+      "gaia_full_formal_east_sigma_mas": 0.09472,
+      "gaia_full_formal_north_sigma_mas": 0.06937,
+      "gaia_geocentric_parallax_minus_linear_east_mas": 1.41386,
+      "gaia_geocentric_parallax_minus_linear_north_mas": 0.66922,
+      "gaia_original_5p_motion_and_parallax_model_available": true,
+      "gaia_ruwe": 1.3265878,
+      "original_PSF_catalogue_SHA256_verified": true,
+      "original_full_native_PSF_catalogue_sha256": "f83a7e5685af6902fa99b7f423f6a1620a3d70f3c230879bb63243076d69fbe4",
+      "original_mjd": 58806.385197,
+      "target_native_candidate": {
+        "confirmed_physical_gaia_ztf_target": false,
+        "instrument_wcs_and_psf_errors_not_in_gaia_formal_covariance": true,
+        "n_original_native_psf_sources_within_2arcsec": 1,
+        "nearest_original_native_source_to_predicted_Gaia_arcsec": 0.056791,
+        "original_native_minus_propagated_gaia_east_arcsec": 0.01537,
+        "original_native_minus_propagated_gaia_north_arcsec": 0.054671,
+        "second_nearest_original_native_source_arcsec": 12.397513,
+        "selected_nearest_original_native_PSF_quality_pass": true,
+        "status": "PROVISIONAL_GAIA_NEAREST_ZTF_PSF_SOURCE_GEOMETRY_PASS",
+        "unique_within_fixed_0p6arcsec_second_beyond_1arcsec": true
+      },
+      "ztf_original_oid": "1605115300003377"
+    },
+    {
+      "band": "g",
+      "descriptive_PS1_reference_adjusted_target": {
+        "external_reference_adjusted_target_east_arcsec": 0.000734,
+        "external_reference_adjusted_target_north_arcsec": 0.035893,
+        "independent_instrument_wcs_solution": false,
+        "source_physical_gaia_ztf_identity_confirmed": false,
+        "status": "DESCRIPTIVE_PS1_REFERENCE_RELATIVE_TARGET_OFFSET_NOT_PHYSICAL_IDENTITY"
+      },
+      "field": "609",
+      "gaia_astrometric_quality_warning": false,
+      "gaia_full_formal_east_sigma_mas": 0.09472,
+      "gaia_full_formal_north_sigma_mas": 0.06937,
+      "gaia_geocentric_parallax_minus_linear_east_mas": 1.4138,
+      "gaia_geocentric_parallax_minus_linear_north_mas": 0.66921,
+      "gaia_original_5p_motion_and_parallax_model_available": true,
+      "gaia_ruwe": 1.3265878,
+      "original_PSF_catalogue_SHA256_verified": true,
+      "original_full_native_PSF_catalogue_sha256": "7f880ed401a96de302627bf9e9f67fdac25208860feb8be9cffb12758e535744",
+      "original_mjd": 58806.385648,
+      "target_native_candidate": {
+        "confirmed_physical_gaia_ztf_target": false,
+        "instrument_wcs_and_psf_errors_not_in_gaia_formal_covariance": true,
+        "n_original_native_psf_sources_within_2arcsec": 1,
+        "nearest_original_native_source_to_predicted_Gaia_arcsec": 0.069015,
+        "original_native_minus_propagated_gaia_east_arcsec": 0.024837,
+        "original_native_minus_propagated_gaia_north_arcsec": 0.064391,
+        "second_nearest_original_native_source_arcsec": 46.44688,
+        "selected_nearest_original_native_PSF_quality_pass": true,
+        "status": "PROVISIONAL_GAIA_NEAREST_ZTF_PSF_SOURCE_GEOMETRY_PASS",
+        "unique_within_fixed_0p6arcsec_second_beyond_1arcsec": true
+      },
+      "ztf_original_oid": "609108400001155"
+    },
+    {
+      "band": "r",
+      "descriptive_PS1_reference_adjusted_target": {
+        "external_reference_adjusted_target_east_arcsec": -0.00408,
+        "external_reference_adjusted_target_north_arcsec": 0.009709,
+        "independent_instrument_wcs_solution": false,
+        "source_physical_gaia_ztf_identity_confirmed": false,
+        "status": "DESCRIPTIVE_PS1_REFERENCE_RELATIVE_TARGET_OFFSET_NOT_PHYSICAL_IDENTITY"
+      },
+      "field": "1605",
+      "gaia_astrometric_quality_warning": false,
+      "gaia_full_formal_east_sigma_mas": 0.07092,
+      "gaia_full_formal_north_sigma_mas": 0.05119,
+      "gaia_geocentric_parallax_minus_linear_east_mas": 3.40645,
+      "gaia_geocentric_parallax_minus_linear_north_mas": 0.95874,
+      "gaia_original_5p_motion_and_parallax_model_available": true,
+      "gaia_ruwe": 1.3265878,
+      "original_PSF_catalogue_SHA256_verified": true,
+      "original_full_native_PSF_catalogue_sha256": "f25dc162b87c84426e3bc467a3f21da802e2dbba0885be93314001fb1840fe5b",
+      "original_mjd": 58425.306065,
+      "target_native_candidate": {
+        "confirmed_physical_gaia_ztf_target": false,
+        "instrument_wcs_and_psf_errors_not_in_gaia_formal_covariance": true,
+        "n_original_native_psf_sources_within_2arcsec": 1,
+        "nearest_original_native_source_to_predicted_Gaia_arcsec": 0.035434,
+        "original_native_minus_propagated_gaia_east_arcsec": -0.029449,
+        "original_native_minus_propagated_gaia_north_arcsec": 0.019706,
+        "second_nearest_original_native_source_arcsec": 20.317638,
+        "selected_nearest_original_native_PSF_quality_pass": true,
+        "status": "PROVISIONAL_GAIA_NEAREST_ZTF_PSF_SOURCE_GEOMETRY_PASS",
+        "unique_within_fixed_0p6arcsec_second_beyond_1arcsec": true
+      },
+      "ztf_original_oid": "1605215300005161"
+    },
+    {
+      "band": "r",
+      "descriptive_PS1_reference_adjusted_target": {
+        "external_reference_adjusted_target_east_arcsec": 0.011431,
+        "external_reference_adjusted_target_north_arcsec": 0.036079,
+        "independent_instrument_wcs_solution": false,
+        "source_physical_gaia_ztf_identity_confirmed": false,
+        "status": "DESCRIPTIVE_PS1_REFERENCE_RELATIVE_TARGET_OFFSET_NOT_PHYSICAL_IDENTITY"
+      },
+      "field": "609",
+      "gaia_astrometric_quality_warning": false,
+      "gaia_full_formal_east_sigma_mas": 0.07092,
+      "gaia_full_formal_north_sigma_mas": 0.05119,
+      "gaia_geocentric_parallax_minus_linear_east_mas": 3.4064,
+      "gaia_geocentric_parallax_minus_linear_north_mas": 0.95873,
+      "gaia_original_5p_motion_and_parallax_model_available": true,
+      "gaia_ruwe": 1.3265878,
+      "original_PSF_catalogue_SHA256_verified": true,
+      "original_full_native_PSF_catalogue_sha256": "b9c50a4e8258989cd64c33e6230513be20ecca0ce3d3e0bc0388e459fdcc8c17",
+      "original_mjd": 58425.306516,
+      "target_native_candidate": {
+        "confirmed_physical_gaia_ztf_target": false,
+        "instrument_wcs_and_psf_errors_not_in_gaia_formal_covariance": true,
+        "n_original_native_psf_sources_within_2arcsec": 1,
+        "nearest_original_native_source_to_predicted_Gaia_arcsec": 0.063244,
+        "original_native_minus_propagated_gaia_east_arcsec": 0.046611,
+        "original_native_minus_propagated_gaia_north_arcsec": 0.042746,
+        "second_nearest_original_native_source_arcsec": 10.221781,
+        "selected_nearest_original_native_PSF_quality_pass": true,
+        "status": "PROVISIONAL_GAIA_NEAREST_ZTF_PSF_SOURCE_GEOMETRY_PASS",
+        "unique_within_fixed_0p6arcsec_second_beyond_1arcsec": true
+      },
+      "ztf_original_oid": "609208400001969"
+    }
+  ],
+  "original_gaia_TAP_response_sha256": "399b5498d8d8a8a646073dfc029895ed64902940896d1789c63833a18074b642",
+  "original_same_band_reference_astrometry": [
+    {
+      "band": "g",
+      "source_reference_alignment": {
+        "both_fields_heldout_internal_geometry_pass": true,
+        "fields": {
+          "1605": {
+            "heldout_east_median_arcsec": -0.014623,
+            "heldout_east_robust_scatter_arcsec": 0.056941,
+            "heldout_north_median_arcsec": 0.009353,
+            "heldout_north_robust_scatter_arcsec": 0.043987,
+            "heldout_reference_geometry_internal_qc_pass": true,
+            "median_original_ztf_minus_ps1_reference_training_east_arcsec": 0.050873,
+            "median_original_ztf_minus_ps1_reference_training_north_arcsec": 0.048253,
+            "ps1_reference_source_astrometric_epochs_unchanged": false,
+            "scientifically_complete_wcs_calibration": false
+          },
+          "609": {
+            "heldout_east_median_arcsec": -0.012473,
+            "heldout_east_robust_scatter_arcsec": 0.054868,
+            "heldout_north_median_arcsec": 0.007664,
+            "heldout_north_robust_scatter_arcsec": 0.04445,
+            "heldout_reference_geometry_internal_qc_pass": true,
+            "median_original_ztf_minus_ps1_reference_training_east_arcsec": 0.024103,
+            "median_original_ztf_minus_ps1_reference_training_north_arcsec": 0.028498,
+            "ps1_reference_source_astrometric_epochs_unchanged": false,
+            "scientifically_complete_wcs_calibration": false
+          }
+        },
+        "full_instrument_wcs_uncertainty_calibrated": false,
+        "independent_external_PS1_source_positions_used": true,
+        "n_heldout_reference_stars": 40,
+        "n_original_unique_external_ps1_ztf_ztf_triplets": 82,
+        "n_training_reference_stars": 42,
+        "status": "INTERNAL_PS1_REFERENCE_GEOMETRY_HELDOUT_PASS_NOT_WCS_CERTIFICATION",
+        "target_gaia_ztf_physical_identity_authenticated": false
+      },
+      "target_same_band_field_pair_summary": {
+        "independent_epoch_corrected_wcs_and_PS1_source_pm_measured": false,
+        "original_field609_minus1605_relative_east_arcsec": 0.036237,
+        "original_field609_minus1605_relative_north_arcsec": 0.029475,
+        "physical_gaia_ztf_FT_TAU_target_match_confirmed": false,
+        "same_filter_original_exposure_gap_seconds_approx": 38.97,
+        "status": "PROVISIONAL_TWO_FIELD_RELATIVE_OFFSET_AVAILABLE_NOT_PM_OR_PHYSICAL_MATCH"
+      }
+    },
+    {
+      "band": "r",
+      "source_reference_alignment": {
+        "both_fields_heldout_internal_geometry_pass": true,
+        "fields": {
+          "1605": {
+            "heldout_east_median_arcsec": 0.001494,
+            "heldout_east_robust_scatter_arcsec": 0.047319,
+            "heldout_north_median_arcsec": -0.001528,
+            "heldout_north_robust_scatter_arcsec": 0.03095,
+            "heldout_reference_geometry_internal_qc_pass": true,
+            "median_original_ztf_minus_ps1_reference_training_east_arcsec": -0.025369,
+            "median_original_ztf_minus_ps1_reference_training_north_arcsec": 0.009997,
+            "ps1_reference_source_astrometric_epochs_unchanged": false,
+            "scientifically_complete_wcs_calibration": false
+          },
+          "609": {
+            "heldout_east_median_arcsec": -0.007065,
+            "heldout_east_robust_scatter_arcsec": 0.04426,
+            "heldout_north_median_arcsec": -0.001821,
+            "heldout_north_robust_scatter_arcsec": 0.032023,
+            "heldout_reference_geometry_internal_qc_pass": true,
+            "median_original_ztf_minus_ps1_reference_training_east_arcsec": 0.03518,
+            "median_original_ztf_minus_ps1_reference_training_north_arcsec": 0.006667,
+            "ps1_reference_source_astrometric_epochs_unchanged": false,
+            "scientifically_complete_wcs_calibration": false
+          }
+        },
+        "full_instrument_wcs_uncertainty_calibrated": false,
+        "independent_external_PS1_source_positions_used": true,
+        "n_heldout_reference_stars": 86,
+        "n_original_unique_external_ps1_ztf_ztf_triplets": 180,
+        "n_training_reference_stars": 94,
+        "status": "INTERNAL_PS1_REFERENCE_GEOMETRY_HELDOUT_PASS_NOT_WCS_CERTIFICATION",
+        "target_gaia_ztf_physical_identity_authenticated": false
+      },
+      "target_same_band_field_pair_summary": {
+        "independent_epoch_corrected_wcs_and_PS1_source_pm_measured": false,
+        "original_field609_minus1605_relative_east_arcsec": 0.015511,
+        "original_field609_minus1605_relative_north_arcsec": 0.02637,
+        "physical_gaia_ztf_FT_TAU_target_match_confirmed": false,
+        "same_filter_original_exposure_gap_seconds_approx": 38.97,
+        "status": "PROVISIONAL_TWO_FIELD_RELATIVE_OFFSET_AVAILABLE_NOT_PM_OR_PHYSICAL_MATCH"
+      }
+    }
+  ],
+  "original_technical_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "phase": "TAURUS_R2_GAIA_FT_TAU_MOTION_PS1_MEAN_REFERENCE_AND_FOUR_NATIVE_ZTF_SOURCE_CANDIDATES",
+  "prior_original_720_reference_ledger_sha256": "b0186cd85d47c32cca7e87ce8a98d8a8b27448c391822ef2bed55bf0256c2558",
+  "prior_original_external_ps1_source_ledger_sha256": "d9ceae81d56ccdebd7dea1cc10b15c66aab4b118d4b726dc8b7e07b98f8de17f",
+  "prior_original_four_images_ledger_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "scientific_R2_full_physical_source_identity_completed": false
+}

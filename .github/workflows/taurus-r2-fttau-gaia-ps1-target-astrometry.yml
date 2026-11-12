@@ -1,0 +1,42 @@
+name: Taurus R2 — authentic FT Tau Gaia/PS1/ZTF proper-motion and target-identity ambiguity audit
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-gaia-ps1-ztf-target-astrometry
+    paths:
+      - .github/workflows/taurus-r2-fttau-gaia-ps1-target-astrometry.yml
+      - src/stellarforge/r2_fttau_gaia_ps1_target_astrometry.py
+      - tests/test_research_r2_fttau_gaia_ps1_ztf_target_astrometry.py
+      - scripts/run_taurus_r2_fttau_gaia_ps1_target_astrometry.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-Gaia-motion-PS1-reference-ZTF-four-target-centroids:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout frozen Gaia FT Tau and original NASA/IPAC native ZTF source data study
+        uses: actions/checkout@v4
+      - name: Configure science Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original Gaia/PS1 astrometry and native ZTF science dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Validate prospective target/source and holdout geometry anti-claim screens
+        run: python -m pytest -q tests/test_research_r2_fttau_gaia_ps1_ztf_target_astrometry.py
+      - name: Obtain exact Gaia DR3 astrometry, independently queried original MAST PS1 sources and four SHA-verified original ZTF PSF cats
+        run: |
+          python -m scripts.run_taurus_r2_fttau_gaia_ps1_target_astrometry --output reports/generated/r2_fttau_original_gaia_motion_ps1_ztf_native_four_target_centroids_no_raw.json
+      - name: Preserve only derived original-source astrometric evidence and ambiguity flags
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-R2-FTTau-4-original-PSFcat-Gaia-PM-PS1-native-target-NO-PHYSICAL-ID
+          path: reports/generated/r2_fttau_original_gaia_motion_ps1_ztf_native_four_target_centroids_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn
