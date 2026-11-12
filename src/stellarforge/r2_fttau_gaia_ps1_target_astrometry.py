@@ -336,22 +336,29 @@ def run_ft_tau_gaia_ps1_ztf_target_astrometry(
     ps1=None
     ps1_sha=None
     source_status="ORIGINAL_MAST_PS1_SOURCE_MISSING"
-    p_all=None
+    source_failure=None
+    expected=prior_external["external_PS1_DR2_original_source_query"][
+        "original_ps1_dr2_response_sha256"]
+    original=None
     try:
         original=ps1_fetch(fixed["seed_ra_deg"],fixed["seed_dec_deg"],timeout_sec=45)
+        ps1_sha=hashlib.sha256(original).hexdigest()
         ps1=parse_ps1_original_mean(original,ra0=fixed["seed_ra_deg"],
                                    dec0=fixed["seed_dec_deg"])
-        ps1_sha=hashlib.sha256(original).hexdigest()
-        expected=prior_external["external_PS1_DR2_original_source_query"][
-            "original_ps1_dr2_response_sha256"]
-        if ps1_sha!=expected:
-            raise ValueError("Previously genuine external PS1 catalogue raw SHA changed")
-        source_status="ORIGINAL_MAST_PS1_SHA_IDENTICAL_TO_PREVIOUS"
-    except NETWORK_ERRORS:
+        if ps1_sha==expected:
+            source_status="ORIGINAL_MAST_PS1_SHA_IDENTICAL_TO_PREVIOUS"
+        else:
+            # Same preregistered MAST cone/columns and full validation.
+            # Flag its changed raw snapshot explicitly; never claim an
+            # identical archive response or silently substitute source IDs.
+            source_status="COMPLETE_ORIGINAL_MAST_PS1_RESPONSE_SHA_CHANGED_REVIEW"
+    except NETWORK_ERRORS as exc:
         ps1=None
-        ps1_sha=None
         original=None
-        source_status="ORIGINAL_MAST_PS1_UNAVAILABLE_OR_CHANGED"
+        source_failure=type(exc).__name__
+        if isinstance(exc,HTTPError):
+            source_failure=f"HTTP_{exc.code}"
+        source_status="ORIGINAL_MAST_PS1_UNAVAILABLE_OR_INVALID"
 
     preds={}
     for band in ("g","r"):
@@ -377,6 +384,7 @@ def run_ft_tau_gaia_ps1_ztf_target_astrometry(
         }
 
     allband=[]
+    bands=[]
     for band in ("g","r"):
         native={}
         reference_inputs={}
@@ -468,7 +476,6 @@ def run_ft_tau_gaia_ps1_ztf_target_astrometry(
         }
         allband_ref={"band":band,"source_reference_alignment":reference,
                      "target_same_band_field_pair_summary":same_filter_pair}
-        if "bands" not in locals(): bands=[]
         bands.append(allband_ref)
 
     return {
@@ -479,6 +486,10 @@ def run_ft_tau_gaia_ps1_ztf_target_astrometry(
         "n_original_gaia_5p_records_verified":int(gaia is not None),
         "original_gaia_TAP_response_sha256":gaia_sha,
         "original_external_PS1_response_status":source_status,
+        "original_external_PS1_access_or_parse_error_class":source_failure,
+        "original_external_PS1_previous_snapshot_sha256":expected,
+        "original_external_PS1_sha_equal_previous_snapshot":bool(
+            ps1_sha is not None and ps1_sha==expected),
         "original_external_PS1_MAST_response_sha256":ps1_sha,
         "n_original_PS1_mean_rows_valid":(
             ps1["n_original_ps1_dr2_mean_source_rows"] if ps1 is not None else 0),
