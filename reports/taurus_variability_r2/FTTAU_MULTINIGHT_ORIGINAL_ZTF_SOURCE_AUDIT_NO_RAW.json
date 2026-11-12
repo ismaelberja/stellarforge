@@ -1,0 +1,118 @@
+{
+  "schema_version": "stellarforge-r2-fttau-multinight-derived-only-v1",
+  "run_id": 43270659201,
+  "artifact_id": 13968001848,
+  "artifact_zip_sha256": "72437d4449d4e65993b202c5f02d7d819ce000052ebcb167ce03ba498367ebe2",
+  "derived_json_sha256": "f8d44d7edb47a0392b342cea0127a40fe022726cc8b63254ec53817a3bc4f24b",
+  "original_gaia_response_sha256": "399b5498d8d8a8a646073dfc029895ed64902940896d1789c63833a18074b642",
+  "original_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "prior_four_image_receipt_sha256": "1be4d2a0633255a6a38e36153662221b70e891016500129801ec2ec6aeac3f5d",
+  "n_original_ztf_catalogues_new": 8,
+  "n_provisional_quality_passed": 5,
+  "n_two_night_pairs_quality_passed": 1,
+  "source_groups": [
+    {
+      "band": "g",
+      "field": 1605,
+      "oid": "1605115300003377",
+      "mjds": [
+        58362.516713,
+        60233.393611
+      ],
+      "baseline_days": 1870.876898,
+      "nights": 54,
+      "separations_arcsec": [
+        0.107051,
+        0.133039
+      ],
+      "native_psf_pass": [
+        true,
+        false
+      ],
+      "sha": [
+        "c30c7d38a1e8d04ed33603e8a86567fd2ff24f5e26386f3065c535d58a58b81b",
+        "e989ec78cdef805cf8adecfb37d1f0cb1b2b3894a1892d0eb36374ccf4ca505b"
+      ]
+    },
+    {
+      "band": "g",
+      "field": 609,
+      "oid": "609108400001155",
+      "mjds": [
+        58330.48912,
+        60948.441412
+      ],
+      "baseline_days": 2617.952292,
+      "nights": 385,
+      "separations_arcsec": [
+        0.1042,
+        0.095188
+      ],
+      "native_psf_pass": [
+        true,
+        false
+      ],
+      "sha": [
+        "b43af89f927b74f4e3ba90c3b4ef0c20ebfa7cc454b5b9b5542e2e82879ad781",
+        "785a472396fa369080e84589bc282122e7f2f44d37059fb52efe769c8cae2ca8"
+      ]
+    },
+    {
+      "band": "r",
+      "field": 1605,
+      "oid": "1605215300005161",
+      "mjds": [
+        58356.394352,
+        60884.483322
+      ],
+      "baseline_days": 2528.08897,
+      "nights": 71,
+      "separations_arcsec": [
+        0.05028,
+        0.121756
+      ],
+      "native_psf_pass": [
+        true,
+        true
+      ],
+      "sha": [
+        "680baa52b030ad67c4639b55557fda05f68834d54e90db7d044a4c51ced651c3",
+        "b05ec32908e71582f71e9ad30487e9ec2d39bb861de51bade7ba665fee5539f7"
+      ],
+      "delta_native_minus_gaia_east_arcsec": -0.007987,
+      "delta_native_minus_gaia_north_arcsec": 0.122107
+    },
+    {
+      "band": "r",
+      "field": 609,
+      "oid": "609208400001969",
+      "mjds": [
+        58321.487465,
+        60935.414502
+      ],
+      "baseline_days": 2613.927037,
+      "nights": 431,
+      "separations_arcsec": [
+        0.103144,
+        0.053047
+      ],
+      "native_psf_pass": [
+        true,
+        false
+      ],
+      "sha": [
+        "dff00d40f0f384a2441d293ac871b119caff0cefd1e365610b15dbbce3ecf94a",
+        "f1127a1eaf84a507b910952f5e1d35f43a55e4be0c6f9a09b272507dd8f7f043"
+      ]
+    }
+  ],
+  "n_confirmed_physical_matches": 0,
+  "n_merged_lightcurves": 0,
+  "n_new_variables": 0,
+  "scientific_r2_complete": false,
+  "limitations": [
+    "Original Gaia/PS1 individual source epoch astrometry and ZTF native WCS/PSF covariance not independently complete",
+    "Original native source proximity does not prove physical identity or exclude unresolved blends",
+    "All four selected old anchor exposures remain unchanged; no late poor-quality epoch replaced"
+  ]
+}

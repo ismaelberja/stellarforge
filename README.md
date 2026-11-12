@@ -299,6 +299,10 @@ physical Gaia–ZTF identity **remain open**. None of FT Tau's
 four ZTF ObjectID lightcurves were merged and no original
 stellar-variability discovery is claimed.
 
+**Authentic FT Tau multi-night native ZTF candidate audit (12 November 2026):** Four fixed original OIDs yielded **8/8 newly selected dated original PSF catalogues** from 1871–2618 day baselines. **5/8 original nearest-source candidates** passed the pre-frozen PSF quality criteria; only **1/4 two-night source pairs** passed both frames. Three late epochs failed PSF quality and were deliberately not replaced. No physical counterpart identity or proper-motion detection is claimed. Original four OID light curves remain separate.
+
+[Real original multi-night results](research/taurus_variability/R2_REAL_FTTAU_MULTINIGHT_NATIVE_ASTROMETRY_RESULTS.md) · [Workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43270659201) · [Permanent derived evidence](reports/taurus_variability_r2/FTTAU_MULTINIGHT_ORIGINAL_ZTF_SOURCE_AUDIT_NO_RAW.json)
+
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·
