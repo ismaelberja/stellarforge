@@ -31,14 +31,14 @@ def main():
         if key.startswith("n_") or key=="phase":print(key,val)
     for row in result["original_fixed_same_oid_early_late_groups"]:
         for i,x in enumerate(row["original_two_epoch_reference_cohorts"]):
-            a=x["all_chi_blind_controls"]
-            m=x["snr_factor_two_matched_controls"]
+            all_controls=x["all_chi_blind_controls"]
+            matched_controls=x["snr_factor_two_matched_controls"]
             print(row["band"],row["field"],["EARLY","LATE"][i],
                   "target_chi",x["target_original_chi"],
-                  "all_controls",a["n_reference_sources"],
-                  "fraction_below_old_0p5",a["fraction_chi_below_0p5"],
-                  "snr_matched_controls",m["n_reference_sources"],
-                  "snr_matched_fraction_below",m["fraction_chi_below_0p5"])
+                  "all_controls",all_controls["n_reference_sources"],
+                  "fraction_below_old_0p5",all_controls["fraction_chi_below_0p5"],
+                  "snr_matched_controls",matched_controls["n_reference_sources"],
+                  "snr_matched_fraction_below",matched_controls["fraction_chi_below_0p5"])
     print("No original catalogues, photometry, source IDs or FITS image pixels saved.")
     print("Derived output:",a.output)
 
