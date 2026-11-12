@@ -1,0 +1,64 @@
+{
+  "schema_version": "stellarforge-r2-fttau-real-gaia-PS1-ZTF-proper-motion-target-identity-provisional-ledger-v1",
+  "utc_observation_analysis_date": "2026-11-12",
+  "original_archive_workflow_run_id": 43188238685,
+  "original_archive_workflow_url": "https://github.com/ismaelberja/stellarforge/actions/runs/43188238685",
+  "original_derived_artifact_id": 13929113546,
+  "original_artifact_zip_sha256": "c84a32e4ecbdc8de7cb178bb92797ed48db5cd793b80e5cd7a8c21129e611666",
+  "original_derived_no_raw_json_sha256": "12616b85f160495846ba6804fe4a1ff45d36128b694a7f59946623e8b397533d",
+  "original_gaia_five_parameter_csv_sha256": "399b5498d8d8a8a646073dfc029895ed64902940896d1789c63833a18074b642",
+  "original_new_MAST_PS1_mean_csv_sha256": "d50248c88891095e33b0e8d6b30596d027bda244e1c4e4785b594c67f4bd1b74",
+  "previous_original_MAST_PS1_mean_csv_sha256": "3038bd93cd21820dbc584e7d4081f7c279109ca36a0988fc55d279a94d29ca95",
+  "original_MAST_PS1_snapshot_sha_equal_previous": false,
+  "original_MAST_PS1_snapshot_status": "COMPLETE_ORIGINAL_MAST_PS1_RESPONSE_SHA_CHANGED_REVIEW",
+  "n_original_gaia_source_records_verified": 1,
+  "n_original_ps1_dr2_mean_source_records": 1780,
+  "n_original_ZTF_full_psfcats_original_SHA_verified": 4,
+  "n_provisional_native_target_source_candidates": 4,
+  "n_original_target_source_crowding_fails_under_pilot_rule": 0,
+  "g": {
+    "n_external_PS1_unique_ZTF_ZTF_reference_triples": 82,
+    "n_ref_training": 42,
+    "n_ref_heldout": 40,
+    "reference_alignment_heldout_status": "INTERNAL_PS1_REFERENCE_GEOMETRY_HELDOUT_PASS_NOT_WCS_CERTIFICATION",
+    "pair_with_2_provisional_sources": true,
+    "original_native_gaia_nearest_offsets_arcsec": [
+      0.056791,
+      0.069015
+    ],
+    "second_nearest_arcsec": [
+      12.397513,
+      46.44688
+    ],
+    "descriptive_field609_minus1605_reference_adjusted_target_east_arcsec": 0.036237,
+    "descriptive_field609_minus1605_reference_adjusted_target_north_arcsec": 0.029475
+  },
+  "r": {
+    "n_external_PS1_unique_ZTF_ZTF_reference_triples": 180,
+    "n_ref_training": 94,
+    "n_ref_heldout": 86,
+    "reference_alignment_heldout_status": "INTERNAL_PS1_REFERENCE_GEOMETRY_HELDOUT_PASS_NOT_WCS_CERTIFICATION",
+    "pair_with_2_provisional_sources": true,
+    "original_native_gaia_nearest_offsets_arcsec": [
+      0.035434,
+      0.063244
+    ],
+    "second_nearest_arcsec": [
+      20.317638,
+      10.221781
+    ],
+    "descriptive_field609_minus1605_reference_adjusted_target_east_arcsec": 0.015511,
+    "descriptive_field609_minus1605_reference_adjusted_target_north_arcsec": 0.02637
+  },
+  "original_PS1_mean_target_closest_to_gaia_J2016_arcsec": 0.05612,
+  "original_PS1_mean_target_closest_to_gaia_r2018_arcsec": 0.119173,
+  "original_PS1_mean_target_closest_to_gaia_g2019_arcsec": 0.142935,
+  "PS1_source_epoch_and_own_proper_motion_validated": false,
+  "independent_ZTF_WCS_full_systematic_error_budget_validated": false,
+  "n_authenticated_physical_Gaia_ZTF_FT_TAU_counterparts": 0,
+  "n_merged_FT_TAU_ZTF_oid_lightcurves": 0,
+  "n_newly_confirmed_variable_stars_or_companions": 0,
+  "R2_original_source_physical_identity_science_completed": false,
+  "raw_original_survey_Gaia_PS1_ZTF_source_rows_or_FITS_committed": false,
+  "interpretation": "The same four preselected original ZTF FT Tau source catalogue positions are individually close to epoch-propagated Gaia; new original independent PS1 mean source rows support internal reference field median validation across 82 g and 180 r triplets, but PS1 raw catalog snapshot changed and astrometric epochs, source blends and independent WCS/PSF error budget are missing; full physical Gaia-ZTF target identity remains UNCONFIRMED."
+}
