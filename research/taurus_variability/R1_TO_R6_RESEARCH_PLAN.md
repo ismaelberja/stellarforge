@@ -1,5 +1,9 @@
 # R1–R6 practical research milestones
 
+**12 November 2026 ZTF original same-epoch independent analytic pixel-model NO-GO:** [Six real authentic native PSFcat SHA-matched ZTF science/mask images and their independent bounded circular-Gaussian fits](R2_REAL_FTTAU_SIX_ORIGINAL_GAUSSIAN_PIXEL_RESULTS.md). All six original masks and science images agree, 4/6 Gaussian fits return finite profiles, 2/6 fail as constrained; residual/noise proxy is high in all four finite models. This does not calibrate the spatially varying native ZTF PSF, validate target identity or justify relaxing the original chi gate. R2 remains OPEN.
+
+
+
 **12 November 2026 real original FT Tau chi-blind sensitivity control:** [Six original ZTF native full PSFcat images, 1,095 original source control records](R2_REAL_FTTAU_SIX_ORIGINAL_CHI_REFERENCE_RESULTS.md), 240 below chi 0.5. This diagnoses potential selection sensitivity of the frozen chi lower cutoff, not a legitimate retrospective correction or independent source-match proof. R2 physical identity OPEN and R3 still blocked.
 
 

@@ -312,6 +312,10 @@ All **3/3 exact earlier original native PSF catalogues** were byte-SHA-verified 
 
 [Real original six-image chi sensitivity](research/taurus_variability/R2_REAL_FTTAU_SIX_ORIGINAL_CHI_REFERENCE_RESULTS.md) · [Real data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43275404347) · [Permanent source-level no-raw evidence](reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_CHI_BLIND_REFERENCES_NO_RAW.json)
 
+**Independent analytic Gaussian pixel residual pilot on six original FT Tau science+mask images (12 November 2026):** All six previously selected and full native PSFcat-byte-locked ZTF exposures were retrieved with their authentic original celestial-WCS science and same-date mask cutouts, **6/6 clean source cores**; 4/6 predeclared independent circular-Gaussian numeric fits completed, while **2/6 failed to yield a bounded fit**. The four computed sky-MAD-normalized residuals were high (8.58–18.95), even for original native-quality-PASS frames. **This is a NO-GO for claiming independent source-level PSF/noise calibration**, not evidence of companions or variability. The original three low-native-chi PSF source candidates remain rejected; no physical Gaia–ZTF FT Tau source identity or original lightcurve merge is validated.
+
+[Real original six-image pixel Gaussian pilot](research/taurus_variability/R2_REAL_FTTAU_SIX_ORIGINAL_GAUSSIAN_PIXEL_RESULTS.md) · [Original-data ZTF run](https://github.com/ismaelberja/stellarforge/actions/runs/43279744985) · [Permanent no-raw original FITS evidence](reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_INDEPENDENT_GAUSSIAN_PIXELS_NO_RAW.json)
+
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·
