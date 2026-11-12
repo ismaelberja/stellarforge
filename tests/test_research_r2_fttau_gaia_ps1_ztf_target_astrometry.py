@@ -157,12 +157,47 @@ def test_original_gaia_ps1_native_service_errors_never_become_stellar_nondetecti
         gaia_fetch=unavailable,ps1_fetch=unavailable,native_fetch=unavailable)
     assert data["n_original_gaia_5p_records_verified"]==0
     assert data["original_external_PS1_response_status"]==(
-        "ORIGINAL_MAST_PS1_UNAVAILABLE_OR_CHANGED")
+        "ORIGINAL_MAST_PS1_UNAVAILABLE_OR_INVALID")
     assert data["n_original_native_ztf_PSFcat_SHA_verified"]==0
     assert data["n_original_target_exposures_with_provisional_native_source_candidate"]==0
     assert data["n_confirmed_physical_gaia_to_ztf_ft_tau_source_identities"]==0
     assert data["n_zTF_ft_tau_OID_lightcurves_merged"]==0
     assert data["scientific_R2_full_physical_source_identity_completed"] is False
+
+
+def test_new_valid_independent_MAST_snapshot_reports_changed_sha_not_same_source_version():
+    from stellarforge.r2_fttau_external_ps1 import PS1_COLUMNS
+
+    content=io.StringIO()
+    w=csv.DictWriter(content,fieldnames=PS1_COLUMNS,lineterminator="\n")
+    w.writeheader()
+    for i in range(30):
+        east=35.0+10*(i%10)
+        north=-40.+40*(i//10)
+        g=15.+.05*i
+        w.writerow({
+            "objID":str(12345000000+i),
+            "raMean":RA0+east/(3600*np.cos(np.deg2rad(DEC0))),
+            "decMean":DEC0+north/3600,
+            "nDetections":10,"ng":6,"nr":5,
+            "gMeanPSFMag":g,"gMeanPSFMagErr":.02,
+            "rMeanPSFMag":g-.7,"rMeanPSFMagErr":.02,
+        })
+    ps1_raw=content.getvalue().encode()
+    def unavailable(*a,**k):
+        raise TimeoutError("Synthetic offline GAIA/ZTF outages")
+    data=run_ft_tau_gaia_ps1_ztf_target_astrometry(
+        SEED,HIST,OID,IMAGES,PRIOR720,PREV_EXTERNAL,
+        gaia_fetch=unavailable,
+        ps1_fetch=lambda *a,**k:ps1_raw,
+        native_fetch=unavailable)
+    assert data["original_external_PS1_response_status"]==(
+        "COMPLETE_ORIGINAL_MAST_PS1_RESPONSE_SHA_CHANGED_REVIEW")
+    assert data["original_external_PS1_sha_equal_previous_snapshot"] is False
+    assert data["n_original_PS1_mean_rows_valid"]==30
+    assert data["n_original_native_ztf_PSFcat_SHA_verified"]==0
+    assert data["n_confirmed_physical_gaia_to_ztf_ft_tau_source_identities"]==0
+    assert data["n_zTF_ft_tau_OID_lightcurves_merged"]==0
 
 
 def test_changes_to_previous_2026_original_source_evidence_not_accepted():
