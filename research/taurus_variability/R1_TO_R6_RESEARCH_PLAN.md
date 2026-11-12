@@ -1,5 +1,9 @@
 # R1–R6 practical research milestones
 
+**12 November 2026 original ZTF native spatial DAOPhot result:** [Six original full native source models and same-source heldout fits](R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md), compared against six original date-locked source/model/science/mask hashes and field-center reference stamps. 6/6 source-specific native spatial model numeric fits, 4/6 provisional same-image residual screens passed, 2/6 r609 need review. This improves original PSF model coverage after an oversimplified Gaussian pilot, **not independent external stellar PSF/WCS validation**. Frozen low-chi original source rejections remain, R2 physical identity OPEN.
+
+
+
 **12 November 2026 ZTF original same-epoch independent analytic pixel-model NO-GO:** [Six real authentic native PSFcat SHA-matched ZTF science/mask images and their independent bounded circular-Gaussian fits](R2_REAL_FTTAU_SIX_ORIGINAL_GAUSSIAN_PIXEL_RESULTS.md). All six original masks and science images agree, 4/6 Gaussian fits return finite profiles, 2/6 fail as constrained; residual/noise proxy is high in all four finite models. This does not calibrate the spatially varying native ZTF PSF, validate target identity or justify relaxing the original chi gate. R2 remains OPEN.
 
 
