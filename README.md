@@ -303,6 +303,11 @@ stellar-variability discovery is claimed.
 
 [Real original multi-night results](research/taurus_variability/R2_REAL_FTTAU_MULTINIGHT_NATIVE_ASTROMETRY_RESULTS.md) · [Workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43270659201) · [Permanent derived evidence](reports/taurus_variability_r2/FTTAU_MULTINIGHT_ORIGINAL_ZTF_SOURCE_AUDIT_NO_RAW.json)
 
+**Original three late-night FT Tau PSF failures independently diagnosed (12 November 2026):**
+All **3/3 exact earlier original native PSF catalogues** were byte-SHA-verified again and their original same-date science/mask cutouts inspected. The **only** failed original profile gate in all three was the **PSF chi lower limit 0.5**: original χ **0.456 g/1605, 0.424 g/609 and 0.383 r/609**. Their respective native SNRs were 49.80, 65.01 and 43.43; original flags, sharpness and positive flux/sigflux passed. All three WCS-aligned science/mask cutouts had a central peak and zero disqualifying core/annulus mask pixels. **Clean masks do not prove no blends; low χ does not prove the cause of the PSF model/uncertainty discrepancy.** The original eight-epoch 5/8 source quality-pass fraction remains unchanged and no physical FT Tau Gaia–ZTF identity or variability inference is made.
+
+[Real original native PSF + image-mask diagnosis](research/taurus_variability/R2_REAL_FTTAU_THREE_BAD_PSF_MASK_RESULTS.md) · [Original-data execution](https://github.com/ismaelberja/stellarforge/actions/runs/43273246447) · [Permanent derived-only source evidence](reports/taurus_variability_r2/FTTAU_THREE_FROZEN_BAD_PSF_MASK_DIAGNOSIS_NO_RAW.json)
+
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·

@@ -1,5 +1,16 @@
 # R1–R6 practical research milestones
 
+**New 12 November 2026 original FT Tau frozen-failure source diagnostics:**
+[Three original late-night failed PSF catalogues, exact image masks and original source fits](R2_REAL_FTTAU_THREE_BAD_PSF_MASK_RESULTS.md).
+Each of the three previous fixed late-night source candidates fails *only*
+the unchanged native χ≥0.5 profile condition (χ=0.456, 0.424, 0.383).
+Three original full native PSF catalogues are SHA-reverified and
+three original science/mask FITS checks completed; all image source cores
+are free of disqualifying mask bits. This is technical source-fit
+diagnosis, not evidence that the PSF χ threshold should be relaxed:
+the original 5/8 eligible sources and only 1/4 acceptable new night
+pairs remain unchanged, and R2 physical identity is **OPEN**.
+
 **Latest observational R2 progress (11 November 2026):**
 [the original IRSA nine-position follow-up](R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md)
 recovered **seven** additional previously inaccessible ZTF positional
