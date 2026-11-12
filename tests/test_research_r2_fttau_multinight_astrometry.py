@@ -133,5 +133,6 @@ def test_inspection_does_not_expose_raw_catalogue_rows(monkeypatch):
         source_screen=fake_screen)
     assert seen == ["psfcat.fits"]
     assert result["status"] == "ORIGINAL_ZTF_NATIVE_PSF_SOURCE_SCREEN_COMPLETE"
-    assert "rows" not in str(result) and "secret" not in str(result)
+    assert "rows" not in result and "secret" not in str(result)
+    assert result["n_original_native_psf_catalogue_rows"] == 3
     assert result["confirmed_physical_gaia_ztf_target"] is False
