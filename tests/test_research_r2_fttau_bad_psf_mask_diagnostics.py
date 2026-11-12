@@ -85,7 +85,9 @@ def prediction():
     ({"sigflux":0},"sigflux_positive"),
 ])
 def test_original_prospectively_frozen_psf_gate_explained(bad_kwargs,gate):
-    cat=native(snr=15,**bad_kwargs)
+    chosen={"snr":15}
+    chosen.update(bad_kwargs)
+    cat=native(**chosen)
     result=original_nearest_native_fit_failure(cat,prediction())
     assert gate in result["failed_source_level_quality_reasons"]
     assert result["original_geometry_pass_unchanged"]
