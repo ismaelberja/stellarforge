@@ -288,7 +288,7 @@ previous study**, and the new complete 1,780-row catalogue is
 explicitly flagged as a different archival byte snapshot.
 
 [Real FT Tau original Gaia/PS1/ZTF target-source evidence](research/taurus_variability/R2_REAL_FTTAU_GAIA_PS1_ZTF_TARGET_ASTROMETRY_RESULTS.md) ·
-[Original-data Gaïa+PS1+ZTF run](https://github.com/ismaelberja/stellarforge/actions/runs/43188238685) ·
+[Original-data Gaia+PS1+ZTF run](https://github.com/ismaelberja/stellarforge/actions/runs/43188238685) ·
 [Permanent no-raw target positional evidence](reports/taurus_variability_r2/FTTAU_GAIA_PS1_ZTF_FOUR_ORIGINAL_TARGET_ASTROMETRY_NO_RAW.json)
 
 **Scientific scope:** despite compelling *positional* agreement,
