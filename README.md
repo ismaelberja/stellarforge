@@ -316,6 +316,10 @@ All **3/3 exact earlier original native PSF catalogues** were byte-SHA-verified 
 
 [Real original six-image pixel Gaussian pilot](research/taurus_variability/R2_REAL_FTTAU_SIX_ORIGINAL_GAUSSIAN_PIXEL_RESULTS.md) · [Original-data ZTF run](https://github.com/ismaelberja/stellarforge/actions/runs/43279744985) · [Permanent no-raw original FITS evidence](reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_INDEPENDENT_GAUSSIAN_PIXELS_NO_RAW.json)
 
+**Actual native spatial DAOPhot PSF FT Tau six-image follow-up (12 November 2026):** SHA-locked **6/6 original ZTF PSFcats, science/mask FITS**, plus **6/6 original spatial `sciimgdao.psf` models and authentic field-center `sciimgdaopsfcent.fits` stamps, all retrieved successfully. The native source CCD spatial model passed **6/6 numeric same-source checkerboard pixel fits**, after the preceding crude Gaussian fit only handled 4/6. **4/6** passed the pre-existing same-image heldout-pixel engineering residual screen; **2/6 r609** require review. This is the ZTF pipeline's **own** PSF model (not independent different-star calibration): all three low-native-chi source rejections, old 5/8 provisional target passes and 1/4 valid two-night source pair are unchanged. No confirmed physical Gaia–ZTF FT Tau identity, variability or companions.
+
+[Real original DAOPhot spatial PSF report](research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md) · [Live original-source execution](https://github.com/ismaelberja/stellarforge/actions/runs/43310945601) · [Permanent no-raw original data evidence](reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_DAOPHOT_PSF_NO_RAW.json)
+
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·
