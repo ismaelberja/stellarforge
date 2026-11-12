@@ -270,10 +270,34 @@ independently from ZTF, but **the original ZTF reduction also
 uses PS1 references**. This is provisional catalogue-star
 photometric/reference consistency, **not independent absolute
 calibration**, nor a physical Gaia–ZTF match for FT Tau.
-Full colour/field/epoch systematic calibration, physical
-Gaia–ZTF source identity, cross-field deblending, original
-publisher Taurus membership and astrophysical variability
-inference **remain open**. No ZTF ObjectID lightcurves were merged.
+**Original Gaia proper-motion, PS1 and four-ZTF-source target-centroid
+audit (12 November 2026):** Exact FT Tau Gaia DR3 five-parameter
+covariance and **4/4 original native ZTF source catalogues** were
+revalidated at the original observing epochs. In all four fixed
+images, the nearest native catalogue source is within
+**0.035–0.069 arcseconds** of the Gaia proper-motion and
+approximate annual-parallax prediction; all four pass the
+fixed PSF-quality/nearest-source screen. Newly retrieved
+external original MAST PS1 mean positions, with **82 g and
+180 r matched reference triples**, support an **internal**
+source-position holdout comparison in both filters.
+A single original PS1 mean-source row lies within 1″ of
+Gaia's J2016 source position (at **0.056″**).
+**The original PS1 query response SHA changed from the
+previous study**, and the new complete 1,780-row catalogue is
+explicitly flagged as a different archival byte snapshot.
+
+[Real FT Tau original Gaia/PS1/ZTF target-source evidence](research/taurus_variability/R2_REAL_FTTAU_GAIA_PS1_ZTF_TARGET_ASTROMETRY_RESULTS.md) ·
+[Original-data Gaïa+PS1+ZTF run](https://github.com/ismaelberja/stellarforge/actions/runs/43188238685) ·
+[Permanent no-raw target positional evidence](reports/taurus_variability_r2/FTTAU_GAIA_PS1_ZTF_FOUR_ORIGINAL_TARGET_ASTROMETRY_NO_RAW.json)
+
+**Scientific scope:** despite compelling *positional* agreement,
+PS1's mean-source epoch and proper motions, ZTF WCS/PSF
+systematic uncertainties, source blending, original publisher
+Taurus membership and an independently authenticated
+physical Gaia–ZTF identity **remain open**. None of FT Tau's
+four ZTF ObjectID lightcurves were merged and no original
+stellar-variability discovery is claimed.
 
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
