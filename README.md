@@ -308,6 +308,10 @@ All **3/3 exact earlier original native PSF catalogues** were byte-SHA-verified 
 
 [Real original native PSF + image-mask diagnosis](research/taurus_variability/R2_REAL_FTTAU_THREE_BAD_PSF_MASK_RESULTS.md) · [Original-data execution](https://github.com/ismaelberja/stellarforge/actions/runs/43273246447) · [Permanent derived-only source evidence](reports/taurus_variability_r2/FTTAU_THREE_FROZEN_BAD_PSF_MASK_DIAGNOSIS_NO_RAW.json)
 
+**Original six-image chi-blind FT Tau reference controls (12 November 2026):** Six exact previously selected original dated ZTF PSF catalogues were reobtained and verified by original SHA. Among **1,095 same-image native control records selected independently of chi**, **240** were below the frozen chi lower bound 0.5, with per-image proportions 8.37%–35.19%; six SNR-matched subsets all had at least 20 sources. This shows the original lower threshold has selection effects but does **not** calibrate its optimal value or validate physical source identity. The original 5/8 quality passes, 3/8 failures and 1/4 acceptable two-night source pairs remain unchanged. No light curves merged, no confirmed variability or companions.
+
+[Real original six-image chi sensitivity](research/taurus_variability/R2_REAL_FTTAU_SIX_ORIGINAL_CHI_REFERENCE_RESULTS.md) · [Real data workflow](https://github.com/ismaelberja/stellarforge/actions/runs/43275404347) · [Permanent source-level no-raw evidence](reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_CHI_BLIND_REFERENCES_NO_RAW.json)
+
 [Actual nine-position recovery and per-source limitations](research/taurus_variability/R2_REAL_NINE_IRSA_SOURCE_RECOVERY.md) ·
 [Original live run](https://github.com/ismaelberja/stellarforge/actions/runs/43042786341) ·
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·

@@ -1,0 +1,40 @@
+name: Taurus R2 — original six FT Tau byte-locked ZTF chi-blind reference cohorts
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-psf-chi-reference-sensitivity
+    paths:
+      - .github/workflows/taurus-r2-fttau-chi-reference-controls.yml
+      - src/stellarforge/r2_fttau_chi_reference_controls.py
+      - scripts/run_taurus_r2_fttau_chi_reference_controls.py
+      - tests/test_research_r2_fttau_chi_reference_controls.py
+      - research/taurus_variability/R2_FTTAU_CHI_CONTROL_REFERENCE_PREREGISTRATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-six-native-psfcats-chi-blind-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official FITS, numeric and test dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Test source-chi-independent cohort selection and no-claim invariants
+        run: python -m pytest -q tests/test_research_r2_fttau_chi_reference_controls.py
+      - name: Check original exact OID dates and six byte-locked native PSFcat reference cohorts
+        run: python -m scripts.run_taurus_r2_fttau_chi_reference_controls --output reports/generated/r2_fttau_six_original_chi_blind_reference_cohorts_no_raw.json
+      - name: Upload only counts, source hashes, chi-quantiles and no-claim evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-R2-FTTau-six-frozen-ZTF-native-PSF-chi-blind-cohorts-NO-THRESHOLD-CHANGE
+          path: reports/generated/r2_fttau_six_original_chi_blind_reference_cohorts_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn
