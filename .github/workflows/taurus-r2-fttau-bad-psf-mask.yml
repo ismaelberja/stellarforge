@@ -1,0 +1,40 @@
+name: Taurus R2 — exact three authentic FT Tau late-night native PSF failures and original image-mask diagnostics
+
+on:
+  push:
+    branches:
+      - research/taurus-r2-fttau-failed-psf-mask-diagnostics
+    paths:
+      - .github/workflows/taurus-r2-fttau-bad-psf-mask.yml
+      - src/stellarforge/r2_fttau_bad_psf_mask_diagnostics.py
+      - scripts/run_taurus_r2_fttau_bad_psf_mask_diagnostics.py
+      - tests/test_research_r2_fttau_bad_psf_mask_diagnostics.py
+      - research/taurus_variability/R2_FTTAU_BAD_PSF_MASK_DIAGNOSTICS_PREREGISTRATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authentic-frozen-original-psf-failure-mask-diagnosis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install fixed native ZTF FITS and QA dependencies
+        run: python -m pip install -e '.[test,analysis,images]'
+      - name: Run original-source failure classification and nonclaim tests
+        run: python -m pytest -q tests/test_research_r2_fttau_bad_psf_mask_diagnostics.py
+      - name: Reverify exactly three original PSFcat SHAs and independently examine same dated science/mask pixels
+        run: python -m scripts.run_taurus_r2_fttau_bad_psf_mask_diagnostics --output reports/generated/r2_fttau_three_original_bad_psf_mask_diagnostics_no_raw.json
+      - name: Archive only the derived provenance and per-source original quality gate diagnoses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-R2-FTTau-three-frozen-failed-original-PSF-image-mask-diagnoses-NO-PHYSICAL-ID
+          path: reports/generated/r2_fttau_three_original_bad_psf_mask_diagnostics_no_raw.json
+          retention-days: 30
+          if-no-files-found: warn
