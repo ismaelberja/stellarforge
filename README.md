@@ -1,20 +1,22 @@
-# StellarForge v2.0
+# StellarForge v2.1
 
-**Scientific Python · Data engineering · Astronomy time series · Reproducible research**
+**Scientific Python · Data Engineering · Astronomy time series · Reproducible research**
 
 [![Research tests](https://github.com/ismaelberja/stellarforge/actions/workflows/tests.yml/badge.svg)](https://github.com/ismaelberja/stellarforge/actions/workflows/tests.yml)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](pyproject.toml)
-[![Scope](https://img.shields.io/badge/release-software%20portfolio%20v2.0-blue)](RELEASE_MANIFEST_v2.0.json)
+[![Scope](https://img.shields.io/badge/release-software%20portfolio%20v2.1-blue)](RELEASE_MANIFEST_v2.1.json)
 
 ![StellarForge astronomy-inspired AI-generated cover illustration; conceptual art, not a telescope image or original Gaia/ZTF survey data](docs/figures/stellarforge-conceptual-hero.webp)
 
 *Conceptual project artwork created with generative AI. **Not a photograph of Taurus or any Gaia/ZTF survey frame**; decorative grid coordinates are not measured astrometry.*
 
-**Engineering release 2.0.0, 10 November 2026.** StellarForge is an open-to-inspection scientific-software portfolio project for quality-controlled astronomical data workflows around the Taurus young-star region. It combines traceable catalogue ingestion, Gaia DR3 astrometric checks, ZTF/IRSA light-curve analysis, original FITS science/mask inspection, and PSF reconstruction and testing.
+**Engineering portfolio release 2.1.0, 13 November 2026.** StellarForge is an open-to-inspection scientific-software project for quality-controlled astronomical data workflows around the Taurus young-star region. It combines original-data provenance, Gaia DR3 catalogues, ZTF/IRSA time-series controls, FITS science and detector-mask inspection, spatial DAOPhot PSF modelling, offline tests and GitHub Actions.
 
-**Author and scientific direction:** Ismael Berja Ruiz. Development includes AI-assisted implementation with regression testing, explicit observational provenance and human scientific review requirements.
+**Author and scientific direction:** Ismael Berja Ruiz. Development includes AI-assisted implementation, source-anchored tests and human scientific-review requirements.
 
-> **Scientific boundary:** The software is tested and has processed real historical Gaia/ZTF survey products, but **physical Gaia–ZTF stellar identifications, independent instrument PSF/WCS calibration, and new astrophysical variability/companion discoveries are not confirmed**. The newer *different-whole-star empirical PSF* pipeline is tested synthetically; its strict original CIDA 11 live pilot is **not yet run**. A green CI badge is not proof of an astronomical discovery.
+> **Scientific boundary:** A genuine [CDS SIMBAD exact-name cross-index](research/taurus_variability/R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md) supports that historical **FT Tau** is associated with Gaia DR3 **149623711269425408** in SIMBAD. That is a **curated catalogue alias**, *not* an independently established physical Gaia–ZTF source match. Original ZTF ObjectID assignments, instrumental PSF/WCS calibration and new stellar variability/companion discoveries remain **unconfirmed**. A successful CI run verifies software consistency, not astrophysical discovery.
+
+**Start here:** [Guía en español](docs/V21_GUIA_ES.md) · [ES/EN CV + LinkedIn text](docs/V21_PORTFOLIO_CV_ES_EN.md) · [v2.1 evidence manifest](RELEASE_MANIFEST_v2.1.json) · [Release notes](RELEASE_NOTES_v2.1.md) · [Reproducibility & science boundaries](docs/V21_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md)
 
 ## See the work at a glance
 
@@ -42,7 +44,13 @@ flowchart LR
 
 *This chart comes from [the real v1.16 science-pixel report](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md). These are original image fits and **same-star pixel-holdout screens**, not independent new-star empirical PSF validation; the three reviews are not companion detections.*
 
-[Visual data provenance and limits](docs/V2_VISUAL_EVIDENCE.md)
+**3. FT Tau follow-up — original native spatial DAOPhot PSF, six fixed ZTF exposures**
+
+![Six original ZTF FT Tau same-image native spatial PSF residual quality screens: four provisional passes and two r-band reviews; old source χ failures remain](docs/figures/fttau-six-original-native-spatial-psf-quality-v21.svg)
+
+*Measured, derived-only numerical QA from [six exact original ZTF source-image models](research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md). All 6/6 original spatial PSF models yielded numeric fits, 4/6 passed provisional same-source held-out-pixel residual screens, and 2/6 require review. **The original three low-χ source-quality rejections remain rejected**; these screens are not independent stellar calibrations or physical source matches.*
+
+[v2.1 visual source provenance and scientific caveats](docs/V21_VISUAL_EVIDENCE.md) · [Historical v2.0 figure details](docs/V2_VISUAL_EVIDENCE.md)
 
 ### Visual concept — astronomy and PSF analysis
 
@@ -60,6 +68,19 @@ flowchart LR
 
 ## Results and evidence boundaries
 
+### Original FT Tau observational follow-up, 12 November 2026
+
+The newer original-source research **reuses six fixed g/r ZTF exposures** selected before looking at source-fit quality. Their original native PSFcat, science FITS and detector-mask bytes were checked against prior SHA receipts. In those images:
+
+- **1,095** quality-screened native source catalogue *records* were selected independently of χ; **240** had χ below the old 0.5 threshold. This is not a count of unique authenticated physical stars or evidence that the cutoff should be relaxed.
+- A simple circular Gaussian produced **4/6** numerical fits; the proper original *spatially varying* ZTF DAOPhot PSF yielded **6/6** numeric same-source masked-image fits, of which **4/6** passed an existing provisional same-image held-out-pixel residual screen; **2/6 r-band images** require review.
+- Exact external SIMBAD identifier lookups mapped **FT Tau** and Gaia DR3 **149623711269425408** to the same curated entry, *V* FT Tau*. This **name-level** result cannot verify that each ZTF ObjectID or original per-image PSF source is physically the Gaia star.
+- The old FT Tau source-quality decision remains **5/8 provisional PASS and 3/8 FAIL**, with only **1/4** selected independent-night source pairs passing both frames. **Zero** original ZTF ObjectID curves have been merged into a verified physical-source light curve; zero new variables/companions confirmed. R2 physical identity is scientifically **OPEN**.
+
+[Six-image original DAOPhot report](research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md) · [SIMBAD/Gaia exact-name audit](research/taurus_variability/R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md) · [Full research limitations](docs/V21_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md)
+
+**Counts below are historic v2.0 baselines**, not totals that can be added to the six-image follow-up. The original v2.0 engineering evidence manifest is preserved in [RELEASE_MANIFEST_v2.0.json](RELEASE_MANIFEST_v2.0.json); it recorded **752 passing tests** from the earlier v1.22 baseline. A later pre-v2.1 main commit passed **1,051 tests** ([actual GitHub Actions](https://github.com/ismaelberja/stellarforge/actions/runs/43315134009)). See the live Actions badge for current software validation.
+
 | Category | Verified result | What it **does not** prove |
 | --- | --- | --- |
 | Catalogue mirror | 532 Taurus members; 467 Gaia DR3 IDs; 24-source technical seed | Publisher-original byte identity, unbiased source selection, disc classification |
@@ -70,7 +91,7 @@ flowchart LR
 | New empirical PSF method | Different whole-star training/validation and fail-closed 4-training/3-holdout pilot orchestration, tested with synthetic FITS | Completed real CIDA 11 empirical validation; absolute instrument error model |
 | Automated verification | **752 passed** at the v1.22 main-branch baseline, with expanded v2.0 release checks | External survey source identity, physical variability, astrophysical discoveries |
 
-See the [audited v2.0 evidence manifest](RELEASE_MANIFEST_v2.0.json), [real v1.16 science-pixel evidence](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md), and [v2.0 reproducibility and science limits](docs/V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
+See the [current v2.1 evidence manifest](RELEASE_MANIFEST_v2.1.json), the [archived v2.0 release manifest](RELEASE_MANIFEST_v2.0.json), [real v1.16 science-pixel evidence](reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md), and [v2.1 reproducibility and science limits](docs/V21_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
 
 ### Why the three flagged source profiles matter
 
@@ -90,8 +111,9 @@ python -m pytest -q
 stellarforge plan-gaia --ra 70 --dec 20 --radius-deg 0.1 --max-rows 10
 stellarforge plan-ztf --ra 70 --dec 20 --radius-arcsec 2
 
-# Verify the v2.0 historical evidence contract, offline:
-python scripts/audit_v2_release_manifest.py
+# Verify the current v2.1 evidence contract and preserved v2.0 history, offline:
+python scripts/audit_v21_release_manifest.py
+python scripts/audit_v2_release_manifest.py  # v2.0 historic claim counts
 ```
 
 For the complete CLI, run `stellarforge --help`. The historical raw archive is **not needed** for normal installation, offline tests or query planning.
@@ -106,7 +128,7 @@ python scripts/check_v122_historic_source_zip.py /private/path/ztf-historic-sour
 
 That ZIP contains **historic positional-query responses, not the original CCD FITS**. Running the actual pilot also requires fresh access to Gaia DR3 and IRSA original source-mask-science products. Archive availability, source quality, mask/WCS and sample-size failures must be reported rather than converted into non-detections. The archive SHA matches the [no-raw v1.22 recovery receipt](data/research_seed/V122_ORIGINAL_IRSA_ARTIFACT_RECEIPT_NO_RAW.json); the ZIP itself remains outside Git.
 
-Read the [Spanish practical guide](docs/V2_GUIA_ES.md) or [complete reproducibility checklist](docs/V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
+Read the [Spanish practical guide](docs/V21_GUIA_ES.md) or [complete reproducibility checklist](docs/V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
 
 ## Project structure and documentation
 
@@ -329,8 +351,8 @@ All **3/3 exact earlier original native PSF catalogues** were byte-SHA-verified 
 [No-raw data ledger](reports/taurus_variability_r2/IRSA_NINE_ORIGINAL_RESPONSE_SOURCE_LEDGER_NO_RAW.json) ·
 [R1–R6 research roadmap](research/taurus_variability/R1_TO_R6_RESEARCH_PLAN.md)
 
-## Status after v2.0
+## Status after v2.1
 
-**Portfolio software: complete for this version. Scientific validation: ongoing and inconclusive.**
+**Portfolio software: v2.1 engineered for release; final merged-main CI is required. Scientific source identity and discovery claims remain unresolved.**
 
 A defensible external PSF/WCS calibration or discovery will require independent Gaia–ZTF source identification, knowledge of original ZTF DAOPhot training stars (or another independent source of calibration), exposure-specific instrument noise and statistically interpretable multi-epoch science. Until then, no source candidate here is a confirmed new physical object or variability event.

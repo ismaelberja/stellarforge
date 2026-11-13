@@ -1,89 +1,53 @@
-# StellarForge v2.0 — Empezar aquí
+# StellarForge v2.1 — empezar aquí
 
-**Versión 2.0.0 · 10 de noviembre de 2026**
+**Versión del software: 2.1.0 (13 de noviembre de 2026).** [Repositorio público](https://github.com/ismaelberja/stellarforge).
 
-StellarForge es un proyecto personal de **Python, ciencia de datos y
-análisis astronómico reproducible**. Investiga procedimientos de
-tratamiento de datos de Gaia DR3 y ZTF/IRSA: series temporales,
-calidad de observaciones, astrometría, imágenes FITS y modelos PSF.
+StellarForge es un proyecto personal de **Python científico, análisis de datos, ingeniería de datos y automatización** aplicado a catálogos Gaia DR3, observaciones ZTF/IRSA, imágenes FITS, coordenadas WCS y modelos PSF. La dirección científica es de Ismael Berja Ruiz; el desarrollo incluye asistencia de IA, pruebas automatizadas y documentación transparente.
 
-**Autor y dirección científica:** Ismael Berja Ruiz. El código incluye
-asistencia de IA, pruebas automatizadas y criterios científicos
-explícitos que requieren validación humana.
+## ¿Está preparado para el CV?
 
-## Estado final del proyecto
+**Sí, como proyecto de software científico reproducible, sujeto a que la versión final supere la integración de GitHub Actions.** Dispone de código Python, CLI, pruebas, GitHub Actions, auditoría de resultados originales y documentación ES/EN.
 
-**Ingeniería de software: versión 2.0 cerrada para GitHub y CV.**
+**No equivale a una publicación científica ni a un descubrimiento:** no se ha autenticado físicamente la identidad Gaia↔ZTF de los cuatro identificadores ZTF ni una nueva variabilidad/compañera. Una consulta externa a SIMBAD sí ha verificado la equivalencia de **nombre catalográfico** entre FT Tau y Gaia DR3 **149623711269425408**.
 
-Se han estudiado datos astronómicos reales: un catálogo espejo de
-532 miembros de Taurus, dos consultas posicionales con
-2.212 registros originales y cuatro imágenes científicas
-históricas ZTF. Se completaron 16 ajustes de PSF a imágenes/máscaras
-originales; 13 perfiles superaron pruebas *provisionales* de residuos
-y 3 siguen pendientes de investigación.
+## Qué datos sustentan los resultados
 
-**No hemos confirmado nuevas estrellas, compañeros, variaciones físicas
-de brillo ni una calibración PSF/WCS instrumental independiente.**
-La técnica nueva que utiliza estrellas completamente distintas
-para entrenamiento y validación tiene pruebas de software
-simuladas, pero aún no una ejecución real autenticada del piloto
-de CIDA 11.
+La base histórica v2.0 conserva **532 miembros de Taurus (467 con Gaia), 2.212 registros de consultas originales y 16 ajustes de PSF en cuatro exposiciones históricas** (13 controles provisionales superados; tres en revisión).
 
-Para consultar el alcance exacto de cada resultado:
-[Informe de evidencia v2.0](RELEASE_MANIFEST_v2.0.json) y
-[documento científico detallado](docs/V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
+Los estudios posteriores analizaron **seis exposiciones originales fijadas de FT Tau**, con seis modelos PSF espaciales DAOPhot: 6/6 modelos numéricamente evaluados, 4/6 controles internos de residuos provisionalmente superados y 2/6 imágenes r/609 pendientes de revisión. Los datos no se suman como una nueva población de estrellas únicas. Las tres detecciones originales con χ inferior a 0,5 permanecen **rechazadas por su criterio inicial**.
 
-## Probar StellarForge
+- [Informe completo del software y sus límites](docs/V21_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
+- [Manifiesto de evidencia auditable v2.1](RELEASE_MANIFEST_v2.1.json) y [v2.0 histórico](RELEASE_MANIFEST_v2.0.json).
+- [Resultados de FT Tau con PSF original](research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md).
+- [Comprobación externa de alias SIMBAD/Gaia](research/taurus_variability/R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md).
 
-Requiere Python 3.10 o posterior (se recomienda Python 3.11).
+## Cómo ejecutarlo
 
-En Linux o macOS:
+Con Git y Python 3.10+; versión probada por CI: Python 3.11.
 
 ```bash
 git clone https://github.com/ismaelberja/stellarforge.git
 cd stellarforge
 python -m pip install -e ".[test,analysis,images]"
 python -m pytest -q
+python scripts/audit_v21_release_manifest.py
 python scripts/audit_v2_release_manifest.py
-stellarforge --help
+stellarforge --version
+stellarforge plan-gaia --ra 70 --dec 20 --radius-deg 0.1 --max-rows 10
 ```
 
-En Windows (PowerShell):
+Las pruebas convencionales no necesitan conectarse a Gaia, SIMBAD o ZTF ni acceder a archivos FITS privados. Para Windows/PowerShell, consulta [la guía detallada](docs/V21_GUIA_ES.md).
 
-```powershell
-git clone https://github.com/ismaelberja/stellarforge.git
-cd stellarforge
-py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[test,analysis,images]"
-.\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe scripts/audit_v2_release_manifest.py
-```
+## Gráficos y fotos
 
-La suite automática es local y **no realiza consultas externas**.
-Puedes ver su estado actualizado en [GitHub Actions](https://github.com/ismaelberja/stellarforge/actions/workflows/tests.yml).
+![Seis imágenes originales auditadas a partir de resultados agregados de ZTF: cuatro controles internos de residuos superados y dos pendientes de revisión](docs/figures/fttau-six-original-native-spatial-psf-quality-v21.svg)
 
-## Para el currículum y las entrevistas
+Este es un **gráfico construido a partir de resultados reales**, no una fotografía del cielo. Las imágenes de portada son **ilustraciones generadas con IA**, no datos originales de telescopios. [Trazabilidad visual](docs/V21_VISUAL_EVIDENCE.md).
 
-Aquí están las descripciones cortas listas para usar:
-[Textos en español e inglés](docs/V2_PORTFOLIO_CV_ES_EN.md).
-No se ha modificado LinkedIn.
+## Documentos para usar profesionalmente
 
-## Si quieres continuar la investigación real
+[Textos en español e inglés para CV, LinkedIn y entrevistas](docs/V21_PORTFOLIO_CV_ES_EN.md) · [Notas de versión 2.1](RELEASE_NOTES_v2.1.md).
 
-El siguiente experimento científico sería ejecutar
-[manualmente el piloto v1.20](.github/workflows/v120-original-empirical-psf-pilot.yml)
-para comprobar la PSF propia sobre diferentes estrellas
-del mismo fotograma original ZTF de CIDA 11.
+La versión 2.1 se cierra como **ingeniería de software**, una vez verificada la CI en `main`. La investigación original sobre identidad física y calibración instrumental sigue abierta; para una publicación científica necesitará nuevas validaciones independientes.
 
-El ZIP de las consultas posicionales originales se recuperó
-antes de caducar su artefacto de GitHub y debe conservarse
-**en privado**, no dentro del repositorio. El programa
-de comprobación de integridad se describe en
-[la guía de reproducibilidad](docs/V2_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md).
-
-**Para el portfolio ya no queda ninguna iteración obligatoria.**
-Para una publicación científica, la validación astrofísica
-sigue abierta, sin un número prefijado de iteraciones.
-
-Documentación histórica original completa:
-[Guía anterior v1.22](docs/HISTORIC_EMPEZAR_AQUI_v1.22.md).
+Documento de entrada a la versión anterior: [guía v2.0 histórica](docs/V2_GUIA_ES.md).
