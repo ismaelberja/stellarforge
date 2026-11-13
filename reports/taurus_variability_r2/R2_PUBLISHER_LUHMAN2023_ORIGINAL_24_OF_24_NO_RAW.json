@@ -1,0 +1,38 @@
+{
+  "schema_version": "stellarforge-taurus-r2-original-2023-publisher-table-attempt-no-raw-v1",
+  "phase": "R2_SOURCE_MEMBERSHIP_ORIGINAL_PUBLISHER_BYTE_SOURCE_CHECK",
+  "frozen_cohort_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "original_publisher_source_table_24_rows_verified": true,
+  "cds_archive_source_table_24_rows_verified": false,
+  "full_original_24_source_table_verified_from_accepted_origin": true,
+  "accepted_origin": "PUBLISHER_IOP_SUPPLEMENT",
+  "attempts": [
+    {
+      "source_tier": "PUBLISHER_IOP_SUPPLEMENT",
+      "url": "https://content.cld.iop.org/journals/1538-3881/165/2/37/revision1/ajac9da3t2_mrt.txt",
+      "outcome": "RETRIEVED_FOR_VALIDATION",
+      "http_status": 200,
+      "response_content_type": "text/plain",
+      "bytes": 201726,
+      "response_sha256": "8ffd84c876afe6b6d7690f8e4ba4f97ec94f643e0e924c98f6c101b8656c0493",
+      "original_table_parsed": true,
+      "official_table_adopted_member_rows": 532,
+      "official_table_gaia_source_ids": 467,
+      "frozen_24_exact_gaia_ids_matched": 24,
+      "frozen_24_original_positions_matched": 24,
+      "frozen_24_gaia_ids_missing_in_source": [],
+      "frozen_24_gaia_ids_with_position_discrepancy": [],
+      "individual_24_literature_rows_original_source_vetted": true
+    }
+  ],
+  "n_original_source_tabular_rows_committed_to_git": 0,
+  "n_ztf_gaia_physical_source_associations_established_by_membership": 0,
+  "interpretation": "Membership catalog source provenance only; even successful published Table 2 match does not authenticate any ZTF physical source or astrometric instrument covariance.",
+  "original_data_workflow_run_id": 43499836719,
+  "original_derived_only_artifact_id": 14072229650,
+  "original_derived_only_artifact_zip_sha256": "07dc278fa694f2985e68a988965dfe8a6cce8e1fc00d025c264a1c87d51d879e",
+  "original_derived_only_json_sha256": "3bf45b38745cdea664f82da74912c8c059f0b58897b02eefe86bde182cf319e9",
+  "archive_time_utc": "2026-11-13",
+  "raw_original_journal_mrt_committed": false,
+  "third_party_pinned_mirror_full_byte_identity_compared": false
+}

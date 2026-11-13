@@ -144,7 +144,11 @@ Read the [Spanish practical guide](docs/V21_GUIA_ES.md) or [complete reproducibi
 
 For a concise explanation suitable for recruiting and interviews, see [StellarForge on a CV — English/Spanish](docs/V2_PORTFOLIO_CV_ES_EN.md). The [research status](docs/PROJECT_STATUS.md), [roadmap](docs/ROADMAP.md) and [release notes](RELEASE_NOTES_v2.0.md) remain available for deeper technical review.
 
-## Independent Taurus variability research — R1 and ongoing R2
+## Independent Taurus variability research — R2 24-source screening adjudicated (physical identities OPEN)
+
+**Updated original-data Taurus R2 decision (13 November 2026):** the authentic [publisher's original Luhman (2023) adopted-member Table 2](https://github.com/ismaelberja/stellarforge/actions/runs/43499836719) was obtained from IOP/AAS and its 532 source rows / 467 Gaia IDs parsed. All **24/24 frozen Gaia source IDs and sky positions** were matched to the author table. The [new complete 24-source R2 screening ledger](research/taurus_variability/R2_FINAL_24_SOURCE_SCREENING_DECISION.md) reconciles **22/24 original IRSA/ZTF positional response-access successes**, the other **two original provider failure cases**, preliminary original Gaia source astrometry and same-pipeline original-image checks. **R2 source-access/ambiguity SCREENING completed with an explicit physical-source NO-GO: 0/24 independently authenticated Gaia–ZTF matches, 0 R3 astrophysically eligible sources.** This is a completed feasibility audit, **not** successful physical source identification, variability detection or new companions. The R3 physical stellar time-series phase remains blocked without independent source validation.
+
+
 
 StellarForge v2.0 remains a **finished software-engineering portfolio**.
 The independent observational Taurus study continues with **24 fixed,

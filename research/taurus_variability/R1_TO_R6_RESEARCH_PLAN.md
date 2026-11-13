@@ -1,5 +1,23 @@
 # R1–R6 practical research milestones
 
+## Current scientific R2 decision — 13 November 2026
+
+**New original external evidence, achieved:** the actual publisher machine-readable Luhman (2023) *AJ* 165, 37 adopted-member Table 2 was retrieved and SHA-recorded in [live original publisher Actions 43499836719](https://github.com/ismaelberja/stellarforge/actions/runs/43499836719). The 532-member (467 Gaia source IDs) source table matched **all 24/24 frozen technical-source exact Gaia IDs and catalogue sky positions**. This verifies their **presence in Luhman's author-published adopted-member table**, not independent Gaia-to-ZTF physical photometric identities.
+
+**The source-by-source R2 screening deliverable is now COMPLETE but yielded NO-GO**, with its explicit 24-row Gaia-quality, original IRSA access and ambiguity ledger: **22/24** original ZTF positional query target positions returned parseable rows at some point (not authenticated stellar associations), **2/24** remain original-archive access failures, **0/24** satisfy independent Gaia-to-ZTF physical-source identification gates and **0** are admitted to R3 physical-star variability analysis. Source-level original ZTF PSF/WCS/deblending and target-publisher science questions remain distinguishable. The R2 **identity science target is NOT met**, and no original ZTF OIDs were merged. The audit is finished *as a documented negative/ambiguous observational feasibility screen*, not as a solved source-crossmatch. Reopen the physical source challenge only when independent original WCS/PSF reference-star or high-resolution, matched-epoch evidence is available.
+
+- [Final source-by-source science report (all 24 technical sources)](R2_FINAL_24_SOURCE_SCREENING_DECISION.md)
+- [Machine-readable no-raw 24-source GO/NO-GO ledger](../../reports/taurus_variability_r2/R2_FINAL_24_TECHNICAL_SOURCE_ACCESS_AND_IDENTITY_DECISION_NO_RAW.json)
+- [Publisher original-data verified 24/24 evidence](../../reports/taurus_variability_r2/R2_PUBLISHER_LUHMAN2023_ORIGINAL_24_OF_24_NO_RAW.json)
+- [Independent offline source-locked validation](../../scripts/audit_taurus_r2_24_go_no_go.py)
+
+### R3–R6 implications
+
+R3 may proceed to a **technical data-coverage/readiness/blocked-source report** without treating unverified original positional data as physical stellar light curves. R4 astrophysical periodicity and R5 new-source science hypotheses cannot proceed with target attribution until some original Gaia-to-ZTF counterparts are independently authenticated. A final R6 methodological **negative/inconclusive feasibility report** can be legitimate; it is not an observational measurement of star variability or a discovery claim.
+
+---
+
+
 **12 November 2026 CDS SIMBAD external exact FT Tau alias result:** [Live original two exact-name TAP lookups](R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md) on the official CDS Harvard mirror returned one identical unique SIMBAD object for the historical name FT Tau and frozen Gaia DR3 **149623711269425408** (SIMBAD main identifier V* FT Tau, type Or*). This resolves the **curated alias** for the original R1 Gaia seed; SIMBAD Gaia aliases are ultimately from other catalogue sources, and this is **not** a measurement or authentication of physical Gaia–ZTF per-epoch source matches. All 5/8 PASS and 3/8 FAIL source decisions and only 1/4 valid two-night candidate pairs stay frozen. R2 physical ZTF identity still OPEN.
 
 
