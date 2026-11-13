@@ -23,8 +23,10 @@ jobs:
         run: python -m pip install -e '.[test,analysis,images]'
       - name: Run all registered research tests (no live network required)
         run: python -m pytest -q
-      - name: Check v2.0 offline scientific evidence and release version
+      - name: Check archived v2.0 source counts and original science evidence
         run: python scripts/audit_v2_release_manifest.py --manifest RELEASE_MANIFEST_v2.0.json --root .
+      - name: Check current v2.1 original six-image ZTF, SIMBAD and portfolio evidence contract
+        run: python scripts/audit_v21_release_manifest.py --manifest RELEASE_MANIFEST_v2.1.json --root .
       - name: Validate installed package and no-network CLI
         run: |
           python -m pip check
