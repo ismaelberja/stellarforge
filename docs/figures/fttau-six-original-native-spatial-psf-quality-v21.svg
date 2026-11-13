@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img" aria-labelledby="v21title v21desc">
   <title id="v21title">FT Tau: six original ZTF native spatial PSF same-source held-out pixel residual screens</title>
-  <desc id="v21desc">Derived-only technical values from six exact, previously frozen original ZTF source-image observations. Four of six native spatial DAOPhot same-source checkerboard residual screens passed pre-existing internal QA and two r-band field-609 images require review. The native catalog chi source-quality screen is a separate criterion and its three late-night failures remain failed. These are NOT independent different-star PSF calibration, physical Gaia to ZTF source matches, telescope photographs, or astronomical discoveries. Source: reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_DAOPHOT_PSF_NO_RAW.json</desc>
+  <desc id="v21desc">Derived-only technical values from six exact, previously frozen original ZTF source-image observations. Four of six native spatial DAOPhot same-source checkerboard residual screens passed pre-existing internal QA and two r-band field-609 images require review. The native catalog chi source-quality screen is a separate criterion and its three late-night failures remain failed. These are not an independent different-star PSF calibration, physical Gaia to ZTF source matches, telescope photographs, or astronomical discoveries. Source: reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_DAOPHOT_PSF_NO_RAW.json</desc>
   <rect width="1000" height="600" rx="20" fill="#FFFFFF"/>
   <rect width="1000" height="5" fill="#167B91"/>
   <text x="32" y="49" font-size="25" font-weight="700" fill="#162B46">FT Tau · original ZTF spatial PSF audit</text>
@@ -15,37 +15,37 @@
   <rect x="366" y="154" width="465" height="27" rx="5" fill="#E9EFF5"/>
   <rect x="366" y="154" width="110.0" height="27" rx="5" fill="#0C927E"/>
   <text x="846" y="173" font-size="16" fill="#172B4A" font-weight="700">2.365</text>
-  <text x="917" y="172" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
+  <text x="980" y="172" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
   <text x="32" y="220" fill="#162B46" font-size="18" font-weight="600">g · field 1605</text>
   <text x="32" y="239" fill="#65758C" font-size="13">2023 · late  |  native χ 0.456 (original FAIL)</text>
   <rect x="366" y="210" width="465" height="27" rx="5" fill="#E9EFF5"/>
   <rect x="366" y="210" width="97.8" height="27" rx="5" fill="#0C927E"/>
   <text x="846" y="229" font-size="16" fill="#172B4A" font-weight="700">2.104</text>
-  <text x="917" y="228" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
+  <text x="980" y="228" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
   <text x="32" y="276" fill="#162B46" font-size="18" font-weight="600">g · field 609</text>
   <text x="32" y="295" fill="#65758C" font-size="13">2018 · early  |  native χ 0.552 (original PASS)</text>
   <rect x="366" y="266" width="465" height="27" rx="5" fill="#E9EFF5"/>
   <rect x="366" y="266" width="78.2" height="27" rx="5" fill="#0C927E"/>
   <text x="846" y="285" font-size="16" fill="#172B4A" font-weight="700">1.681</text>
-  <text x="917" y="284" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
+  <text x="980" y="284" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
   <text x="32" y="332" fill="#162B46" font-size="18" font-weight="600">g · field 609</text>
   <text x="32" y="351" fill="#65758C" font-size="13">2025 · late  |  native χ 0.424 (original FAIL)</text>
   <rect x="366" y="322" width="465" height="27" rx="5" fill="#E9EFF5"/>
   <rect x="366" y="322" width="76.5" height="27" rx="5" fill="#0C927E"/>
   <text x="846" y="341" font-size="16" fill="#172B4A" font-weight="700">1.645</text>
-  <text x="917" y="340" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
+  <text x="980" y="340" font-size="12" text-anchor="end" fill="#116C61">Screen passed</text>
   <text x="32" y="388" fill="#162B46" font-size="18" font-weight="600">r · field 609</text>
   <text x="32" y="407" fill="#65758C" font-size="13">2018 · early  |  native χ 1.438 (original PASS)</text>
   <rect x="366" y="378" width="465" height="27" rx="5" fill="#E9EFF5"/>
   <rect x="366" y="378" width="208.6" height="27" rx="5" fill="#CE8650"/>
   <text x="846" y="397" font-size="16" fill="#172B4A" font-weight="700">4.486</text>
-  <text x="917" y="396" font-size="12" text-anchor="end" fill="#985722">Review</text>
+  <text x="980" y="396" font-size="12" text-anchor="end" fill="#985722">Review</text>
   <text x="32" y="444" fill="#162B46" font-size="18" font-weight="600">r · field 609</text>
   <text x="32" y="463" fill="#65758C" font-size="13">2025 · late  |  native χ 0.383 (original FAIL)</text>
   <rect x="366" y="434" width="465" height="27" rx="5" fill="#E9EFF5"/>
   <rect x="366" y="434" width="438.0" height="27" rx="5" fill="#CE8650"/>
   <text x="846" y="453" font-size="16" fill="#172B4A" font-weight="700">9.420</text>
-  <text x="917" y="452" font-size="12" text-anchor="end" fill="#985722">Review</text>
+  <text x="980" y="452" font-size="12" text-anchor="end" fill="#985722">Review</text>
   <line x1="366" y1="486" x2="831" y2="486" stroke="#A8B7C6" stroke-width="1"/>
   <line x1="366" y1="484" x2="366" y2="493" stroke="#9CABBA"/><text x="366" y="512" font-size="12" text-anchor="middle" fill="#708096">0</text>
   <line x1="459" y1="484" x2="459" y2="493" stroke="#9CABBA"/><text x="459" y="512" font-size="12" text-anchor="middle" fill="#708096">2</text>
