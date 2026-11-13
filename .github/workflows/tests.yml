@@ -27,6 +27,8 @@ jobs:
         run: python scripts/audit_v2_release_manifest.py --manifest RELEASE_MANIFEST_v2.0.json --root .
       - name: Check current v2.1 original six-image ZTF, SIMBAD and portfolio evidence contract
         run: python scripts/audit_v21_release_manifest.py --manifest RELEASE_MANIFEST_v2.1.json --root .
+      - name: Audit R2 source-by-source original-publisher Luhman table and 24 Gaia/IRSA physical-source NO-GO
+        run: python -m scripts.audit_taurus_r2_24_go_no_go --root .
       - name: Validate installed package and no-network CLI
         run: |
           python -m pip check

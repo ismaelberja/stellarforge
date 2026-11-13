@@ -110,7 +110,7 @@ def test_false_new_source_identity_claims_are_rejected_offline(tmp_path,bad_key,
 
 
 @pytest.mark.parametrize("field,value",[
-    ("n_r3_physical_variability_eligible",1),
+    ("scientifically_r3_eligible_original_source_lightcurves",1),
     ("cumulative_positional_irsa_ztf_parsed_target_positions",24),
     ("irsa_target_positions_without_a_parsed_original_response",0),
     ("original_journal_table_exact_gaia_ids_and_positions_verified",23),

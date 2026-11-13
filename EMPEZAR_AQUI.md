@@ -10,6 +10,8 @@ StellarForge es un proyecto personal de **Python científico, análisis de datos
 
 **No equivale a una publicación científica ni a un descubrimiento:** no se ha autenticado físicamente la identidad Gaia↔ZTF de los cuatro identificadores ZTF ni una nueva variabilidad/compañera. Una consulta externa a SIMBAD sí ha verificado la equivalencia de **nombre catalográfico** entre FT Tau y Gaia DR3 **149623711269425408**.
 
+**Novedad de investigación R2 (13 de noviembre de 2026):** ya hemos contrastado los **24 identificadores Gaia y sus posiciones contra la Tabla 2 original de Luhman (2023), descargada realmente de la editorial**, no solamente contra una copia de terceros. Los 24 coinciden. También hemos concluido la **auditoría de acceso e identificación de las 24 fuentes**: ZTF ha respondido con datos posicionales para 22/24, pero **ninguna asociación física Gaia–ZTF supera aún todos los criterios científicos**. El resultado de este examen es **NO-GO para comenzar análisis astrofísico de variabilidad R3**. [Informe científico R2 con tabla de las 24 estrellas](research/taurus_variability/R2_FINAL_24_SOURCE_SCREENING_DECISION.md) · [evidencia original de la editorial](reports/taurus_variability_r2/R2_PUBLISHER_LUHMAN2023_ORIGINAL_24_OF_24_NO_RAW.json).
+
 ## Qué datos sustentan los resultados
 
 La base histórica v2.0 conserva **532 miembros de Taurus (467 con Gaia), 2.212 registros de consultas originales y 16 ajustes de PSF en cuatro exposiciones históricas** (13 controles provisionales superados; tres en revisión).
