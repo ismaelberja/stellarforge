@@ -49,7 +49,7 @@ def test_exact_original_publisher_sha_reconciled_from_github_actions_receipt():
 def test_original_24_sources_exactly_once_and_seven_gaia_astrometry_reviews():
     frozen=(ROOT/SOURCES["seed"]).read_bytes()
     assert hashlib.sha256(frozen).hexdigest()==SEED_SHA==COHORT_SHA
-    original=list(csv.DictReader(frozen.decode("utf8-sig").splitlines()))
+    original=list(csv.DictReader(frozen.decode("utf-8-sig").splitlines()))
     d=json.loads((ROOT/SOURCES["ledger"]).read_text("utf8"))
     sources=d["sources"]
     assert len(sources)==len(original)==24
