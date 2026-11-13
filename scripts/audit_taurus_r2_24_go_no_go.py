@@ -69,7 +69,7 @@ def audit_24_final(root:Path)->dict:
     raw=(root/SOURCES["seed"]).read_bytes()
     if hashlib.sha256(raw).hexdigest()!=SEED_SHA:
         raise ValueError("R1 frozen 24-row technical seed was changed")
-    seed=list(csv.DictReader(raw.decode("utf8-sig").splitlines()))
+    seed=list(csv.DictReader(raw.decode("utf-8-sig").splitlines()))
     if len(seed)!=24 or len({r["gaia"] for r in seed})!=24:
         raise ValueError("R1 sample cardinality/IDs changed")
     evidence={k:_read(root,v) for k,v in SOURCES.items() if k!="seed"}
