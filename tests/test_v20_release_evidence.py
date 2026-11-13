@@ -103,9 +103,11 @@ def test_manifest_may_not_refer_to_forged_or_missing_science_evidence(manifest):
 
 def test_package_and_public_docs_parity_for_release(manifest):
     from stellarforge import __version__
-    assert RELEASE_VERSION == __version__ == manifest["software_version"]
+    assert RELEASE_VERSION == manifest["software_version"] == "2.0.0"
+    assert __version__ == "2.1.0"  # Current package; v2.0 is archival evidence
     readme = (ROOT/"README.md").read_text(encoding="utf8")
-    assert "StellarForge v2.0" in readme
+    assert "StellarForge v2.1" in readme
+    assert "RELEASE_MANIFEST_v2.0.json" in readme
     assert "PSF" in readme
     assert "2.0.0" in readme
     assert "752" in readme

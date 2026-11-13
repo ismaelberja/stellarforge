@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stellarforge-research"
-version = "2.0.0"
+version = "2.1.0"
 description = "Reproducible Gaia DR3/ZTF scientific Python data pipelines, original FITS/WCS/PSF QA, data provenance and clearly distinguished observed/synthetic evidence; astrophysical source identity and instrument calibration unconfirmed"
 readme = "README.md"
 requires-python = ">=3.10"

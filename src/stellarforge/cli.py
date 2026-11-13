@@ -15,7 +15,7 @@ from .luhman2023 import download_pinned_mirror, validate_technical_seed, parse_m
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="StellarForge — Gaia/ZTF scientific data-quality software (v2.0)")
+    parser = argparse.ArgumentParser(description="StellarForge — Gaia/ZTF scientific data-quality software (v2.1)")
     parser.add_argument("--version", action="version", version=f"StellarForge {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
     gaia = sub.add_parser("plan-gaia", help="Print ADQL technical query, no remote access")
