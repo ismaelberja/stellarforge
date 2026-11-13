@@ -79,7 +79,7 @@ The newer original-source research **reuses six fixed g/r ZTF exposures** select
 
 [Six-image original DAOPhot report](research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md) · [SIMBAD/Gaia exact-name audit](research/taurus_variability/R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md) · [Full research limitations](docs/V21_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md)
 
-**Counts below are historic v2.0 baselines**, not totals that can be added to the six-image follow-up. The original v2.0 engineering evidence manifest is preserved in [RELEASE_MANIFEST_v2.0.json](RELEASE_MANIFEST_v2.0.json); it recorded **752 passing tests** from the earlier v1.22 baseline. A later pre-v2.1 main commit passed **1,051 tests** ([actual GitHub Actions](https://github.com/ismaelberja/stellarforge/actions/runs/43315134009)). See the live Actions badge for current software validation.
+**Counts below are historic v2.0 baselines**, not totals that can be added to the six-image follow-up. The original v2.0.0 engineering evidence manifest is preserved in [RELEASE_MANIFEST_v2.0.json](RELEASE_MANIFEST_v2.0.json); it recorded **752 passing tests** from the earlier v1.22 baseline. A later pre-v2.1 main commit passed **1,051 tests** ([actual GitHub Actions](https://github.com/ismaelberja/stellarforge/actions/runs/43315134009)). See the live Actions badge for current software validation.
 
 | Category | Verified result | What it **does not** prove |
 | --- | --- | --- |
