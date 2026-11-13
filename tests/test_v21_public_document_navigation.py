@@ -17,7 +17,6 @@ PUBLISHED_DOCS=(
     "docs/V21_GUIA_ES.md","docs/V21_PORTFOLIO_CV_ES_EN.md",
     "docs/V21_REPRODUCIBILITY_AND_SCIENCE_LIMITS.md",
     "docs/V21_VISUAL_EVIDENCE.md",
-    "docs/V21_RELEASE_ACCEPTANCE_PLAN.md",
 )
 LINK=re.compile(r"!?\[[^\]\n]*\]\(([^)\s]+)(?:\s[^)]*)?\)")
 
