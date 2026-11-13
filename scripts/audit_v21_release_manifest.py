@@ -266,7 +266,7 @@ def audit_v21_release_manifest(m: dict, *, root: Path) -> dict:
                alias.get("original_historical_ft_tau_name_simbad_csv_sha256")
             or not _hash64(alias.get("original_gaia_exact_identifier_simbad_csv_sha256"))):
         raise ValueError("External SIMBAD curated name alias evidence changed")
-    if (not spatial.get("original_candidate_native_5_of_8_pass_3_of_8_fail_unchanged")
+    if (not spatial.get("original_native_candidate_5_of_8_pass_3_of_8_fail_unchanged")
             or not spatial.get("original_1_of_4_quality_accepted_two_night_pairs_unchanged")
             or alias.get("n_original_ztf_oid_lightcurves_merged")!=0):
         raise ValueError("Original ZTF source science selection changed")
