@@ -14,6 +14,11 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from stellarforge import __version__
+# Direct invocation (python scripts/audit_v21_release_manifest.py) runs with
+# scripts/ on sys.path, while pytest imports the scripts namespace from root.
+# Preserve both interfaces without requiring an extra installed package.
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.audit_v2_release_manifest import audit_release_manifest
 
 RELEASE_VERSION = "2.1.0"
