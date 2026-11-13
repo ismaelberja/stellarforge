@@ -1,0 +1,106 @@
+{
+  "schema_version": "stellarforge-v2.1-engineering-portfolio-evidence-contract-v1",
+  "software_version": "2.1.0",
+  "release_date_utc": "2026-11-13",
+  "release_scope": "PUBLIC_REPRODUCIBLE_RESEARCH_SOFTWARE_PORTFOLIO_NOT_NEW_ASTROPHYSICAL_DISCOVERY",
+  "historical_release_baseline": {
+    "previous_release_manifest": "RELEASE_MANIFEST_v2.0.json",
+    "previous_release_version": "2.0.0",
+    "prior_taurus_catalogue_mirror_rows": 532,
+    "prior_catalogue_gaia_ids": 467,
+    "prior_original_irsa_positional_rows": 2212,
+    "prior_four_historic_ztf_science_exposures": 4,
+    "prior_sixteen_original_source_image_profile_fits": 16,
+    "prior_thirteen_provisional_pixel_screen_passes": 13,
+    "prior_three_residual_reviews": 3
+  },
+  "original_followup_2026_11_12": {
+    "target_gaia_dr3_id": "149623711269425408",
+    "frozen_original_ztf_exposure_count": 6,
+    "frozen_original_same_oid_early_late_pairs": 3,
+    "original_chi_blind_reference": {
+      "source_path": "reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_CHI_BLIND_REFERENCES_NO_RAW.json",
+      "original_run_id": 43275404347,
+      "image_catalogue_rows_in_reference_cohorts": 1095,
+      "image_catalogue_reference_records_chi_below_0p5": 240,
+      "unique_physical_reference_stars_confirmed": false
+    },
+    "original_analytic_gaussian_pixel_pilot": {
+      "source_path": "reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_INDEPENDENT_GAUSSIAN_PIXELS_NO_RAW.json",
+      "original_run_id": 43279744985,
+      "numeric_analytic_gaussian_pixel_fits": 4,
+      "constrained_optimizer_failures": 2,
+      "calibrated_original_native_psf_model": false
+    },
+    "original_spatial_daophot_psf": {
+      "source_path": "reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_DAOPHOT_PSF_NO_RAW.json",
+      "original_run_id": 43310945601,
+      "original_native_psfcat_byte_verified": 6,
+      "original_science_mask_pairs_byte_verified": 6,
+      "original_spatial_dao_models_parsed": 6,
+      "same_source_spatial_psf_numeric_fits": 6,
+      "provisional_same_source_heldout_pixel_residual_passes": 4,
+      "same_source_pixel_residual_reviews_required": 2,
+      "independent_different_star_psf_calibration": false
+    },
+    "external_curated_simbad_alias": {
+      "source_path": "reports/taurus_variability_r2/FTTAU_SIMBAD_EXACT_GAIA_NAME_ALIAS_NO_RAW.json",
+      "original_run_id": 43314507016,
+      "simbad_unique_exact_gaia_records": 1,
+      "simbad_unique_exact_ft_tau_name_records": 1,
+      "both_queries_same_unique_external_object": true,
+      "external_catalogue_main_id": "V* FT Tau",
+      "physical_gaia_to_original_ztf_counterpart_confirmed": false
+    },
+    "original_ztf_source_qa_provisional_pass_count": 5,
+    "original_ztf_source_qa_failed_count": 3,
+    "original_valid_two_night_source_pairs_count": 1,
+    "original_total_two_night_source_pair_groups_count": 4
+  },
+  "engineering_validation": {
+    "pre_v21_current_main_baseline_run_id": 43315134009,
+    "pre_v21_current_main_baseline_passed_tests": 1051,
+    "pre_v21_baseline_has_synthetic_and_original_source_receipt_tests": true,
+    "final_v21_git_main_ci_required": true,
+    "current_package_offline_unit_suite_requires_no_new_live_survey_requests": true
+  },
+  "science_claim_boundaries": {
+    "catalogue_name_alias_verified": true,
+    "all_four_ztf_object_ids_authenticated_as_one_physical_gaia_star": false,
+    "independent_gaia_to_ztf_per_epoch_physical_source_identification_confirmed": false,
+    "independent_psf_wcs_instrumental_covariance_calibrated": false,
+    "authentic_original_daophot_psf_training_star_roster_confirmed": false,
+    "new_astrophysical_variability_or_companion_confirmed": false,
+    "original_ztf_oid_lightcurves_merged": false,
+    "r2_scientific_source_identity_finished": false,
+    "r3_astrophysical_inference_ready": false,
+    "new_cida11_whole_star_empirical_psf_live_pilot_completed": false,
+    "previous_original_native_chi_gate_relaxed": false
+  },
+  "visual_evidence": {
+    "new_real_derived_only_chart": "docs/figures/fttau-six-original-native-spatial-psf-quality-v21.svg",
+    "chart_depicts_original_survey_pixels": false,
+    "chart_reuses_six_original_dated_image_derived_only_receipts": true,
+    "conceptual_webps_are_telescope_photos": false
+  },
+  "release_evidence_paths": [
+    "RELEASE_MANIFEST_v2.0.json",
+    "reports/selection_bias_v1.1/REPORT.md",
+    "reports/masked_spatial_psf_v1.16/REAL_ZTF_PIXEL_RESIDUALS_EVIDENCE.md",
+    "reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_CHI_BLIND_REFERENCES_NO_RAW.json",
+    "reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_ZTF_INDEPENDENT_GAUSSIAN_PIXELS_NO_RAW.json",
+    "reports/taurus_variability_r2/FTTAU_SIX_ORIGINAL_NATIVE_SPATIAL_DAOPHOT_PSF_NO_RAW.json",
+    "reports/taurus_variability_r2/FTTAU_SIMBAD_EXACT_GAIA_NAME_ALIAS_NO_RAW.json",
+    "research/taurus_variability/R2_REAL_FTTAU_SIMBAD_GAIA_EXACT_ALIAS_RESULTS.md",
+    "research/taurus_variability/R2_REAL_FTTAU_SIX_NATIVE_SPATIAL_DAO_RESULTS.md",
+    "docs/figures/fttau-six-original-native-spatial-psf-quality-v21.svg"
+  ],
+  "transparent_ai_assistance": "Scientific direction, source selection and claims review by Ismael Berja Ruiz; implementation assisted by AI coding tools with independent static/unit/CI checks. Synthetic tests do not authenticate real stars.",
+  "explicit_unresolved_science": [
+    "Independently authenticate per-epoch Gaia DR3 FT Tau physical identity for original ZTF ObjectIDs with source blending reviewed.",
+    "Calibrate source-specific instrumental WCS PSF uncertainty and real correlated CCD detector noise using independently vetted reference stars.",
+    "Locate original DAOPhot PSF model training star roster and exclude overlapping training reference stars before empirical validation.",
+    "Investigate original native chi failures and r609 same-image spatial-model residual screens without changing retrospective quality gates.",
+    "Run original CIDA 11 genuinely disjoint whole-star empirical PSF validation only under its original independent acceptance protocol."
+  ]
+}
