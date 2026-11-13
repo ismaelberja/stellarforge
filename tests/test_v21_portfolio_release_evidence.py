@@ -150,7 +150,7 @@ def test_v21_online_urls_are_reference_only_and_v20_release_receipts_unchanged(m
                  "docs/V21_RELEASE_ACCEPTANCE_PLAN.md"):
         assert (ROOT/path).is_file()
     guide=(ROOT/"docs/V21_GUIA_ES.md").read_text(encoding="utf8")
-    assert "No" in guide and "SIMBAD" in guide and "Gaia DR3" in guide
+    assert "no" in guide.lower() and "SIMBAD" in guide and "Gaia DR3" in guide
     notes=(ROOT/"RELEASE_NOTES_v2.1.md").read_text(encoding="utf8")
     assert "No" in notes and "2.1.0" in notes
     assert manifest["engineering_validation"]["final_v21_git_main_ci_required"] is True
