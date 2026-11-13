@@ -131,35 +131,7 @@ def audit_release_manifest(manifest: dict, *, root: Path) -> dict:
         raise ValueError("Original scientific source receipt is inconsistent")
 
     project_text = (base / "pyproject.toml").read_text(encoding="utf8")
-    current_version_match = re.search(r'(?m)^version = "([^"]+)"
-    return {
-        "status": "ENGINEERING_RELEASE_EVIDENCE_CONTRACT_VERIFIED",
-        "software_version": RELEASE_VERSION,
-        "historical_real_source_pixel_fits": REAL_COUNTS["original_masked_psf_source_pixel_fits"],
-        "historical_original_exposures": REAL_COUNTS["original_ztf_science_exposures"],
-        "unresolved_scientific_review_profiles": REAL_COUNTS["source_pixel_residual_review_required"],
-        "n_evidence_paths_checked": len(EXPECTED_PATHS),
-        "release_ci_still_must_pass_on_final_main": True,
-        "real_new_distinct_star_empirical_ztf_pilot_complete": False,
-        "new_scientific_discovery_confirmed": False,
-        "external_instrument_psf_wcs_calibration_verified": False,
-    }
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Offline v2.0 software evidence consistency check, no live astronomy")
-    parser.add_argument(
-        "--manifest", type=Path, default=Path("RELEASE_MANIFEST_v2.0.json"))
-    parser.add_argument("--root", type=Path, default=Path("."))
-    args = parser.parse_args()
-    doc = json.loads(args.manifest.read_text(encoding="utf8"))
-    print(json.dumps(audit_release_manifest(doc, root=args.root), indent=2))
-
-
-if __name__ == "__main__":
-    main()
-, project_text)
+    current_version_match = re.search(r'(?m)^version = "([^"]+)"$', project_text)
     if (not current_version_match
             or current_version_match.group(1) != __version__
             or __version__ not in ("2.0.0", "2.1.0")):
