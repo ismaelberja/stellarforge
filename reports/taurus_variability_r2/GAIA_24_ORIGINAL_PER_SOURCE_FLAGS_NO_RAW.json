@@ -1,0 +1,244 @@
+{
+  "schema_version": "stellarforge-taurus-R2-24-frozen-Gaia-original-actions-derived-source-snapshot-v1",
+  "compiled_from_original_derived_only_artifacts_utc": "2026-11-13",
+  "not_an_independent_new_gaia_query": true,
+  "r1_frozen_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+  "gaia_exact_id_workflow_run_id": 43029175432,
+  "gaia_original_no_raw_zip_artifact_id": 13858887859,
+  "gaia_original_no_raw_zip_sha256": "cebb49029dd33fc6a369db2af0e8c5324af32895355748c8bb998b7bc2325a82",
+  "gaia_original_derived_only_json_sha256": "c826f72b936378d339cccefb5592841ff7276e893deb290b0e855925031c7dd9",
+  "neighbour_workflow_run_id": 43031689454,
+  "neighbour_original_no_raw_zip_artifact_id": 13861901170,
+  "neighbour_original_no_raw_zip_sha256": "8a3028ebfc9575f1599074ae9addbfc118e19dea836e915af58a1cbbe23bc3f8",
+  "neighbour_original_derived_only_json_sha256": "fea7630bee5971629d57b127d0776d756b8237cfbc088fd3f5e63d4571d99500",
+  "source_count": 24,
+  "gaia_exact_source_ids_found_count": 24,
+  "original_gaia_only_qa_pass_count": 17,
+  "gaia_ruwe_at_least_1p4_count": 7,
+  "gaia_neighbour_under_2arcsec_count": 0,
+  "gaia_neighbour_under_5arcsec_target_count": 4,
+  "source_rows": [
+    {
+      "gaia_dr3_source_id": "164800235906366976",
+      "original_gaia_ruwe_5dp": 1.35503,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 1,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "152362491654557696",
+      "original_gaia_ruwe_5dp": 1.38668,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "150908490604475520",
+      "original_gaia_ruwe_5dp": 1.12,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 1,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "150073682105601408",
+      "original_gaia_ruwe_5dp": 1.22035,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "162259951730099968",
+      "original_gaia_ruwe_5dp": 1.09904,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "164513602672978304",
+      "original_gaia_ruwe_5dp": 3.5506,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 1,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "163178387536338944",
+      "original_gaia_ruwe_5dp": 2.49748,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "156732977357829888",
+      "original_gaia_ruwe_5dp": 1.24172,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "156577881796362496",
+      "original_gaia_ruwe_5dp": 0.9458,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "151125919028356352",
+      "original_gaia_ruwe_5dp": 10.78528,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "152280165721635968",
+      "original_gaia_ruwe_5dp": 1.01202,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "149623711269425408",
+      "original_gaia_ruwe_5dp": 1.32659,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "146764465639042176",
+      "original_gaia_ruwe_5dp": 1.20076,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "148116246465275520",
+      "original_gaia_ruwe_5dp": 16.30135,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "148289831863907840",
+      "original_gaia_ruwe_5dp": 5.05741,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "145886539965771648",
+      "original_gaia_ruwe_5dp": 1.18063,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "145125987155266048",
+      "original_gaia_ruwe_5dp": 1.01409,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3419110734340795648",
+      "original_gaia_ruwe_5dp": 8.56752,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3418414193726125184",
+      "original_gaia_ruwe_5dp": 1.00781,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3314244366165299584",
+      "original_gaia_ruwe_5dp": 1.25345,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3314299238667410176",
+      "original_gaia_ruwe_5dp": 1.04762,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3406270362673330944",
+      "original_gaia_ruwe_5dp": 1.58367,
+      "original_gaia_only_preliminary_astrometry_flag_pass": false,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 1,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "3406269778557780224",
+      "original_gaia_ruwe_5dp": 1.10803,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    },
+    {
+      "gaia_dr3_source_id": "48193213849576320",
+      "original_gaia_ruwe_5dp": 1.34376,
+      "original_gaia_only_preliminary_astrometry_flag_pass": true,
+      "original_gaia_neighbours_within_2arcsec": 0,
+      "original_gaia_neighbours_within_5arcsec": 0,
+      "original_duplicated_source": false,
+      "gaia_to_ztf_physical_source_identity_independently_confirmed": false
+    }
+  ],
+  "caveats": [
+    "Source per-ID values transcribed from SHA-pinned prior original GitHub Actions derived-only artifact JSON; this file is NOT an additional independent Gaia DR3 query or external scientific validation.",
+    "Original RUWE rounded to five decimal places for portfolio ledger readability; source artifacts retain original precision.",
+    "Missing a Gaia DR3 catalogue neighbour under 2 arcsec does not rule out unresolved optical multiples or blended ZTF image sources.",
+    "All 24 physical Gaia-ZTF source matches require independent source-level review; no new variable stars, companions or validated original ZTF light curves."
+  ]
+}
