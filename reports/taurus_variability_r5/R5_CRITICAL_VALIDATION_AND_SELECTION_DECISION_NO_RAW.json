@@ -1,0 +1,185 @@
+{
+  "schema_version": "stellarforge-taurus-r5-pinned-critical-science-selection-verdict-derived-original-R2-R3-R4-v1",
+  "date_utc": "2026-11-14",
+  "r5_review_verdict": "R5_LITERATURE_SELECTION_FALSIFICATION_METHODOLOGY_COMPLETED__INDEPENDENT_PHYSICAL_GAIA_ZTF_VALIDATION_NOT_MET",
+  "r5_preregistration": "research/taurus_variability/R5_CRITICAL_VALIDATION_SELECTION_LITERATURE_PREREGISTRATION.md",
+  "r5_scientific_results": "research/taurus_variability/R5_FINAL_CRITICAL_VALIDATION_AND_SELECTION_RESULTS.md",
+  "original_source_evidence_references": {
+    "r1_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+    "r2_publisher_original_table_sha256": "8ffd84c876afe6b6d7690f8e4ba4f97ec94f643e0e924c98f6c101b8656c0493",
+    "r2_original_publisher_actions": 43499836719,
+    "r3_original_first_actions": 43593335135,
+    "r3_original_first_artifact_zip_sha256": "6e9e1cdbba946d9f7c5036e74a42917bb4011530dfec1d289b4b30c47f393049",
+    "r3_original_timeout_retry_actions": 43593994009,
+    "r3_original_retry_artifact_zip_sha256": "69f37df9f57c2dc49e4636740fb74c8c429d67e3d250b92201696edd26d89104",
+    "r4_original_source_cadence_actions": 43596705130,
+    "r4_original_analysis_artifact_zip_sha256": "99a458146f63d19ac4f59fc741eaaab1ff36e6d661b53b82a45fd5d3983a5ad6"
+  },
+  "ratios_descriptive_not_population": [
+    {
+      "metric": "technical_seed_ids_vs_original_author_adopted_member_rows",
+      "numerator": 24,
+      "denominator": 532,
+      "percent_descriptive_only": 4.51
+    },
+    {
+      "metric": "technical_seed_ids_vs_author_catalogue_gaia_ids",
+      "numerator": 24,
+      "denominator": 467,
+      "percent_descriptive_only": 5.14
+    },
+    {
+      "metric": "gaia_only_preliminary_quality_pass_of_original_24",
+      "numerator": 17,
+      "denominator": 24,
+      "percent_descriptive_only": 70.83
+    },
+    {
+      "metric": "gaia_astrometry_requires_review_of_original_24",
+      "numerator": 7,
+      "denominator": 24,
+      "percent_descriptive_only": 29.17
+    },
+    {
+      "metric": "gaia_sources_with_neighbour_within_5arcsec_of_original_24",
+      "numerator": 4,
+      "denominator": 24,
+      "percent_descriptive_only": 16.67
+    },
+    {
+      "metric": "gaia_positions_with_any_original_ZTF_positional_rows_of_original_24",
+      "numerator": 22,
+      "denominator": 24,
+      "percent_descriptive_only": 91.67
+    },
+    {
+      "metric": "gaia_physically_identified_with_ZTF_of_original_24",
+      "numerator": 0,
+      "denominator": 24,
+      "percent_descriptive_only": 0
+    },
+    {
+      "metric": "original_ZTF_exact_oid_dr24_source_csvs_returned_of_six_fixed_oids",
+      "numerator": 3,
+      "denominator": 6,
+      "percent_descriptive_only": 50
+    },
+    {
+      "metric": "original_ZTF_exact_oid_server_timeouts_twice_of_six_fixed_oids",
+      "numerator": 3,
+      "denominator": 6,
+      "percent_descriptive_only": 50
+    },
+    {
+      "metric": "original_ztf_catflags_bit15_retained_source_rows_of_684",
+      "numerator": 591,
+      "denominator": 684,
+      "percent_descriptive_only": 86.4
+    },
+    {
+      "metric": "original_ztf_catflags_bit15_rejected_source_rows_of_684",
+      "numerator": 93,
+      "denominator": 684,
+      "percent_descriptive_only": 13.6
+    },
+    {
+      "metric": "retrieved_original_ZTF_OID_curves_with_two_adjacent_empty_365day_bins_of_3",
+      "numerator": 2,
+      "denominator": 3,
+      "percent_descriptive_only": 66.67
+    }
+  ],
+  "physical_scientific_acceptance_gates": [
+    {
+      "gate": "published_author_gaia_source_membership_row_verified",
+      "status": "PASS_ON_PUBLISHED_SOURCE_SCOPE",
+      "reason": "Original publisher Luhman 2023 exact Gaia ID and original source-position rows verified 24/24; not independently validated physical Gaia-ZTF identity."
+    },
+    {
+      "gate": "independently_authenticated_physical_gaia_ztf_source_match",
+      "status": "NOT_INDEPENDENTLY_VALIDATED",
+      "reason": "No original source physically authenticated 0/24; SIMBAD name alias is not an independent ZTF counterpart."
+    },
+    {
+      "gate": "independent_same_field_reference_star_psf_wcs_deblend",
+      "status": "NOT_INDEPENDENTLY_VALIDATED",
+      "reason": "Original image and PSFcat checks are numerical and same-pipeline; independent reference-star WCS/PSF covariance and deblending not demonstrated."
+    },
+    {
+      "gate": "full_photometric_source_flags_covariance_and_uncertainty_qualified",
+      "status": "LIMITED_TO_ORIGINAL_TECHNICAL_EVIDENCE",
+      "reason": "Original 591 bit15-accepted observations are not strict catflags=0 or independently calibrated per-source variance/covariance."
+    },
+    {
+      "gate": "true_source_specific_original_visit_times_and_magnitudes_for_periodicity",
+      "status": "NOT_INDEPENDENTLY_VALIDATED",
+      "reason": "R4 original source-relative year-bin counts and wholly synthetic hypothetical 1-day windows cannot reconstruct true original observation times or star periods."
+    },
+    {
+      "gate": "same_field_magnitude_matched_non_YSO_controls",
+      "status": "NOT_INDEPENDENTLY_VALIDATED",
+      "reason": "No predeclared, independently identified, field/magnitude/cadence-matched comparison sample demonstrated."
+    },
+    {
+      "gate": "independent_original_image_and_period_alias_literature_reconciliation",
+      "status": "NOT_INDEPENDENTLY_VALIDATED",
+      "reason": "Mas et al 2026 established related methods and daily-alias limitations, but no independent calibrated original per-source period or Gaia-ZTF match is shown here."
+    },
+    {
+      "gate": "actual_population_selection_function_representative_and_quantified",
+      "status": "NOT_INDEPENDENTLY_VALIDATED",
+      "reason": "Nonrepresentative original 24/532 publisher member sample has no known selection probabilities, so no Taurus population variable fraction can be inferred."
+    }
+  ],
+  "external_official_literature_urls": [
+    {
+      "id": "luhman_2023_taurus_adopted_member_catalogue",
+      "url": "https://doi.org/10.3847/1538-3881/ac9da3",
+      "independently_authenticates_physical_gaia_ztf_source": false
+    },
+    {
+      "id": "mas_2026_gaia_ysos_variability",
+      "url": "https://doi.org/10.1051/0004-6361/202554522",
+      "independently_authenticates_physical_gaia_ztf_source": false
+    },
+    {
+      "id": "esa_gaia_dr3_ruwe_definition",
+      "url": "https://gea.esac.esa.int/archive/documentation/GDR3/Gaia_archive/chap_datamodel/sec_dm_main_source_catalogue/ssec_dm_gaia_source.html",
+      "independently_authenticates_physical_gaia_ztf_source": false
+    },
+    {
+      "id": "irsa_ztf_current_public_release",
+      "url": "https://irsa.ipac.caltech.edu/Missions/ztf.html",
+      "independently_authenticates_physical_gaia_ztf_source": false
+    },
+    {
+      "id": "irsa_ztf_lightcurve_api",
+      "url": "https://irsa.ipac.caltech.edu/docs/program_interface/ztf_lightcurve_api.html",
+      "independently_authenticates_physical_gaia_ztf_source": false
+    },
+    {
+      "id": "irsa_ztf_bit15_and_other_source_flags",
+      "url": "https://irsa.ipac.caltech.edu/data/ZTF/docs/releases/dr06/src/dr06.html",
+      "independently_authenticates_physical_gaia_ztf_source": false
+    }
+  ],
+  "interpretation_flags": {
+    "original_published_author_catalogue_provenance_24_of_24_verified": true,
+    "r5_literature_and_selection_critical_audit_complete": true,
+    "r5_independent_physical_gaia_ztf_source_validation_passed": false,
+    "observational_source_specific_physical_variability_established": false,
+    "original_ztf_oid_lightcurves_merged": false,
+    "original_same_field_magnitude_matched_controls_scientifically_established": false,
+    "real_one_day_ztf_spectral_window_measured": false,
+    "original_bit15_mask_implies_catflags_strict_zero": false,
+    "true_original_provider_timeout_implies_zero_real_source_visits": false,
+    "r6_conservative_methodological_inconclusive_report_allowed": true,
+    "r6_new_stellar_variable_or_companion_claim_allowed": false,
+    "r6_taurus_population_variable_incidence_report_allowed": false,
+    "journal_scientific_claims_require_external_critical_expert_review": true
+  },
+  "source_claims_are_original_source_derived_only": true,
+  "individual_ZTF_original_measurements_or_times_committed": false,
+  "unpublished_private_ALMA_TFM_data_committed": false,
+  "conclusion": "A complete R5 literature/selection/falsification methodological audit yields NO-GO for independent Gaia-ZTF physical source validation; no new astrophysical periods, variables, companions or population rates. A limited R6 observational feasibility manuscript is appropriate."
+}
