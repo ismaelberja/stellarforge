@@ -31,6 +31,8 @@ jobs:
         run: python -m scripts.audit_taurus_r2_24_go_no_go --root .
       - name: Audit R3 six authentic public DR24 source photometry responses, 591 QC epochs, and three unchanged timeouts
         run: python -m scripts.audit_taurus_r3_six_original_source_receipts --root .
+      - name: Audit real R4 original DR24 year bins, synthetic-only one-day windows and source SVG
+        run: python -m scripts.audit_taurus_r4_cadence_feasibility --root .
       - name: Validate installed package and no-network CLI
         run: |
           python -m pip check
