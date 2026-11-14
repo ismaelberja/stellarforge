@@ -12,6 +12,12 @@ StellarForge es un proyecto personal de **Python científico, análisis de datos
 
 **Novedad de investigación R2 (13 de noviembre de 2026):** ya hemos contrastado los **24 identificadores Gaia y sus posiciones contra la Tabla 2 original de Luhman (2023), descargada realmente de la editorial**, no solamente contra una copia de terceros. Los 24 coinciden. También hemos concluido la **auditoría de acceso e identificación de las 24 fuentes**: ZTF ha respondido con datos posicionales para 22/24, pero **ninguna asociación física Gaia–ZTF supera aún todos los criterios científicos**. El resultado de este examen es **NO-GO para comenzar análisis astrofísico de variabilidad R3**. [Informe científico R2 con tabla de las 24 estrellas](research/taurus_variability/R2_FINAL_24_SOURCE_SCREENING_DECISION.md) · [evidencia original de la editorial](reports/taurus_variability_r2/R2_PUBLISHER_LUHMAN2023_ORIGINAL_24_OF_24_NO_RAW.json).
 
+## Avance científico R3: acceso a fotometría ZTF (14/11/2026)
+
+Hemos realizado una consulta auténtica al archivo público de ZTF DR24 sobre **seis ObjectIDs ya establecidos** alrededor de FT Tau y CIDA 11. **Tres** devolvieron datos originales (684 registros, **591 observaciones aceptadas** tras el filtro de calidad instrumental) y cumplen como series técnicas los límites de **30 observaciones y 90 días**. Las otras tres consultas agotaron el tiempo de respuesta; un único reintento con mayor tiempo también agotó el plazo. **No significa que esas estrellas no tengan datos.**
+
+**Seguimos sin identificar físicamente las fuentes ZTF como las estrellas Gaia.** Por tanto, estos registros **no son todavía curvas de luz científicamente atribuidas a FT Tau o CIDA 11**; no hemos calculado periodos, clasificado variabilidad ni descubierto compañeras. El software y las pruebas sí están verificados. [Informe R3 con los seis identificadores y resultados reales](research/taurus_variability/R3_REAL_SIX_ORIGINAL_ZTF_DR24_QC_RESULTS.md).
+
 ## Qué datos sustentan los resultados
 
 La base histórica v2.0 conserva **532 miembros de Taurus (467 con Gaia), 2.212 registros de consultas originales y 16 ajustes de PSF en cuatro exposiciones históricas** (13 controles provisionales superados; tres en revisión).
