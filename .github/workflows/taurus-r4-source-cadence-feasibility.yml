@@ -1,0 +1,47 @@
+name: Taurus R4 — original ZTF 365-day cadence audit and explicitly synthetic spectral-window examples
+
+on:
+  push:
+    branches:
+      - research/taurus-r4-real-cadence-alias-identifiability
+    paths:
+      - .github/workflows/taurus-r4-source-cadence-feasibility.yml
+      - src/stellarforge/r4_sampling_window_feasibility.py
+      - src/stellarforge/r4_sampling_visual.py
+      - scripts/run_taurus_r4_sampling_window_feasibility.py
+      - tests/test_research_r4_original_ztf_cadence_feasibility.py
+      - research/taurus_variability/R4_REAL_ZTF_SAMPLING_WINDOW_METHOD_PREREGISTRATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-source-cadence-and-hypothetical-sampling-contrasts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - name: Checkout frozen Taurus R3 no-raw evidence and R4 preregistration
+        uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source project and test dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Reject invented Gaia-to-ZTF identities or synthetic timestamps called observed
+        run: python -m pytest -q tests/test_research_r4_original_ztf_cadence_feasibility.py
+      - name: Run OFFLINE original-source-anchored yearly-cadence and hypothetical one-day window examples
+        run: |
+          python -m scripts.run_taurus_r4_sampling_window_feasibility \
+            --json reports/generated/taurus_r4_real_365day_bins_SYNTHETIC_windows_no_raw.json \
+            --svg reports/generated/taurus_r4_real_365day_bins_only.svg
+      - name: Upload only derived no-raw evidence and true-count source figure
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r4-original-ZTF-cadence-bins-and-distinct-SYNTHETIC-window-examples-NOT-star-periodicity
+          path: |
+            reports/generated/taurus_r4_real_365day_bins_SYNTHETIC_windows_no_raw.json
+            reports/generated/taurus_r4_real_365day_bins_only.svg
+          retention-days: 30
+          if-no-files-found: error
