@@ -153,4 +153,4 @@ def test_original_method_report_is_not_allowed_to_hide_scientific_limitations(pu
     final,svg,report,expected=pub
     assert missing in report
     with pytest.raises(ValueError):
-        validate_r5_published_result(final,svg,report.replace(missing,"",1),expected)
+        validate_r5_published_result(final,svg,report.replace(missing,""),expected)
