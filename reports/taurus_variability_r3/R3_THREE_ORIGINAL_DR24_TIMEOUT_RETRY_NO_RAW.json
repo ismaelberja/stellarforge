@@ -1,0 +1,63 @@
+{
+  "schema_version": "stellarforge-taurus-r3-three-original-timeouts-retry-source-verified-no-raw-v1",
+  "date_utc": "2026-11-14",
+  "original_recovery_workflow_run_id": 43593994009,
+  "original_recovery_artifact_id": 14113996740,
+  "original_recovery_artifact_zip_sha256": "69f37df9f57c2dc49e4636740fb74c8c429d67e3d250b92201696edd26d89104",
+  "original_recovery_derived_only_json_sha256": "3de1c4028cf138d450a06ad48062952bd0b439aad4b4602f0815629df8998ebb",
+  "original_first_run_id": 43593335135,
+  "original_first_derived_only_artifact_id": 14113496602,
+  "original_first_artifact_zip_sha256": "6e9e1cdbba946d9f7c5036e74a42917bb4011530dfec1d289b4b30c47f393049",
+  "pre_registered_access_only_retry_protocol": "research/taurus_variability/R3_THREE_ORIGINAL_ZTF_TIMEOUTS_RETRY_PREREGISTRATION.md",
+  "archive_collection": "ztf_dr24",
+  "original_retry_timeout_seconds": 85,
+  "requests_serial": true,
+  "total_retried_original_ztf_oids": 3,
+  "n_recovered_original_public_dr24_source_csv": 0,
+  "n_fresh_technical_30visit_90day_pass": 0,
+  "original_timeout_rows": [
+    {
+      "label": "FT Tau",
+      "gaia_id_label_not_physical_identity": "149623711269425408",
+      "oid": "609208400001969",
+      "band": "r",
+      "original_first_outcome": "TimeoutError",
+      "original_second_outcome": "TimeoutError",
+      "original_request_url": "https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves?ID=609208400001969&FORMAT=csv&COLLECTION=ztf_dr24",
+      "second_original_response_sha256": null
+    },
+    {
+      "label": "CIDA 11",
+      "gaia_id_label_not_physical_identity": "3419110734340795648",
+      "oid": "610106300008010",
+      "band": "g",
+      "original_first_outcome": "TimeoutError",
+      "original_second_outcome": "TimeoutError",
+      "original_request_url": "https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves?ID=610106300008010&FORMAT=csv&COLLECTION=ztf_dr24",
+      "second_original_response_sha256": null
+    },
+    {
+      "label": "CIDA 11",
+      "gaia_id_label_not_physical_identity": "3419110734340795648",
+      "oid": "610206300011997",
+      "band": "r",
+      "original_first_outcome": "TimeoutError",
+      "original_second_outcome": "TimeoutError",
+      "original_request_url": "https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves?ID=610206300011997&FORMAT=csv&COLLECTION=ztf_dr24",
+      "second_original_response_sha256": null
+    }
+  ],
+  "all_second_retries_original_ztf_provider_timeout_not_scientific_non_detection": true,
+  "original_ztf_source_reselection_or_quality_gate_change": false,
+  "original_gaia_to_ztf_physical_counterparts_authenticated": 0,
+  "original_ztf_oid_lightcurves_merged": 0,
+  "astrophysical_star_variability_or_companion_claimed": false,
+  "raw_original_photometric_source_rows_persisted": false,
+  "interpretation": [
+    "Three already predeclared original OID requests that did not return a response in first live run 43593335135 were re-queried once with exactly the same original ID, band and DR24 collection, serially and 85s rather than 40s. All three returned TimeoutError without response bytes.",
+    "The second no-raw run 43593994009 was successful as a workflow audit, but recovered zero source responses. Zero returned response data are not zero astronomical observations, nor data-quality failures or evidence of physically nonvariable Taurus targets.",
+    "Original first-run three successfully fetched and QC-inspected ZTF exact ObjectIDs remain valid technical source evidence, independently of the three unresolved server access errors.",
+    "Original R1 masks bit 32768, 30 usable visits and 90 day span were never adjusted. No additional retries or substitute source/epoch selection occurred.",
+    "No original GAIA-ZTF physical identity, astrophysical variability, newly discovered star/companion or merged ZTF ObjectID target light curve was validated."
+  ]
+}
