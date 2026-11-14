@@ -1,0 +1,39 @@
+name: Taurus R3 — bounded retry for 3 original DR24 ObjectID provider timeouts
+
+on:
+  push:
+    branches:
+      - research/taurus-r3-six-fixed-original-oid-photometry-qc
+    paths:
+      - .github/workflows/taurus-r3-three-original-timeout-retry.yml
+      - src/stellarforge/r3_three_timeout_recovery.py
+      - scripts/run_taurus_r3_three_timeout_recovery.py
+      - tests/test_research_r3_original_three_timeout_retry.py
+      - research/taurus_variability/R3_THREE_ORIGINAL_ZTF_TIMEOUTS_RETRY_PREREGISTRATION.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  three-frozen-timeout-only-original-dr24-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install scientific package and synthetic offline tests
+        run: python -m pip install -e '.[test]'
+      - name: Verify only original three prior timeout OIDs are eligible for retry
+        run: python -m pytest -q tests/test_research_r3_original_three_timeout_retry.py
+      - name: Retry exactly three previous original DR24 service timeouts serially with unchanged QC
+        run: python -m scripts.run_taurus_r3_three_timeout_recovery --output reports/generated/taurus_r3_original_three_dr24_timeouts_second_run_no_raw.json
+      - name: Publish derived-only original response and QA evidence, no raw ZTF rows
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r3-three-original-timeout-DR24-second-run-NOT-physical-Gaia-match
+          path: reports/generated/taurus_r3_original_three_dr24_timeouts_second_run_no_raw.json
+          retention-days: 30
+          if-no-files-found: error

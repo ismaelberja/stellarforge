@@ -1,0 +1,41 @@
+name: Taurus R3 — six fixed original DR24 ZTF ObjectID photometric QC (NO Gaia physical ID)
+
+on:
+  push:
+    branches:
+      - research/taurus-r3-six-fixed-original-oid-photometry-qc
+    paths:
+      - .github/workflows/taurus-r3-six-original-oid-technical-qc.yml
+      - src/stellarforge/r3_original_oid_coverage.py
+      - scripts/run_taurus_r3_original_six_oid_qc.py
+      - research/taurus_variability/R3_SIX_FIXED_ZTF_OIDS_PHOTOMETRY_QC_PREREGISTRATION.md
+      - tests/test_research_r3_original_six_oid_technical_qc.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  six-original-oid-dr24-technical-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - name: Checkout original R2 source ledger and R3 preregistration
+        uses: actions/checkout@v4
+      - name: Install Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local Python package
+        run: python -m pip install -e '.[test]'
+      - name: Assert live source-runner source selection and synthetic fail-closed regression
+        run: python -m pytest -q tests/test_research_r3_original_six_oid_technical_qc.py
+      - name: Query six original exact ZTF DR24 ObjectIDs and inspect only in-memory photometry
+        run: python -m scripts.run_taurus_r3_original_six_oid_qc --output reports/generated/taurus_r3_six_original_oid_technical_qc_no_raw.json
+      - name: Upload only derived source QC rows, query provenance/hash and time-coverage bins
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r3-original-six-ZTF-OIDs-technical-coverage-NOT-physical-Gaia-stars
+          path: reports/generated/taurus_r3_six_original_oid_technical_qc_no_raw.json
+          retention-days: 30
+          if-no-files-found: error

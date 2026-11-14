@@ -1,5 +1,18 @@
 # R1–R6 practical research milestones
 
+## R3 genuine original DR24 photometry source-access feasibility — 14 November 2026
+
+[R3 source-by-source real original-data report](R3_REAL_SIX_ORIGINAL_ZTF_DR24_QC_RESULTS.md): a **preregistered six-ObjectID technical photo-coverage audit** (four FT Tau working-label OIDs and two CIDA 11 working-label OIDs) queried the original public IRSA ZTF DR24 exact-ID service. Original source CSVs were returned for **3/6**, comprising **684 original rows, 591 local bit-15-catflags-QC accepted epochs** (70 g + 117 r + 404 g), and **93 quality-flagged rows**. Three original source-specific time series independently satisfied the frozen R1 **≥30 clean visits/≥90-day baseline**; the three remaining original server queries timed out at 40 s. One separately preregistered, strictly same-ID/collection/source-band serial retry at 85 s also timed out three times. **Original archive access unresolved for 3/6 is NOT an astronomical nondetection or a negative variability result.**
+
+**Scientific status:** `R3_TECHNICAL_ORIGINAL_SOURCE_COVERAGE_PARTIAL`; `R3_PHYSICAL_GAIA_STELLAR_VARIABILITY_BLOCKED`. No physical Gaia–ZTF association has passed R2, no ObjectIDs have been combined, and no stellar variability statistics, periodograms, companions or new variables have been demonstrated. The six original ZTF ObjectIDs refer to only two *unverified physical-source contexts*, not a sample of six independent stars. An R4/R5 method feasibility/negative limitation analysis is possible while scientific stellar R4 remains blocked.
+
+- [Permanent first original six-source response hash and 30/90 quality receipt](../../reports/taurus_variability_r3/R3_SIX_ORIGINAL_DR24_FIRST_REQUESTS_NO_RAW.json)
+- [Permanent second original three-timeout-only reply/no-reply receipt](../../reports/taurus_variability_r3/R3_THREE_ORIGINAL_DR24_TIMEOUT_RETRY_NO_RAW.json)
+- [Offline reproducible R3 original-source evidence validation](../../scripts/audit_taurus_r3_six_original_source_receipts.py)
+
+---
+
+
 ## Current scientific R2 decision — 13 November 2026
 
 **New original external evidence, achieved:** the actual publisher machine-readable Luhman (2023) *AJ* 165, 37 adopted-member Table 2 was retrieved and SHA-recorded in [live original publisher Actions 43499836719](https://github.com/ismaelberja/stellarforge/actions/runs/43499836719). The 532-member (467 Gaia source IDs) source table matched **all 24/24 frozen technical-source exact Gaia IDs and catalogue sky positions**. This verifies their **presence in Luhman's author-published adopted-member table**, not independent Gaia-to-ZTF physical photometric identities.
