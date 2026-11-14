@@ -120,6 +120,8 @@ def build_r5_critical_falsification(root:Path)->dict:
     _same(r4a,"real_series_with_two_consecutive_365day_empty_bins",2,"original R4 cadence")
     _same(r4a,"original_true_one_day_spectral_window_measured",False,"original R4")
     _same(r4,"r4_physical_star_variability_blocked",True,"original R4 research decision")
+    _same(r4,"real_spectral_window_recovered_from_exact_source_timestamps",False,"original R4 real observations are not publicly available")
+    _same(r4,"source_original_context_24_gaia_id_to_ztf_physical_matches_authenticated",0,"original R4 no Gaia-ZTF source matches")
     if (len(r2["sources"])!=24 or len(r3["per_oid_results"])!=6
             or len(r4["original_real_source_observations"])!=3
             or len(r4["original_unavailable_source_OIDs"])!=3
