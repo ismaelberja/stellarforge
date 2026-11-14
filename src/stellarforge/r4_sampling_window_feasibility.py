@@ -265,7 +265,7 @@ def r4_technical_sampling_feasibility(
     if (sum(z.get("technical_source_qc_accepted_epochs") or 0 for z in output)!=591
             or sum(z.get("original_source_rows") or 0 for z in output)!=684
             or sum(z.get("n_empty_relative_365day_bins") or 0 for z in output)!=4
-            or sum(z.get("longest_consecutive_empty_relative_365day_bins") or 0>=2 for z in output)!=2):
+            or sum((z.get("longest_consecutive_empty_relative_365day_bins") or 0)>=2 for z in output)!=2):
         raise ValueError("R4 original source coverage measures do not reconcile")
     return {
         "schema_version":"stellarforge-taurus-r4-original-ztf-annualbin-coverage-synthetic-window-nonidentifiability-no-raw-v1",
