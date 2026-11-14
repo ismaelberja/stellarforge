@@ -89,7 +89,14 @@ def validate_r5_published_result(final:dict,svg_content:str,report_content:str,e
         for key,v in (
             ("numerator",orig["n"]),("denominator",orig["N"]),
             ("percent_descriptive_only",orig["percent_descriptive_only"]),
-        ):_eq(r,key,v,"R5 independent original source ratio")
+        ):
+            if key=="percent_descriptive_only":
+                # JSON represents exact zero percent as either 0 or 0.0;
+                # only the numeric value is significant, not its wire type.
+                if type(r.get(key)) not in (int,float) or float(r[key])!=float(v):
+                    raise ValueError("Published original-source descriptive percentage changed")
+            else:
+                _eq(r,key,v,"R5 independent original source ratio")
     gates=final.get("physical_scientific_acceptance_gates")
     expected_gates=expected["falsification_gates"]
     if not isinstance(gates,list) or len(gates)!=8:
