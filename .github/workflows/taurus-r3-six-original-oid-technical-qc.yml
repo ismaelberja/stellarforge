@@ -9,6 +9,7 @@ on:
       - src/stellarforge/r3_original_oid_coverage.py
       - scripts/run_taurus_r3_original_six_oid_qc.py
       - research/taurus_variability/R3_SIX_FIXED_ZTF_OIDS_PHOTOMETRY_QC_PREREGISTRATION.md
+      - tests/test_research_r3_original_six_oid_technical_qc.py
   workflow_dispatch:
 
 permissions:
