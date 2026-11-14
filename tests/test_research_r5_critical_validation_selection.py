@@ -93,7 +93,7 @@ def test_official_primary_literature_provenance_scope_exact_and_non_claiming(act
     assert "bit15" in refs["irsa_ztf_bit15_and_other_source_flags"]["role"]
     assert "catflags=0" in refs["irsa_ztf_bit15_and_other_source_flags"]["role"]
     assert all(x["reference_url"].startswith("https://") for x in refs.values())
-    assert all("physical" in x["role"].lower() or "source" in x["role"].lower() or "not" in x["role"].lower() for x in refs.values())
+    assert all(any(term in x["role"].lower() for term in ("not","cannot","no claim")) for x in refs.values())
 
 
 def test_source_fig_is_accessible_non_funnel_three_distinct_original_denominators(actual):
@@ -150,7 +150,7 @@ def test_fake_astrophysical_claim_or_original_source_count_rejected_with_priors_
     # only ONE source of the NEW R5 post-audited reading: the prior auditors
     # themselves have their own adversarial source-tampering tests.
     monkeypatch.setattr(r5,"audit_24_final",lambda root: {"r3_scientific_inference_blocked":True})
-    monkeypatch.setattr(r5,"audit_r3_six_original_source_receipts",lambda root:{
+    monkeypatch.setattr(r5,"audit_r3_original_six_source_receipts",lambda root:{
         "original_locally_qc_accepted_rows":591,
         "original_masked_catflags_bit15_rows":93,
         "original_raw_ztf_source_rows_quality_inspected":684,
