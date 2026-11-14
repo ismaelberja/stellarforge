@@ -33,6 +33,8 @@ jobs:
         run: python -m scripts.audit_taurus_r3_six_original_source_receipts --root .
       - name: Audit real R4 original DR24 year bins, synthetic-only one-day windows and source SVG
         run: python -m scripts.audit_taurus_r4_cadence_feasibility --root .
+      - name: Audit R5 published scientific literature, original source denominators, 8 source-validation gate decisions and quantitative figure
+        run: python -m scripts.audit_taurus_r5_critical_falsification --root .
       - name: Validate installed package and no-network CLI
         run: |
           python -m pip check
