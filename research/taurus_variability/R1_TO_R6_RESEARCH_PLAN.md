@@ -1,5 +1,21 @@
 # R1–R6 practical research milestones
 
+## R4 result — original-data cadence feasibility, not physical stellar variability (14 November 2026)
+
+The [original-source sampling R4 results](R4_REAL_ZTF_SAMPLING_WINDOW_FEASIBILITY_RESULTS.md) use three genuine, separate R3 IRSA/ZTF DR24 ObjectID QC source data summaries (**684 original photometry rows, 591 bit-15-QC-accepted original rows, 93 flagged**) with per-source 365-day-bin accepted counts anchored at **each source's own original first accepted epoch**. Two original OIDs have **two consecutive zero-count in-span 365-day bins**; the third has 8/8 nonempty in-span bins. The other three original DR24 exact-ObjectID requests **timed out twice**, so their cadence remains **unknown, not zero**.
+
+A separately frozen R4 methodological protocol uses two **wholly SYNTHETIC** hypothetical observing schedules per returned OID preserving **exactly the same observed per-bin counts and the original observed total time span**. Their 1 cycle/day mathematical window examples diverge substantially, demonstrating **non-identifiability of the true 1-day sampling window from the coarse original annual counts**, not measuring any real ZTF source window, astrophysical alias or stellar period. No original per-epoch timestamps, photometric values, source images or private survey data were committed.
+
+**R4 methodological cadence screen: COMPLETE. Physical-star R4 period or variability science: BLOCKED.** Source association remains R2 0/24 physically authenticated. The study can proceed to **R5 falsification/independent context and selection-effect assessment**, potentially concluding an honestly inconclusive R6 feasibility manuscript rather than inventing discoveries.
+
+- [R4 preregistered real annual bins and synthetic-only 1-day counterexample](R4_REAL_ZTF_SAMPLING_WINDOW_METHOD_PREREGISTRATION.md)
+- [Genuine source-derived R4 results and figure](R4_REAL_ZTF_SAMPLING_WINDOW_FEASIBILITY_RESULTS.md)
+- [Permanent original-response-hash-anchored R4 derived-only evidence](../../reports/taurus_variability_r4/R4_REAL_ORIGINAL_ZTF_ANNUAL_COVERAGE_AND_SYNTHETIC_1DAY_EXAMPLES_NO_RAW.json)
+- [Source-consistency and scientific claim auditor](../../scripts/audit_taurus_r4_cadence_feasibility.py)
+- [Original R4 reproducibility Actions run 43596705130](https://github.com/ismaelberja/stellarforge/actions/runs/43596705130)
+
+---
+
 ## R3 genuine original DR24 photometry source-access feasibility — 14 November 2026
 
 [R3 source-by-source real original-data report](R3_REAL_SIX_ORIGINAL_ZTF_DR24_QC_RESULTS.md): a **preregistered six-ObjectID technical photo-coverage audit** (four FT Tau working-label OIDs and two CIDA 11 working-label OIDs) queried the original public IRSA ZTF DR24 exact-ID service. Original source CSVs were returned for **3/6**, comprising **684 original rows, 591 local bit-15-catflags-QC accepted epochs** (70 g + 117 r + 404 g), and **93 quality-flagged rows**. Three original source-specific time series independently satisfied the frozen R1 **≥30 clean visits/≥90-day baseline**; the three remaining original server queries timed out at 40 s. One separately preregistered, strictly same-ID/collection/source-band serial retry at 85 s also timed out three times. **Original archive access unresolved for 3/6 is NOT an astronomical nondetection or a negative variability result.**

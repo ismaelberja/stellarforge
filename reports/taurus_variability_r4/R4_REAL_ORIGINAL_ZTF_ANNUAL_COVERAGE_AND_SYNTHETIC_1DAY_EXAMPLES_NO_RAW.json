@@ -1,0 +1,142 @@
+{
+  "schema_version": "stellarforge-taurus-r4-original-real-bins-and-strict-SYNTHETIC-one-day-window-source-receipt-v1",
+  "derived_from_github_actions_run_id": 43596705130,
+  "derived_from_original_source_R3_initial_workflow_run_id": 43593335135,
+  "derived_from_original_source_R3_retry_workflow_run_id": 43593994009,
+  "source_r4_actions_artifact_id": 14114716328,
+  "source_r4_actions_zip_sha256": "99a458146f63d19ac4f59fc741eaaab1ff36e6d661b53b82a45fd5d3983a5ad6",
+  "source_r4_original_derived_only_json_sha256": "83b141c6f3b45273bb6b9d3646d21a776ca003a4b0a4f64ab374cd77972077f3",
+  "source_r4_generated_svg_sha256": "bf16103fd174441b353823997bac5885656f815d1db7e836d08f8a867d8084f4",
+  "underlying_original_DR24_exact_OIDs": 6,
+  "underlying_original_DR24_source_csvs_with_accepted_timebins": 3,
+  "underlying_original_DR24_OIDs_failed_by_timeout_twice": 3,
+  "source_original_raw_rows_in_3_successful_CSVs": 684,
+  "source_original_qc_accepted_visits": 591,
+  "source_original_bit15_mask_rejected_rows": 93,
+  "source_original_context_24_gaia_id_to_ztf_physical_matches_authenticated": 0,
+  "real_spectral_window_recovered_from_exact_source_timestamps": false,
+  "real_stellar_period_or_variability_claimed": false,
+  "r4_method_feasibility_deliverable_complete": true,
+  "r4_physical_star_variability_blocked": true,
+  "year_bins_are_relative_to_each_individual_sources_first_accepted_epoch_not_calendar_aligned": true,
+  "original_real_source_observations": [
+    {
+      "original_ztf_oid": "1605115300003377",
+      "band": "g",
+      "source_type": "AUTHENTIC_ZTF_DR24_SURVEY_OBJECTID_NOT_PHYSICAL_GAIA_STAR",
+      "raw_rows": 79,
+      "quality_accepted_visits": 70,
+      "bit15_mask_rejected_rows": 9,
+      "quality_retention_fraction": 0.886076,
+      "first_to_last_accepted_span_days": 1870.876898,
+      "accepted_visits_per_365days_over_total_span": 13.657,
+      "original_relative_365day_bin_counts": [
+        23,
+        33,
+        0,
+        0,
+        10,
+        4
+      ],
+      "observed_relative_bins_within_span": 6,
+      "nonempty_relative_bins": 4,
+      "max_consecutive_genuine_zero_relative_bins": 2,
+      "strictly_SYNTHETIC_constructed_daily_grid_one_day_window_power": 0.991987,
+      "strictly_SYNTHETIC_constructed_subday_diverse_one_day_window_power": 0.002066,
+      "measured_real_one_day_window_power": null,
+      "physically_identified_gaia_counterpart": false
+    },
+    {
+      "original_ztf_oid": "1605215300005161",
+      "band": "r",
+      "source_type": "AUTHENTIC_ZTF_DR24_SURVEY_OBJECTID_NOT_PHYSICAL_GAIA_STAR",
+      "raw_rows": 137,
+      "quality_accepted_visits": 117,
+      "bit15_mask_rejected_rows": 20,
+      "quality_retention_fraction": 0.854015,
+      "first_to_last_accepted_span_days": 2528.096678,
+      "accepted_visits_per_365days_over_total_span": 16.892,
+      "original_relative_365day_bin_counts": [
+        22,
+        49,
+        0,
+        0,
+        12,
+        11,
+        23
+      ],
+      "observed_relative_bins_within_span": 7,
+      "nonempty_relative_bins": 5,
+      "max_consecutive_genuine_zero_relative_bins": 2,
+      "strictly_SYNTHETIC_constructed_daily_grid_one_day_window_power": 0.996968,
+      "strictly_SYNTHETIC_constructed_subday_diverse_one_day_window_power": 0.005382,
+      "measured_real_one_day_window_power": null,
+      "physically_identified_gaia_counterpart": false
+    },
+    {
+      "original_ztf_oid": "609108400001155",
+      "band": "g",
+      "source_type": "AUTHENTIC_ZTF_DR24_SURVEY_OBJECTID_NOT_PHYSICAL_GAIA_STAR",
+      "raw_rows": 468,
+      "quality_accepted_visits": 404,
+      "bit15_mask_rejected_rows": 64,
+      "quality_retention_fraction": 0.863248,
+      "first_to_last_accepted_span_days": 2617.952292,
+      "accepted_visits_per_365days_over_total_span": 56.326,
+      "original_relative_365day_bin_counts": [
+        61,
+        79,
+        80,
+        34,
+        46,
+        43,
+        51,
+        10
+      ],
+      "observed_relative_bins_within_span": 8,
+      "nonempty_relative_bins": 8,
+      "max_consecutive_genuine_zero_relative_bins": 0,
+      "strictly_SYNTHETIC_constructed_daily_grid_one_day_window_power": 0.99978,
+      "strictly_SYNTHETIC_constructed_subday_diverse_one_day_window_power": 0.003877,
+      "measured_real_one_day_window_power": null,
+      "physically_identified_gaia_counterpart": false
+    }
+  ],
+  "original_unavailable_source_OIDs": [
+    {
+      "original_ztf_oid": "609208400001969",
+      "band": "r",
+      "archive_access": "TIMEOUT_ON_INITIAL_AND_ONE_PRE_REGISTERED_RETRY",
+      "quality_accepted_visits": null,
+      "relative_365day_bins": null,
+      "measured_real_one_day_window_power": null,
+      "physically_identified_gaia_counterpart": false
+    },
+    {
+      "original_ztf_oid": "610106300008010",
+      "band": "g",
+      "archive_access": "TIMEOUT_ON_INITIAL_AND_ONE_PRE_REGISTERED_RETRY",
+      "quality_accepted_visits": null,
+      "relative_365day_bins": null,
+      "measured_real_one_day_window_power": null,
+      "physically_identified_gaia_counterpart": false
+    },
+    {
+      "original_ztf_oid": "610206300011997",
+      "band": "r",
+      "archive_access": "TIMEOUT_ON_INITIAL_AND_ONE_PRE_REGISTERED_RETRY",
+      "quality_accepted_visits": null,
+      "relative_365day_bins": null,
+      "measured_real_one_day_window_power": null,
+      "physically_identified_gaia_counterpart": false
+    }
+  ],
+  "no_raw_original_ztf_photometry_or_individual_timestamps_committed": true,
+  "interpretation": [
+    "Three authentic original ZTF ObjectID lightcurve-service responses allow exact coarse relative-year coverage counts, including two consecutive zero-count 365-day intervals in each of two independent survey OIDs; this is instrumental sampling, not stellar variability.",
+    "Three original exact-ObjectID requests timed out twice; archive unavailable is not zero photometric visits, a real source non-detection, or evidence of nonvariable stars.",
+    "Two explicitly SYNTHETIC first-to-last/span-and-bin-count-consistent sets of invented timestamps generate radically different 1.0-day mathematical window powers for each source. These are examples, not measured real ZTF window functions, FAP, frequency bounds, or astrophysical periods.",
+    "Observed coarse 365-day-bin counts are source-relative and not aligned to common calendar dates; they are insufficient to calculate any unique physical survey window frequency or period.",
+    "R2 independent Gaia DR3-to-ZTF per-epoch physical source association remains 0/24 confirmed, and physical stellar R4/R5 work remains blocked. This is a completed R4 sampling-methodology feasibility deliverable, not a new variability discovery."
+  ]
+}
