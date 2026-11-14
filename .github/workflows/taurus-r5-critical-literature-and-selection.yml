@@ -1,0 +1,48 @@
+name: Taurus R5 — original R2–R4 source review, prior literature and selection-function NO-GO
+
+on:
+  push:
+    branches:
+      - research/taurus-r5-critical-falsification-literature
+    paths:
+      - .github/workflows/taurus-r5-critical-literature-and-selection.yml
+      - src/stellarforge/r5_critical_falsification.py
+      - src/stellarforge/r5_evidence_denominators_visual.py
+      - scripts/run_taurus_r5_critical_falsification.py
+      - scripts/audit_taurus_r5_critical_falsification.py
+      - tests/test_research_r5_critical_validation_selection.py
+      - tests/test_research_r5_publication_and_verdict_auditor.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-literature-selection-and-physical-star-falsification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reproducible published source analysis dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Verify original Gaia IDs, true ZTF OID denominators, 8 R5 gates and independent-source literature scope
+        run: python -m pytest -q tests/test_research_r5_critical_validation_selection.py tests/test_research_r5_publication_and_verdict_auditor.py
+      - name: Compute original source SHA-frozen R5 critical review without additional original science requests
+        run: |
+          python -m scripts.run_taurus_r5_critical_falsification \
+            --json reports/generated/taurus_r5_critical_selection_original_source_audit_no_raw.json \
+            --svg reports/generated/taurus_r5_distinct_real_source_denominators.svg
+      - name: Reject false new Gaia-ZTF matches, population variability or invented source-numerator claims
+        run: python -m scripts.audit_taurus_r5_critical_falsification --root .
+      - name: Preserve only generated R5 no-raw numerical critical research evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: taurus-r5-original-catalogue-ztf-selection-literature-NO-GO-independent-star-validation
+          path: |
+            reports/generated/taurus_r5_critical_selection_original_source_audit_no_raw.json
+            reports/generated/taurus_r5_distinct_real_source_denominators.svg
+          retention-days: 30
+          if-no-files-found: error

@@ -1,5 +1,19 @@
 # R1–R6 practical research milestones
 
+## R5 critical prior-literature, selection and falsification study — 14 November 2026
+
+**R5 bounded independent literature/methods/selection critical audit COMPLETE**, with original receipt-backed [full report and eight gated findings](R5_FINAL_CRITICAL_VALIDATION_AND_SELECTION_RESULTS.md), [frozen initial questions](R5_CRITICAL_VALIDATION_SELECTION_LITERATURE_PREREGISTRATION.md) and [source-locked per-denominator verdict](../../reports/taurus_variability_r5/R5_CRITICAL_VALIDATION_AND_SELECTION_DECISION_NO_RAW.json). The original author Luhman (2023) Taurus 24 source IDs and sky coordinates are verified. Luhman is catalogue source provenance, while Mas et al. (2026) already addresses Q-M/GLS and observed ZTF daily aliases. Official ESA Gaia DR3 defines RUWE as a single-star solution goodness-of-fit diagnostic rather than verified physical binarity, and official IRSA documentation confirms the original bit15 screen is less strict than `catflags=0`.
+
+**Correct separate denominators:** 24 original nonrandom Gaia technical source IDs, six ZTF survey ObjectIDs around only two working-label contexts, and 684 original per-exposure photometric source rows. *22/24* Gaia technical sky positions returned some original ZTF positional data; **0/24** physical Gaia–ZTF source identities authenticated. *3/6* fixed survey ObjectIDs yielded exact-DR24 original CSVs; *3/6* server access failures remain unknown, not no-source detections. *591/684* original rows passed bit15 screen, *93/684* excluded; these observations do not prove clean source-level flags, instrument covariance or physical Taurus variability. *2/3* retrieved source OIDs have two adjacent empty source-relative 365-day bins, not a Taurus population statistic.
+
+**R5 independent astrophysical source/calibration validation NOT MET.** No source-attributed genuine Gaia stellar variability, original observed period/periodogram, new variables or companions, representative population rate, or independent external PSF/WCS/deblend validation is accepted. Full R1–R4 original ZTF source science and old v2.1 engineering checks are preserved. R6 can legitimately **complete an evidence-backed, negative/inconclusive observational-feasibility manuscript**, with original source provenance, selection limitations, external prior-work comparison and falsifiability; it cannot declare discovered physical stars or periods.
+
+- [R5 original-data count SVG without fake Gaia→OID→epoch funnel](../../docs/figures/taurus-r5-original-source-denominators-no-funnel.svg)
+- [R5 strict previous original source/audit recheck](../../scripts/audit_taurus_r5_critical_falsification.py)
+- [R5 full scientific critical assessment](R5_FINAL_CRITICAL_VALIDATION_AND_SELECTION_RESULTS.md)
+
+---
+
 ## R4 result — original-data cadence feasibility, not physical stellar variability (14 November 2026)
 
 The [original-source sampling R4 results](R4_REAL_ZTF_SAMPLING_WINDOW_FEASIBILITY_RESULTS.md) use three genuine, separate R3 IRSA/ZTF DR24 ObjectID QC source data summaries (**684 original photometry rows, 591 bit-15-QC-accepted original rows, 93 flagged**) with per-source 365-day-bin accepted counts anchored at **each source's own original first accepted epoch**. Two original OIDs have **two consecutive zero-count in-span 365-day bins**; the third has 8/8 nonempty in-span bins. The other three original DR24 exact-ObjectID requests **timed out twice**, so their cadence remains **unknown, not zero**.
