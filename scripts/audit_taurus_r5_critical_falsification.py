@@ -143,7 +143,7 @@ def validate_r5_published_result(final:dict,svg_content:str,report_content:str,e
         for g,(label,n) in zip(cells,source_rows):
             if g.get("data-metric")!=label or g.get("data-count")!=str(n) or g.get("data-base")!=str(N):
                 raise ValueError("R5 original science figure source numerator/denominator changed")
-    if not all(x in svg_content for x in ("not a survival funnel","NOT VERIFIED","0 authenticated Gaia")):
+    if not all(x in svg_content for x in ("never a single attrition funnel","NOT VERIFIED","0 authenticated Gaia")):
         raise ValueError("R5 figure lacks population, source-identity and scientific caveats")
     required_report=[
         "Luhman","Mas et al.","24/532","24/467","17/24","7/24",
