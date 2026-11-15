@@ -237,6 +237,10 @@ def verify_r6_research_closeout(document:dict,manuscript:str,prereg:str,
         "R6_FINAL_ORIGINAL_SOURCE_RESEARCH_CLOSEOUT_NO_RAW.json",
         "original publisher","original ZTF",
     )
+    # Keep the conspicuous upper-case SYNTHETIC labelling on the numerical
+    # demonstration, not just scattered lower-case descriptive references.
+    if "SYNTHETIC" not in manuscript:
+        raise ValueError("R6 synthetic one-day numeric examples lost explicit scientific labels")
     for item in required_content:
         if item.lower() not in manuscript.lower():
             raise ValueError(f"R6 scientific manuscript lacks an original claim/source caveat: {item}")
