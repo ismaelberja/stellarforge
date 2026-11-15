@@ -1,0 +1,39 @@
+# R6 — preregistered final Taurus observational feasibility study closeout
+
+**Frozen on 15 November 2026, before compilation of the R6 final figures, manuscript and summary.**
+
+## The fixed final research question
+
+Can a predeclared, nonrepresentative 24-entry Taurus/Gaia DR3 technical cohort be traced through actual publisher-catalogue, Gaia astrometric checks, IRSA ZTF archive source-access and scientific source-identification/photometric-quality gates **without overstating observed optical stellar variability**?
+
+Original [R1 scientific protocol](R1_PREREGISTERED_SCIENCE_PROTOCOL.md) explicitly permits an **inconclusive or negative observational-feasibility outcome**. R2–R5 source-derived results have resolved the feasibility decision: **zero independently confirmed physical Gaia–ZTF source cross-identifications, no permitted Gaia-star lightcurve period analyses, and no new stellar variable/companion discoveries.** R6 will **not** retroactively lower any scientific quality/identity requirement to claim a more appealing result.
+
+## Exactly frozen R1–R5 evidence at R6 start
+
+Baseline GitHub `main` commit before any R6 change: **`05340f6fea6c524e2067d578ed49efdacb9945f5`** (R5 integrated and validated by [Actions 43610495397](https://github.com/ismaelberja/stellarforge/actions/runs/43610495397), **1,281 tests passed**).
+
+Permanent original-source scientific receipts:
+- **R1:** original 24-ID frozen technical seed, SHA-256 `9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e`. Not a random or representative Taurus sample.
+- **R2:** genuine original Luhman (2023) author machine-readable Table 2 byte source SHA-256 `8ffd84c876afe6b6d7690f8e4ba4f97ec94f643e0e924c98f6c101b8656c0493`; 532 adopted members, 467 Gaia IDs, 24/24 exact frozen Gaia IDs and sky positions matched. 17/24 preliminary Gaia astrometric quality passes; 7/24 review; 4/24 Gaia neighbour within 5 arcsec; 22/24 original ZTF **positional source data returned**; 0/24 independently physically authenticated Gaia↔ZTF counterparts. [Publisher Actions 43499836719](https://github.com/ismaelberja/stellarforge/actions/runs/43499836719).
+- **R3:** six frozen ZTF **survey ObjectIDs** at two working-label stellar contexts; original exact-ObjectID ZTF DR24 source CSV returned for 3/6 with **684 raw individual photometric source rows, 591 retained using initial `catflags & 32768` bit15 mask, 93 source rows rejected**. Remaining 3/6 timed out in original requests and again in a source-locked access-only retry. Unavailable source photometry remains **unknown**, not a physical nondetection. Original Actions 43593335135 and 43593994009.
+- **R4:** authentic per-ObjectID source-relative 365-day bin counts `[23,33,0,0,10,4]`, `[22,49,0,0,12,11,23]` and `[61,79,80,34,46,43,51,10]` for three real source ObjectIDs; two real original OIDs have two consecutive within-span empty year bins. Exact individual original visit times are **not committed**. Any example daily sampling window is **wholly SYNTHETIC**, not a true measured 1-day ZTF alias, real stellar period or periodogram. [R4 original-derived Actions 43596705130](https://github.com/ismaelberja/stellarforge/actions/runs/43596705130).
+- **R5:** twelve exact descriptive ratio entries, **three noninterchangeable denominator levels** (Gaia technical target IDs, ZTF survey ObjectIDs, per-epoch ZTF source rows), and eight critical external source/science gates. Original author membership **PASS within catalogue source scope only**; original source physical Gaia-ZTF validation and independent full PSF/WCS/deblend calibration **NOT MET**. R5 bibliographic evidence includes Luhman (2023), Mas et al. (2026), official ESA DR3 and NASA/IPAC IRSA survey docs. [R5 main Actions 43610495397](https://github.com/ismaelberja/stellarforge/actions/runs/43610495397).
+
+## Predeclared exact R6 outputs
+
+1. A **standalone scientific research note / manuscript-style technical report**, containing abstract, context and related literature, reproducible input-data and research-method description, quantitative original-source results, *two correctly labelled existing genuine-data figures*, explicit table(s) separating Gaia/IRSA/epoch denominators, scientific-falsification limitations, source provenance, conclusion, acknowledgements of AI-supported software/document preparation, and verifiable original URLs and prior published works. Its nature is **repository-hosted scientific technical report, not peer-reviewed publication**.
+2. A source-locked **final R1–R6 research acceptance / failure ledger** with exactly one phase row per R1–R6, explicit `methodological_deliverable_status` vs `physical_astrophysics_approval`, no false 24/24 physical match, no 591-star inference, no 1-day star period.
+3. A provenance/uncertainty table of numerical original quantities and negative/unknown statuses. Do not call quality-screen counts a photometric measurement of physical Gaia stellar variability. Distinguish `0 confirmed` from `confirmed nonvariable` and from `archive unavailable`.
+4. A reproducibility freeze referencing **R5 baseline exact commit** and the eventual R6 merged **main** revision in final GitHub result, plus exact original-source Actions run IDs, original publisher response SHA, frozen cohort SHA, R3 raw response and artifact hashes and R4/R5 source chain. **No** claim that a future/unknown merged R6 commit is already frozen in an R6 file.
+5. A **scientific claims audit** executing the existing independent R2, R3, R4 and R5 original-evidence source auditors plus adversarial synthetic tests that reject false source identity, sample representativeness, real stellar periods and inflated source-quality results. Link the final research manuscript prominently from README and Spanish entry guide.
+6. A human-readable **short ES/EN portfolio note**, truthful about a reproducible independently led scientific software/feasibility project, no journal acceptance/novel discoveries.
+
+**Explicit independent physical source-science decision (frozen): R6_GAIA_ZTF_PHYSICAL_MATCH_NO-GO.** There is no scientifically authenticated optical stellar period, variability or companion claim, and a methodologically complete report must preserve this failed science gate.
+
+## Hard R6 science gate and stopping rule
+
+- **R6 methods/feasibility research closure can pass** if its report, source counts, scientific limitations, metadata and CI are fully original-source-reconcilable and the final main CI succeeds.
+- **R6 astrophysical physical-star discovery science remains NOT validated** unless previously unavailable independent per-epoch original Gaia–ZTF counterpart source matching, independent PSF/WCS and deblend controls, real source per-epoch photometric time/error data, a matched non-YSO control sample and legitimate alias/false-alarm models become available and pass predefined tests. None is introduced in this final report.
+- R6 is **not** a peer-reviewed astronomy article, an arXiv submission or a valid claim of an accepted journal manuscript, and must not be announced as such.
+- Do not alter the already validated separate **StellarForge software engineering version 2.1.0** or its evidence manifest. Do not upload original raw full ZTF CSV, FITS detector pixels, photometric epoch-level magnitudes/timestamps, full external copyrighted publisher source table, or private/unpublished TFM/ALMA data.
+- Once the R6 source audit and main GitHub Actions pass, the **bounded research R1–R6 feasibility programme may be called completed with inconclusive astrophysical results**. To attempt a positive new physical science project, start a new separately registered programme rather than retroactively turning failed gates into PASS.

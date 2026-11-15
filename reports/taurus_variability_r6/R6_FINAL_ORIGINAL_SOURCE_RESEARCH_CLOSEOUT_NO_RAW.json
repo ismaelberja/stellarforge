@@ -1,0 +1,265 @@
+{
+  "schema_version": "stellarforge-taurus-r6-final-methodological-observational-feasibility-no-raw-v1",
+  "date_utc": "2026-11-15",
+  "author": "Ismael Berja Ruiz",
+  "research_note_type": "PUBLIC_REPOSITORY_MANUSCRIPT_NOT_PEER_REVIEWED_NOT_ARXIV_NOT_JOURNAL_PUBLISHED",
+  "research_title": "StellarForge / Taurus R1–R6: An original-data observational feasibility and source-attribution audit for optical variability in a fixed Gaia DR3 pilot sample",
+  "r6_source_R5_integrated_baseline_main_sha": "05340f6fea6c524e2067d578ed49efdacb9945f5",
+  "software_engineering_release": "2.1.0",
+  "r6_preregistered_before_results": "research/taurus_variability/R6_FINAL_RESEARCH_CLOSEOUT_PREREGISTRATION.md",
+  "r6_final_manuscript": "research/taurus_variability/R6_FINAL_SCIENTIFIC_FEASIBILITY_MANUSCRIPT.md",
+  "r6_source_audit_script": "scripts/audit_taurus_r6_final_scientific_closeout.py",
+  "upstream_authenticated_original_evidence": {
+    "frozen_R1_nonrandom_24_seed_sha256": "9cecb94704f028a981045629ad16ecb770f51bba4b6bb3bf13dda769327ff37e",
+    "original_Luhman_AJ_2023_mrt_response_sha256": "8ffd84c876afe6b6d7690f8e4ba4f97ec94f643e0e924c98f6c101b8656c0493",
+    "original_Luhman_publisher_actions_run_id": 43499836719,
+    "r3_original_DR24_first_exact_OID_actions_run_id": 43593335135,
+    "r3_original_DR24_first_artifact_zip_sha256": "6e9e1cdbba946d9f7c5036e74a42917bb4011530dfec1d289b4b30c47f393049",
+    "r3_original_DR24_timeout_only_retry_actions_run_id": 43593994009,
+    "r3_original_DR24_retry_artifact_zip_sha256": "69f37df9f57c2dc49e4636740fb74c8c429d67e3d250b92201696edd26d89104",
+    "r4_original_source_derived_actions_run_id": 43596705130,
+    "r4_original_cadence_artifact_zip_sha256": "99a458146f63d19ac4f59fc741eaaab1ff36e6d661b53b82a45fd5d3983a5ad6",
+    "r5_original_scientific_review_main_actions_run_id": 43610495397,
+    "r5_original_scientific_review_main_commit": "05340f6fea6c524e2067d578ed49efdacb9945f5"
+  },
+  "distinct_scope_denominators": {
+    "original_author_adopted_taurus_member_rows": 532,
+    "original_author_adopted_taurus_members_with_Gaia_ID": 467,
+    "frozen_technical_Gaia_target_source_IDs": 24,
+    "individually_frozen_original_ZTF_survey_ObjectIDs_in_R3": 6,
+    "original_ZTF_per_epoch_photometric_source_rows_in_retrieved_DR24_CSVs": 684
+  },
+  "original_results": {
+    "exact_publisher_member_row_Gaia_id_and_sky_position_matches": 24,
+    "preliminary_Gaia_astrometric_screen_pass_sources": 17,
+    "Gaia_astrometric_review_sources": 7,
+    "Gaia_sources_with_neighbour_within_5arcsec": 4,
+    "original_ZTF_positional_response_target_positions_with_parsed_rows": 22,
+    "original_ZTF_positional_response_unresolved_target_positions": 2,
+    "independently_authenticated_physical_Gaia_to_ZTF_counterparts": 0,
+    "original_ZTF_DR24_exact_OID_CSV_source_responses": 3,
+    "original_ZTF_DR24_exact_OID_requests_timed_out_twice": 3,
+    "original_ZTF_DR24_source_rows_from_successful_CSVs": 684,
+    "original_ZTF_source_rows_retained_by_catflags_bit15_only": 591,
+    "original_ZTF_source_rows_excluded_by_catflags_bit15_only": 93,
+    "original_ZTF_successful_survey_OID_with_two_consecutive_empty_source_relative_365day_bins": 2,
+    "original_ZTF_successful_survey_OID_with_all_source_relative_365day_bins_nonempty": 1,
+    "original_ZTF_OID_series_with_30_good_visit_90day_technical_access_pass": 3,
+    "original_ZTF_OID_series_with_authenticated_physical_Gaia_stellar_period": 0,
+    "original_ZTF_ObjectID_curves_merged_to_one_physical_Gaia_star": 0,
+    "actual_per_epoch_original_source_times_committed_to_repository": false,
+    "genuine_original_ZTF_one_day_spectral_window_measured": false,
+    "synthetic_example_1day_window_is_real_astro_observation": false,
+    "reported_Taurus_variable_population_fraction": false,
+    "reported_new_physical_variable_star": false,
+    "reported_new_stellar_companion": false
+  },
+  "r3_frozen_six_survey_OID_results": [
+    {
+      "original_ZTF_survey_ObjectID": "1605115300003377",
+      "native_original_band": "g",
+      "original_source_CSV_access": "HTTP_200_EXACT_ORIGINAL_DR24_OID_CSV",
+      "original_source_photometry_rows": 79,
+      "original_bit15_QC_retained_visits": 70,
+      "original_bit15_rejected_visits": 9,
+      "original_QC_first_to_last_time_span_days": 1870.876898,
+      "source_relative_original_QC_365day_bin_counts": [
+        23,
+        33,
+        0,
+        0,
+        10,
+        4
+      ],
+      "physically_authenticated_counterpart_Gaia_ID": null,
+      "real_physical_stellar_lightcurve_and_period_claim": false
+    },
+    {
+      "original_ZTF_survey_ObjectID": "1605215300005161",
+      "native_original_band": "r",
+      "original_source_CSV_access": "HTTP_200_EXACT_ORIGINAL_DR24_OID_CSV",
+      "original_source_photometry_rows": 137,
+      "original_bit15_QC_retained_visits": 117,
+      "original_bit15_rejected_visits": 20,
+      "original_QC_first_to_last_time_span_days": 2528.096678,
+      "source_relative_original_QC_365day_bin_counts": [
+        22,
+        49,
+        0,
+        0,
+        12,
+        11,
+        23
+      ],
+      "physically_authenticated_counterpart_Gaia_ID": null,
+      "real_physical_stellar_lightcurve_and_period_claim": false
+    },
+    {
+      "original_ZTF_survey_ObjectID": "609108400001155",
+      "native_original_band": "g",
+      "original_source_CSV_access": "HTTP_200_EXACT_ORIGINAL_DR24_OID_CSV",
+      "original_source_photometry_rows": 468,
+      "original_bit15_QC_retained_visits": 404,
+      "original_bit15_rejected_visits": 64,
+      "original_QC_first_to_last_time_span_days": 2617.952292,
+      "source_relative_original_QC_365day_bin_counts": [
+        61,
+        79,
+        80,
+        34,
+        46,
+        43,
+        51,
+        10
+      ],
+      "physically_authenticated_counterpart_Gaia_ID": null,
+      "real_physical_stellar_lightcurve_and_period_claim": false
+    },
+    {
+      "original_ZTF_survey_ObjectID": "609208400001969",
+      "native_original_band": "r",
+      "original_source_CSV_access": "TWO_ARCHIVE_PROVIDER_TIMEOUTS_UNRESOLVED",
+      "original_source_photometry_rows": null,
+      "original_bit15_QC_retained_visits": null,
+      "original_bit15_rejected_visits": null,
+      "original_QC_first_to_last_time_span_days": null,
+      "source_relative_original_QC_365day_bin_counts": null,
+      "physically_authenticated_counterpart_Gaia_ID": null,
+      "real_physical_stellar_lightcurve_and_period_claim": false
+    },
+    {
+      "original_ZTF_survey_ObjectID": "610106300008010",
+      "native_original_band": "g",
+      "original_source_CSV_access": "TWO_ARCHIVE_PROVIDER_TIMEOUTS_UNRESOLVED",
+      "original_source_photometry_rows": null,
+      "original_bit15_QC_retained_visits": null,
+      "original_bit15_rejected_visits": null,
+      "original_QC_first_to_last_time_span_days": null,
+      "source_relative_original_QC_365day_bin_counts": null,
+      "physically_authenticated_counterpart_Gaia_ID": null,
+      "real_physical_stellar_lightcurve_and_period_claim": false
+    },
+    {
+      "original_ZTF_survey_ObjectID": "610206300011997",
+      "native_original_band": "r",
+      "original_source_CSV_access": "TWO_ARCHIVE_PROVIDER_TIMEOUTS_UNRESOLVED",
+      "original_source_photometry_rows": null,
+      "original_bit15_QC_retained_visits": null,
+      "original_bit15_rejected_visits": null,
+      "original_QC_first_to_last_time_span_days": null,
+      "source_relative_original_QC_365day_bin_counts": null,
+      "physically_authenticated_counterpart_Gaia_ID": null,
+      "real_physical_stellar_lightcurve_and_period_claim": false
+    }
+  ],
+  "phase_research_final_decisions": [
+    {
+      "phase": "R1",
+      "methodological_deliverable_closure_status": "COMPLETED_FROZEN_NONRANDOM_24_SOURCE_SEED",
+      "independent_physical_Gaia_ZTF_astrophysical_claim_permitted": false,
+      "research_scope_and_result": "R1 seed and prospectively fixed physical-source/time-series gates",
+      "source_specific_primary_report": "research/taurus_variability/R1_PREREGISTERED_SCIENCE_PROTOCOL.md"
+    },
+    {
+      "phase": "R2",
+      "methodological_deliverable_closure_status": "COMPLETED_SOURCE_ACCESS_AND_AMBIGUITY_SCREEN__IDENTITY_NO_GO",
+      "independent_physical_Gaia_ZTF_astrophysical_claim_permitted": false,
+      "research_scope_and_result": "Original Luhman author source and 24-row Gaia/ZTF access screen, zero independent physical matches",
+      "source_specific_primary_report": "research/taurus_variability/R2_FINAL_24_SOURCE_SCREENING_DECISION.md"
+    },
+    {
+      "phase": "R3",
+      "methodological_deliverable_closure_status": "PARTIAL_ORIGINAL_DR24_OID_ACCESS_AUDITED_AND_CLOSED",
+      "independent_physical_Gaia_ZTF_astrophysical_claim_permitted": false,
+      "research_scope_and_result": "Three original CSV ObjectIDs technically passed 30/90, three original API source requests timed out twice",
+      "source_specific_primary_report": "research/taurus_variability/R3_REAL_SIX_ORIGINAL_ZTF_DR24_QC_RESULTS.md"
+    },
+    {
+      "phase": "R4",
+      "methodological_deliverable_closure_status": "COMPLETED_TECHNICAL_CADENCE_SCREEN__ASTROPHYSICAL_PERIODS_NOT_MEASURED",
+      "independent_physical_Gaia_ZTF_astrophysical_claim_permitted": false,
+      "research_scope_and_result": "Three original source-relative year-bin counts audited, simulated schedules solely illustrate non-identifiability",
+      "source_specific_primary_report": "research/taurus_variability/R4_REAL_ZTF_SAMPLING_WINDOW_FEASIBILITY_RESULTS.md"
+    },
+    {
+      "phase": "R5",
+      "methodological_deliverable_closure_status": "COMPLETED_LITERATURE_SELECTION_AND_EIGHT_GATE_FALSIFICATION__SOURCE_IDENTITY_NO_GO",
+      "independent_physical_Gaia_ZTF_astrophysical_claim_permitted": false,
+      "research_scope_and_result": "Literature/selection methodological critical review with original-source non-interchangeable denominators",
+      "source_specific_primary_report": "research/taurus_variability/R5_FINAL_CRITICAL_VALIDATION_AND_SELECTION_RESULTS.md"
+    },
+    {
+      "phase": "R6",
+      "methodological_deliverable_closure_status": "COMPLETED_MANUSCRIPT_STYLE_FEASIBILITY_CLOSEOUT__NO_ASTROPHYSICAL_DISCOVERY",
+      "independent_physical_Gaia_ZTF_astrophysical_claim_permitted": false,
+      "research_scope_and_result": "Final reproducible methodological technical manuscript, science gates and provenance with no stellar variability claims",
+      "source_specific_primary_report": "research/taurus_variability/R6_FINAL_SCIENTIFIC_FEASIBILITY_MANUSCRIPT.md"
+    }
+  ],
+  "r5_scientific_independent_gate_verdicts": [
+    {
+      "gate": "published_author_gaia_source_membership_row_verified",
+      "status": "PASS_ON_PUBLISHED_SOURCE_SCOPE"
+    },
+    {
+      "gate": "independently_authenticated_physical_gaia_ztf_source_match",
+      "status": "NOT_INDEPENDENTLY_VALIDATED"
+    },
+    {
+      "gate": "independent_same_field_reference_star_psf_wcs_deblend",
+      "status": "NOT_INDEPENDENTLY_VALIDATED"
+    },
+    {
+      "gate": "full_photometric_source_flags_covariance_and_uncertainty_qualified",
+      "status": "LIMITED_TO_ORIGINAL_TECHNICAL_EVIDENCE"
+    },
+    {
+      "gate": "true_source_specific_original_visit_times_and_magnitudes_for_periodicity",
+      "status": "NOT_INDEPENDENTLY_VALIDATED"
+    },
+    {
+      "gate": "same_field_magnitude_matched_non_YSO_controls",
+      "status": "NOT_INDEPENDENTLY_VALIDATED"
+    },
+    {
+      "gate": "independent_original_image_and_period_alias_literature_reconciliation",
+      "status": "NOT_INDEPENDENTLY_VALIDATED"
+    },
+    {
+      "gate": "actual_population_selection_function_representative_and_quantified",
+      "status": "NOT_INDEPENDENTLY_VALIDATED"
+    }
+  ],
+  "real_source_derived_figures": [
+    "docs/figures/taurus-r4-original-ztf-dr24-relative-365day-cadence.svg",
+    "docs/figures/taurus-r5-original-source-denominators-no-funnel.svg"
+  ],
+  "primary_original_prior_scientific_literature": [
+    {
+      "author": "K. L. Luhman",
+      "year": 2023,
+      "work": "A Census of the Taurus Star-forming Region and Neighboring Associations with Gaia",
+      "doi": "10.3847/1538-3881/ac9da3",
+      "journal": "The Astronomical Journal",
+      "volume": "165",
+      "article": "37"
+    },
+    {
+      "author": "C. Mas et al.",
+      "year": 2026,
+      "work": "Exploring the variability of young stars with Gaia DR3 light curves",
+      "doi": "10.1051/0004-6361/202554522",
+      "journal": "Astronomy & Astrophysics",
+      "volume": "705",
+      "article": "A172"
+    }
+  ],
+  "overall_methodological_research_program_R1_to_R6_closed_with_explicit_limitations": true,
+  "overall_physical_Gaia_ZTF_source_stellar_variability_scientifically_validated": false,
+  "overall_archival_data_provenance_and_software_consistency_automatically_auditable": true,
+  "original_source_epochs_FITS_pixels_or_private_ALMA_TFM_committed": false,
+  "author_external_scientific_review_needed_before_journal_submission": true,
+  "journal_publication_or_peer_review_claimed": false,
+  "final_result_category": "INCONCLUSIVE_ASTROPHYSICAL_TARGET_VARIABILITY__COMPLETED_ORIGINAL_DATA_OBSERVATIONAL_FEASIBILITY_STUDY",
+  "novel_astronomical_discovery_claimed": false
+}

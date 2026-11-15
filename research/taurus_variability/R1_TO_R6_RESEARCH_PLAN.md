@@ -1,5 +1,21 @@
 # R1–R6 practical research milestones
 
+## FINAL R1–R6 programme decision: bounded methods/observational feasibility study complete (15 November 2026)
+
+**The independent Taurus R1–R6 research programme is now documented as a complete research-method and negative/inconclusive source-attribution feasibility study**, distinct from the original StellarForge scientific Python engineering release v2.1.0. The original publisher verification, archive access experiment, source-level image caveats, 365-day time-coverage and independent literature/selection scientific falsification have been compiled into the [R6 standalone manuscript](R6_FINAL_SCIENTIFIC_FEASIBILITY_MANUSCRIPT.md). The exact R5-integrated source baseline commit is `05340f6fea6c524e2067d578ed49efdacb9945f5`, GitHub Actions [43610495397](https://github.com/ismaelberja/stellarforge/actions/runs/43610495397). The final R6 merge-main GitHub commit remains discoverable after PR completion; no prospective fictional commit is inserted.
+
+**Distinct operational/science status:** R1 original technical sample fixed; R2 24/24 original Luhman member-list IDs/positions verified and source-access/ambiguity report complete but **0/24 independently physical Gaia–ZTF identifications**; R3 source-specific original DR24 observational QA pilot **partially available (3/6 survey ObjectIDs), 591 bit15-accepted observations, three twice-timed-out source requests**; R4 real source-relative cadence stats + explicitly fully **SYNTHETIC** frequency demonstration complete, **no measured star periods**; R5 12 descriptive original evidence denominators and 8 science gates concluded **independent physical identity/calibration not validated**; R6 final manuscript and original-source claim auditor completed **as a bounded methodology and archival feasibility research result**, not a journal publication or positive physical source-variability science.
+
+**Do not infer:** confirmed nonvariable stars, any real new FT Tau/CIDA 11 periodicity, real Gaia-stellar ZTF time series, original data timeout as zero stellar observation, `catflags & 32768` passing as fully `catflags=0` source QC, unbiased Taurus star or variability rate, or a new companion/discovery. Reopening positive stellar science requires a **new** preregistered programme with independent physical source matching, reference-star PSF/WCS/deblending controls, real original per-epoch observations and matched controls.
+
+- [Full final R6 manuscript, abstract (EN/ES), results, genuine source-derived figures, methods, limitations and references](R6_FINAL_SCIENTIFIC_FEASIBILITY_MANUSCRIPT.md).
+- [R6 preregistered acceptance/failure stop rule](R6_FINAL_RESEARCH_CLOSEOUT_PREREGISTRATION.md).
+- [R6 permanent six-phase no-raw original scientific decision ledger](../../reports/taurus_variability_r6/R6_FINAL_ORIGINAL_SOURCE_RESEARCH_CLOSEOUT_NO_RAW.json).
+- [Reproducible strict offline R1–R6 original scientific evidence and anti-false-discovery audit](../../scripts/audit_taurus_r6_final_scientific_closeout.py).
+- [Accurate ES/EN portfolio descriptions](R6_PORTFOLIO_ES_EN.md).
+
+---
+
 ## R5 critical prior-literature, selection and falsification study — 14 November 2026
 
 **R5 bounded independent literature/methods/selection critical audit COMPLETE**, with original receipt-backed [full report and eight gated findings](R5_FINAL_CRITICAL_VALIDATION_AND_SELECTION_RESULTS.md), [frozen initial questions](R5_CRITICAL_VALIDATION_SELECTION_LITERATURE_PREREGISTRATION.md) and [source-locked per-denominator verdict](../../reports/taurus_variability_r5/R5_CRITICAL_VALIDATION_AND_SELECTION_DECISION_NO_RAW.json). The original author Luhman (2023) Taurus 24 source IDs and sky coordinates are verified. Luhman is catalogue source provenance, while Mas et al. (2026) already addresses Q-M/GLS and observed ZTF daily aliases. Official ESA Gaia DR3 defines RUWE as a single-star solution goodness-of-fit diagnostic rather than verified physical binarity, and official IRSA documentation confirms the original bit15 screen is less strict than `catflags=0`.

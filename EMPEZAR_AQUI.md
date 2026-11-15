@@ -12,6 +12,20 @@ StellarForge es un proyecto personal de **Python científico, análisis de datos
 
 **Novedad de investigación R2 (13 de noviembre de 2026):** ya hemos contrastado los **24 identificadores Gaia y sus posiciones contra la Tabla 2 original de Luhman (2023), descargada realmente de la editorial**, no solamente contra una copia de terceros. Los 24 coinciden. También hemos concluido la **auditoría de acceso e identificación de las 24 fuentes**: ZTF ha respondido con datos posicionales para 22/24, pero **ninguna asociación física Gaia–ZTF supera aún todos los criterios científicos**. El resultado de este examen es **NO-GO para comenzar análisis astrofísico de variabilidad R3**. [Informe científico R2 con tabla de las 24 estrellas](research/taurus_variability/R2_FINAL_24_SOURCE_SCREENING_DECISION.md) · [evidencia original de la editorial](reports/taurus_variability_r2/R2_PUBLISHER_LUHMAN2023_ORIGINAL_24_OF_24_NO_RAW.json).
 
+## Investigación R1–R6 terminada como estudio de viabilidad (15/11/2026)
+
+**Ya están documentadas las seis fases R1–R6 en GitHub.** Esta es la **conclusión final de la investigación metodológica**, independiente de la versión 2.1.0 del software científico. El manuscrito documenta decisiones, comprobaciones con datos originales y limitaciones:
+
+- **24/24** entradas Gaia y posiciones de nuestra muestra técnica contrastadas con la tabla publicada original de Luhman (2023), que es una verificación bibliográfica, **no** una correspondencia física con ZTF.
+- **22/24** posiciones Gaia con datos posicionales originales de ZTF, pero **0/24** correspondencias físicas Gaia–ZTF validadas científicamente.
+- **6** identificadores de fuentes ZTF del experimento original, **3** con datos recuperados y analizados (684 registros; **591** conservados con filtro preliminar), y **3** con dos errores de espera de IRSA, no observaciones cero.
+- Análisis de las lagunas de tiempo de los datos originales y un ejemplo de calendarios **totalmente simulados**, sin atribuir periodos a FT Tau ni a otra estrella.
+- Revisión de literatura, sesgos, incertidumbres y ocho controles científicos que justifican no declarar nuevos descubrimientos.
+
+**Resultado: investigación R1–R6 metodológicamente concluida, pero todavía no podemos demostrar variabilidad física ni nuevos periodos estelares.** El informe final está en GitHub, **no es un artículo científico revisado ni publicado en una revista**. El proyecto sí puede describirse correctamente en CV o LinkedIn como trabajo independiente de Python científico y viabilidad de investigación reproducible.
+
+[**Leer el manuscrito científico final**](research/taurus_variability/R6_FINAL_SCIENTIFIC_FEASIBILITY_MANUSCRIPT.md) · [Resumen del cierre y datos](reports/taurus_variability_r6/R6_FINAL_ORIGINAL_SOURCE_RESEARCH_CLOSEOUT_NO_RAW.json) · [Texto exacto para CV y LinkedIn en español e inglés](research/taurus_variability/R6_PORTFOLIO_ES_EN.md).
+
 ## R5 — revisión crítica de bibliografía y sesgos (14/11/2026)
 
 Hecho: **revisión metodológica R5**, contrastando las fuentes originales con la bibliografía científica y los manuales de Gaia y ZTF. La tabla original de Luhman confirma los 24 identificadores Gaia y sus posiciones; en cambio, **ningún ObjectID ZTF está aún demostrado físicamente como una de esas estrellas**. De los seis ObjectIDs de la prueba, tres devolvieron datos (591 mediciones aceptadas por el filtro `catflags` bit 15) y otros tres tuvieron errores de tiempo de espera. No debemos confundir **24 estrellas técnicas**, **seis ObjectIDs** y **684 registros fotométricos**; tampoco interpretar el filtro bit 15 como una selección completamente limpia `catflags=0`.
