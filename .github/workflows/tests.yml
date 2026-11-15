@@ -35,6 +35,8 @@ jobs:
         run: python -m scripts.audit_taurus_r4_cadence_feasibility --root .
       - name: Audit R5 published scientific literature, original source denominators, 8 source-validation gate decisions and quantitative figure
         run: python -m scripts.audit_taurus_r5_critical_falsification --root .
+      - name: Audit R6 final observational-feasibility scientific manuscript, six research phase gates and original Gaia/ZTF evidence
+        run: python -m scripts.audit_taurus_r6_final_scientific_closeout --root .
       - name: Validate installed package and no-network CLI
         run: |
           python -m pip check
