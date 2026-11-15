@@ -28,6 +28,8 @@ Permanent original-source scientific receipts:
 5. A **scientific claims audit** executing the existing independent R2, R3, R4 and R5 original-evidence source auditors plus adversarial synthetic tests that reject false source identity, sample representativeness, real stellar periods and inflated source-quality results. Link the final research manuscript prominently from README and Spanish entry guide.
 6. A human-readable **short ES/EN portfolio note**, truthful about a reproducible independently led scientific software/feasibility project, no journal acceptance/novel discoveries.
 
+**Explicit independent physical source-science decision (frozen): R6_GAIA_ZTF_PHYSICAL_MATCH_NO-GO.** There is no scientifically authenticated optical stellar period, variability or companion claim, and a methodologically complete report must preserve this failed science gate.
+
 ## Hard R6 science gate and stopping rule
 
 - **R6 methods/feasibility research closure can pass** if its report, source counts, scientific limitations, metadata and CI are fully original-source-reconcilable and the final main CI succeeds.
