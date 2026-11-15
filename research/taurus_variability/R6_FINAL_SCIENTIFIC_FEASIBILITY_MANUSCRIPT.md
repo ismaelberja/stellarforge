@@ -3,7 +3,7 @@
 **Author:** Ismael Berja Ruiz  
 **Research-note date:** 15 November 2026  
 **Research status:** *Completed independent methodological/observational feasibility study; astrophysical source-level variability science inconclusive.*  
-**Document type:** Public GitHub technical research manuscript, **not** a peer-reviewed paper, published journal article, arXiv submission or discovery announcement.  
+**Document type:** Public GitHub technical research manuscript, **not** a peer-reviewed paper, published journal article, arXiv submission or discovery announcement. In plain terms: this is **not a peer-reviewed scientific article**; neither journal acceptance nor external scientific review is claimed.  
 **Software:** [StellarForge](https://github.com/ismaelberja/stellarforge), engineering release 2.1.0 (unchanged).  
 **Frozen source baseline:** [R5-integrated main commit `05340f6fea6c524e2067d578ed49efdacb9945f5`](https://github.com/ismaelberja/stellarforge/commit/05340f6fea6c524e2067d578ed49efdacb9945f5), verified at [Actions 43610495397](https://github.com/ismaelberja/stellarforge/actions/runs/43610495397). The eventual **R6 final merge commit** is identifiable from the final PR/main GitHub history after this text is merged, not falsely forecast here.
 
